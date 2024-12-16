@@ -163,7 +163,7 @@ namespace FemDesign.Grasshopper
             }
             
             // check if reinf surf boundary curves are in the slab surface's region
-            for(int i = 0; i < reinfSurfacesBoundPts.Count; i++)    // i = index of SurfaceReinforcement item
+            for (int i = 0; i < reinfSurfacesBoundPts.Count; i++)    // i = index of SurfaceReinforcement item
             {
                 var slabRelations = Contains(slabBound, reinfSurfacesBoundPts[i], slabPlane);
 
@@ -175,13 +175,13 @@ namespace FemDesign.Grasshopper
                     {
                         var holeRelations = Contains(hole, reinfSurfacesBoundPts[i], slabPlane);
 
-                        if(IsCoincidentAndInside(holeRelations))
+                        if(IsCoincidentOrInside(holeRelations))
                         {
                             throw new Exception($"The surface reinforcement (GUID: {surfaceReinforcement[i].Guid}) is placed in a hole (slab GUID: {slab.Guid}). Reinforcement and slab surfaces must overlap!");
                         }
                     }
                 }
-                if(IsCoincidentAndOutside(slabRelations))
+                if(IsCoincidentOrOutside(slabRelations))
                 {
                     var reinfRelations = Contains(reinfBounds[i], slabBoundPts, reinfSurfacesPlanes[i]);
 
@@ -191,13 +191,13 @@ namespace FemDesign.Grasshopper
                         {
                             var holeRelations = Contains(hole, slabBoundPts, reinfSurfacesPlanes[i]);
 
-                            if (IsCoincidentAndInside(holeRelations))
+                            if (IsCoincidentOrInside(holeRelations))
                             {
                                 throw new Exception($"The slab (GUID: {slab.Guid}) is placed in a hole in the reinforcement's surface (reinforcement GUID: {surfaceReinforcement[i].Guid}). Reinforcement and slab surfaces must overlap!");
                             }
                         }
                     }
-                    if (IsCoincidentAndOutside(reinfRelations))
+                    if (IsCoincidentOrOutside(reinfRelations))
                     {
                         throw new Exception($"Reinforcement (GUID: {surfaceReinforcement[i].Guid}) and slab (GUID: {slab.Guid}) surfaces are not overlapping!");
                     }
@@ -232,13 +232,13 @@ namespace FemDesign.Grasshopper
 
             return relation.All(r => r == PointContainment.Outside);
         }
-        private bool IsCoincidentAndInside(List<PointContainment> relation)
+        private bool IsCoincidentOrInside(List<PointContainment> relation)
         {
             if (relation == null) return false;
 
             return relation.All(r => r == PointContainment.Coincident || r == PointContainment.Inside);
         }
-        private bool IsCoincidentAndOutside(List<PointContainment> relation)
+        private bool IsCoincidentOrOutside(List<PointContainment> relation)
         {
             if (relation == null) return false;
 

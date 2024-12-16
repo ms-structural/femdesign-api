@@ -108,14 +108,70 @@ namespace FemDesign.Geometry
         [XmlElement("edge")]
         public List<Edge> Edges = new List<Edge>(); // sequence: edge_type
 
+        /// <summary>
+        /// Collect all existing points from Edges.
+        /// </summary>
         [XmlIgnore]
         public List<Point3d> Points
         {
             get
             {
                 List<Point3d> outPts = new List<Point3d> { this.Edges[0].Points[0] };
-                var endPts = this.Edges.Select(e => e.Points[1]).ToList();
-                outPts.AddRange(endPts);
+
+                foreach(Edge edge in this.Edges)    // if Edges.Count == 1 => Contour is a circle
+                {
+                    if(edge.Type == "line")
+                    {
+                        outPts.Add(edge.Points[1]);
+                    }
+                    else if(edge.Type == "arc")
+                    {
+                        if (edge.Points.Count == 3)
+                        {
+                            outPts.Add(edge.Points[1]);
+                            outPts.Add(edge.Points[2]);
+                        }
+                        else if (edge.Points.Count == 1 && outPts.Count != 1)
+                        {
+                            outPts.Add(edge.Points[0]);
+                        }
+                    }
+                }
+
+                return outPts;
+            }
+        }
+
+        /// <summary>
+        /// Collect only the corner points. Centre points of arcs or circles are ignored.
+        /// </summary>
+        [XmlIgnore]
+        public List<Point3d> CornerPoints
+        {
+            get
+            {
+                List<Point3d> outPts = new List<Point3d>();
+                foreach (Edge edge in this.Edges)    // if Edges.Count == 1 => Contour is a circle
+                {
+                    if (edge.Type == "line")
+                    {
+                        if (outPts.Count == 0)
+                        {
+                            outPts.Add(edge.Points[0]);
+                        }
+
+                        outPts.Add(edge.Points[1]);
+                    }
+                    else if (edge.Type == "arc" && edge.Points.Count == 3)
+                    {
+                        if (outPts.Count == 0)
+                        {
+                            outPts.Add(edge.Points[0]);
+                        }
+
+                        outPts.Add(edge.Points[2]);
+                    }
+                }
 
                 return outPts;
             }
