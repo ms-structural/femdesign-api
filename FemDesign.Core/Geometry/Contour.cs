@@ -116,11 +116,19 @@ namespace FemDesign.Geometry
         {
             get
             {
-                List<Point3d> outPts = new List<Point3d> { this.Edges[0].Points[0] };
-
-                foreach(Edge edge in this.Edges)    // if Edges.Count == 1 => Contour is a circle
+                if(this.Edges?.Count == 0)
                 {
-                    if(edge.Type == "line")
+                    return new List<Point3d>();
+                }
+
+                List<Point3d> outPts = new List<Point3d> { Edges[0].Points[0] };
+
+                for (int i = 0; i< Edges.Count; i++)    // if Edges.Count == 1 => Contour is a circle
+                {
+                    var edge = Edges[i];
+                    var nextEdge = i + 1 < Edges.Count ? Edges[i + 1] : null;
+
+                    if (edge.Type == "line")
                     {
                         outPts.Add(edge.Points[1]);
                     }
@@ -128,12 +136,21 @@ namespace FemDesign.Geometry
                     {
                         if (edge.Points.Count == 3)
                         {
+                            // Add middle and endpoint for 3-point arc.
                             outPts.Add(edge.Points[1]);
                             outPts.Add(edge.Points[2]);
                         }
-                        else if (edge.Points.Count == 1 && outPts.Count != 1)
+                        else if (edge.Points.Count == 1)
                         {
-                            outPts.Add(edge.Points[0]);
+                            if(outPts.Count > 1)   // Add the single point for the arc if it's not the first point.
+                            {
+                                outPts.Add( edge.Points[0]);
+                            }
+
+                            if (nextEdge != null && nextEdge?.Points.Count > 1)     // If there's a next edge, add its starting point unless it's another single-point arc.
+                            {
+                                outPts.Add(nextEdge.Points[0]);
+                            }
                         }
                     }
                 }
