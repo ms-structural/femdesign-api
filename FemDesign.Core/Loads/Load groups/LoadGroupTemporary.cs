@@ -78,7 +78,7 @@ namespace FemDesign.Loads
         public TemporaryGroupRecord CustomTable { get; set; }
 
         [XmlElement("load_case", Order = 2)]
-        public List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
+        public new List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
 
         [XmlAttribute("temporary_effect")]
         public TemporaryEffect TemporaryEffect { get; set; } = TemporaryEffect.General;
@@ -87,7 +87,7 @@ namespace FemDesign.Loads
         /// ONLY FOR DESERIALIZATION
         /// NEEDS TO BE FIXED
         /// </summary>
-        [XmlElement("load_case", Order = 2)]
+        [XmlElement("load_case", Order = 3)]
         public List<Reference_type> Load_case { get; set; }
 
         /// <remarks/>

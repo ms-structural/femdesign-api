@@ -16,7 +16,7 @@ namespace FemDesign.Loads
         [XmlIgnore]
         public string Name { get; set; }
 
-        [XmlElement("load_case", Order = 2)]
+        [XmlIgnore]
         public List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
 
         [XmlAttribute("relationship")]
