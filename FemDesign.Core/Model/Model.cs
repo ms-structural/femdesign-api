@@ -2107,6 +2107,33 @@ namespace FemDesign
         }
 
         /// <summary>
+        /// Add LoadGroupTable to Model.
+        /// </summary>
+        /// <param name="loadGroupTable">LoadGroupTable to add.</param>
+        /// <param name="overwrite">If true, overwrite existing LoadGroupTable.</param>
+        public void AddLoadGroupTable(Loads.LoadGroupTable loadGroupTable, bool overwrite)
+        {
+            // Null load group table
+            if (loadGroupTable == null) return;
+
+            // check if model contains entities, sections and materials
+            if (this.Entities == null)
+                this.Entities = new Entities();
+
+            // in model?
+            bool inModel = this.LoadGroupTableInModel();
+
+            // in model, don't overwrite
+            if (inModel && !overwrite)
+            {
+                throw new System.ArgumentException("The model already contains a load group table");
+            }
+
+            // not in model, or overwrite
+            this.Entities.Loads.LoadGroupTable = loadGroupTable;
+        }
+
+        /// <summary>
         /// Add LoadCombination to Model.
         /// </summary>
         private void AddLoadCombination(Loads.LoadCombination loadCombination, bool overwrite)

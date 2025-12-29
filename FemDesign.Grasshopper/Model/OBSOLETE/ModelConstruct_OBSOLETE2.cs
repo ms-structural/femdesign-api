@@ -1,4 +1,4 @@
-﻿// https://strusoft.com/
+// https://strusoft.com/
 using System;
 using System.Collections.Generic;
 using Grasshopper.Kernel;
@@ -11,9 +11,9 @@ using FemDesign.Geometry;
 
 namespace FemDesign.Grasshopper
 {
-    public class ModelConstruct : FEM_Design_API_Component
+    public class ModelConstruct_OBSOLETE2 : FEM_Design_API_Component
     {
-        public ModelConstruct() : base("Model.Construct", "Construct", "Construct new model. Add entities to model. Nested lists are not supported.", CategoryName.Name(), SubCategoryName.Cat6())
+        public ModelConstruct_OBSOLETE2() : base("Model.Construct", "Construct", "Construct new model. Add entities to model. Nested lists are not supported.", CategoryName.Name(), SubCategoryName.Cat6())
         {
 
         }
@@ -29,7 +29,7 @@ namespace FemDesign.Grasshopper
             pManager[pManager.ParamCount - 1].Optional = true;
             pManager.AddGenericParameter("LoadCombinations", "LoadCombinations", "Single LoadCombination element or list of LoadCombination elements to add. Nested lists are not supported.", GH_ParamAccess.list);
             pManager[pManager.ParamCount - 1].Optional = true;
-            pManager.AddGenericParameter("LoadGroupTable", "LGTable", "LoadGroupTable element to add.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("LoadGroups", "LoadGroups", "Single LoadGroup element or list of LoadGroup elements to add. Nested lists are not supported.", GH_ParamAccess.list);
             pManager[pManager.ParamCount - 1].Optional = true;
             pManager.AddGenericParameter("Soil", "Soil", "Single Soil element. FEM-Design can only have one soil element in a model.", GH_ParamAccess.list);
             pManager[pManager.ParamCount - 1].Optional = true;
@@ -60,8 +60,8 @@ namespace FemDesign.Grasshopper
             List<FemDesign.Loads.LoadCombination> loadCombinations = new List<FemDesign.Loads.LoadCombination>();
             DA.GetDataList("LoadCombinations", loadCombinations);
 
-            FemDesign.Loads.LoadGroupTable loadGroupTable = null;
-            DA.GetData("LoadGroupTable", ref loadGroupTable);
+            List<FemDesign.Loads.ModelGeneralLoadGroup> loadGroups = new List<FemDesign.Loads.ModelGeneralLoadGroup>();
+            DA.GetDataList("LoadGroups", loadGroups);
 
             var stages = new List<FemDesign.Stage>();
             DA.GetDataList("Stages", stages);
@@ -104,7 +104,7 @@ namespace FemDesign.Grasshopper
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, message);
                     return;
                 }
-                else if (loadGroupTable != null)
+                else if (loadGroups.Count != 0)
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, message);
                     return;
@@ -112,13 +112,7 @@ namespace FemDesign.Grasshopper
             }
 
             // Create model
-            Model model = new Model(EnumParser.Parse<Country>(countryCode), elements, loads, loadCases, loadCombinations, null, constructionStage, soil);
-
-            // Add LoadGroupTable if provided
-            if (loadGroupTable != null)
-            {
-                model.AddLoadGroupTable(loadGroupTable, overwrite: false);
-            }
+            Model model = new Model(EnumParser.Parse<Country>(countryCode), elements, loads, loadCases, loadCombinations, loadGroups, constructionStage, soil);
 
             model.AddDrawings(geometries, false);
 
@@ -143,10 +137,11 @@ namespace FemDesign.Grasshopper
         }
         public override Guid ComponentGuid
         {
-            get { return new Guid("{D8E4A2F3-6B9C-4E1A-8D5F-7C3B2A1E9F0D}"); }
+            get { return new Guid("{89DDB79B-5B4C-45E7-9E53-FA8893B6D528}"); }
         }
 
-        public override GH_Exposure Exposure => GH_Exposure.primary;
+        public override GH_Exposure Exposure => GH_Exposure.hidden;
 
     }
 }
+
