@@ -247,6 +247,7 @@
     <Compile Include="Loads\Load groups\LoadGroupBase.cs" />
     <Compile Include="Loads\Load groups\LoadGroupRelationship.cs" />
     <Compile Include="Loads\Load groups\LoadGroupTable.cs" />
+    <Compile Include="Loads\Load groups\CustomCombinationTable.cs" />
     <Compile Include="Loads\Load groups\LoadGroupType.cs" />
     <Compile Include="Loads\Loads\LoadDirTypeEnum.cs" />
     <Compile Include="Loads\Loads\LoadLocationValue.cs" />

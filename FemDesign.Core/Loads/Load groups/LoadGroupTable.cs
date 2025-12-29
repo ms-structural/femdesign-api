@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using FemDesign.GenericClasses;
+using StruSoft.Interop.StruXml.Data;
 
 namespace FemDesign.Loads
 {
@@ -102,6 +104,76 @@ namespace FemDesign.Loads
         {
             this.LastChange = DateTime.UtcNow;
             this.Action = "modified";
+        }
+
+        /// <summary>
+        /// Apply custom combination table from parsed CSV data.
+        /// This method should be called when SimpleCombinationMethod is set to Custom.
+        /// </summary>
+        /// <param name="customTable">Parsed custom combination table data.</param>
+        public void ApplyCustomTable(CustomCombinationTable customTable)
+        {
+            if (customTable == null)
+                throw new ArgumentNullException("customTable");
+
+            if (customTable.MainTableRecords.Count == 0)
+                throw new ArgumentException("Custom table has no records.");
+
+            // Set main custom_table
+            this.CustomTable = new Ldgrp_ct_type
+            {
+                Items = customTable.MainTableRecords
+            };
+
+            // Apply to each load group
+            for (int i = 0; i < this.GeneralLoadGroups.Count; i++)
+            {
+                var group = this.GeneralLoadGroups[i];
+                
+                if (!customTable.LoadGroupRecords.ContainsKey(i))
+                    throw new ArgumentException($"Custom table does not contain records for load group at index {i}.");
+
+                var records = customTable.LoadGroupRecords[i];
+
+                if (group.ModelLoadGroupPermanent != null)
+                {
+                    group.ModelLoadGroupPermanent.CustomTable = new PermanentGroupRecord
+                    {
+                        Record = records.Cast<Permanent_load_groupRecord>().ToList()
+                    };
+                }
+                else if (group.ModelLoadGroupTemporary != null)
+                {
+                    group.ModelLoadGroupTemporary.CustomTable = new TemporaryGroupRecord
+                    {
+                        Record = records.Cast<Temporary_load_groupRecord>().ToList()
+                    };
+                }
+                else if (group.AccidentalLoadGroup != null)
+                {
+                    group.AccidentalLoadGroup.Custom_table = records.Cast<Accidental_load_groupRecord>().ToList();
+                }
+                else if (group.StressLoadGroup != null)
+                {
+                    group.StressLoadGroup.Custom_table = records.Cast<Stress_load_groupRecord>().ToList();
+                }
+            }
+
+            EntityModified();
+        }
+
+        /// <summary>
+        /// Create a LoadGroupTable with custom combination method from a CSV file.
+        /// </summary>
+        /// <param name="loadGroups">List of load groups in order.</param>
+        /// <param name="csvFilePath">Path to the CSV file containing custom combination data.</param>
+        /// <returns>LoadGroupTable with custom combination method applied.</returns>
+        public static LoadGroupTable FromCsv(List<ModelGeneralLoadGroup> loadGroups, string csvFilePath)
+        {
+            var table = new LoadGroupTable(loadGroups, LoadCombinationMethod.Custom);
+            var customTable = CustomCombinationTable.FromCsv(csvFilePath, loadGroups);
+            table.ApplyCustomTable(customTable);
+            return table;
         }
     }
 
