@@ -18,7 +18,7 @@ namespace FemDesign.Grasshopper
         /// </summary>
         public static bool AsyncModeEnabled
         {
-            get => Instances.Settings.GetValue(ASYNC_MODE_KEY, false);
+            get => Instances.Settings.GetValue(ASYNC_MODE_KEY, true);
             set
             {
                 Instances.Settings.SetValue(ASYNC_MODE_KEY, value);
