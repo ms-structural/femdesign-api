@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.GenericClasses
 {
+    /// <summary>
+    /// Defines the Stiffness Analysis Type enumeration.
+    /// </summary>
     public enum StiffnessAnalysisType
     {
         [Parseable("SameForAllCalculation")]

@@ -42,6 +42,10 @@ namespace FemDesign.Results
             Z = z;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {NodeId}, {X},{Y},{Z}";
@@ -77,6 +81,8 @@ namespace FemDesign.Results
         /// The method has been created for returning the value for Grasshopper and Dynamo.
         /// The method can still be use for C# users.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="Result">the result.</param>
         public static Dictionary<string, object> DeconstructFeaNode(List<FemDesign.Results.FemNode> Result)
         {
             var feaNodes = Result.Cast<FemDesign.Results.FemNode>();

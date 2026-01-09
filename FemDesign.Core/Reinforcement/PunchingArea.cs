@@ -5,38 +5,74 @@ using System;
 
 namespace FemDesign.Reinforcement
 {
+    /// <summary>
+    /// Represents a Punching Area.
+    /// </summary>
     [System.Serializable]
     public partial class PunchingArea: EntityBase
     {
+        /// <summary>
+        /// Gets or sets the base shell.
+        /// </summary>
         [XmlElement("base_shell", Order = 1)]
         public GuidListType BaseShell { get; set; }
 
+        /// <summary>
+        /// Gets or sets the connected bar.
+        /// </summary>
         [XmlElement("connected_bar", Order = 2)]
         public GuidListType ConnectedBar { get; set; }
 
+        /// <summary>
+        /// Gets or sets the local pos.
+        /// </summary>
         [XmlElement("local_pos", Order = 3)]
         public Geometry.Point3d LocalPos { get; set; }
 
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order = 4)]
         public Geometry.Vector3d LocalX { get; set; }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order = 5)]
         public Geometry.Vector3d LocalY { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ref points offset.
+        /// </summary>
         [XmlElement("reference_points_offset", Order = 6)]
         public Geometry.Point3d RefPointsOffset { get; set; }
 
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order = 7)]
         public Geometry.Region Region { get; set; }
 
+        /// <summary>
+        /// Gets or sets the downward.
+        /// </summary>
         [XmlAttribute("downward")]
         public bool Downward { get; set; }
 
+        /// <summary>
+        /// Gets or sets the manual design.
+        /// </summary>
         [XmlAttribute("manual_design")]
         public bool ManualDesign { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PunchingArea"/> class.
+        /// </summary>
         public PunchingArea()
         {
             this.EntityCreated();

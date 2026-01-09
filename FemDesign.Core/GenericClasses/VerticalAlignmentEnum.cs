@@ -17,6 +17,9 @@ namespace FemDesign.GenericClasses
     #if ISDYNAMO
     [IsVisibleInDynamoLibrary(false)]
     #endif
+    /// <summary>
+    /// Defines the Vertical Alignment enumeration.
+    /// </summary>
     public enum VerticalAlignment
     {
         [Parseable("top", "Top", "TOP")]

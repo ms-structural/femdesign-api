@@ -3,9 +3,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Plane.
+    /// </summary>
     [System.Serializable]
     public class Plane
     {
+        /// <summary>
+        /// Gets or sets the origin.
+        /// </summary>
         [XmlElement("local_pos", Order = 1)]
         public Point3d Origin { get; set; }
 
@@ -82,6 +88,9 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Plane"/> class.
+        /// </summary>
         public Plane()
         { }
 
@@ -102,6 +111,9 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct a plane by origin, x- and y-direction.
         /// </summary>
+        /// <param name="origin">the origin.</param>
+        /// <param name="xDir">value for <paramref name="xDir"/>.</param>
+        /// <param name="yDir">value for <paramref name="yDir"/>.</param>
         public Plane(Point3d origin, Vector3d xDir, Vector3d yDir)
         {
             this.Initialise(origin, xDir, yDir);
@@ -110,6 +122,9 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct a plane by three points: origin, p1 and p2.
         /// </summary>
+        /// <param name="origin">the origin.</param>
+        /// <param name="p1">the p1.</param>
+        /// <param name="p2">the p2.</param>
         public Plane(Point3d origin, Point3d p1, Point3d p2)
         {
             // find normal of plane
@@ -128,7 +143,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set X-dir of plane to input vector by rotating around plane normal.
         /// </summary>
-        // rename: SetXAroundNormal
+        /// <remarks>Rename: SetXAroundNormal.</remarks>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public void SetXAroundZ(Vector3d v)
         {
             if (v.IsPerpendicular(LocalZ))
@@ -145,6 +161,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set Y-dir of plane to input vector by rotating around plane X-dir.
         /// </summary>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public void SetYAroundX(Vector3d v)
         {
             if (v.IsPerpendicular(LocalX))
@@ -160,7 +177,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set Y-Dir of plane to input vector by rotating around plane normal.
         /// </summary>
-        // rename: SetYAroundNormal
+        /// <remarks>Rename: SetYAroundNormal.</remarks>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public void SetYAroundZ(Vector3d v)
         {
             if (v.IsPerpendicular(LocalZ))
@@ -177,7 +195,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Align normal of plane to input vector by rotating around plane X-dir.
         /// </summary>
-        // rename: AlignNormalAroundX
+        /// <remarks>Rename: AlignNormalAroundX.</remarks>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public void SetZAroundX(Vector3d v)
         {
             if (v.IsPerpendicular(LocalX))
@@ -191,6 +210,9 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Flip Plane.
+        /// </summary>
         public void FlipPlane()
         {
             throw new System.NotImplementedException();
@@ -199,7 +221,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Align plane Y-dir to GCS by rotating around plane X-dir
         /// </summary>
-        // rename: AlignYAroundXToGcs
+        /// <remarks>Rename: AlignYAroundXToGcs.</remarks>
         public void AlignYAroundXToGcs()
         {
             int par = this.LocalX.IsParallel(Vector3d.UnitZ);
@@ -216,6 +238,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Project point on plane
         /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
         /// <returns>Closest point to the p on the plane.</returns>
         public Point3d ProjectPointOnPlane(Point3d p)
         {
@@ -235,6 +258,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Implicity convert FdPoint to a FdCoordinateSystem. Local axis are set to Global X and Global Y.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="point">the point.</param>
         public static implicit operator Plane(Point3d point)
         {
             var plane = new Plane(point, Vector3d.UnitX, Vector3d.UnitY);

@@ -102,6 +102,9 @@ namespace FemDesign.Calculate
         [XmlAttribute("CRstifferror")]
         public int CRstifferror { get; set; } = 2;
 
+        /// <summary>
+        /// Gets or sets the comb item.
+        /// </summary>
         [XmlElement("combitem")]
         public List<CombItem> CombItem { get; set; } = new List<CombItem>();
         
@@ -113,6 +116,25 @@ namespace FemDesign.Calculate
             
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Comb"/> class.
+        /// </summary>
+        /// <param name="nLEmaxiter">value for <paramref name="nLEmaxiter"/>.</param>
+        /// <param name="pLdefloadstep">value for <paramref name="pLdefloadstep"/>.</param>
+        /// <param name="pLminloadstep">value for <paramref name="pLminloadstep"/>.</param>
+        /// <param name="plKeepLoadStep">the pl keep load step.</param>
+        /// <param name="plTolerance">the pl tolerance.</param>
+        /// <param name="pLmaxeqiter">value for <paramref name="pLmaxeqiter"/>.</param>
+        /// <param name="plShellLayers">the pl shell layers.</param>
+        /// <param name="nLSMohr">value for <paramref name="nLSMohr"/>.</param>
+        /// <param name="nLSinitloadstep">value for <paramref name="nLSinitloadstep"/>.</param>
+        /// <param name="nLSminloadstep">value for <paramref name="nLSminloadstep"/>.</param>
+        /// <param name="nLSactiveelemratio">value for <paramref name="nLSactiveelemratio"/>.</param>
+        /// <param name="nLSplasticelemratio">value for <paramref name="nLSplasticelemratio"/>.</param>
+        /// <param name="cRloadstep">value for <paramref name="cRloadstep"/>.</param>
+        /// <param name="cRmaxiter">value for <paramref name="cRmaxiter"/>.</param>
+        /// <param name="cRstifferror">value for <paramref name="cRstifferror"/>.</param>
+        /// <param name="combItem">the comb item.</param>
         public Comb(int nLEmaxiter = 30, int pLdefloadstep = 20, int pLminloadstep = 2, bool plKeepLoadStep = true, int plTolerance = 1, int pLmaxeqiter = 50, int plShellLayers = 10, bool nLSMohr = true, int nLSinitloadstep = 10, int nLSminloadstep = 10, int nLSactiveelemratio = 5, int nLSplasticelemratio = 5, int cRloadstep = 20, int cRmaxiter = 30, int cRstifferror = 2, List<CombItem> combItem = null)
         {
             NLEmaxiter = nLEmaxiter;

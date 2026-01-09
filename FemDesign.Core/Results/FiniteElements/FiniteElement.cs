@@ -10,6 +10,9 @@ using Autodesk.DesignScript.Runtime;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Finite Element.
+    /// </summary>
     public partial class FiniteElement
     {
         /// <summary>
@@ -49,6 +52,12 @@ namespace FemDesign.Results
 
         internal FiniteElement() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FiniteElement"/> class.
+        /// </summary>
+        /// <param name="femNode">the fem node.</param>
+        /// <param name="femBar">the fem bar.</param>
+        /// <param name="femShell">the fem shell.</param>
         public FiniteElement(List<FemNode> femNode, List<FemBar> femBar, List<FemShell> femShell)
         {
             this.FemNode = femNode;

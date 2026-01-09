@@ -12,6 +12,9 @@ namespace FemDesign.Utils
 {
     public static class ErrorHandling
     {
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
         public readonly static List<string> ErrorMessage = new List<string>{
             "No declared load or dead load.",
             "No declared mass.",
@@ -28,6 +31,9 @@ namespace FemDesign.Utils
             "Error:",
         };
         
+        /// <summary>
+        /// Gets or sets the warning message.
+        /// </summary>
         public readonly static List<string> WarningMessage = new List<string>{
             "Large nodal displacement or rotation was found.",
             @"One or more identical copies of \\d+ structural elements and loads are found.",
@@ -40,6 +46,12 @@ namespace FemDesign.Utils
         };
 
 
+        /// <summary>
+        /// Determines whether s error.
+        /// </summary>
+        /// <param name="messages">the messages.</param>
+        /// <param name="error">the error.</param>
+        /// <returns>The result.</returns>
         public static string HasError(List<string> messages, out string error)
         {
             error = null;
@@ -59,6 +71,12 @@ namespace FemDesign.Utils
         }
 
 
+        /// <summary>
+        /// Determines whether s warning.
+        /// </summary>
+        /// <param name="messages">the messages.</param>
+        /// <param name="warning">the warning.</param>
+        /// <returns>The result.</returns>
         public static string HasWarning(List<string> messages, out string warning)
         {
             warning = null;

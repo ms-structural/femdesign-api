@@ -14,13 +14,22 @@ using static FemDesign.AuxiliaryResults.ResultPoint;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Cmd Result Point.
+    /// </summary>
     [XmlRoot("cmdrespoint")]
     [System.Serializable]
     public class CmdResultPoint : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ MODULECOM RESPOINT";
 
+        /// <summary>
+        /// Gets or sets the point.
+        /// </summary>
         [XmlIgnore]
         public FemDesign.Geometry.Point3d _point;
 
@@ -71,9 +80,15 @@ namespace FemDesign.Calculate
             set { Point.Z = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the base entity.
+        /// </summary>
         [XmlAttribute("guid")]
         public Guid BaseEntity { get; set; }
 
@@ -82,6 +97,12 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdResultPoint"/> class.
+        /// </summary>
+        /// <param name="pos">the pos.</param>
+        /// <param name="element">the element.</param>
+        /// <param name="name">the name.</param>
         public CmdResultPoint(Point3d pos, FemDesign.GenericClasses.IStructureElement element, string name)
         {
             Point = pos;
@@ -104,6 +125,12 @@ namespace FemDesign.Calculate
             Name = name;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdResultPoint"/> class.
+        /// </summary>
+        /// <param name="pos">the pos.</param>
+        /// <param name="refGuid">the ref guid.</param>
+        /// <param name="name">the name.</param>
         public CmdResultPoint(Point3d pos, Guid refGuid, string name)
         {
             Point = pos;
@@ -111,6 +138,11 @@ namespace FemDesign.Calculate
             Name = name;
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static implicit operator CmdResultPoint(FemDesign.AuxiliaryResults.ResultPoint obj)
         {
             var pos = obj.Position;
@@ -120,6 +152,10 @@ namespace FemDesign.Calculate
             return cmdResPoint;
         }
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdResultPoint>(this);

@@ -7,11 +7,20 @@ using System.Xml.Serialization;
 using FemDesign.GenericClasses;
 namespace FemDesign.Soil
 {
+    /// <summary>
+    /// Represents a Soil Elements.
+    /// </summary>
     public partial class SoilElements
     {
+        /// <summary>
+        /// Gets or sets the strata.
+        /// </summary>
         [XmlElement("strata", Order = 1)]
         public Strata Strata { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bore holes.
+        /// </summary>
         [XmlElement("borehole", Order = 2)]
         public List<BoreHole> BoreHoles { get; set; }
 
@@ -26,6 +35,11 @@ namespace FemDesign.Soil
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SoilElements"/> class.
+        /// </summary>
+        /// <param name="strata">the strata.</param>
+        /// <param name="boreholes">the boreholes.</param>
         public SoilElements(Strata strata, List<BoreHole> boreholes)
         {
             this.Strata = strata;

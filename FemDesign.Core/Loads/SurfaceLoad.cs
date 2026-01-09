@@ -9,20 +9,32 @@ using static System.Net.Mime.MediaTypeNames;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// surface_load_type
+    /// Represents a Surface Load.
     /// </summary>
     [System.Serializable]
     public partial class SurfaceLoad: ForceLoadBase
     {
         // attributes
+        /// <summary>
+        /// Gets or sets the load projection.
+        /// </summary>
         [XmlAttribute("load_projection")]
         public bool LoadProjection { get; set; } // bool
 
         // elements
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order = 1)]
         public Geometry.Region Region { get; set; } // region_type
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order = 2)]
         public Geometry.Vector3d Direction { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the loads.
+        /// </summary>
         [XmlElement("load", Order = 3)]
         public List<LoadLocationValue> Loads = new List<LoadLocationValue>(); // location_value
         [XmlIgnore]
@@ -46,21 +58,40 @@ namespace FemDesign.Loads
         }
 
         /// <summary>
-        /// Uniform surface load
+        /// Create a uniform surface load.
         /// </summary>
-        /// <param name="region"></param>
-        /// <param name="load"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="loadProjection">False: Intensity meant along action line (eg. dead load). True: Intensity meant perpendicular to direction of load (eg. snow load).</param>
-        /// <param name="comment"></param>
+        /// <remarks>
+        /// Units: <c>kN/m²</c>. The magnitude of <paramref name="load"/> is used as the load intensity and its direction
+        /// defines the load direction.
+        /// </remarks>
+        /// <param name="region">Region to apply the surface load to.</param>
+        /// <param name="load">Surface load intensity vector (magnitude in <c>kN/m²</c>).</param>
+        /// <param name="loadCase">Load case to assign to the surface load.</param>
+        /// <param name="loadProjection">
+        /// If <c>false</c>, intensity is interpreted along the action line (e.g. dead load).
+        /// If <c>true</c>, intensity is interpreted perpendicular to the direction of load (e.g. snow load).
+        /// </param>
+        /// <param name="comment">Optional comment.</param>
         public SurfaceLoad(Geometry.Region region, Geometry.Vector3d load, LoadCase loadCase, bool loadProjection = false, string comment = "") : this(region, new List<LoadLocationValue> { new LoadLocationValue(region.Contours[0].Edges[0].Points[0], load.Length()) }, load.Normalize(), loadCase, loadProjection, comment)
         {
 
         }
 
         /// <summary>
-        /// Variable surface load
+        /// Create a variable surface load.
         /// </summary>
+        /// <remarks>
+        /// Units: <c>kN/m²</c>. The <paramref name="loads"/> collection defines load intensities at the given locations.
+        /// </remarks>
+        /// <param name="region">Region to apply the surface load to.</param>
+        /// <param name="loads">List of load location/value pairs.</param>
+        /// <param name="loadDirection">Load direction (unit vector).</param>
+        /// <param name="loadCase">Load case to assign to the surface load.</param>
+        /// <param name="loadProjection">
+        /// If <c>false</c>, intensity is interpreted along the action line (e.g. dead load).
+        /// If <c>true</c>, intensity is interpreted perpendicular to the direction of load (e.g. snow load).
+        /// </param>
+        /// <param name="comment">Optional comment.</param>
         public SurfaceLoad(Geometry.Region region, List<LoadLocationValue> loads, Geometry.Vector3d loadDirection, LoadCase loadCase, bool loadProjection = false, string comment = "")
         {
             this.EntityCreated();
@@ -105,34 +136,52 @@ namespace FemDesign.Loads
         }
 
         /// <summary>
-        /// Create uniform SurfaceLoad
+        /// Create a uniform surface load.
         /// </summary>
-        /// <param name="region"></param>
-        /// <param name="force"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="loadProjection">False: Intensity meant along action line (eg. dead load). True: Intensity meant perpendicular to direction of load (eg. snow load).</param>
-        /// <param name="comment"></param>
-        /// <returns></returns>
+        /// <remarks>Units: <c>kN/m²</c>.</remarks>
+        /// <param name="region">Region to apply the surface load to.</param>
+        /// <param name="force">Surface load intensity vector (magnitude in <c>kN/m²</c>).</param>
+        /// <param name="loadCase">Load case to assign to the surface load.</param>
+        /// <param name="loadProjection">
+        /// If <c>false</c>, intensity is interpreted along the action line (e.g. dead load).
+        /// If <c>true</c>, intensity is interpreted perpendicular to the direction of load (e.g. snow load).
+        /// </param>
+        /// <param name="comment">Optional comment.</param>
+        /// <returns>A <see cref="SurfaceLoad"/> instance.</returns>
         public static SurfaceLoad Uniform(Geometry.Region region, Geometry.Vector3d force, LoadCase loadCase, bool loadProjection = false, string comment = "")
         {
             return  new SurfaceLoad(region, force, loadCase, loadProjection, comment);
         }
 
+        /// <summary>
+        /// Create a uniform surface load without a load case.
+        /// </summary>
+        /// <remarks>
+        /// Units: <c>kN/m²</c>. This is mainly intended for interoperability with the "caseless" StruXML load types.
+        /// </remarks>
+        /// <param name="region">Region to apply the surface load to.</param>
+        /// <param name="force">Surface load intensity vector (magnitude in <c>kN/m²</c>).</param>
+        /// <returns>A <see cref="SurfaceLoad"/> with <see cref="LoadBase.LoadCase"/> left unset.</returns>
         public static SurfaceLoad CaselessUniform(Geometry.Region region, Geometry.Vector3d force)
         {
             return new SurfaceLoad(region, force, false);
         }
 
         /// <summary>
-        /// Create variable SurfaceLoad
+        /// Create a variable surface load defined by three location/value pairs.
         /// </summary>
-        /// <param name="region"></param>
-        /// <param name="direction"></param>
-        /// <param name="loadLocationValue"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="loadProjection">False: Intensity meant along action line (eg. dead load). True: Intensity meant perpendicular to direction of load (eg. snow load).</param>
-        /// <param name="comment"></param>
-        /// <returns></returns>
+        /// <remarks>Units: <c>kN/m²</c>.</remarks>
+        /// <param name="region">Region to apply the surface load to.</param>
+        /// <param name="direction">Load direction.</param>
+        /// <param name="loadLocationValue">List of exactly three load location/value pairs.</param>
+        /// <param name="loadCase">Load case to assign to the surface load.</param>
+        /// <param name="loadProjection">
+        /// If <c>false</c>, intensity is interpreted along the action line (e.g. dead load).
+        /// If <c>true</c>, intensity is interpreted perpendicular to the direction of load (e.g. snow load).
+        /// </param>
+        /// <param name="comment">Optional comment.</param>
+        /// <returns>A <see cref="SurfaceLoad"/> instance.</returns>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="loadLocationValue"/> does not contain exactly 3 items.</exception>
         public static SurfaceLoad Variable(Geometry.Region region, Geometry.Vector3d direction, List<LoadLocationValue> loadLocationValue, LoadCase loadCase, bool loadProjection = false, string comment = "")
         {
             if (loadLocationValue.Count != 3)
@@ -143,6 +192,11 @@ namespace FemDesign.Loads
             return new SurfaceLoad(region, loadLocationValue, direction, loadCase, loadProjection, comment);
         }
 
+        /// <summary>
+        /// Convert a caseless StruXML surface load to a <see cref="SurfaceLoad"/>.
+        /// </summary>
+        /// <param name="obj">Caseless StruXML surface load.</param>
+        /// <returns>A <see cref="SurfaceLoad"/> instance.</returns>
         public static explicit operator SurfaceLoad(StruSoft.Interop.StruXml.Data.Caseless_surface_load_type obj)
         {
             var srfLoad = new SurfaceLoad();
@@ -171,6 +225,10 @@ namespace FemDesign.Loads
             return srfLoad;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             string text = "";

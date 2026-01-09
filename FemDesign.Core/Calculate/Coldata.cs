@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Coldata.
+    /// </summary>
     [System.Serializable]
     public class Coldata
     {
@@ -17,6 +20,9 @@ namespace FemDesign.Calculate
         public int Num { get; set; }
 
         
+        /// <summary>
+        /// Gets or sets the flags.
+        /// </summary>
         [XmlElement("flags")]
         public int Flags { get; set; } = 0;
 
@@ -45,12 +51,24 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Coldata"/> class.
+        /// </summary>
+        /// <param name="num">the num.</param>
+        /// <param name="flags">the flags.</param>
         public Coldata(int num, int flags)
         {
             this.Num = num;
             this.Flags = flags;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Coldata"/> class.
+        /// </summary>
+        /// <param name="num">the num.</param>
+        /// <param name="flags">the flags.</param>
+        /// <param name="width">the width.</param>
+        /// <param name="format">the format.</param>
         public Coldata(int num, int flags, int width = 50, string format = "%s") : this(num, flags)
         {
             this.Width = width;
@@ -58,6 +76,10 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static List<Coldata> Default()
         {
             List<Coldata> coldata = new List<Coldata>();

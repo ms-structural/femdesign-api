@@ -4,6 +4,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Line Temperature Load.
+    /// </summary>
     [System.Serializable]
     public partial class LineTemperatureLoad: LoadBase
     {
@@ -107,6 +110,10 @@ namespace FemDesign.Loads
             this.Comment = comment;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name} - Start:{this.TopBotLocVal[0]}  End:{this.TopBotLocVal[1]}";

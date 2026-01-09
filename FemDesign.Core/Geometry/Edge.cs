@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace FemDesign.Geometry
 {
     /// <summary>
-    /// edge_type
+    /// Represents a Edge.
     /// 
     /// Curves in FEM-Design are expressed as edges. This extended edge also contains a LCS to keep track of directions.
     /// </summary>
@@ -91,14 +91,29 @@ namespace FemDesign.Geometry
             }
             set { this._plane = value; }
         }
+        /// <summary>
+        /// Gets or sets the points.
+        /// </summary>
         [XmlElement("point", Order = 1)]
         public List<Geometry.Point3d> Points = new List<Geometry.Point3d>(); // sequence: point_type_3d // ordered internal points, or the center of the circle/arc
+        /// <summary>
+        /// Gets or sets the normal.
+        /// </summary>
         [XmlElement("normal", Order = 2)]
         public Vector3d Normal { get; set; } // point_type_3d // normal of the curve; it must be used if the curve is arc or circle.
+        /// <summary>
+        /// Gets or sets the x axis.
+        /// </summary>
         [XmlElement("x_axis", Order = 3)]
         public Geometry.Vector3d XAxis { get; set; } // point_type_3d // axis of base line (the value default is the x axis {1, 0, 0}) angles are measured from this direction.
+        /// <summary>
+        /// Gets or sets the edge connection.
+        /// </summary>
         [XmlElement("edge_connection", Order = 4)]
         public Shells.EdgeConnection EdgeConnection { get; set; } // optional. ec_type.
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string _type; // edgetype
         [XmlIgnore]
@@ -108,6 +123,9 @@ namespace FemDesign.Geometry
             set { this._type = RestrictedString.EdgeType(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
         [XmlAttribute("radius")]
         public double _radius;
 
@@ -118,12 +136,19 @@ namespace FemDesign.Geometry
             set { _radius = value; }
         }
 
+        /// <summary>
+        /// Should Serialize radius.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_radius()
         {
             return _radius > 0.0;
         }
 
 
+        /// <summary>
+        /// Gets or sets the start angle.
+        /// </summary>
         [XmlAttribute("start_angle")]
         public double _startAngle;
 
@@ -134,6 +159,9 @@ namespace FemDesign.Geometry
             set { _startAngle = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the end angle.
+        /// </summary>
         [XmlAttribute("end_angle")]
         public double _endAngle;
 
@@ -204,6 +232,12 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct Edge of arc1 type.
         /// </summary>
+        /// <param name="radius">the radius.</param>
+        /// <param name="startAngle">the start angle.</param>
+        /// <param name="endAngle">the end angle.</param>
+        /// <param name="centerPoint">the center point.</param>
+        /// <param name="xAxis">value for <paramref name="xAxis"/>.</param>
+        /// <param name="coordinateSystem">the coordinate system.</param>
         public Edge(double radius, double startAngle, double endAngle, Geometry.Point3d centerPoint, Geometry.Vector3d xAxis, Geometry.Plane coordinateSystem)
         {
             this.Type = "arc";
@@ -219,6 +253,10 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct Edge of arc2 type.
         /// </summary>
+        /// <param name="start">the start.</param>
+        /// <param name="mid">the mid.</param>
+        /// <param name="end">the end.</param>
+        /// <param name="plane">the plane.</param>
         public Edge(Geometry.Point3d start, Geometry.Point3d mid, Geometry.Point3d end, Geometry.Plane plane)
         {
             this.Type = "arc";
@@ -231,6 +269,9 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct Edge of circle type.
         /// </summary>
+        /// <param name="radius">the radius.</param>
+        /// <param name="center">the center.</param>
+        /// <param name="plane">the plane.</param>
         public Edge(double radius, Geometry.Point3d center, Geometry.Plane plane)
         {
             this.Type = "circle";
@@ -243,6 +284,9 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct Edge of line type by points and coordinate system.
         /// </summary>
+        /// <param name="start">the start.</param>
+        /// <param name="end">the end.</param>
+        /// <param name="plane">the plane.</param>
         public Edge(Geometry.Point3d start, Geometry.Point3d end, Geometry.Plane plane)
         {
             this.Type = "line";
@@ -256,6 +300,9 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Construct Edge of line type by points and normal (localY).
         /// </summary>
+        /// <param name="startPoint">the start point.</param>
+        /// <param name="endPoint">the end point.</param>
+        /// <param name="localY">the local y.</param>
         public Edge(Point3d startPoint, Point3d endPoint, Vector3d localY = null)
         {
             this.Type = "line";
@@ -275,6 +322,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Check if line
         /// </summary>
+        /// <returns>The result.</returns>
         public bool IsLine()
         {
             return (this.Type == "line");
@@ -283,6 +331,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Check if line is vertical (i.e. parallel to global Z)
         /// </summary>
+        /// <returns>The result.</returns>
         public bool IsLineVertical()
         {
             if (this.IsLine())
@@ -298,6 +347,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Check if line local x is equal to positive global Z
         /// </summary>
+        /// <returns>The result.</returns>
         public bool IsLineTangentEqualToGlobalZ()
         {
             if (this.IsLine())
@@ -351,6 +401,11 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Gets the intermediate point.
+        /// </summary>
+        /// <param name="percentage">the percentage.</param>
+        /// <returns>The result.</returns>
         public Point3d GetIntermediatePoint(double percentage)
         {
             if (percentage < 0 || percentage > 1)
@@ -374,6 +429,7 @@ namespace FemDesign.Geometry
         /// Convert an Edge to a LineSegment
         /// </summary>
         /// <param name="edge"></param>
+        /// <returns>The result.</returns>
         public static explicit operator LineSegment(Edge edge)
         {
             if (!edge.IsLine())
@@ -382,6 +438,11 @@ namespace FemDesign.Geometry
             return new LineSegment(edge.Points[0], edge.Points[1]);
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Edge(StruSoft.Interop.StruXml.Data.Edge_type obj)
         {
             var start = (Point3d)obj.Point[0];

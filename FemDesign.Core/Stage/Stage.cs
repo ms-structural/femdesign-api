@@ -10,18 +10,33 @@ using FemDesign.Loads;
 
 namespace FemDesign
 {
+    /// <summary>
+    /// Represents a Stage.
+    /// </summary>
     [System.Serializable]
     public partial class Stage
     {
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         [XmlIgnore]
         public int Id { get; set; }
 
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
         [XmlAttribute("description")]
         public string Description { get; set; }
 
+        /// <summary>
+        /// Gets or sets the initial stress state.
+        /// </summary>
         [XmlAttribute("initial_stress_state")]
         public bool InitialStressState { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the day.
+        /// </summary>
         [XmlAttribute("day")]
         public double _day { get; set; }
 
@@ -35,9 +50,15 @@ namespace FemDesign
             set { _day = FemDesign.RestrictedDouble.NonNegMax_1e20(value);  }
         }
 
+        /// <summary>
+        /// Gets or sets the activated load cases.
+        /// </summary>
         [XmlElement("activated_load_case")]
         public List<ActivatedLoadCase> ActivatedLoadCases { get; set; }
 
+        /// <summary>
+        /// Gets or sets the elements.
+        /// </summary>
         [XmlIgnore]
         public List<IStageElement> Elements { get; set; }
 
@@ -104,7 +125,7 @@ namespace FemDesign
         /// <summary>
         /// Adds a (construction stage) activated load case.
         /// </summary>
-        /// <param name="loadCase">The load case to be activated.</param>
+        /// <param name="loadCase">the load case.</param>
         /// <param name="factor">Load case factor.</param>
         /// <param name="partitioning">Partitioning.</param>
         public void AddLoadCase(LoadCase loadCase, double factor, ActivationType partitioning)
@@ -115,11 +136,16 @@ namespace FemDesign
         /// <summary>
         /// Adds a (construction stage) activated load case.
         /// </summary>
+        /// <param name="activatedLoadCase">the activated load case.</param>
         public void AddLoadCase(ActivatedLoadCase activatedLoadCase)
         {
             this.ActivatedLoadCases.Add(activatedLoadCase);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"Stage {this.Description}";

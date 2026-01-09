@@ -4,11 +4,14 @@ using System.Xml.Serialization;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// service_class_factors
+    /// Represents a Service Class Factors.
     /// </summary>
     [System.Serializable]
     public partial class ServiceClassFactors
     {
+        /// <summary>
+        /// Gets or sets the kdef.
+        /// </summary>
         [XmlAttribute("kdef")]
         public double _kdef;
         [XmlIgnore]
@@ -23,6 +26,9 @@ namespace FemDesign.Materials
                 this._kdef = RestrictedDouble.NonNegMax_1e5(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the kmod permanent.
+        /// </summary>
         [XmlAttribute("kmod_permanent")]
         public double _kmodPermanent;
         [XmlIgnore]
@@ -37,6 +43,9 @@ namespace FemDesign.Materials
                 this._kmodPermanent = RestrictedDouble.NonNegMax_1e5(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the kmod long term.
+        /// </summary>
         [XmlAttribute("kmod_long_term")]
         public double _kmodLongTerm;
         [XmlIgnore]
@@ -51,6 +60,9 @@ namespace FemDesign.Materials
                 this._kmodLongTerm = RestrictedDouble.NonNegMax_1e5(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the kmod medium term.
+        /// </summary>
         [XmlAttribute("kmod_medium_term")]
         public double _kmodMediumTerm;
         [XmlIgnore]
@@ -65,6 +77,9 @@ namespace FemDesign.Materials
                 this._kmodMediumTerm = RestrictedDouble.NonNegMax_1e5(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the kmod short term.
+        /// </summary>
         [XmlAttribute("kmod_short_term")]
         public double _kmodShortTerm;
         [XmlIgnore]
@@ -79,6 +94,9 @@ namespace FemDesign.Materials
                 this._kmodShortTerm = RestrictedDouble.NonNegMax_1e5(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the kmod instantaneous.
+        /// </summary>
         [XmlAttribute("kmod_instantaneous")]
         public double _kmodInstantaneous;
         [XmlIgnore]

@@ -12,6 +12,9 @@ namespace FemDesign.Calculate
     [XmlRoot("cmdsavedocx")]
     public partial class CmdSaveDocx : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ DOC SAVEDOCX"; // token, fixed
 
@@ -28,6 +31,10 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdSaveDocx"/> class.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
         public CmdSaveDocx(string filePath)
         {
             string extension = Path.GetExtension(filePath);
@@ -38,6 +45,10 @@ namespace FemDesign.Calculate
             
             this.FilePath = Path.GetFullPath(filePath);
         }
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdSaveDocx>(this);

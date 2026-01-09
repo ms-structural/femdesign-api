@@ -8,16 +8,31 @@ using System.Linq;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Line Segment.
+    /// </summary>
     [System.Serializable]
     public partial class LineSegment
     {
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
         [XmlElement("start_point")]
         public Point3d StartPoint;
+        /// <summary>
+        /// Gets or sets the base point.
+        /// </summary>
         [XmlElement("base_point")]
         public Point3d BasePoint;
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
         [XmlElement("end_point")]
         public Point3d EndPoint;
 
+        /// <summary>
+        /// Gets or sets the verticies.
+        /// </summary>
         [XmlIgnore]
         public List<Point3d> Verticies { 
             get {

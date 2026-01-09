@@ -23,6 +23,9 @@ namespace FemDesign.Results
 
     public static class ResultTypes
     {
+        /// <summary>
+        /// Gets or sets the all.
+        /// </summary>
         public static Dictionary<string, Type> All = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(a => a.GetName().FullName.StartsWith("FemDesign"))
                 .SelectMany(s => s.GetTypes())

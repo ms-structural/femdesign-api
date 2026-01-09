@@ -64,6 +64,10 @@ using FemDesign.Calculate;
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

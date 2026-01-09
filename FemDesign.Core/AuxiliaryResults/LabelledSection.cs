@@ -16,11 +16,20 @@ namespace FemDesign.AuxiliaryResults
     {
         [XmlIgnore]
         private static int _labelledSectioninstances = 0;
+        /// <summary>
+        /// Reset Instance Count.
+        /// </summary>
         public static void ResetInstanceCount() => _labelledSectioninstances = 0;
         protected override int GetUniqueInstanceCount() => ++_labelledSectioninstances;
 
+        /// <summary>
+        /// Gets or sets the line segment.
+        /// </summary>
         [XmlElement("line_segment")]
         public LineSegment _lineSegment;
+        /// <summary>
+        /// Gets or sets the polyline.
+        /// </summary>
         [XmlElement("polyline")]
         public Polyline _polyline;
         /// <summary>
@@ -70,6 +79,8 @@ namespace FemDesign.AuxiliaryResults
         }
 
         /// <inheritdoc cref="LabelledSection(List{Point3d}, string)"/>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="verticies">the verticies.</param>
         public LabelledSection(string identifier = "LS", params Point3d[] verticies)
         {
             Initialize(verticies.ToList(), identifier);

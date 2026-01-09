@@ -12,6 +12,9 @@ namespace FemDesign.Sections
     [System.Serializable]
     public partial class ComplexSectionPart
     {
+        /// <summary>
+        /// Gets or sets the pos.
+        /// </summary>
         [XmlAttribute("pos")]
         public string _pos;
         [XmlIgnore]
@@ -26,12 +29,24 @@ namespace FemDesign.Sections
                 this._pos = RestrictedDouble.NonNegMax_1(value).ToString(CultureInfo.InvariantCulture);
             }
         }
+        /// <summary>
+        /// Gets or sets the section ref.
+        /// </summary>
         [XmlAttribute("guid")]
         public System.Guid SectionRef { get; set; }
+        /// <summary>
+        /// Gets or sets the section obj.
+        /// </summary>
         [XmlIgnore]
         public Sections.Section SectionObj;
+        /// <summary>
+        /// Gets or sets the eccentricity.
+        /// </summary>
         [XmlElement("ecc")]
         public Bars.Eccentricity Eccentricity { get; set; }
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end")]
         public string End { get; set; }
 

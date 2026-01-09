@@ -5,11 +5,14 @@ using System.Xml.Serialization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// stiffness_with_friction
+    /// Represents a Stiffness With Friction.
     /// </summary>
     [System.Serializable]
     public partial class StiffnessWithFriction: SimpleStiffnessType
     {
+        /// <summary>
+        /// Gets or sets the friction.
+        /// </summary>
         [XmlAttributeAttribute("friction")]
         public double _friction;
         [XmlIgnore]
@@ -25,6 +28,9 @@ namespace FemDesign.Releases
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StiffnessWithFriction"/> class.
+        /// </summary>
         public StiffnessWithFriction()
         {
 

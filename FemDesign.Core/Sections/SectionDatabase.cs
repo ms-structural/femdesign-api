@@ -16,28 +16,64 @@ namespace FemDesign.Sections
     [XmlRoot("database", Namespace = "urn:strusoft")]
     public partial class SectionDatabase
     {
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         [XmlIgnore]
         public string FilePath { get; set; }
+        /// <summary>
+        /// Gets or sets the struxml version.
+        /// </summary>
         [XmlAttribute("struxml_version")]
         public string StruxmlVersion { get; set; }
+        /// <summary>
+        /// Gets or sets the source software.
+        /// </summary>
         [XmlAttribute("source_software")]
         public string SourceSoftware { get; set; }
+        /// <summary>
+        /// Gets or sets the start time.
+        /// </summary>
         [XmlAttribute("start_time")]
         public string StartTime { get; set; }
+        /// <summary>
+        /// Gets or sets the end time.
+        /// </summary>
         [XmlAttribute("end_time")]
         public string EndTime { get; set; }
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public string Guid { get; set; }
+        /// <summary>
+        /// Gets or sets the convert id.
+        /// </summary>
         [XmlAttribute("convertid")]
         public string ConvertId { get; set; }
+        /// <summary>
+        /// Gets or sets the standard.
+        /// </summary>
         [XmlAttribute("standard")]
         public string Standard { get; set; }
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
         [XmlAttribute("country")]
         public string Country { get; set; }
+        /// <summary>
+        /// Gets or sets the xmlns.
+        /// </summary>
         [XmlAttribute("xmlns")]
         public string Xmlns { get; set; }
+        /// <summary>
+        /// Gets or sets the sections.
+        /// </summary>
         [XmlElement("sections")]
         public DatabaseSections Sections { get; set; }
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end")]
         public string End { get; set; }
         [XmlIgnore]
@@ -51,6 +87,11 @@ namespace FemDesign.Sections
         }
 
 
+        /// <summary>
+        /// Section By Name.
+        /// </summary>
+        /// <param name="sectionName">the section name.</param>
+        /// <returns>The result.</returns>
         public Section SectionByName(string sectionName)
         {
             var sections = this.Sections.Section;
@@ -118,6 +159,7 @@ namespace FemDesign.Sections
         /// <summary>
         /// Add a section to this section database
         /// </summary>
+        /// <param name="obj">the obj.</param>
         public void AddNewSection(Section obj)
         {
             if (this.SectionInDatabase(obj))
@@ -212,6 +254,10 @@ namespace FemDesign.Sections
             return _defaultSectionDatabaseCache;
         }
 
+        /// <summary>
+        /// Empty.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static SectionDatabase Empty()
         {
             var emptyDatabase = new SectionDatabase();
@@ -231,6 +277,7 @@ namespace FemDesign.Sections
         /// <summary>
         /// Serialize section database to file
         /// </summary>
+        /// <param name="filePath">the file path.</param>
         public void SerializeSectionDatabase(string filePath)
         {
             // check file extension

@@ -16,11 +16,17 @@ namespace FemDesign.Results
     [Result(typeof(BarSteelUtilization), ListProc.SteelDesignBarUtilizationLoadCombination)]
     public partial class BarSteelUtilization : IResult
     {
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         public string Id { get; }
         /// <summary>
         /// Applied profile
         /// </summary>
         public string Section { get; }
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
         public string Status { get; }
         /// <summary>
         /// Maximum utilisation from all the verifications
@@ -54,6 +60,9 @@ namespace FemDesign.Results
         /// Interaction - Part 1-1: 6.3.3
         /// </summary>
         public double IA { get; }
+        /// <summary>
+        /// Gets or sets the case identifier.
+        /// </summary>
         public string CaseIdentifier { get; }
 
         [JsonConstructor]
@@ -73,6 +82,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = caseIdentifier;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

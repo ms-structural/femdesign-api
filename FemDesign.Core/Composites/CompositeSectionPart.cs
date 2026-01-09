@@ -7,9 +7,15 @@ using System.Linq;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Represents a Composite Section Part.
+    /// </summary>
     [System.Serializable]
     public partial class CompositeSectionPart
     {
+        /// <summary>
+        /// Gets or sets the material ref.
+        /// </summary>
         [XmlAttribute("material")]
         public Guid _materialRef;
 
@@ -26,6 +32,9 @@ namespace FemDesign.Composites
             }
         }
 
+        /// <summary>
+        /// Gets or sets the material.
+        /// </summary>
         [XmlIgnore]
         public Materials.Material _material;
 
@@ -43,6 +52,9 @@ namespace FemDesign.Composites
             }
         }
 
+        /// <summary>
+        /// Gets or sets the section ref.
+        /// </summary>
         [XmlAttribute("section")]
         public Guid _sectionRef;
 
@@ -53,6 +65,9 @@ namespace FemDesign.Composites
             set { this._sectionRef = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
         [XmlIgnore]
         public Sections.Section _section;
 
@@ -72,6 +87,9 @@ namespace FemDesign.Composites
             }
         }
 
+        /// <summary>
+        /// Gets or sets the offset y.
+        /// </summary>
         [XmlAttribute("cog_offset_x")]
         public double _offsetY;
 
@@ -82,6 +100,9 @@ namespace FemDesign.Composites
             set { _offsetY = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the offset z.
+        /// </summary>
         [XmlAttribute("cog_offset_y")]
         public double _offsetZ;
 

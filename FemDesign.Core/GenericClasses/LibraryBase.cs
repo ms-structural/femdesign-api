@@ -6,7 +6,7 @@ using FemDesign.GenericClasses;
 namespace FemDesign
 {
     /// <summary>
-    /// entity_attribs
+    /// Represents a Library Base.
     /// </summary>
     [System.Serializable]
     public partial class LibraryBase : EntityBase, ILibraryBase
@@ -27,6 +27,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LibraryBase"/> class.
+        /// </summary>
         public LibraryBase()
         {
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Defines the Diaphragm Type enumeration.
+    /// </summary>
     public enum DiaphragmType
     {
         None = 0,

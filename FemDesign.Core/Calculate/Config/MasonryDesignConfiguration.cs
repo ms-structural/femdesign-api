@@ -13,9 +13,15 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class MasonryConfig : CONFIG
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type = "CCMSCONFIG";
 
+        /// <summary>
+        /// Gets or sets the ignore annex for shear strength.
+        /// </summary>
         [XmlAttribute("fIgnoreAnnexForShearStrength")]
         public int _ignoreAnnexForShearStrength = 0;
 
@@ -43,6 +49,11 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MasonryConfig"/> class.
+        /// </summary>
+        /// <param name="ignoreShearStrength">the ignore shear strength.</param>
+        /// <param name="stripeWidth">the stripe width.</param>
         public MasonryConfig(bool ignoreShearStrength, double stripeWidth)
         {
             IgnoreAnnexForShearStrength = ignoreShearStrength;

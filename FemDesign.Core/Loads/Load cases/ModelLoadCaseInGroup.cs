@@ -11,8 +11,14 @@ namespace FemDesign.Loads
     [System.Serializable]
     public partial class ModelLoadCaseInGroup
     {
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public System.Guid Guid { get; set; } // common_load_case --> guidtype indexed_guid
+        /// <summary>
+        /// Gets or sets the load group.
+        /// </summary>
         [XmlIgnore]
         public LoadGroupBase LoadGroup { get; set; }
 
@@ -23,7 +29,7 @@ namespace FemDesign.Loads
         /// Public constructor.
         /// </summary>
         /// <param name="guid">LoadCase guid reference.</param>
-        /// <param name="parentLoadGroup"></param>
+        /// <param name="parentLoadGroup">Parent load group that the load case belongs to.</param>
         public ModelLoadCaseInGroup(System.Guid guid, LoadGroupBase parentLoadGroup)
         {
             this.Guid = guid;

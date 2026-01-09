@@ -5,6 +5,9 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.Releases
 {
+    /// <summary>
+    /// Defines the Detach Type enumeration.
+    /// </summary>
     [System.Serializable]
     public enum DetachType
     {

@@ -54,6 +54,9 @@ namespace FemDesign.Results
         /// </summary>
         public double AlphaN { get; }
 
+        /// <summary>
+        /// Gets or sets the case identifier.
+        /// </summary>
         public string CaseIdentifier { get; }
 
         [JsonConstructor]
@@ -71,6 +74,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

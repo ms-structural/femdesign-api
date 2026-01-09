@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// line_stress_load_type
+    /// Represents a Line Stress Load.
     /// </summary>
     [System.Serializable]
     public partial class LineStressLoad : LoadBase
@@ -149,6 +149,10 @@ namespace FemDesign.Loads
             this.Comment = comment;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name}, Force: {TopBotLocVal[0].TopVal:0.0}/{TopBotLocVal[1].TopVal:0.0}kN, Moment: {TopBotLocVal[0].BottomVal:0.0}/{TopBotLocVal[1].BottomVal:0.0}kNm, LoadCase: {this.LoadCase.Name}";

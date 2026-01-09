@@ -68,6 +68,10 @@ namespace FemDesign.Results
             this.ShapeId = shapeId;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -108,6 +112,9 @@ namespace FemDesign.Results
         /// The method has been created for returning the value for Grasshopper and Dynamo.
         /// The method can still be use for C# users.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="Result">the result.</param>
+        /// <param name="ModeShapeId">the mode shape id.</param>
         public static Dictionary<string, object> DeconstructNodalVibration(List<FemDesign.Results.NodalVibration> Result, string ModeShapeId)
         {
             var nodalDisplacements = Result.Cast<FemDesign.Results.NodalVibration>();

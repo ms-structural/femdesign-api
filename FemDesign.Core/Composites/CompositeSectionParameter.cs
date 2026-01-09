@@ -7,12 +7,21 @@ using System.Linq;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Represents a Composite Section Parameter.
+    /// </summary>
     [System.Serializable]
     public partial class CompositeSectionParameter
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public CompositeSectionParameterType Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
         [XmlAttribute("value")]
         public string Value { get; set; }
 

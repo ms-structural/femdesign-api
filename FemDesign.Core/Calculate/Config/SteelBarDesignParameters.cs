@@ -1,4 +1,4 @@
-﻿using FemDesign.Bars;
+using FemDesign.Bars;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +15,15 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class SteelBarDesignParameters : CONFIG
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type = "CCDESPARAMBARST";
 
+        /// <summary>
+        /// Gets or sets the utilization limit.
+        /// </summary>
         [XmlAttribute("LimitUtilization")]
         public double _utilizationLimit;
 
@@ -35,6 +41,9 @@ namespace FemDesign.Calculate
         public List<Guid> Guids { get; set; }
 
         // Dynamic attributes can be handled by creating a dictionary or list of key-value pairs
+        /// <summary>
+        /// Gets or sets the sections.
+        /// </summary>
         [XmlIgnore]
         public Dictionary<string, Guid> _sections { get; set; } = new Dictionary<string, Guid>();
 
@@ -69,6 +78,10 @@ namespace FemDesign.Calculate
             set { }
         }
 
+        /// <summary>
+        /// Should Serialize Section Count.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerializeSectionCount()
         {
             return _sections.Count != 0;
@@ -79,6 +92,11 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelBarDesignParameters"/> class.
+        /// </summary>
+        /// <param name="utilizationLimit">the utilization limit.</param>
+        /// <param name="sections">the sections.</param>
         public SteelBarDesignParameters(double utilizationLimit, List<Sections.Section> sections)
         {
             UtilizationLimit = utilizationLimit;
@@ -95,6 +113,11 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelBarDesignParameters"/> class.
+        /// </summary>
+        /// <param name="utilizationLimit">the utilization limit.</param>
+        /// <param name="sectionGuids">the section guids.</param>
         public SteelBarDesignParameters(double utilizationLimit, List<Guid> sectionGuids)
         {
             UtilizationLimit = utilizationLimit;
@@ -107,11 +130,21 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelBarDesignParameters"/> class.
+        /// </summary>
+        /// <param name="utilizationLimit">the utilization limit.</param>
+        /// <param name="sections">the sections.</param>
+        /// <param name="bar">the bar.</param>
         public SteelBarDesignParameters(double utilizationLimit, List<Sections.Section> sections, FemDesign.Bars.Bar bar) : this(utilizationLimit, sections)
         {
             SetParametersOnBars(bar);
         }
 
+        /// <summary>
+        /// Sets the parameters on bars.
+        /// </summary>
+        /// <param name="bars">the bars.</param>
         public void SetParametersOnBars(List<Bar> bars)
         {
             if (bars.Any(x => x.IsSteel() == false))
@@ -121,6 +154,10 @@ namespace FemDesign.Calculate
             this.Guids = bars.Select(x => x.BarPart.Guid).ToList();
         }
 
+        /// <summary>
+        /// Sets the parameters on bars.
+        /// </summary>
+        /// <param name="bars">the bars.</param>
         public void SetParametersOnBars(Bar bars)
         {
             SetParametersOnBars(new List<Bar> { bars });

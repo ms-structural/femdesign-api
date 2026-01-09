@@ -9,6 +9,9 @@ namespace FemDesign
     [System.Serializable]
     public abstract partial class NamedEntityBase : EntityBase, INamedEntity
     {
+        /// <summary>
+        /// Gets or sets the xml name.
+        /// </summary>
         [XmlAttribute("name")]
         public string _xmlName; // identifier for serialisation purposes
         [XmlIgnore]
@@ -29,8 +32,14 @@ namespace FemDesign
                     this._xmlName = "@" + value;
             }
         }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlIgnore]
         public virtual string Name => _namePattern.Match(this._name).Groups["name"].Value;
+        /// <summary>
+        /// Gets or sets the instance.
+        /// </summary>
         [XmlIgnore]
         public virtual int Instance => int.Parse(_namePattern.Match(this._name).Groups["instance"].Value);
 
@@ -80,7 +89,13 @@ namespace FemDesign
     [System.Serializable]
     public abstract partial class NamedEntityPartBase : NamedEntityBase
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         public override string Name => _namePattern.Match(base._name).Groups["name"].Value;
+        /// <summary>
+        /// Gets or sets the instance.
+        /// </summary>
         public override int Instance => int.Parse(_namePattern.Match(base._name).Groups["instance"].Value);
         [XmlIgnore]
         public override string Identifier

@@ -11,31 +11,58 @@ using FemDesign.GenericClasses;
 namespace FemDesign.Calculate
 {
     
+    /// <summary>
+    /// Represents a Cmd Global Cfg.
+    /// </summary>
     [XmlRoot("cmdglobalcfg")]
     [System.Serializable]
     public partial class CmdGlobalCfg : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ FEM $CODE(GLOBALCFG)"; // token
 
+        /// <summary>
+        /// Gets or sets the mesh general.
+        /// </summary>
         [XmlElement("mesh_general")]
         public MeshGeneral MeshGeneral { get; set; }
 
+        /// <summary>
+        /// Gets or sets the mesh elements.
+        /// </summary>
         [XmlElement("mesh_elements")]
         public MeshElements MeshElements { get; set; }
 
+        /// <summary>
+        /// Gets or sets the meshfunctions.
+        /// </summary>
         [XmlElement("mesh_functions")]
         public MeshFunctions Meshfunctions { get; set; }
 
+        /// <summary>
+        /// Gets or sets the mesh prepare.
+        /// </summary>
         [XmlElement("mesh_prepare")]
         public MeshPrepare MeshPrepare { get; set; }
 
+        /// <summary>
+        /// Gets or sets the peaksm method.
+        /// </summary>
         [XmlElement("peaksm_method")]
         public PeaksmMethod PeaksmMethod { get; set; }
 
+        /// <summary>
+        /// Gets or sets the peaksm auto.
+        /// </summary>
         [XmlElement("peaksm_auto")]
         public PeaksmAuto PeaksmAuto { get; set; }
 
+        /// <summary>
+        /// Gets or sets the soil calculation.
+        /// </summary>
         [XmlElement("soil_calculation")]
         public SoilCalculation SoilCalculation { get; set; }
 
@@ -47,6 +74,16 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdGlobalCfg"/> class.
+        /// </summary>
+        /// <param name="meshGeneral">the mesh general.</param>
+        /// <param name="meshElements">the mesh elements.</param>
+        /// <param name="meshFunctions">the mesh functions.</param>
+        /// <param name="meshPrepare">the mesh prepare.</param>
+        /// <param name="peaksmMethod">the peaksm method.</param>
+        /// <param name="peaksmAuto">the peaksm auto.</param>
+        /// <param name="soilCalculation">the soil calculation.</param>
         public CmdGlobalCfg(MeshGeneral meshGeneral, MeshElements meshElements, MeshFunctions meshFunctions, MeshPrepare meshPrepare, PeaksmMethod peaksmMethod, PeaksmAuto peaksmAuto, SoilCalculation soilCalculation)
         {
             this.MeshGeneral = meshGeneral;
@@ -58,11 +95,19 @@ namespace FemDesign.Calculate
             this.SoilCalculation = soilCalculation;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdGlobalCfg"/> class.
+        /// </summary>
+        /// <param name="globConfigs">the glob configs.</param>
         public CmdGlobalCfg(params GlobConfig[] globConfigs)
         {
             this.Initialize(globConfigs.ToList());
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdGlobalCfg"/> class.
+        /// </summary>
+        /// <param name="globConfigs">the glob configs.</param>
         public CmdGlobalCfg(List<GlobConfig> globConfigs)
         {
             this.Initialize(globConfigs);
@@ -119,6 +164,10 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static CmdGlobalCfg Default()
         {
             var meshGeneral = MeshGeneral.Default();
@@ -144,6 +193,8 @@ namespace FemDesign.Calculate
         /// <summary>
         /// Deserialize CmdGlobalCfg from resource.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="filePath">the file path.</param>
         public static CmdGlobalCfg DeserializeCmdGlobalCfgFromFilePath(string filePath)
         {
             XmlSerializer deserializer = new XmlSerializer(typeof(CmdGlobalCfg));
@@ -155,6 +206,10 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdGlobalCfg>(this);
@@ -163,8 +218,14 @@ namespace FemDesign.Calculate
     }
 
 
+    /// <summary>
+    /// Represents a Mesh General.
+    /// </summary>
     public partial class MeshGeneral : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the adjust to loads.
+        /// </summary>
         [XmlAttribute("fAdjustToLoads")]
         public int _adjustToLoads;
 
@@ -183,19 +244,33 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeshGeneral"/> class.
+        /// </summary>
+        /// <param name="adjustToLoad">the adjust to load.</param>
         public MeshGeneral(bool adjustToLoad = false)
         {
             AdjustToLoads = adjustToLoad;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static MeshGeneral Default()
         {
             return new MeshGeneral(adjustToLoad : false);
         }
     }
 
+    /// <summary>
+    /// Represents a Mesh Elements.
+    /// </summary>
     public partial class MeshElements : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the elem calc region.
+        /// </summary>
         [XmlAttribute("fElemCalcRegion")]
         public int _elemCalcRegion;
 
@@ -206,9 +281,15 @@ namespace FemDesign.Calculate
             set => _elemCalcRegion = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the elem size div.
+        /// </summary>
         [XmlAttribute("rElemSizeDiv")]
         public double ElemSizeDiv { get; set; }
 
+        /// <summary>
+        /// Gets or sets the correct to min div num.
+        /// </summary>
         [XmlAttribute("fCorrectToMinDivNum")]
         public int _correctToMinDivNum;
 
@@ -219,6 +300,9 @@ namespace FemDesign.Calculate
             set => _correctToMinDivNum = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the default division.
+        /// </summary>
         [XmlAttribute("sDefaultDivision")]
         public int _defaultDivision;
 
@@ -229,6 +313,9 @@ namespace FemDesign.Calculate
             set => _defaultDivision = RestrictedInteger.DefaultBarElemDiv(value);
         }
 
+        /// <summary>
+        /// Gets or sets the default angle.
+        /// </summary>
         [XmlAttribute("rDefaultAngle")]
         public double _defaultAngle;
 
@@ -247,6 +334,14 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeshElements"/> class.
+        /// </summary>
+        /// <param name="elemCalcRegion">the elem calc region.</param>
+        /// <param name="elemeSizeDiv">the eleme size div.</param>
+        /// <param name="correctToMinDivNum">the correct to min div num.</param>
+        /// <param name="defaultDiv">the default div.</param>
+        /// <param name="defaultAngle">the default angle.</param>
         public MeshElements(bool elemCalcRegion = true, double elemeSizeDiv = 6.0, bool correctToMinDivNum = true, int defaultDiv = 2, double defaultAngle = 15.0)
         {
             this.ElemCalcRegion = elemCalcRegion;
@@ -256,6 +351,10 @@ namespace FemDesign.Calculate
             this.DefaultAngle = defaultAngle;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static MeshElements Default()
         {
             return new MeshElements(elemCalcRegion : true);
@@ -263,8 +362,14 @@ namespace FemDesign.Calculate
 
     }
 
+    /// <summary>
+    /// Represents a Mesh Functions.
+    /// </summary>
     public partial class MeshFunctions : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the refine locally.
+        /// </summary>
         [XmlAttribute("fRefineLocally")]
         public int _refineLocally;
 
@@ -275,9 +380,15 @@ namespace FemDesign.Calculate
             set => _refineLocally = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the refine max step num.
+        /// </summary>
         [XmlAttribute("sRefineMaxStepNum")]
         public int RefineMaxStepNum { get; set; }
 
+        /// <summary>
+        /// Gets or sets the max iter warning.
+        /// </summary>
         [XmlAttribute("fMaxIterWarning")]
         public int _maxIterWarning;
 
@@ -288,6 +399,9 @@ namespace FemDesign.Calculate
             set => _maxIterWarning = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the reduce size.
+        /// </summary>
         [XmlAttribute("fReduceSize")]
         public int _reduceSize;
 
@@ -298,6 +412,9 @@ namespace FemDesign.Calculate
             set => _reduceSize = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the smooth step num.
+        /// </summary>
         [XmlAttribute("sSmoothStepNum")]
         public int _smoothStepNum;
 
@@ -308,6 +425,9 @@ namespace FemDesign.Calculate
             set => _smoothStepNum = RestrictedInteger.MeshSmoothSteps(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check mesh geom.
+        /// </summary>
         [XmlAttribute("fCheckMeshGeom")]
         public int _checkMeshGeom;
 
@@ -318,6 +438,9 @@ namespace FemDesign.Calculate
             set => _checkMeshGeom = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check geom min angle.
+        /// </summary>
         [XmlAttribute("rCheckGeomMinAngle")]
         public double _checkGeomMinAngle;
 
@@ -328,6 +451,9 @@ namespace FemDesign.Calculate
             set => _checkGeomMinAngle = RestrictedDouble.NonNegMax_90(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check geom max angle.
+        /// </summary>
         [XmlAttribute("rCheckGeomMaxAngle")]
         public double _checkGeomMaxAngle;
 
@@ -338,6 +464,9 @@ namespace FemDesign.Calculate
             set => _checkGeomMaxAngle = RestrictedDouble.MeshMaxAngle(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check geom max side ratio.
+        /// </summary>
         [XmlAttribute("rCheckGeomMaxSideRatio")]
         public double _checkGeomMaxSideRatio;
 
@@ -348,6 +477,9 @@ namespace FemDesign.Calculate
             set => _checkGeomMaxSideRatio = RestrictedDouble.MeshMaxRatio(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check mesh over lap.
+        /// </summary>
         [XmlAttribute("fCheckMeshOverlap")]
         public int _checkMeshOverLap;
 
@@ -358,6 +490,9 @@ namespace FemDesign.Calculate
             set => _checkMeshOverLap = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the check mesh topology.
+        /// </summary>
         [XmlAttribute("fCheckMeshTopology")]
         public int _checkMeshTopology;
 
@@ -376,6 +511,20 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeshFunctions"/> class.
+        /// </summary>
+        /// <param name="refineLocally">the refine locally.</param>
+        /// <param name="refineMaxStepNum">the refine max step num.</param>
+        /// <param name="iterWarning">the iter warning.</param>
+        /// <param name="reduceSize">the reduce size.</param>
+        /// <param name="smoothStepNum">the smooth step num.</param>
+        /// <param name="checkMeshGeom">the check mesh geom.</param>
+        /// <param name="checkGeomMinangle">the check geom minangle.</param>
+        /// <param name="checkGeomMaxangle">the check geom maxangle.</param>
+        /// <param name="checkGeomMaxSideRatio">the check geom max side ratio.</param>
+        /// <param name="checkMeshOverlap">the check mesh overlap.</param>
+        /// <param name="checkMeshTopology">the check mesh topology.</param>
         public MeshFunctions(bool refineLocally = true, int refineMaxStepNum = 5, bool iterWarning = false, bool reduceSize = true, int smoothStepNum = 3, bool checkMeshGeom = true, double checkGeomMinangle = 10.0, double checkGeomMaxangle = 170.0, double checkGeomMaxSideRatio = 8.0, bool checkMeshOverlap = true, bool checkMeshTopology = true)
         {
             this.RefineLocally = refineLocally;
@@ -391,14 +540,24 @@ namespace FemDesign.Calculate
             this.CheckMeshTopology = checkMeshTopology;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static MeshFunctions Default()
         {
             return new MeshFunctions(refineLocally : true);
         }
     }
 
+    /// <summary>
+    /// Represents a Mesh Prepare.
+    /// </summary>
     public partial class MeshPrepare : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the auto regen.
+        /// </summary>
         [XmlAttribute("fAutoRegen")]
         public int _autoRegen;
 
@@ -409,6 +568,9 @@ namespace FemDesign.Calculate
             set => _autoRegen = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th peak.
+        /// </summary>
         [XmlAttribute("fThPeak")]
         public int _thPeak;
 
@@ -419,6 +581,9 @@ namespace FemDesign.Calculate
             set => _thPeak = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th beam.
+        /// </summary>
         [XmlAttribute("fThBeam")]
         public int _thBeam;
 
@@ -429,6 +594,9 @@ namespace FemDesign.Calculate
             set => _thBeam = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th column.
+        /// </summary>
         [XmlAttribute("fThColumn")]
         public int _thColumn;
 
@@ -439,6 +607,9 @@ namespace FemDesign.Calculate
             set => _thColumn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th truss.
+        /// </summary>
         [XmlAttribute("fThTruss")]
         public int _thTruss;
 
@@ -449,6 +620,9 @@ namespace FemDesign.Calculate
             set => _thTruss = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th fic beam.
+        /// </summary>
         [XmlAttribute("fThFicBeam")]
         public int _thFicBeam;
 
@@ -459,6 +633,9 @@ namespace FemDesign.Calculate
             set => _thFicBeam = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th free edge.
+        /// </summary>
         [XmlAttribute("fThFreeEdge")]
         public int _thFreeEdge;
 
@@ -469,6 +646,9 @@ namespace FemDesign.Calculate
             set => _thFreeEdge = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th region bordger.
+        /// </summary>
         [XmlAttribute("fThRegionBorder")]
         public int _thRegionBordger;
 
@@ -479,6 +659,9 @@ namespace FemDesign.Calculate
             set => _thRegionBordger = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th suppt pt.
+        /// </summary>
         [XmlAttribute("fThSuppPt")]
         public int _thSupptPt;
 
@@ -489,6 +672,9 @@ namespace FemDesign.Calculate
             set => _thSupptPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th supp ln.
+        /// </summary>
         [XmlAttribute("fThSuppLn")]
         public int _thSuppLn;
 
@@ -499,6 +685,9 @@ namespace FemDesign.Calculate
             set => _thSuppLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th supp sf.
+        /// </summary>
         [XmlAttribute("fThSuppSf")]
         public int _thSuppSf;
 
@@ -509,6 +698,9 @@ namespace FemDesign.Calculate
             set => _thSuppSf = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th edge conn.
+        /// </summary>
         [XmlAttribute("fThEdgeConn")]
         public int _thEdgeConn;
 
@@ -519,6 +711,9 @@ namespace FemDesign.Calculate
             set => _thEdgeConn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th conn pt.
+        /// </summary>
         [XmlAttribute("fThConnPt")]
         public int _thConnPt;
 
@@ -529,6 +724,9 @@ namespace FemDesign.Calculate
             set => _thConnPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th conn ln.
+        /// </summary>
         [XmlAttribute("fThConnLn")]
         public int _thConnLn;
 
@@ -539,6 +737,9 @@ namespace FemDesign.Calculate
             set => _thConnLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th conn sf.
+        /// </summary>
         [XmlAttribute("fThConnSf")]
         public int _thConnSf;
 
@@ -549,6 +750,9 @@ namespace FemDesign.Calculate
             set => _thConnSf = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th load pt.
+        /// </summary>
         [XmlAttribute("fThLoadPt")]
         public int _thLoadPt;
 
@@ -559,6 +763,9 @@ namespace FemDesign.Calculate
             set => _thLoadPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th load ln.
+        /// </summary>
         [XmlAttribute("fThLoadLn")]
         public int _thLoadLn;
 
@@ -569,6 +776,9 @@ namespace FemDesign.Calculate
             set => _thLoadLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th load sf.
+        /// </summary>
         [XmlAttribute("fThLoadSf")]
         public int _thLoadSf;
 
@@ -579,6 +789,9 @@ namespace FemDesign.Calculate
             set => _thLoadSf = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th fix pt.
+        /// </summary>
         [XmlAttribute("fThFixPt")]
         public int _thFixPt;
 
@@ -589,6 +802,9 @@ namespace FemDesign.Calculate
             set => _thFixPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the th fix ln.
+        /// </summary>
         [XmlAttribute("fThFixLn")]
         public int _thFixLn;
 
@@ -599,6 +815,9 @@ namespace FemDesign.Calculate
             set => _thFixLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the auto rebuild.
+        /// </summary>
         [XmlAttribute("fAutoRebuild")]
         public int _autoRebuild;
 
@@ -609,6 +828,9 @@ namespace FemDesign.Calculate
             set => _autoRebuild = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the auto smooth.
+        /// </summary>
         [XmlAttribute("fAutoSmooth")]
         public int _autoSmooth;
 
@@ -619,6 +841,9 @@ namespace FemDesign.Calculate
             set => _autoSmooth = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the auto check.
+        /// </summary>
         [XmlAttribute("fAutoCheck")]
         public int _autoCheck;
 
@@ -636,6 +861,32 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeshPrepare"/> class.
+        /// </summary>
+        /// <param name="autoRegen">the auto regen.</param>
+        /// <param name="thPeak">the th peak.</param>
+        /// <param name="thBeam">the th beam.</param>
+        /// <param name="thColumn">the th column.</param>
+        /// <param name="thTruss">the th truss.</param>
+        /// <param name="thFicBeam">the th fic beam.</param>
+        /// <param name="thFreeEdge">the th free edge.</param>
+        /// <param name="thRegionBorder">the th region border.</param>
+        /// <param name="thSuppPt">the th supp pt.</param>
+        /// <param name="thSuppLn">the th supp ln.</param>
+        /// <param name="thSuppSf">the th supp sf.</param>
+        /// <param name="thEdgeConn">the th edge conn.</param>
+        /// <param name="thConnPt">the th conn pt.</param>
+        /// <param name="thConnLn">the th conn ln.</param>
+        /// <param name="thConnSf">the th conn sf.</param>
+        /// <param name="thLoadPt">the th load pt.</param>
+        /// <param name="thLoadLn">the th load ln.</param>
+        /// <param name="thLoadSf">the th load sf.</param>
+        /// <param name="thFixPt">the th fix pt.</param>
+        /// <param name="thFixLn">the th fix ln.</param>
+        /// <param name="autoRebuild">the auto rebuild.</param>
+        /// <param name="autoSmooth">the auto smooth.</param>
+        /// <param name="autoCheck">the auto check.</param>
         public MeshPrepare(bool autoRegen = true, bool thPeak = true, bool thBeam = false, bool thColumn = true, bool thTruss = false, bool thFicBeam = false, bool thFreeEdge = false, bool thRegionBorder = false, 
             bool thSuppPt = true, bool thSuppLn = false, bool thSuppSf = false, bool thEdgeConn = false, bool thConnPt = false, bool thConnLn = false, bool thConnSf = false, bool thLoadPt = false, 
             bool thLoadLn = false, bool thLoadSf = false, bool thFixPt = false, bool thFixLn = false, bool autoRebuild = true, bool autoSmooth = true, bool autoCheck = false)
@@ -665,14 +916,24 @@ namespace FemDesign.Calculate
             this.AutoCheck = autoCheck;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static MeshPrepare Default()
         {
             return new MeshPrepare(autoRegen : true);
         }
     }
 
+    /// <summary>
+    /// Represents a Peaksm Method.
+    /// </summary>
     public partial class PeaksmMethod : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the peak form m.
+        /// </summary>
         [XmlAttribute("sPeakFormFunc_M")]
         public int _peakFormM { get; set; }
 
@@ -683,6 +944,9 @@ namespace FemDesign.Calculate
             set => _peakFormM = (int)value;
         }
 
+        /// <summary>
+        /// Gets or sets the peak form n.
+        /// </summary>
         [XmlAttribute("sPeakFormFunc_N")]
         public int _peakFormN { get; set; }
 
@@ -693,6 +957,9 @@ namespace FemDesign.Calculate
             set => _peakFormN = (int)value;
         }
 
+        /// <summary>
+        /// Gets or sets the peak form v.
+        /// </summary>
         [XmlAttribute("sPeakFormFunc_V")]
         public int _peakFormV { get; set; }
 
@@ -711,6 +978,12 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeaksmMethod"/> class.
+        /// </summary>
+        /// <param name="peakFormM">the peak form m.</param>
+        /// <param name="peakFormN">the peak form n.</param>
+        /// <param name="peakFormV">the peak form v.</param>
         public PeaksmMethod(int peakFormM = 1, int peakFormN = 1, int peakFormV = 1)
         {
             this._peakFormM = peakFormM;
@@ -718,6 +991,12 @@ namespace FemDesign.Calculate
             this._peakFormV = peakFormV;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeaksmMethod"/> class.
+        /// </summary>
+        /// <param name="peakFormM">the peak form m.</param>
+        /// <param name="peakFormN">the peak form n.</param>
+        /// <param name="peakFormV">the peak form v.</param>
         public PeaksmMethod(PeaksmMethodOptions peakFormM = PeaksmMethodOptions.HigherOrderShapeFunc, PeaksmMethodOptions peakFormN = PeaksmMethodOptions.HigherOrderShapeFunc, PeaksmMethodOptions peakFormV = PeaksmMethodOptions.HigherOrderShapeFunc)
         {
             this.PeakFormM = peakFormM;
@@ -725,11 +1004,18 @@ namespace FemDesign.Calculate
             this.PeakFormV = peakFormV;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static PeaksmMethod Default()
         {
             return new PeaksmMethod(peakFormM : 1);
         }
 
+        /// <summary>
+        /// Defines the Peaksm Method Options enumeration.
+        /// </summary>
         public enum PeaksmMethodOptions
         {
             [XmlEnum("0")]
@@ -751,8 +1037,14 @@ namespace FemDesign.Calculate
     }
     
 
+    /// <summary>
+    /// Represents a Peaksm Auto.
+    /// </summary>
     public partial class PeaksmAuto : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the peak beam.
+        /// </summary>
         [XmlAttribute("fPeakBeam")]
         public int _peakBeam;
 
@@ -763,6 +1055,9 @@ namespace FemDesign.Calculate
             set => _peakBeam = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak column.
+        /// </summary>
         [XmlAttribute("fPeakColumn")]
         public int _peakColumn;
 
@@ -773,6 +1068,9 @@ namespace FemDesign.Calculate
             set => _peakColumn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak truss.
+        /// </summary>
         [XmlAttribute("fPeakTruss")]
         public int _peakTruss;
 
@@ -783,6 +1081,9 @@ namespace FemDesign.Calculate
             set => _peakTruss = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak fic beam.
+        /// </summary>
         [XmlAttribute("fPeakFicBeam")]
         public int _peakFicBeam;
 
@@ -793,6 +1094,9 @@ namespace FemDesign.Calculate
             set => _peakFicBeam = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak plate.
+        /// </summary>
         [XmlAttribute("fPeakPlate")]
         public int _peakPlate;
 
@@ -803,6 +1107,9 @@ namespace FemDesign.Calculate
             set => _peakPlate = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak wall.
+        /// </summary>
         [XmlAttribute("fPeakWall")]
         public int _peakWall;
 
@@ -813,6 +1120,9 @@ namespace FemDesign.Calculate
             set => _peakWall = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak fic shell.
+        /// </summary>
         [XmlAttribute("fPeakFicShell")]
         public int _peakFicShell;
 
@@ -823,6 +1133,9 @@ namespace FemDesign.Calculate
             set => _peakFicShell = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak supp pt.
+        /// </summary>
         [XmlAttribute("fPeakSuppPt")]
         public int _peakSuppPt;
 
@@ -833,6 +1146,9 @@ namespace FemDesign.Calculate
             set => _peakSuppPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak supp ln.
+        /// </summary>
         [XmlAttribute("fPeakSuppLn")]
         public int _peakSuppLn;
 
@@ -843,6 +1159,9 @@ namespace FemDesign.Calculate
             set => _peakSuppLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak supp sf.
+        /// </summary>
         [XmlAttribute("fPeakSuppSf")]
         public int _peakSuppSf;
 
@@ -853,6 +1172,9 @@ namespace FemDesign.Calculate
             set => _peakSuppSf = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak conn pt.
+        /// </summary>
         [XmlAttribute("fPeakConnPt")]
         public int _peakConnPt;
 
@@ -863,6 +1185,9 @@ namespace FemDesign.Calculate
             set => _peakConnPt = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak conn ln.
+        /// </summary>
         [XmlAttribute("fPeakConnLn")]
         public int _peakConnLn;
 
@@ -873,6 +1198,9 @@ namespace FemDesign.Calculate
             set => _peakConnLn = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak conn sf.
+        /// </summary>
         [XmlAttribute("fPeakConnSf")]
         public int _peakConnSf;
 
@@ -883,6 +1211,9 @@ namespace FemDesign.Calculate
             set => _peakConnSf = Convert.ToInt32(value);
         }
 
+        /// <summary>
+        /// Gets or sets the peak factor.
+        /// </summary>
         [XmlAttribute("rPeakFactor")]
         public double _peakFactor;
 
@@ -900,6 +1231,23 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeaksmAuto"/> class.
+        /// </summary>
+        /// <param name="peakBeam">the peak beam.</param>
+        /// <param name="peakColumn">the peak column.</param>
+        /// <param name="peakTruss">the peak truss.</param>
+        /// <param name="peakficBeam">the peakfic beam.</param>
+        /// <param name="peakPlate">the peak plate.</param>
+        /// <param name="peakWall">the peak wall.</param>
+        /// <param name="peakFicShell">the peak fic shell.</param>
+        /// <param name="peakSuppPt">the peak supp pt.</param>
+        /// <param name="peakSuppLn">the peak supp ln.</param>
+        /// <param name="peakSuppSf">the peak supp sf.</param>
+        /// <param name="peakConnPt">the peak conn pt.</param>
+        /// <param name="peakConnLn">the peak conn ln.</param>
+        /// <param name="peakConnSf">the peak conn sf.</param>
+        /// <param name="peakFactor">the peak factor.</param>
         public PeaksmAuto(bool peakBeam = false, bool peakColumn = true, bool peakTruss = false, bool peakficBeam = false, bool peakPlate = false, bool peakWall = false, bool peakFicShell = false, bool peakSuppPt = true, bool peakSuppLn = false, bool peakSuppSf = false, bool peakConnPt = false, bool peakConnLn = false, bool peakConnSf = false, double peakFactor = 0.5)
         {
             this.PeakBeam = peakBeam;
@@ -918,14 +1266,24 @@ namespace FemDesign.Calculate
             this.PeakFactor = peakFactor;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static PeaksmAuto Default()
         {
             return new PeaksmAuto(peakBeam : false);
         }
     }
 
+    /// <summary>
+    /// Represents a Soil Calculation.
+    /// </summary>
     public partial class SoilCalculation : GlobConfig
     {
+        /// <summary>
+        /// Gets or sets the soil as solid.
+        /// </summary>
         [XmlAttribute("fSoilAsSolid")]
         public int _soilAsSolid;
 
@@ -944,11 +1302,19 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SoilCalculation"/> class.
+        /// </summary>
+        /// <param name="soilAsSolid">the soil as solid.</param>
         public SoilCalculation(bool soilAsSolid = true)
         {
             this.SoilAsSolid = soilAsSolid;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static SoilCalculation Default()
         {
             return new SoilCalculation(soilAsSolid : false);
@@ -960,6 +1326,10 @@ namespace FemDesign.Calculate
     /// </summary>
     public abstract class GlobConfig
     {
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return Results.ResultsReader.ObjectRepresentation(this);

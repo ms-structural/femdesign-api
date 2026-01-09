@@ -9,6 +9,9 @@ namespace FemDesign.Geometry
     [System.Serializable]
     public partial class Regions
     {
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order = 1)]
         public List<Region> Region = new List<Region>();
     }

@@ -10,7 +10,7 @@ using FemDesign.Releases;
 namespace FemDesign.Shells
 {
     /// <summary>
-    /// panel_type
+    /// Represents a Panel.
     /// </summary>
     [System.Serializable]
     public partial class Panel: NamedEntityBase, IStructureElement, IStageElement, IShell
@@ -150,6 +150,9 @@ namespace FemDesign.Shells
         [XmlElement("anchor_point", Order = 3)]
         public Geometry.Point3d AnchorPoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal panels.
+        /// </summary>
         [XmlElement("internal_panels", Order = 5)]
         public InternalPanels InternalPanels { get; set; }
 
@@ -178,47 +181,92 @@ namespace FemDesign.Shells
         [XmlIgnore]
         public Materials.GlcPanelLibraryType GlcPanelLibraryData { get; set; }
 
+        /// <summary>
+        /// Gets or sets the camber.
+        /// </summary>
         [XmlElement("camber_simulation", Order = 7)]
         public Camber Camber { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal plastic limit forces.
+        /// </summary>
         [XmlElement("internal_plastic_limit_forces", Order = 8)]
         public Releases.PlasticityType3d InternalPlasticLimitForces { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal plastic limit moments.
+        /// </summary>
         [XmlElement("internal_plastic_limit_moments", Order = 9)]
         public Releases.PlasticityType3d InternalPlasticLimitMoments { get; set; }
 
+        /// <summary>
+        /// Gets or sets the external plastic limit forces.
+        /// </summary>
         [XmlElement("external_plastic_limit_forces", Order = 10)]
         public Releases.PlasticityType3d ExternalPlasticLimitForces { get; set; }
 
+        /// <summary>
+        /// Gets or sets the external plastic limit moments.
+        /// </summary>
         [XmlElement("external_plastic_limit_moments", Order = 11)]
         public Releases.PlasticityType3d ExternalPlasticLimitMoments { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal stiffness.
+        /// </summary>
         [XmlElement("internal_stiffness", Order = 12)]
         public Releases.StiffnessWithFriction InternalStiffness { get; set; }
 
+        /// <summary>
+        /// Gets or sets the external stiffness.
+        /// </summary>
         [XmlElement("external_stiffness", Order = 13)]
         public Releases.StiffnessWithFriction ExternalStiffness { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal rigidity.
+        /// </summary>
         [XmlElement("internal_rigidity", Order = 14)]
         public Releases.RigidityDataType3 InternalRigidity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the internal predefined rigidity.
+        /// </summary>
         [XmlElement("internal_predefined_rigidity", Order = 15)]
         public GuidListType InternalPredefinedRigidity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the external rigidity.
+        /// </summary>
         [XmlElement("external_rigidity", Order = 16)]
         public Releases.RigidityDataType3 ExternalRigidity { get; set; } // sets region border. region edgeconnection sets edgeconnection for specific edge. default should be hinged?
 
+        /// <summary>
+        /// Gets or sets the external predefined rigidity.
+        /// </summary>
         [XmlElement("external_predefined_rigidity", Order = 17)]
         public GuidListType ExternalPredefinedRigidity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 18)]
         public EntityColor Colouring { get; set; }
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public PanelType Type { get; set; }
 
+        /// <summary>
+        /// Gets or sets the complex material ref.
+        /// </summary>
         [XmlAttribute("complex_material")]
         public System.Guid ComplexMaterialRef { get; set; }
+        /// <summary>
+        /// Gets or sets the material.
+        /// </summary>
         [XmlIgnore]
         public Materials.Material _material;
         [XmlIgnore]
@@ -243,8 +291,14 @@ namespace FemDesign.Shells
                 return this._material;
             }
         }
+        /// <summary>
+        /// Gets or sets the complex section.
+        /// </summary>
         [XmlAttribute("complex_section")]
         public System.Guid ComplexSection;
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
         [XmlIgnore]
         public Sections.Section _section;
         [XmlIgnore]
@@ -261,12 +315,24 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the panel name.
+        /// </summary>
         [XmlAttribute("panelname")]
         public string PanelName { get; set; }
+        /// <summary>
+        /// Gets or sets the in situ fabricated.
+        /// </summary>
         [XmlAttribute("in_situ_fabricated")]
         public bool InSituFabricated { get; set; } // deault="false"
+        /// <summary>
+        /// Gets or sets the gap.
+        /// </summary>
         [XmlAttribute("gap")]
         public double Gap { get; set; }
+        /// <summary>
+        /// Gets or sets the orthotropy.
+        /// </summary>
         [XmlAttribute("orthotropy")]
         public double _orthotropy; // orthotropy_type
         [XmlIgnore]
@@ -287,20 +353,44 @@ namespace FemDesign.Shells
         /// </summary>
         [XmlAttribute("thickness")]
         public double Thickness { get; set; }
+        /// <summary>
+        /// Gets or sets the alignment.
+        /// </summary>
         [XmlAttribute("alignment")]
         public VerticalAlignment Alignment { get; set; }
+        /// <summary>
+        /// Gets or sets the align offset.
+        /// </summary>
         [XmlAttribute("align_offset")]
         public double AlignOffset { get; set; }
+        /// <summary>
+        /// Gets or sets the eccentricity calculation.
+        /// </summary>
         [XmlAttribute("ecc_calc")]
         public bool EccentricityCalculation { get; set; } // default="false"
+        /// <summary>
+        /// Gets or sets the eccentricity by cracking.
+        /// </summary>
         [XmlAttribute("ecc_crack")]
         public bool EccentricityByCracking { get; set; } // default="false"
+        /// <summary>
+        /// Gets or sets the internal moving local.
+        /// </summary>
         [XmlAttribute("internal_moving_local")]
         public bool InternalMovingLocal { get; set; } // default="false"
+        /// <summary>
+        /// Gets or sets the external moving local.
+        /// </summary>
         [XmlAttribute("external_moving_local")]
         public bool ExternalMovingLocal { get; set; } // default="false" according to strusoft.xsd. default="True" according to FD gui.
+        /// <summary>
+        /// Gets or sets the forced plate.
+        /// </summary>
         [XmlAttribute("forced_plate")]
         public bool ForcedPlate { get; set; } // default="false" if false a vertical panel will be represented as a wall in FD, if true a vertical panel will not be represented as a wall
+        /// <summary>
+        /// Gets or sets the panel width.
+        /// </summary>
         [XmlAttribute("panel_width")]
         public string _panelWidth; // positive_max_100, default="1.5"
         [XmlIgnore]
@@ -327,10 +417,16 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int StageId { get; set; } = 1;
 
 
+        /// <summary>
+        /// Gets or sets the ignored distance.
+        /// </summary>
         [XmlAttribute("ignored_distance")]
         [DefaultValue(0.02)]
         public double _ignoredDistance = 0.02;
@@ -348,6 +444,9 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ignored in stability.
+        /// </summary>
         [XmlAttribute("ignored_in_stability")]
         [DefaultValue(false)]
         public bool IgnoredInStability { get; set; } = false;
@@ -399,6 +498,10 @@ namespace FemDesign.Shells
 
         }
 
+        /// <summary>
+        /// Gets the edge connections.
+        /// </summary>
+        /// <returns>The result.</returns>
         public List<EdgeConnection> GetEdgeConnections()
         {
             // set the edge connections of the external edges of the internal panels
@@ -412,6 +515,11 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets the edge connections.
+        /// </summary>
+        /// <param name="name">the name.</param>
+        /// <returns>The result.</returns>
         public List<EdgeConnection> GetEdgeConnections(string name)
         {
             // set the edge connections of the external edges of the internal panels
@@ -427,6 +535,11 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets the edge connection.
+        /// </summary>
+        /// <param name="guid">the guid.</param>
+        /// <returns>The result.</returns>
         public EdgeConnection GetEdgeConnection(Guid guid)
         {
             // set the edge connections of the external edges of the internal panels
@@ -488,6 +601,10 @@ namespace FemDesign.Shells
         }
 
 
+        /// <summary>
+        /// Updates the material.
+        /// </summary>
+        /// <param name="material">the material.</param>
         public void UpdateMaterial(Materials.Material material)
         {
             if (this.Type == PanelType.Concrete)

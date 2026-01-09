@@ -21,9 +21,21 @@ namespace FemDesign.Results
         /// Shell name identifier
         /// </summary>
         public string Id { get; }
+        /// <summary>
+        /// Gets or sets the max.
+        /// </summary>
         public double Max { get; }
+        /// <summary>
+        /// Gets or sets the vrd max.
+        /// </summary>
         public double VrdMax { get; }
+        /// <summary>
+        /// Gets or sets the vrd c.
+        /// </summary>
         public double VrdC { get; }
+        /// <summary>
+        /// Gets or sets the vrd s.
+        /// </summary>
         public double VrdS { get; }
 
         /// <summary>
@@ -42,6 +54,10 @@ namespace FemDesign.Results
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

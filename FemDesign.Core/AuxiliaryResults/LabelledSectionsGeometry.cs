@@ -9,6 +9,9 @@ namespace FemDesign.AuxiliaryResults
     [System.Serializable]
     public partial class LabelledSectionsGeometry
     {
+        /// <summary>
+        /// Gets or sets the labelled sections.
+        /// </summary>
         [XmlElement("section_geometry", Order = 1)]
         public List<LabelledSection> LabelledSections = new List<LabelledSection>();
     }

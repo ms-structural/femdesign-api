@@ -6,6 +6,9 @@ using System.Drawing;
 
 namespace FemDesign.Soil
 {
+    /// <summary>
+    /// Represents a Strata.
+    /// </summary>
     [System.Serializable]
     public partial class Strata : NamedEntityBase
     {
@@ -13,12 +16,21 @@ namespace FemDesign.Soil
         internal static int _instance = 0; // Shared instance counter for both PointSupport and LineSupport
         protected override int GetUniqueInstanceCount() => 1; // Only ONE instance can be created.
 
+        /// <summary>
+        /// Gets or sets the contour.
+        /// </summary>
         [XmlElement("contour", Order = 1)]
         public Geometry.HorizontalPolygon2d Contour { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stratum.
+        /// </summary>
         [XmlElement("stratum", Order = 2)]
         public List<Stratum> Stratum { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ground water.
+        /// </summary>
         [XmlElement("water_level", Order = 3)]
         public List<GroundWater> _groundWater { get; set; }
 
@@ -40,6 +52,9 @@ namespace FemDesign.Soil
         }
 
 
+        /// <summary>
+        /// Gets or sets the depth level limit.
+        /// </summary>
         [XmlAttribute("depth_level_limit")]
         public double _depthLevelLimit { get; set; }
 
@@ -82,6 +97,14 @@ namespace FemDesign.Soil
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Strata"/> class.
+        /// </summary>
+        /// <param name="stratum">the stratum.</param>
+        /// <param name="waterLevel">the water level.</param>
+        /// <param name="contour">the contour.</param>
+        /// <param name="levelLimit">the level limit.</param>
+        /// <param name="identifier">the identifier.</param>
         public Strata(List<Stratum> stratum, List<GroundWater> waterLevel, List<Geometry.Point2d> contour, double levelLimit, string identifier = "SOIL")
         {
             this.Stratum = stratum;
@@ -93,17 +116,30 @@ namespace FemDesign.Soil
             // Strata Object does not have a Guid. Therefore this.EntityCreated() should not be use
             this.EntityModified();
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name} {this.Name}, Level Limit {DepthLevelLimit} [m], Stratum: {Stratum.Count} layer, Ground water: {GroundWater.Count} layer";
         }
     }
 
+    /// <summary>
+    /// Represents a Stratum.
+    /// </summary>
     public partial class Stratum
     {
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("material")]
         public Guid Guid { get; set; }
 
+        /// <summary>
+        /// Gets or sets the material.
+        /// </summary>
         [XmlIgnore]
         public Materials.Material _material { get; set; }
 
@@ -123,6 +159,9 @@ namespace FemDesign.Soil
             }
         }
 
+        /// <summary>
+        /// Gets or sets the colour.
+        /// </summary>
         [XmlAttribute("colour")]
         public string _colour { get; set; }
         [XmlIgnore]
@@ -144,6 +183,11 @@ namespace FemDesign.Soil
         /// </summary>
         private Stratum() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Stratum"/> class.
+        /// </summary>
+        /// <param name="soilMaterial">the soil material.</param>
+        /// <param name="color">the color.</param>
         public Stratum(Materials.Material soilMaterial, Color? color = null)
         {
             this.Material = soilMaterial;
@@ -155,6 +199,10 @@ namespace FemDesign.Soil
             this.Color = color;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return base.ToString();
@@ -163,8 +211,14 @@ namespace FemDesign.Soil
     }
 
 
+    /// <summary>
+    /// Represents a Ground Water.
+    /// </summary>
     public partial class GroundWater
     {
+        /// <summary>
+        /// Gets or sets the colour.
+        /// </summary>
         [XmlAttribute("colour")]
         public string _colour { get; set; }
         [XmlIgnore]
@@ -181,6 +235,9 @@ namespace FemDesign.Soil
             }
         }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
@@ -192,6 +249,11 @@ namespace FemDesign.Soil
         /// </summary>
         private GroundWater() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroundWater"/> class.
+        /// </summary>
+        /// <param name="name">the name.</param>
+        /// <param name="color">the color.</param>
         public GroundWater(string name, Color? color = null)
         {
             this.Name = name;

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Shells
 {
     /// <summary>
-    /// slab_part_type
+    /// Represents a Slab Part.
     /// </summary>
     [System.Serializable]
     public partial class SlabPart: NamedEntityPartBase, IStageElement
@@ -29,6 +29,9 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the slab type.
+        /// </summary>
         [XmlIgnore]
         public SlabType SlabType;
 
@@ -56,14 +59,26 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the complex material guid.
+        /// </summary>
         [XmlAttribute("complex_material")]
         public System.Guid ComplexMaterialGuid {get; set;} // guidtype
 
+        /// <summary>
+        /// Gets or sets the complex material.
+        /// </summary>
         [XmlIgnore]
         public Materials.Material ComplexMaterial { get; set; } // guidtype
 
+        /// <summary>
+        /// Gets or sets the alignment.
+        /// </summary>
         [XmlAttribute("alignment")]
         public GenericClasses.VerticalAlignment Alignment { get; set; }
+        /// <summary>
+        /// Gets or sets the align offset.
+        /// </summary>
         [XmlAttribute("align_offset")]
         public double _alignOffset; // abs_max_1e20
         [XmlIgnore]
@@ -72,6 +87,9 @@ namespace FemDesign.Shells
             get {return this._alignOffset;}
             set {this._alignOffset = RestrictedDouble.AbsMax_1e20(value);}
         }
+        /// <summary>
+        /// Gets or sets the ortho alfa.
+        /// </summary>
         [XmlAttribute("ortho_alfa")]
         public double _orthoAlfa; // two_quadrants
         [XmlIgnore]
@@ -80,6 +98,9 @@ namespace FemDesign.Shells
             get {return this._orthoAlfa;}
             set {this._orthoAlfa = RestrictedDouble.TwoQuadrantsRadians(value);}
         }
+        /// <summary>
+        /// Gets or sets the ortho ratio.
+        /// </summary>
         [XmlAttribute("ortho_ratio")]
         public double _orthoRatio; // orthotropy_type
         [XmlIgnore]
@@ -88,10 +109,19 @@ namespace FemDesign.Shells
             get {return this._orthoRatio;}
             set {this._orthoRatio = RestrictedDouble.NonNegMax_1(value);}
         }
+        /// <summary>
+        /// Gets or sets the eccentricity calculation.
+        /// </summary>
         [XmlAttribute("ecc_calc")]
         public bool EccentricityCalculation { get; set; } // bool
+        /// <summary>
+        /// Gets or sets the eccentricity by cracking.
+        /// </summary>
         [XmlAttribute("ecc_crack")]
         public bool EccentricityByCracking { get; set; } // bool
+        /// <summary>
+        /// Gets or sets the mesh size.
+        /// </summary>
         [XmlAttribute("mesh_size")]
         public double _meshSize; // non_neg_max_1e20
         [XmlIgnore]
@@ -100,6 +130,9 @@ namespace FemDesign.Shells
             get {return this._meshSize;}
             set {this._meshSize = RestrictedDouble.NonNegMax_1e20(value);}
         }
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int StageId { get; set; } = 1;
         //[XmlElement("contour", Order = 1)]
@@ -131,6 +164,9 @@ namespace FemDesign.Shells
         //        this._region = value; 
         //    }
         //}
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("contour", Order = 1)]
         public List<Geometry.Contour> _region;
         [XmlIgnore]
@@ -150,6 +186,9 @@ namespace FemDesign.Shells
         {
             get => new Geometry.Plane(this.LocalPos, this.LocalX, this.LocalY);
         }
+        /// <summary>
+        /// Gets or sets the thickness.
+        /// </summary>
         [XmlElement("thickness", Order = 2)]
         public List<Thickness> _thickness; // sequence: location_value
         [XmlIgnore]
@@ -168,8 +207,14 @@ namespace FemDesign.Shells
                 }
             }
         }
+        /// <summary>
+        /// Gets or sets the local pos.
+        /// </summary>
         [XmlElement("local_pos", Order = 3)]
         public Geometry.Point3d LocalPos {get; set;} // point_type_3d
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order = 4)]
         public Geometry.Vector3d _localX; // point_type_3d
         [XmlIgnore]
@@ -197,6 +242,9 @@ namespace FemDesign.Shells
                 }
             }
         }
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order = 5)]
         public Geometry.Vector3d _localY; // point_type_3d
         [XmlIgnore]
@@ -242,6 +290,9 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the stiffness modifiers.
+        /// </summary>
         [XmlElement("stiffness_modifiers", Order = 6)]
         public List<SlabStiffnessFactors> _stiffnessModifiers;
         [XmlIgnore]
@@ -261,9 +312,15 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 7)]
         public EntityColor Colouring { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 8)]
         public string End = ""; // empty_type
 
@@ -278,6 +335,13 @@ namespace FemDesign.Shells
         /// <summary>
         /// Construct SlabPart.
         /// </summary>
+        /// <param name="type">the type.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <param name="complexMaterial">the complex material.</param>
+        /// <param name="alignment">the alignment.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
         public SlabPart(SlabType type, string identifier, Geometry.Region region, List<Thickness> thickness, Materials.Material complexMaterial, ShellEccentricity alignment, ShellOrthotropy orthotropy)
         {
             this.EntityCreated();
@@ -302,6 +366,15 @@ namespace FemDesign.Shells
         /// <summary>
         /// Construct SlabPart with EdgeConnections.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="type">the type.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="shellEdgeConnection">the shell edge connection.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
         public static SlabPart Define(SlabType type, string identifier, Geometry.Region region, List<Thickness> thickness, Materials.Material material, EdgeConnection shellEdgeConnection = null, ShellEccentricity eccentricity = null, ShellOrthotropy orthotropy = null)
         {
             shellEdgeConnection = shellEdgeConnection ?? EdgeConnection.Default;
@@ -321,6 +394,7 @@ namespace FemDesign.Shells
         /// <summary>
         /// Get EdgeConnections. Used for Deconstruct methods and when redefining EdgeConnections on existing slab. 
         /// </summary>
+        /// <returns>The result.</returns>
         public List<Shells.EdgeConnection> GetEdgeConnections()
         {
             return this.Region.GetEdgeConnections();

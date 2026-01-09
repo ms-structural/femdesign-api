@@ -7,18 +7,30 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.Reinforcement
 {
+    /// <summary>
+    /// Represents a Bar Reinforcement.
+    /// </summary>
     [XmlInclude(typeof(StirrupReinforcement))]
     [XmlInclude(typeof(LongitudinalBarReinforcement))]
     [System.Serializable]
     public partial class BarReinforcement: EntityBase, IStructureElement
     {
+        /// <summary>
+        /// Gets or sets the base bar.
+        /// </summary>
         [XmlElement("base_bar", Order = 1)]
         public GuidListType BaseBar { get; set; }
 
+        /// <summary>
+        /// Gets or sets the wire.
+        /// </summary>
         [XmlElement("wire", Order = 2)]
         public Wire Wire { get; set; }
 
         // choice stirrups
+        /// <summary>
+        /// Gets or sets the stirrups.
+        /// </summary>
         [XmlElement("stirrups", Order = 3)]
         public Stirrups _stirrups;
         [XmlIgnore]
@@ -42,6 +54,9 @@ namespace FemDesign.Reinforcement
         }
 
         // choice longitudinal bar
+        /// <summary>
+        /// Gets or sets the longitudinal bar.
+        /// </summary>
         [XmlElement("longitudinal_bar", Order = 4)]
         public LongitudinalBar _longitudinalBar;
         [XmlIgnore]
@@ -103,6 +118,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct stirrup bar reinforcement for a normal bar
         /// </summary>
+        /// <param name="baseBar">the base bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="stirrups">the stirrups.</param>
         public BarReinforcement(Guid baseBar, Wire wire, Stirrups stirrups)
         {
             this.EntityCreated();
@@ -114,6 +132,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct stirrup bar reinforcement for a normal bar
         /// </summary>
+        /// <param name="bar">the bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="stirrups">the stirrups.</param>
         public BarReinforcement(Bars.Bar bar, Wire wire, Stirrups stirrups)
         {
             this.EntityCreated();
@@ -125,6 +146,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct stirrup bar reinforcement for a concealed bar
         /// </summary>
+        /// <param name="concealedBar">the concealed bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="stirrups">the stirrups.</param>
         public BarReinforcement(ConcealedBar concealedBar, Wire wire, Stirrups stirrups)
         {
             this.EntityCreated();
@@ -136,6 +160,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct longitudinal bar reinforcement for a normal bar
         /// </summary>
+        /// <param name="baseBar">the base bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="longBar">the long bar.</param>
         public BarReinforcement(Guid baseBar, Wire wire, LongitudinalBar longBar)
         {
             this.EntityCreated();
@@ -147,6 +174,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct longitudinal bar reinforcement for a normal bar
         /// </summary>
+        /// <param name="bar">the bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="longBar">the long bar.</param>
         public BarReinforcement(Bars.Bar bar, Wire wire, LongitudinalBar longBar)
         {
             this.EntityCreated();
@@ -158,6 +188,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct longitudinal bar reinforcement for a concealed bar
         /// </summary>
+        /// <param name="concealedBar">the concealed bar.</param>
+        /// <param name="wire">the wire.</param>
+        /// <param name="longBar">the long bar.</param>
         public BarReinforcement(ConcealedBar concealedBar, Wire wire, LongitudinalBar longBar)
         {
             this.EntityCreated();
@@ -173,6 +206,7 @@ namespace FemDesign.Reinforcement
         /// <param name="bar"></param>
         /// <param name="rebar"></param>
         /// <param name="overwrite">Overwrite rebar on bar if a rebar sharing guid already exists on the bar?</param>
+        /// <returns>The result.</returns>
         public static Bars.Bar AddReinforcementToBar(Bars.Bar bar, List<BarReinforcement> rebar, bool overwrite)
         {
             // check if bar is curved
@@ -235,6 +269,7 @@ namespace FemDesign.Reinforcement
         /// <param name="concealedBar"></param>
         /// <param name="rebar"></param>
         /// <param name="overwrite">Overwrite rebar on bar if a rebar sharing guid already exists on the bar?</param>
+        /// <returns>The result.</returns>
         public static ConcealedBar AddReinforcementToHiddenBar(ConcealedBar concealedBar, List<BarReinforcement> rebar, bool overwrite)
         {
             foreach (BarReinforcement item in rebar)
@@ -273,6 +308,10 @@ namespace FemDesign.Reinforcement
             return concealedBar;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().FullName} - {this.Wire}";

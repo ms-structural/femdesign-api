@@ -8,6 +8,9 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.Foundations
 {
+    /// <summary>
+    /// Defines the Foundation System enumeration.
+    /// </summary>
     public enum FoundationSystem
     {
 

@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// topbottom_value
+    /// Represents a Top Bot Location Value.
     /// </summary>
     [System.Serializable]
     public partial class TopBotLocationValue: Geometry.Point3d
@@ -45,6 +45,9 @@ namespace FemDesign.Loads
         /// <summary>
         /// Construct top bottom location value by point, top value and bottom value.
         /// </summary>
+        /// <param name="point">the point.</param>
+        /// <param name="topVal">the top val.</param>
+        /// <param name="bottomVal">the bottom val.</param>
         public TopBotLocationValue(Geometry.Point3d point, double topVal, double bottomVal)
         {
             this.X = point.X;
@@ -57,11 +60,16 @@ namespace FemDesign.Loads
         /// <summary>
         /// Convert coordinates to FdPoint.
         /// </summary>
+        /// <returns>The result.</returns>
         public Geometry.Point3d GetFdPoint()
         {
             return new Geometry.Point3d(this.X, this.Y, this.Z);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{GetFdPoint()} Top:{this.TopVal}°C Bottom:{this.BottomVal}°C;";

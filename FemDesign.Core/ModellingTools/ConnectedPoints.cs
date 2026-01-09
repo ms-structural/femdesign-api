@@ -8,6 +8,9 @@ using FemDesign.Geometry;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Connected Points.
+    /// </summary>
     [System.Serializable]
     public partial class ConnectedPoints : NamedEntityBase, IStructureElement
     {
@@ -15,6 +18,9 @@ namespace FemDesign.ModellingTools
         private static int _connectedPointInstances = 0;
         protected override int GetUniqueInstanceCount() => ++_connectedPointInstances;
 
+        /// <summary>
+        /// Gets or sets the points.
+        /// </summary>
         [XmlElement("point", Order = 1)]
         public Point3d[] _points;
 
@@ -64,6 +70,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order = 2)]
         public Geometry.Vector3d _localX;
 
@@ -82,6 +91,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order = 3)]
         public Geometry.Vector3d _localY;
 
@@ -117,12 +129,21 @@ namespace FemDesign.ModellingTools
 
         // rigidity data choice
 
+        /// <summary>
+        /// Gets or sets the rigidity.
+        /// </summary>
         [XmlElement("rigidity", Order = 4)]
         public RigidityDataType2 Rigidity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the predef rigidity ref.
+        /// </summary>
         [XmlElement("predefined_rigidity", Order = 5)]
         public GuidListType _predefRigidityRef;
 
+        /// <summary>
+        /// Gets or sets the predef rigidity.
+        /// </summary>
         [XmlIgnore]
         public RigidityDataLibType2 _predefRigidity;
 
@@ -143,12 +164,21 @@ namespace FemDesign.ModellingTools
         // rigidity group choice
 
 
+        /// <summary>
+        /// Gets or sets the references.
+        /// </summary>
         [XmlElement("ref", Order = 6)]
         public GuidListType[] References { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 7)]
         public EntityColor Colouring { get; set; }
 
+        /// <summary>
+        /// Gets or sets the interface.
+        /// </summary>
         [XmlAttribute("interface")]
         public double _interface;
 
@@ -176,6 +206,11 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points using rigidity. 
         /// </summary>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Point3d firstPoint, Point3d secondPoint, RigidityDataType2 rigidity, GuidListType[] references, string identifier = "CP")
         {
             Initialize(firstPoint, secondPoint, rigidity, references, identifier);
@@ -200,6 +235,12 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points with rigidity (motions, rotations). 
         /// </summary>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Point3d firstPoint, Point3d secondPoint, Motions motions, Rotations rotations, GuidListType[] references, string identifier = "CP")
         {
             RigidityDataType2 rigidity = new RigidityDataType2(motions, rotations);
@@ -209,6 +250,14 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points with rigidity (motions, rotations) and plastic limits (forces, moments). 
         /// </summary>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Point3d firstPoint, Point3d secondPoint, Motions motions, MotionsPlasticLimits motionsPlasticLimits, Rotations rotations, RotationsPlasticLimits rotationsPlasticLimits, IEnumerable<EntityBase> references, string identifier = "CP")
         {
             GuidListType[] refs = references.Select(r => new GuidListType(r)).ToArray();
@@ -219,6 +268,14 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points with rigidity (motions, rotations) and plastic limits (forces, moments). 
         /// </summary>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Point3d firstPoint, Point3d secondPoint, Motions motions, MotionsPlasticLimits motionsPlasticLimits, Rotations rotations, RotationsPlasticLimits rotationsPlasticLimits, GuidListType[] references, string identifier = "CP")
         {
             RigidityDataType2 rigidity = new RigidityDataType2(motions, motionsPlasticLimits, rotations, rotationsPlasticLimits);
@@ -228,6 +285,13 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points with coordinate system and rigidity (motions, rotations). 
         /// </summary>
+        /// <param name="plane">the plane.</param>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Plane plane, Point3d firstPoint, Point3d secondPoint, Motions motions, Rotations rotations, GuidListType[] references, string identifier = "CP")
         {
             RigidityDataType2 rigidity = new RigidityDataType2(motions, rotations);
@@ -240,6 +304,15 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a connected point between 2 points with coordinate system, rigidity (motions, rotations) and plastic limits (forces, moments). 
         /// </summary>
+        /// <param name="plane">the plane.</param>
+        /// <param name="firstPoint">the first point.</param>
+        /// <param name="secondPoint">the second point.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
         public ConnectedPoints(Plane plane, Point3d firstPoint, Point3d secondPoint, Motions motions, MotionsPlasticLimits motionsPlasticLimits, Rotations rotations, RotationsPlasticLimits rotationsPlasticLimits, GuidListType[] references, string identifier = "CP")
         {
             RigidityDataType2 rigidity = new RigidityDataType2(motions, motionsPlasticLimits, rotations, rotationsPlasticLimits);

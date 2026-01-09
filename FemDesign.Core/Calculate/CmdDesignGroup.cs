@@ -12,10 +12,16 @@ using FemDesign.Bars;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Cmd Design Group.
+    /// </summary>
     [XmlRoot("cmddesgroup")]
     [System.Serializable]
     public class CmdDesignGroup : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ CODE_COM DESGROUP"; // token, fixed
         /// <summary>
@@ -45,6 +51,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the design group cache.
+        /// </summary>
         [XmlIgnore]
         public static Dictionary<string, Calculate.CmdDesignGroup> _designGroupCache = new Dictionary<string, Calculate.CmdDesignGroup>();
         /// <summary>
@@ -52,6 +61,9 @@ namespace FemDesign.Calculate
         /// </summary>
         [XmlAttribute("force")]
         public bool Force { get; set; } = false;
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public DesignGroupType Type { get; set; }
         /// <summary>
@@ -60,9 +72,15 @@ namespace FemDesign.Calculate
         /// </summary>
         [XmlElement("GUID")]
         public List<Guid> Guids { get; set; }
+        /// <summary>
+        /// Gets or sets the elements.
+        /// </summary>
         [XmlIgnore]
         public List<FemDesign.GenericClasses.IStructureElement> Elements { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdDesignGroup"/> class.
+        /// </summary>
         public CmdDesignGroup()
         {
 
@@ -127,6 +145,13 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Cmd Steel Bar Design Group.
+        /// </summary>
+        /// <param name="name">the name.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="color">the color.</param>
+        /// <returns>The result.</returns>
         public static CmdDesignGroup CmdSteelBarDesignGroup(string name, List<FemDesign.GenericClasses.IStructureElement> elements, Color? color = null)
         {
             var cmdDesignGroup = new CmdDesignGroup(name, elements, DesignGroupType.SteelBars, color);
@@ -201,6 +226,10 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdDesignGroup>(this);

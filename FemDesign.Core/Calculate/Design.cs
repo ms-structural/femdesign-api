@@ -10,16 +10,34 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class Design
     {
+        /// <summary>
+        /// Gets or sets the c max.
+        /// </summary>
         [XmlElement("cmax")]
         public string CMax { get; set; } // choice?
+        /// <summary>
+        /// Gets or sets the g max.
+        /// </summary>
         [XmlElement("gmax")]
         public string GMax { get; set; } // choice?
+        /// <summary>
+        /// Gets or sets the auto design.
+        /// </summary>
         [XmlElement("autodesign")]
         public bool AutoDesign { get; set; } // bool
+        /// <summary>
+        /// Gets or sets the check.
+        /// </summary>
         [XmlElement("check")]
         public bool Check { get; set; } // bool
+        /// <summary>
+        /// Gets or sets the apply changes.
+        /// </summary>
         [XmlIgnore]
         public bool ApplyChanges { get; set; } // bool
+        /// <summary>
+        /// Gets or sets the mode.
+        /// </summary>
         [XmlIgnore]
         public CmdUserModule Mode { get; set; }
 
@@ -47,6 +65,14 @@ namespace FemDesign.Calculate
             this.ApplyChanges = applyChanges;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Design"/> class.
+        /// </summary>
+        /// <param name="mode">the mode.</param>
+        /// <param name="autoDesign">the auto design.</param>
+        /// <param name="check">the check.</param>
+        /// <param name="loadCombination">the load combination.</param>
+        /// <param name="applyChanges">the apply changes.</param>
         public Design(CmdUserModule mode, bool autoDesign = false, bool check = true, bool loadCombination = true, bool applyChanges = false) : this(autoDesign, check, loadCombination, applyChanges)
         {
             this.Mode = mode;

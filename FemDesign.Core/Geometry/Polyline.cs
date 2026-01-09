@@ -8,9 +8,15 @@ using System.Linq;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Polyline.
+    /// </summary>
     [System.Serializable]
     public partial class Polyline
     {
+        /// <summary>
+        /// Gets or sets the verticies.
+        /// </summary>
         [XmlElement("point")]
         public List<Point3d> Verticies;
 

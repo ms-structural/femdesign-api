@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.Bars
 {
+    /// <summary>
+    /// Defines the Section Type enumeration.
+    /// </summary>
     public enum SectionType
     {
         Truss,

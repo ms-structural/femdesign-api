@@ -8,11 +8,25 @@ using System.Globalization;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Interaction Surface.
+    /// </summary>
     public partial class InteractionSurface
     {
+        /// <summary>
+        /// Gets or sets the vertices.
+        /// </summary>
         public Dictionary<int, FemDesign.Geometry.Point3d> Vertices { get; set; }
+        /// <summary>
+        /// Gets or sets the faces.
+        /// </summary>
         public Dictionary<int, FemDesign.Geometry.Face> Faces { get; set; }
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InteractionSurface"/> class.
+        /// </summary>
+        /// <param name="vertices">the vertices.</param>
+        /// <param name="faces">the faces.</param>
         public InteractionSurface(Dictionary<int, FemDesign.Geometry.Point3d> vertices, Dictionary<int, FemDesign.Geometry.Face> faces)
         {
             Vertices = vertices;

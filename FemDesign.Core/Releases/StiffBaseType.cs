@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// stiff_base_type
+    /// Represents a Stiff Base Type.
     /// </summary>
     [System.Serializable]
     public partial class StiffBaseType
@@ -42,6 +42,10 @@ namespace FemDesign.Releases
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"Neg: {Neg} Pos: {Pos}";

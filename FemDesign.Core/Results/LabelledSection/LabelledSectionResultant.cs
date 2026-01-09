@@ -9,6 +9,9 @@ using FemDesign.Calculate;
 using Newtonsoft.Json;
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Labelled Section Resultant.
+    /// </summary>
     [Result(typeof(LabelledSectionResultant), ListProc.LabelledSectionsResultantsLoadCase, ListProc.LabelledSectionsResultantsLoadCombination)]
     public partial class LabelledSectionResultant : IResult
     {
@@ -63,6 +66,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

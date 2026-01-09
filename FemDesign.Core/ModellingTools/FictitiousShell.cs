@@ -6,6 +6,9 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Fictitious Shell.
+    /// </summary>
     [System.Serializable]
     public partial class FictitiousShell: NamedEntityBase, IStructureElement
     {
@@ -41,6 +44,9 @@ namespace FemDesign.ModellingTools
             }
         }
         
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order=1)]
         public Geometry.Region _region;
         [XmlIgnore]
@@ -56,6 +62,9 @@ namespace FemDesign.ModellingTools
             }
         }
         
+        /// <summary>
+        /// Gets or sets the local origin.
+        /// </summary>
         [XmlElement("local_pos", Order=2)]
         public Geometry.Point3d _localOrigin;
         [XmlIgnore]
@@ -72,6 +81,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order=3)]
         public Geometry.Vector3d _localX;
         [XmlIgnore]
@@ -89,6 +101,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order=4)]
         public Geometry.Vector3d _localY;
         [XmlIgnore]
@@ -121,15 +136,27 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the membrane stiffness.
+        /// </summary>
         [XmlElement("membrane_stiffness", Order=5)]
         public StiffnessMatrix4Type MembraneStiffness { get; set; }
 
+        /// <summary>
+        /// Gets or sets the flexural stiffness.
+        /// </summary>
         [XmlElement("flexural_stiffness", Order=6)]
         public StiffnessMatrix4Type FlexuralStiffness { get; set; }
 
+        /// <summary>
+        /// Gets or sets the shear stiffness.
+        /// </summary>
         [XmlElement("shear_stiffness", Order=7)]
         public StiffnessMatrix2Type ShearStiffness { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 8)]
         public EntityColor Colouring { get; set; }
 

@@ -9,6 +9,9 @@ namespace FemDesign.Bars
 {
     // Used for BarPart.Made
     // <bar_part ... made="rolled">
+    /// <summary>
+    /// Defines the Steel Made Type enumeration.
+    /// </summary>
     [System.Serializable]
     public enum SteelMadeType
     {

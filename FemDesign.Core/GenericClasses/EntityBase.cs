@@ -12,9 +12,15 @@ namespace FemDesign
     [Serializable]
     public abstract partial class EntityBase : IFemDesignEntity
     {
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public Guid Guid { get; set; }
 
+        /// <summary>
+        /// Gets or sets the last change.
+        /// </summary>
         [XmlAttribute("last_change")]
         public string _lastChange;
 
@@ -31,6 +37,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Gets or sets the action.
+        /// </summary>
         [XmlAttribute("action")]
         public string Action { get; set; }
 
@@ -57,6 +66,11 @@ namespace FemDesign
             this.Action = "modified";
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="entity">the entity.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Guid(EntityBase entity) => entity.Guid;
     }
 }

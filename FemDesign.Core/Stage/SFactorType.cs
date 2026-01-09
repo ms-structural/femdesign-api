@@ -8,9 +8,15 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign
 {
+    /// <summary>
+    /// Represents a S Factor Type.
+    /// </summary>
     [System.Serializable]
     public partial class SFactorType
     {
+        /// <summary>
+        /// Gets or sets the sc.
+        /// </summary>
         [XmlAttribute("Sc")]
         public double _sc { get; set; }
         [XmlIgnore]
@@ -20,6 +26,9 @@ namespace FemDesign
             set { this._sc = RestrictedDouble.NonNegMax_1e20(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the sf.
+        /// </summary>
         [XmlAttribute("Sf")]
         public double _sf { get; set; }
         [XmlIgnore]
@@ -29,6 +38,9 @@ namespace FemDesign
             set { this._sf = RestrictedDouble.NonNegMax_1e20(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the sq.
+        /// </summary>
         [XmlAttribute("Sq")]
         public double _sq { get; set; }
         [XmlIgnore]

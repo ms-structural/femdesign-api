@@ -9,9 +9,15 @@ namespace FemDesign.Reinforcement
     [System.Serializable]
     public partial class Centric
     {
+        /// <summary>
+        /// Gets or sets the face.
+        /// </summary>
         [XmlAttribute("face")]
         public GenericClasses.Face Face;
 
+        /// <summary>
+        /// Gets or sets the cover.
+        /// </summary>
         [XmlAttribute("cover")]
         public double Cover;
 

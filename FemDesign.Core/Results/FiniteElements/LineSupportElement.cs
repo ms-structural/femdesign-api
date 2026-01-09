@@ -11,6 +11,9 @@ using FemDesign.Calculate;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Line Support Element.
+    /// </summary>
     [Result(typeof(LineSupportElement), ListProc.FemLineSupport)]
     public partial class LineSupportElement : IResult
     {
@@ -43,6 +46,10 @@ namespace FemDesign.Results
             this.Node2 = node2;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {ElementId}, {Node1}, {Node2}";

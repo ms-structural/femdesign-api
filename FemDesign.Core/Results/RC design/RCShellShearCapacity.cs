@@ -30,10 +30,25 @@ namespace FemDesign.Results
         /// Finite element node id
         /// </summary>
         public int? NodeId { get; }
+        /// <summary>
+        /// Gets or sets the ved.
+        /// </summary>
         public double Ved { get; }
+        /// <summary>
+        /// Gets or sets the ved red.
+        /// </summary>
         public double VedRed { get; }
+        /// <summary>
+        /// Gets or sets the vrd max.
+        /// </summary>
         public double VrdMax { get; }
+        /// <summary>
+        /// Gets or sets the vrd c.
+        /// </summary>
         public double VrdC { get; }
+        /// <summary>
+        /// Gets or sets the vrd s.
+        /// </summary>
         public double VrdS { get; }
         /// <summary>
         /// Finite element node id
@@ -79,6 +94,10 @@ namespace FemDesign.Results
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

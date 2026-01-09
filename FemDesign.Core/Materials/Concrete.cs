@@ -11,77 +11,179 @@ namespace FemDesign.Materials
     [System.Serializable]
     public partial class Concrete: MaterialBase
     {
+        /// <summary>
+        /// Gets or sets the creep time dependant.
+        /// </summary>
         [XmlElement("tda_creep")]
         public StruSoft.Interop_24.Tda_creep2 CreepTimeDependant { get; set; }
 
+        /// <summary>
+        /// Gets or sets the shrinkage time dependant.
+        /// </summary>
         [XmlElement("tda_shrinkage")]
         public StruSoft.Interop_24.Tda_shrinkage ShrinkageTimeDependant { get; set; }
 
+        /// <summary>
+        /// Gets or sets the elasticity time dependant.
+        /// </summary>
         [XmlElement("tda_elasticity")]
         public StruSoft.Interop_24.Tda_elasticity ElasticityTimeDependant { get; set; }
 
+        /// <summary>
+        /// Gets or sets the plasticity.
+        /// </summary>
         [XmlElement("plastic_analysis_data")]
         public StruSoft.Interop_24.Concrete_pl_data Plasticity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the fck.
+        /// </summary>
         [XmlAttribute("Fck")]
         public string Fck { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fck cube.
+        /// </summary>
         [XmlAttribute("Fck_cube")]
         public string Fck_cube { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fctk.
+        /// </summary>
         [XmlAttribute("Fctk")]
         public string Fctk { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fctm.
+        /// </summary>
         [XmlAttribute("Fctm")]
         public string Fctm { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the ecm.
+        /// </summary>
         [XmlAttribute("Ecm")]
         public string Ecm { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma c 0.
+        /// </summary>
         [XmlAttribute("gammaC_0")]
         public string gammaC_0 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma c 1.
+        /// </summary>
         [XmlAttribute("gammaC_1")]
         public string gammaC_1 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma ce.
+        /// </summary>
         [XmlAttribute("gammaCE")]
         public string gammaCE { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma s 0.
+        /// </summary>
         [XmlAttribute("gammaS_0")]
         public string gammaS_0 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma s 1.
+        /// </summary>
         [XmlAttribute("gammaS_1")]
         public string gammaS_1 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the alfa cc.
+        /// </summary>
         [XmlAttribute("alfaCc")]
         public string alfaCc { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the alfa ct.
+        /// </summary>
         [XmlAttribute("alfaCt")]
         public string alfaCt { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fcd 0.
+        /// </summary>
         [XmlAttribute("Fcd_0")]
         public string Fcd_0 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the fcd 1.
+        /// </summary>
         [XmlAttribute("Fcd_1")]
         public string Fcd_1 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the fctd 0.
+        /// </summary>
         [XmlAttribute("Fctd_0")]
         public string Fctd_0 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the fctd 1.
+        /// </summary>
         [XmlAttribute("Fctd_1")]
         public string Fctd_1 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the ecd 0.
+        /// </summary>
         [XmlAttribute("Ecd_0")]
         public string Ecd_0 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the ecd 1.
+        /// </summary>
         [XmlAttribute("Ecd_1")]
         public string Ecd_1 { get; set; } // double
+        /// <summary>
+        /// Gets or sets the epsc2.
+        /// </summary>
         [XmlAttribute("Epsc2")]
         public string Epsc2 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the epscu2.
+        /// </summary>
         [XmlAttribute("Epscu2")]
         public string Epscu2 { get; set; } // material_base_value
 
+        /// <summary>
+        /// Gets or sets the epsc3.
+        /// </summary>
         [XmlAttribute("Epsc3")]
         public string Epsc3 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the epscu3.
+        /// </summary>
         [XmlAttribute("Epscu3")]
         public string Epscu3 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the environment.
+        /// </summary>
         [XmlAttribute("environment")]
         public string Environment { get; set; } // integer
+        /// <summary>
+        /// Gets or sets the creep.
+        /// </summary>
         [XmlAttribute("creep")]
         public double Creep { get; set; } // material_0base_value
+        /// <summary>
+        /// Gets or sets the creep slq.
+        /// </summary>
         [XmlAttribute("creep_sls")]
         public double CreepSlq { get; set;} // material_0base_value
+        /// <summary>
+        /// Gets or sets the creep slf.
+        /// </summary>
         [XmlAttribute("creep_slf")]
         public double CreepSlf { get; set;} // material_0base_value
+        /// <summary>
+        /// Gets or sets the creep slc.
+        /// </summary>
         [XmlAttribute("creep_slc")]
         public double CreepSlc { get; set;} // material_0base_value
+        /// <summary>
+        /// Gets or sets the shrinkage.
+        /// </summary>
         [XmlAttribute("shrinkage")]
         public double Shrinkage { get; set; } // non_neg_max_1000
+        /// <summary>
+        /// Gets or sets the nu.
+        /// </summary>
         [XmlAttribute("nu")]
         public string nu { get; set; } // material_nu_value
+        /// <summary>
+        /// Gets or sets the alfa.
+        /// </summary>
         [XmlAttribute("alfa")]
         public string alfa { get; set; } // material_base_value
         // [XmlAttribute("stability")]
@@ -165,6 +267,9 @@ namespace FemDesign.Materials
 
     }
 
+    /// <summary>
+    /// Defines the Crushing Criterion enumeration.
+    /// </summary>
     public enum CrushingCriterion
     {
         /// <remarks/>
@@ -181,6 +286,9 @@ namespace FemDesign.Materials
         None,
     }
 
+    /// <summary>
+    /// Defines the Tension Stiffening enumeration.
+    /// </summary>
     public enum TensionStiffening
     {
         Hinton,
@@ -190,6 +298,9 @@ namespace FemDesign.Materials
         None,
     }
 
+    /// <summary>
+    /// Defines the Reduced Compression enumeration.
+    /// </summary>
     public enum ReducedCompression
     {
         [System.Xml.Serialization.XmlEnumAttribute("Vecchio 1")]

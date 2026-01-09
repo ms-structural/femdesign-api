@@ -4,6 +4,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Defines the Composite Section Type enumeration.
+    /// </summary>
     [System.Serializable]
     public enum CompositeSectionType
     {

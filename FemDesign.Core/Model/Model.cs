@@ -10,7 +10,6 @@ using FemDesign.GenericClasses;
 using FemDesign.LibraryItems;
 using FemDesign.Loads;
 using FemDesign.Composites;
-using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace FemDesign
@@ -45,12 +44,21 @@ namespace FemDesign
         /// </summary>
         [XmlAttribute("end_time")]
         public string EndTime { get; set; } // dateTime
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public System.Guid Guid { get; set; } // guidtype
+        /// <summary>
+        /// Gets or sets the convert id.
+        /// </summary>
         [XmlAttribute("convertid")]
         public string ConvertId { get; set; } // guidtype
 
         // set the default value that does not have to be serialised
+        /// <summary>
+        /// Gets or sets the soil as solid.
+        /// </summary>
         [XmlAttribute("soil_as_solid")]
         public bool SoilAsSolid { get; set; } = false;
 
@@ -60,66 +68,143 @@ namespace FemDesign
         /// <summary>National annex of calculation code</summary>
         [XmlAttribute("country")]
         public Country Country { get; set; } // eurocodetype
+        /// <summary>
+        /// Gets or sets the xmlns.
+        /// </summary>
         [XmlAttribute("xmlns")]
         public string Xmlns { get; set; }
 
+        /// <summary>
+        /// Gets or sets the construction stages.
+        /// </summary>
         [XmlElement("construction_stages", Order = 1)]
         public ConstructionStages ConstructionStages { get; set; }
 
+        /// <summary>
+        /// Gets or sets the entities.
+        /// </summary>
         [XmlElement("entities", Order = 2)]
         public Entities Entities { get; set; }
+        /// <summary>
+        /// Gets or sets the sections.
+        /// </summary>
         [XmlElement("sections", Order = 3)]
         public Sections.ModelSections Sections { get; set; }
+        /// <summary>
+        /// Gets or sets the materials.
+        /// </summary>
         [XmlElement("materials", Order = 4)]
         public Materials.Materials Materials { get; set; }
+        /// <summary>
+        /// Gets or sets the reinforcing materials.
+        /// </summary>
         [XmlElement("reinforcing_materials", Order = 5)]
         public Materials.ReinforcingMaterials ReinforcingMaterials { get; set; }
+        /// <summary>
+        /// Gets or sets the composites.
+        /// </summary>
         [XmlElement("composites", Order = 6)]
         public Composites.Composites Composites { get; set; }
+        /// <summary>
+        /// Gets or sets the point connection types.
+        /// </summary>
         [XmlElement("point_connection_types", Order = 7)]
         public LibraryItems.PointConnectionTypes PointConnectionTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the point support group types.
+        /// </summary>
         [XmlElement("point_support_group_types", Order = 8)]
         public LibraryItems.PointSupportGroupTypes PointSupportGroupTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the line connection types.
+        /// </summary>
         [XmlElement("line_connection_types", Order = 9)]
         public LibraryItems.LineConnectionTypes LineConnectionTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the line support group types.
+        /// </summary>
         [XmlElement("line_support_group_types", Order = 10)]
         public LibraryItems.LineSupportGroupTypes LineSupportGroupTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the surface connection types.
+        /// </summary>
         [XmlElement("surface_connection_types", Order = 11)]
         public LibraryItems.SurfaceConnectionTypes SurfaceConnectionTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the surface support types.
+        /// </summary>
         [XmlElement("surface_support_types", Order = 12)]
         public LibraryItems.SurfaceSupportTypes SurfaceSupportTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the orthotropic panel types.
+        /// </summary>
         [XmlElement("timber_panel_types", Order = 13)]
         public Materials.OrthotropicPanelTypes OrthotropicPanelTypes { get; set; }
+        /// <summary>
+        /// Gets or sets the glc panel types.
+        /// </summary>
         [XmlElement("glc_panel_types", Order = 14)]
         public Materials.GlcPanelTypes GlcPanelTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the clt panel types.
+        /// </summary>
         [XmlElement("clt_panel_types", Order = 15)]
         public Materials.CltPanelTypes CltPanelTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ptc strand types.
+        /// </summary>
         [XmlElement("ptc_strand_types", Order = 16)]
         public Reinforcement.PtcStrandType PtcStrandTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the vehicle types.
+        /// </summary>
         [XmlElement("vehicle_types", Order = 17)]
         public LibraryItems.VehicleTypes VehicleTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bolt types.
+        /// </summary>
         [XmlElement("bolt_types", Order = 18)]
         public List<StruSoft.Interop.StruXml.Data.Bolt_lib_type> BoltTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bar end release types.
+        /// </summary>
         [XmlElement("bar_end_lib_type", Order = 19)]
         public List<StruSoft.Interop_24.Bar_end_lib_type> BarEndReleaseTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the geometry.
+        /// </summary>
         [XmlElement("geometry", Order = 20)]
         public StruSoft.Interop.StruXml.Data.DatabaseGeometry Geometry { get; set; }
 
+        /// <summary>
+        /// Gets or sets the user defined filters.
+        /// </summary>
         [XmlElement("user_defined_filter", Order = 21)]
         public List<StruSoft.Interop.StruXml.Data.Userfilter_type> UserDefinedFilters { get; set; }
 
+        /// <summary>
+        /// Gets or sets the user defined views.
+        /// </summary>
         [XmlElement("user_defined_views", Order = 22)]
         public StruSoft.Interop.StruXml.Data.DatabaseUser_defined_views UserDefinedViews { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 23)]
         public string End { get; set; }
 
+        /// <summary>
+        /// Check whether a corresponding results file (<c>.strFEM</c>) exists for a given <c>.struxml</c> model.
+        /// </summary>
+        /// <param name="filePath">Path to the <c>.struxml</c> file.</param>
+        /// <returns><c>true</c> if a <c>.strFEM</c> file exists next to <paramref name="filePath"/>; otherwise <c>false</c>.</returns>
         internal static bool HasResults(string filePath)
         {
             var directory = System.IO.Path.GetDirectoryName(filePath);
@@ -149,13 +234,13 @@ namespace FemDesign
         /// </summary>
         /// <param name="country">Country/Annex of the FEM-Design model.</param>
         /// <param name="elements">Structural elements.</param>
-        /// <param name="loads">Load elements</param>
-        /// <param name="loadCases">Load cases</param>
-        /// <param name="loadCombinations">Load combinations</param>
-        /// <param name="loadGroups">Load groups</param>
+        /// <param name="loads">Load elements.</param>
+        /// <param name="loadCases">Load cases.</param>
+        /// <param name="loadCombinations">Load combinations.</param>
+        /// <param name="loadGroups">Load groups.</param>
         /// <param name="constructionStage">Construction stages object instance.</param>
-        /// <param name="soil">Soil element</param>
-
+        /// <param name="soil">Soil elements.</param>
+        /// <param name="overwrite">If <c>true</c>, allows overwriting objects with matching GUID (where supported).</param>
         public Model(Country country, List<IStructureElement> elements = null, List<ILoadElement> loads = null, List<Loads.LoadCase> loadCases = null, List<Loads.LoadCombination> loadCombinations = null, List<Loads.ModelGeneralLoadGroup> loadGroups = null, ConstructionStages constructionStage = null, Soil.SoilElements soil = null, bool overwrite = false)
         {
             Initialize(country);
@@ -176,6 +261,10 @@ namespace FemDesign
                 AddSoilElement(soil);
         }
 
+        /// <summary>
+        /// Initialize default header fields and ensure required containers are created.
+        /// </summary>
+        /// <param name="country">Country/annex to assign to the model.</param>
         private void Initialize(Country country)
         {
             this.StruxmlVersion = "01.00.000";
@@ -224,6 +313,9 @@ namespace FemDesign
         /// <summary>
         /// Deserialize model from file (.struxml).
         /// </summary>
+        /// <param name="filePath">Path to a <c>.struxml</c> file.</param>
+        /// <returns>The deserialized <see cref="Model"/>.</returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="filePath"/> does not have the <c>.struxml</c> extension.</exception>
         public static Model DeserializeFromFilePath(string filePath)
         {
             // check file extension
@@ -294,7 +386,11 @@ namespace FemDesign
         /// <summary>
         /// Serialize Model to file (.struxml).
         /// </summary>
-        /// <param name="filePath"></param>
+        /// <param name="filePath">
+        /// Output path. If <c>null</c>, the file will be written as <c>myModel.struxml</c> in the current working directory.
+        /// If no extension is provided, <c>.struxml</c> will be used.
+        /// </param>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="filePath"/> has an extension other than <c>.struxml</c>.</exception>
         public void SerializeModel(string filePath)
         {
             if (filePath == null)
@@ -327,6 +423,7 @@ namespace FemDesign
         /// <summary>
         /// Serialize Model to string.
         /// </summary>
+        /// <returns>The serialized model as an XML string.</returns>
         public string SerializeToString()
         {
             // serialize
@@ -344,6 +441,21 @@ namespace FemDesign
         /// <summary>
         /// Add entities to Model.
         /// </summary>
+        /// <param name="bars">Bars to add.</param>
+        /// <param name="fictitiousBars">Fictitious bars to add.</param>
+        /// <param name="shells">Slabs to add.</param>
+        /// <param name="fictitiousShells">Fictitious shells to add.</param>
+        /// <param name="panels">Panels to add.</param>
+        /// <param name="covers">Covers to add.</param>
+        /// <param name="loads">Loads to add (e.g. point/line/surface/pressure loads).</param>
+        /// <param name="loadCases">Load cases to add.</param>
+        /// <param name="loadCombinations">Load combinations to add.</param>
+        /// <param name="supports">Supports to add.</param>
+        /// <param name="storeys">Storeys to add.</param>
+        /// <param name="axes">Axes to add.</param>
+        /// <param name="loadGroups">Load groups to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
+        /// <returns>The current model instance.</returns>
         public Model AddEntities(List<Bars.Bar> bars, List<ModellingTools.FictitiousBar> fictitiousBars, List<Shells.Slab> shells, List<ModellingTools.FictitiousShell> fictitiousShells, List<Shells.Panel> panels, List<ModellingTools.Cover> covers, List<object> loads, List<Loads.LoadCase> loadCases, List<Loads.LoadCombination> loadCombinations, List<ISupportElement> supports, List<StructureGrid.Storey> storeys, List<StructureGrid.Axis> axes, List<Loads.ModelGeneralLoadGroup> loadGroups, bool overwrite)
         {
             // check if model contains entities, sections and materials
@@ -470,6 +582,9 @@ namespace FemDesign
         /// <summary>
         /// Add Bar to Model.
         /// </summary>
+        /// <param name="obj">Bar to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing bar with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a bar with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddBar(Bars.Bar obj, bool overwrite)
         {
             // in model?
@@ -527,6 +642,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Bar in Model.
         /// </summary>
+        /// <param name="obj">Bar to check.</param>
+        /// <returns><c>true</c> if a bar with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool BarInModel(Bars.Bar obj)
         {
             foreach (Bars.Bar elem in this.Entities.Bars)
@@ -540,8 +657,10 @@ namespace FemDesign
         }
 
         /// <summary>
-        /// Add BarReinforcement(s) from Bar to Model.
+        /// Add post-tensioned cables from a bar to the model.
         /// </summary>
+        /// <param name="obj">Bar containing post-tensioned cables to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
         private void AddBarPtcs(Bars.Bar obj, bool overwrite)
         {
             foreach (Reinforcement.Ptc ptc in obj.Ptc)
@@ -553,6 +672,9 @@ namespace FemDesign
         /// <summary>
         /// Add Post-tensioned cable to Model.
         /// </summary>
+        /// <param name="obj">Post-tensioned cable to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing cable with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a cable with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPtc(Reinforcement.Ptc obj, bool overwrite)
         {
             // in model?
@@ -577,6 +699,11 @@ namespace FemDesign
             this.Entities.PostTensionedCables.Add(obj);
         }
 
+        /// <summary>
+        /// Check if a post-tensioned cable exists in the model.
+        /// </summary>
+        /// <param name="obj">Post-tensioned cable to check.</param>
+        /// <returns><c>true</c> if a cable with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool PtcInModel(Reinforcement.Ptc obj)
         {
             foreach (Reinforcement.Ptc elem in this.Entities.PostTensionedCables)
@@ -593,6 +720,9 @@ namespace FemDesign
         /// <summary>
         /// Add Post-tensioned cable to Model.
         /// </summary>
+        /// <param name="obj">Concealed bar to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing concealed bar with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a concealed bar with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddConcealedBar(Reinforcement.ConcealedBar obj, bool overwrite)
         {
             // in model?
@@ -614,6 +744,11 @@ namespace FemDesign
             this.Entities.HiddenBars.Add(obj);
         }
 
+        /// <summary>
+        /// Check if a concealed bar exists in the model.
+        /// </summary>
+        /// <param name="obj">Concealed bar to check.</param>
+        /// <returns><c>true</c> if a concealed bar with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool ConcealedBarInModel(Reinforcement.ConcealedBar obj)
         {
             foreach (Reinforcement.ConcealedBar elem in this.Entities.HiddenBars)
@@ -631,6 +766,9 @@ namespace FemDesign
         /// <summary>
         /// Add Fictitious Bar to Model.
         /// </summary>
+        /// <param name="obj">Fictitious bar to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing fictitious bar with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a fictitious bar with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddFictBar(ModellingTools.FictitiousBar obj, bool overwrite)
         {
             // in model?
@@ -653,6 +791,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Fictitious Bar in Model.
         /// </summary>
+        /// <param name="obj">Fictitious bar to check.</param>
+        /// <returns><c>true</c> if a fictitious bar with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool FictBarInModel(ModellingTools.FictitiousBar obj)
         {
             foreach (ModellingTools.FictitiousBar elem in this.Entities.AdvancedFem.FictitiousBars)
@@ -668,6 +808,9 @@ namespace FemDesign
         /// <summary>
         /// Add Fictitious Shell to Model.
         /// </summary>
+        /// <param name="obj">Fictitious shell to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing fictitious shell with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a fictitious shell with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddFictShell(ModellingTools.FictitiousShell obj, bool overwrite)
         {
             // in model?
@@ -698,6 +841,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Fictitious Bar in Model.
         /// </summary>
+        /// <param name="obj">Fictitious shell to check.</param>
+        /// <returns><c>true</c> if a fictitious shell with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool FictShellInModel(ModellingTools.FictitiousShell obj)
         {
             foreach (ModellingTools.FictitiousShell elem in this.Entities.AdvancedFem.FictitiousShells)
@@ -713,6 +858,9 @@ namespace FemDesign
         /// <summary>
         /// Add ComplexSection (from Bar) to Model.
         /// </summary>
+        /// <param name="complexSection">Complex section to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing complex section with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a complex section with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddComplexSection(Sections.ComplexSection complexSection, bool overwrite)
         {
             if (this.Sections == null)
@@ -747,6 +895,8 @@ namespace FemDesign
         /// <summary>
         /// Check if ComplexSection in Model.
         /// </summary>
+        /// <param name="obj">Complex section to check.</param>
+        /// <returns><c>true</c> if a complex section with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool ComplexSectionInModel(FemDesign.Sections.ComplexSection obj)
         {
             foreach (Sections.ComplexSection elem in this.Sections.ComplexSection)
@@ -761,8 +911,10 @@ namespace FemDesign
 
 
         /// <summary>
-        /// Check if CompositeSection in Model.
+        /// Add composite sections referenced by a complex composite to the model.
         /// </summary>
+        /// <param name="obj">Complex composite containing composite section references.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing composite sections with matching GUID.</param>
         private void AddCompositeSection(Composites.ComplexComposite obj, bool overwrite)
         {
             // in model?
@@ -830,6 +982,9 @@ namespace FemDesign
         /// Add ComplexComposite to Model.
         /// if ComplexComposite is present, also CompositeSection will be created 
         /// </summary>
+        /// <param name="obj">Complex composite to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing complex composite with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a complex composite with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddComplexComposite(Composites.ComplexComposite obj, bool overwrite)
         {
             // in model?
@@ -877,6 +1032,9 @@ namespace FemDesign
         /// <summary>
         /// Add Cover to Model.
         /// </summary>
+        /// <param name="obj">Cover to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing cover with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a cover with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddCover(ModellingTools.Cover obj, bool overwrite)
         {
             // in model?
@@ -901,6 +1059,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Cover in Model.
         /// </summary>
+        /// <param name="obj">Cover to check.</param>
+        /// <returns><c>true</c> if a cover with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool CoverInModel(ModellingTools.Cover obj)
         {
             foreach (ModellingTools.Cover elem in this.Entities.AdvancedFem.Covers)
@@ -913,6 +1073,12 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Add a surface connection to the model (advanced FEM).
+        /// </summary>
+        /// <param name="obj">Surface connection to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing surface connection with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a surface connection with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddSurfaceConnection(ModellingTools.SurfaceConnection obj, bool overwrite)
         {
             // advanced fem null?
@@ -952,6 +1118,11 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a predefined surface connection rigidity library item to the model.
+        /// </summary>
+        /// <param name="obj">Predefined rigidity to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing item with matching GUID.</param>
         private void AddSurfaceConnectionLibItem(Releases.RigidityDataLibType1 obj, bool overwrite)
         {
             // if null create new element
@@ -975,6 +1146,12 @@ namespace FemDesign
             this.SurfaceConnectionTypes.PredefinedTypes.Add(obj);
         }
 
+        /// <summary>
+        /// Add a connected line (line connection) to the model (advanced FEM).
+        /// </summary>
+        /// <param name="obj">Connected line to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing connected line with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a connected line with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddConnectedLine(ModellingTools.ConnectedLines obj, bool overwrite)
         {
             // advanced fem null?
@@ -1014,6 +1191,11 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a predefined connected line rigidity library item to the model.
+        /// </summary>
+        /// <param name="obj">Predefined rigidity to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing item with matching GUID.</param>
         private void AddConnectedLinesLibItem(Releases.RigidityDataLibType3 obj, bool overwrite)
         {
             // if null create new element
@@ -1030,7 +1212,7 @@ namespace FemDesign
             //// in model, don't overwrite
             //if (inModel && !overwrite)
             //{
-            /// predefinedTypes can be duplicate
+            // predefinedTypes can be duplicate
             //    throw new System.ArgumentException($"{obj.GetType().FullName} with guid: {obj.Guid} has already been added to model. Are you adding the same element twice?");
             //}
 
@@ -1044,6 +1226,12 @@ namespace FemDesign
             this.LineConnectionTypes.PredefinedTypes.Add(obj);
         }
 
+        /// <summary>
+        /// Add connected points (point connections) to the model (advanced FEM).
+        /// </summary>
+        /// <param name="obj">Connected points to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing connected points with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a connected points object with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddConnectedPoints(ModellingTools.ConnectedPoints obj, bool overwrite)
         {
             // advanced fem null?
@@ -1083,6 +1271,11 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a predefined connected points rigidity library item to the model.
+        /// </summary>
+        /// <param name="obj">Predefined rigidity to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing item with matching GUID.</param>
         private void AddConnectedPointsLibItem(Releases.RigidityDataLibType2 obj, bool overwrite)
         {
             // if null create new element
@@ -1114,6 +1307,9 @@ namespace FemDesign
         /// <summary>
         /// Add Fictitious Shell to Model.
         /// </summary>
+        /// <param name="obj">Diaphragm to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing diaphragm with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a diaphragm with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddDiaphragm(ModellingTools.Diaphragm obj, bool overwrite)
         {
             // in model?
@@ -1143,6 +1339,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Fictitious Bar in Model.
         /// </summary>
+        /// <param name="obj">Diaphragm to check.</param>
+        /// <returns><c>true</c> if a diaphragm with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool DiaphragmInModel(ModellingTools.Diaphragm obj)
         {
             foreach (ModellingTools.Diaphragm elem in this.Entities.AdvancedFem.Diaphragms)
@@ -1160,7 +1358,7 @@ namespace FemDesign
         /// Add Load to Model.
         /// </summary>
         /// <param name="obj">PointLoad, LineLoad, PressureLoad, SurfaceLoad</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing load objects with matching GUID (where supported).</param>
         private void AddLoad(object obj, bool overwrite)
         {
             if (obj == null)
@@ -1220,6 +1418,9 @@ namespace FemDesign
         /// <summary>
         /// Add Panel to Model.
         /// </summary>
+        /// <param name="obj">Panel to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing panel with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a panel with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPanel(Shells.Panel obj, bool overwrite)
         {
             // in model?
@@ -1302,6 +1503,8 @@ namespace FemDesign
         /// <summary>
         /// Check if Panel in Model.
         /// </summary>
+        /// <param name="obj">Panel to check.</param>
+        /// <returns><c>true</c> if a panel with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool PanelInModel(Shells.Panel obj)
         {
             foreach (Shells.Panel elem in this.Entities.Panels)
@@ -1317,6 +1520,9 @@ namespace FemDesign
         /// <summary>
         /// Add PointLoad to Model.
         /// </summary>
+        /// <param name="obj">Point load to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing point load with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a point load with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPointLoad(Loads.PointLoad obj, bool overwrite)
         {
             // in model?
@@ -1341,6 +1547,8 @@ namespace FemDesign
         /// <summary>
         /// Check if PointLoad in Model.
         /// </summary>
+        /// <param name="obj">Point load to check.</param>
+        /// <returns><c>true</c> if a point load with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool PointLoadInModel(Loads.PointLoad obj)
         {
             foreach (Loads.PointLoad elem in this.Entities.Loads.PointLoads)
@@ -1396,6 +1604,12 @@ namespace FemDesign
 
 
 
+        /// <summary>
+        /// Add an excitation force to the model.
+        /// </summary>
+        /// <param name="obj">Excitation force to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing excitation force.</param>
+        /// <exception cref="ArgumentException">Thrown when an excitation force already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddExcitationForce(Loads.ExcitationForce obj, bool overwrite)
         {
             // in model?
@@ -1417,6 +1631,10 @@ namespace FemDesign
             this.Entities.Loads.ExcitationForce = obj;
         }
 
+        /// <summary>
+        /// Check whether an excitation force already exists in the model.
+        /// </summary>
+        /// <returns><c>true</c> if an excitation force exists; otherwise <c>false</c>.</returns>
         private bool ExcitationLoadInModel()
         {
             if(this.Entities.Loads.ExcitationForce != null)
@@ -1426,6 +1644,12 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Add a periodic load record to the model periodic excitation container.
+        /// </summary>
+        /// <param name="obj">Periodic load record to add.</param>
+        /// <param name="overwrite">Currently unused.</param>
+        /// <exception cref="ArgumentException">Thrown when a record with the same name already exists.</exception>
         private void AddPeriodicExcitationForceRecords(Loads.PeriodicLoad obj, bool overwrite)
         {
             // in model?
@@ -1447,6 +1671,12 @@ namespace FemDesign
 
 
 
+        /// <summary>
+        /// Add periodic excitation data to the model.
+        /// </summary>
+        /// <param name="obj">Periodic excitation container to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing periodic excitation data.</param>
+        /// <exception cref="ArgumentException">Thrown when periodic excitation already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPeriodicExcitationForce(PeriodicExcitation obj, bool overwrite)
         {
             // in model?
@@ -1468,6 +1698,10 @@ namespace FemDesign
             this.Entities.Loads.PeriodicExcitations = obj;
         }
 
+        /// <summary>
+        /// Check whether periodic excitation data already exists in the model.
+        /// </summary>
+        /// <returns><c>true</c> if periodic excitation data exists; otherwise <c>false</c>.</returns>
         private bool PeriodicExcitationForceInModel()
         {
             if (this.Entities.Loads.PeriodicExcitations != null)
@@ -1608,6 +1842,12 @@ namespace FemDesign
 
 
 
+        /// <summary>
+        /// Add a line stress load to the model.
+        /// </summary>
+        /// <param name="obj">Line stress load to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing load with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a load with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddLineStressLoad(Loads.LineStressLoad obj, bool overwrite)
         {
             // line stress loads null?
@@ -1966,6 +2206,12 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Add load cases to the model.
+        /// </summary>
+        /// <param name="loadCases">Load cases to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing load cases with matching GUID.</param>
+        /// <returns>The current model instance.</returns>
         public Model AddLoadCases(IEnumerable<Loads.LoadCase> loadCases, bool overwrite = true)
         {
             // check if model contains entities, sections and materials
@@ -1979,6 +2225,11 @@ namespace FemDesign
             return this;
         }
 
+        /// <summary>
+        /// Add load cases to the model.
+        /// </summary>
+        /// <param name="loadCases">Load cases to add.</param>
+        /// <returns>The current model instance.</returns>
         public Model AddLoadCases(params Loads.LoadCase[] loadCases)
         {
             return AddLoadCases(loadCases, overwrite: true);
@@ -2045,6 +2296,12 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Add load combinations to the model.
+        /// </summary>
+        /// <param name="loadCombinations">Load combinations to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing load combinations with matching GUID.</param>
+        /// <returns>The current model instance.</returns>
         public Model AddLoadCombinations(IEnumerable<Loads.LoadCombination> loadCombinations, bool overwrite = true)
         {
             // check if model contains entities, sections and materials
@@ -2060,6 +2317,11 @@ namespace FemDesign
             return this;
         }
 
+        /// <summary>
+        /// Add load combinations to the model.
+        /// </summary>
+        /// <param name="loadCombinations">Load combinations to add.</param>
+        /// <returns>The current model instance.</returns>
         public Model AddLoadCombinations(params Loads.LoadCombination[] loadCombinations)
         {
             return AddLoadCombinations(loadCombinations, overwrite: true);
@@ -2081,6 +2343,9 @@ namespace FemDesign
         /// <summary>
         /// Add LoadGroupTable to Model.
         /// </summary>
+        /// <param name="generalLoadGroups">Load groups to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing load group table.</param>
+        /// <exception cref="ArgumentException">Thrown when the model already contains a load group table and <paramref name="overwrite"/> is <c>false</c>.</exception>
         public void AddLoadGroupTable(List<Loads.ModelGeneralLoadGroup> generalLoadGroups, bool overwrite)
         {
             // Null or no load groups
@@ -2333,7 +2598,7 @@ namespace FemDesign
         /// Add StructureGrid (axis or storey) to model.
         /// </summary>
         /// <param name="obj">Axis, Storey</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID.</param>
         private void AddStructureGrid(object obj, bool overwrite)
         {
             if (obj == null)
@@ -2358,7 +2623,7 @@ namespace FemDesign
         /// Add axis to entities.
         /// </summary>
         /// <param name="obj">Axis.</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing axis with matching GUID.</param>
         private void AddAxis(StructureGrid.Axis obj, bool overwrite)
         {
             // check if axes in entities
@@ -2390,7 +2655,7 @@ namespace FemDesign
         /// Check if axis in entities.
         /// </summary>
         /// <param name="obj">Axis.</param>
-        /// <returns></returns>
+        /// <returns><c>true</c> if an axis with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool AxisInModel(StructureGrid.Axis obj)
         {
             foreach (StructureGrid.Axis elem in this.Entities.Axes.Axis)
@@ -2407,7 +2672,7 @@ namespace FemDesign
         /// Add Storey to Model.
         /// </summary>
         /// <param name="obj">Storey.</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing storey with matching GUID.</param>
         private void AddStorey(StructureGrid.Storey obj, bool overwrite)
         {
             // check if storeys in entities
@@ -2441,7 +2706,7 @@ namespace FemDesign
         /// Check if storey in entities.
         /// </summary>
         /// <param name="obj">Storey.</param>
-        /// <returns></returns>
+        /// <returns><c>true</c> if a storey with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool StoreyInModel(StructureGrid.Storey obj)
         {
             foreach (StructureGrid.Storey elem in this.Entities.Storeys.Storey)
@@ -2459,7 +2724,7 @@ namespace FemDesign
         /// Storey origo should share XY-coordinates. Z-coordinate should be unique.
         /// Storey direction should be identical.
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Storey to validate against storeys already added to the model.</param>
         private void ConsistenStoreyGeometry(StructureGrid.Storey obj)
         {
             foreach (StructureGrid.Storey elem in this.Entities.Storeys.Storey)
@@ -2478,6 +2743,8 @@ namespace FemDesign
         /// <summary>
         /// Add BarReinforcement(s) from Bar to Model.
         /// </summary>
+        /// <param name="obj">Bar containing reinforcements to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
         private void AddBarReinforcements(Bars.Bar obj, bool overwrite)
         {
             foreach (Reinforcement.BarReinforcement barReinf in obj.Reinforcement)
@@ -2490,6 +2757,9 @@ namespace FemDesign
         /// <summary>
         /// Add BarReinforcement to Model.
         /// </summary>
+        /// <param name="obj">Bar reinforcement to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing reinforcement with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a reinforcement with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddBarReinforcement(Reinforcement.BarReinforcement obj, bool overwrite)
         {
             // in model?
@@ -2514,8 +2784,10 @@ namespace FemDesign
         /// <summary>
         /// Check if BarReinforcement in Model.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">Bar reinforcement to check.</param>
+        /// <returns>
+        /// <c>true</c> if a reinforcement with the same GUID already exists for the same base bar; otherwise <c>false</c>.
+        /// </returns>
         private bool BarReinforcementInModel(Reinforcement.BarReinforcement obj)
         {
             foreach (Reinforcement.BarReinforcement elem in this.Entities.BarReinforcements)
@@ -2542,8 +2814,8 @@ namespace FemDesign
         /// <summary>
         /// Add SurfaceReinforcement(s) from Slab to Model.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="overwrite"></param>
+        /// <param name="obj">Slab containing surface reinforcements to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing reinforcements with matching GUID.</param>
         private void AddSurfaceReinforcements(Shells.Slab obj, bool overwrite)
         {
             foreach (Reinforcement.SurfaceReinforcement surfaceReinforcement in obj.SurfaceReinforcement)
@@ -2557,6 +2829,9 @@ namespace FemDesign
         /// <summary>
         /// Add SurfaceReinforcement to Model.
         /// </summary>
+        /// <param name="obj">Surface reinforcement to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing reinforcement with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a reinforcement with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddSurfaceReinforcement(Reinforcement.SurfaceReinforcement obj, bool overwrite)
         {
             // in model?
@@ -2582,8 +2857,10 @@ namespace FemDesign
         /// <summary>
         /// Check if SurfaceReinforcement in Model.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">Surface reinforcement to check.</param>
+        /// <returns>
+        /// <c>true</c> if a reinforcement with the same GUID already exists for the same base shell; otherwise <c>false</c>.
+        /// </returns>
         private bool SurfaceReinforcementInModel(Reinforcement.SurfaceReinforcement obj)
         {
             foreach (Reinforcement.SurfaceReinforcement elem in this.Entities.SurfaceReinforcements)
@@ -2610,6 +2887,8 @@ namespace FemDesign
         /// <summary>
         /// Add SurfaceReinforcementParameters to Model.
         /// </summary>
+        /// <param name="slab">Slab containing surface reinforcement parameters to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing parameters with matching GUID.</param>
         private void AddSurfaceReinforcementParameters(Shells.Slab slab, bool overwrite)
         {
             if (slab.SurfaceReinforcementParameters != null)
@@ -2639,8 +2918,8 @@ namespace FemDesign
         /// <summary>
         /// Check if SurfaceReinforcementParameters in Model.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">Surface reinforcement parameters to check.</param>
+        /// <returns><c>true</c> if parameters with the same GUID already exist in the model; otherwise <c>false</c>.</returns>
         private bool SurfaceReinforcementParametersInModel(Reinforcement.SurfaceReinforcementParameters obj)
         {
             foreach (Reinforcement.SurfaceReinforcementParameters elem in this.Entities.SurfaceReinforcementParameters)
@@ -2654,6 +2933,11 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Add shear control regions from a slab to the model.
+        /// </summary>
+        /// <param name="obj">Slab containing shear control regions to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing regions with matching GUID.</param>
         private void AddShearControlRegions(Shells.Slab obj, bool overwrite)
         {
             foreach (Reinforcement.ShearControlRegionType surfaceReinforcement in obj.ShearControlRegions)
@@ -2662,6 +2946,12 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a shear control region to the model.
+        /// </summary>
+        /// <param name="obj">Shear control region to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing region with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a region with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddShearControlRegion(Reinforcement.ShearControlRegionType obj, bool overwrite)
         {
             // in model?
@@ -2686,6 +2976,8 @@ namespace FemDesign
         /// <summary>
         /// Check if ShearControlRegion in Model.
         /// </summary>
+        /// <param name="obj">Shear control region to check.</param>
+        /// <returns><c>true</c> if a region with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool ShearControlRegionInModel(Reinforcement.ShearControlRegionType obj)
         {
             foreach (Reinforcement.ShearControlRegionType elem in this.Entities.NoShearControlRegions)
@@ -2702,8 +2994,8 @@ namespace FemDesign
         /// <summary>
         /// Add SurfaceReinforcement(s) from Slab to Model.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="overwrite"></param>
+        /// <param name="obj">Slab containing punching reinforcements to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing reinforcements with matching GUID.</param>
         private void AddPunchingReinforcements(Shells.Slab obj, bool overwrite)
         {
             foreach (Reinforcement.PunchingReinforcement punchingReinforcement in obj.PunchingReinforcement)
@@ -2712,6 +3004,12 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a punching reinforcement to the model.
+        /// </summary>
+        /// <param name="obj">Punching reinforcement to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing reinforcement with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a reinforcement with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPunchingReinforcement(Reinforcement.PunchingReinforcement obj, bool overwrite)
         {
             // in model?
@@ -2735,6 +3033,12 @@ namespace FemDesign
             this.AddPunchingArea(obj.PunchingArea, overwrite);
         }
 
+        /// <summary>
+        /// Add a punching area definition to the model.
+        /// </summary>
+        /// <param name="obj">Punching area to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing punching area with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a punching area with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddPunchingArea(Reinforcement.PunchingArea obj, bool overwrite)
         {
             // in model?
@@ -2759,6 +3063,11 @@ namespace FemDesign
 
         }
 
+        /// <summary>
+        /// Check if a punching reinforcement exists in the model.
+        /// </summary>
+        /// <param name="obj">Punching reinforcement to check.</param>
+        /// <returns><c>true</c> if a reinforcement with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool PunchingReinforcementInModel(Reinforcement.PunchingReinforcement obj)
         {
             foreach (Reinforcement.PunchingReinforcement elem in this.Entities.PunchingReinforcements)
@@ -2771,6 +3080,11 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Check if a punching area exists in the model.
+        /// </summary>
+        /// <param name="obj">Punching area to check.</param>
+        /// <returns><c>true</c> if a punching area with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool PunchingAreaInModel(Reinforcement.PunchingArea obj)
         {
             foreach (Reinforcement.PunchingArea elem in this.Entities.PunchingArea)
@@ -2787,7 +3101,7 @@ namespace FemDesign
         /// Add Foundation to the Model
         /// </summary>
         /// <param name="obj">Isolated Foundation, Line Foundation or Slab Foundation</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing foundations with matching GUID (where supported).</param>
         private void AddFoundation(IFoundationElement obj, bool overwrite)
         {
             if (obj == null)
@@ -2811,8 +3125,11 @@ namespace FemDesign
         }
 
         /// <summary>
-        /// Add PointSupport to Model.
+        /// Add isolated foundation to the model.
         /// </summary>
+        /// <param name="obj">Isolated foundation to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing foundation with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a foundation with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddIsolatedFoundation(Foundations.IsolatedFoundation obj, bool overwrite)
         {
             // in model?
@@ -2835,8 +3152,10 @@ namespace FemDesign
         }
 
         /// <summary>
-        /// Check if PointSupport in Model.
+        /// Check if isolated foundation exists in the model.
         /// </summary>
+        /// <param name="obj">Isolated foundation to check.</param>
+        /// <returns><c>true</c> if an isolated foundation with the same GUID already exists in the model; otherwise <c>false</c>.</returns>
         private bool IsolatedFoundationInModel(Foundations.IsolatedFoundation obj)
         {
             foreach (Foundations.IsolatedFoundation elem in this.Entities.Foundations.IsolatedFoundations)
@@ -2856,6 +3175,9 @@ namespace FemDesign
         /// <summary>
         /// Add Slab foundation to Model.
         /// </summary>
+        /// <param name="obj">Slab foundation to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing foundation with matching GUID.</param>
+        /// <exception cref="ArgumentException">Thrown when a foundation with the same GUID already exists and <paramref name="overwrite"/> is <c>false</c>.</exception>
         private void AddSlabFoundation(Foundations.SlabFoundation obj, bool overwrite)
         {
             // in model?
@@ -2936,7 +3258,7 @@ namespace FemDesign
         /// Add Support to Model
         /// </summary>
         /// <param name="obj">PointSupport, LineSupport or SurfaceSupport</param>
-        /// <param name="overwrite"></param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing supports with matching GUID.</param>
         private void AddSupport(ISupportElement obj, bool overwrite)
         {
             if (obj == null)
@@ -3518,6 +3840,8 @@ namespace FemDesign
         /// <summary>
         /// Add LabelledSection to Model
         /// </summary>
+        /// <param name="obj">Labelled section to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing labelled section with matching GUID.</param>
         public void AddLabelledSection(AuxiliaryResults.LabelledSection obj, bool overwrite)
         {
             if (this.Entities.LabelledSections == null)
@@ -3709,6 +4033,11 @@ namespace FemDesign
             return false;
         }
 
+        /// <summary>
+        /// Add a text annotation to the model geometry.
+        /// </summary>
+        /// <param name="obj">Text annotation to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing annotation with matching GUID.</param>
         public void AddTextAnnotation(Drawing.TextAnnotation obj, bool overwrite)
         {
             if (this.Geometry == null)
@@ -3748,6 +4077,11 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a linear dimension to the model geometry.
+        /// </summary>
+        /// <param name="obj">Linear dimension to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing dimension with matching GUID.</param>
         public void AddLinearDimension(Drawing.DimensionLinear obj, bool overwrite)
         {
             if (this.Geometry == null)
@@ -3787,6 +4121,11 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Add a layer to the model geometry.
+        /// </summary>
+        /// <param name="obj">Layer to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite an existing layer with the same name.</param>
         public void AddLayer(StruSoft.Interop.StruXml.Data.Layer_type obj, bool overwrite)
         {
             if (this.Geometry == null)
@@ -3821,6 +4160,10 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Add a 3D point to the model geometry.
+        /// </summary>
+        /// <param name="obj">Point to add.</param>
         public void AddPoint3d(Drawing.Point3d obj)
         {
             if (this.Geometry == null)
@@ -3838,6 +4181,10 @@ namespace FemDesign
             this.AddLayer(obj.Style.LayerObj, overwrite: false);
         }
 
+        /// <summary>
+        /// Add a 3D curve to the model geometry.
+        /// </summary>
+        /// <param name="obj">Curve to add.</param>
         public void AddCurve3d(Drawing.Curve obj)
         {
             if (this.Geometry == null)
@@ -3857,6 +4204,12 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Replace construction stages in the model based on a list of stages.
+        /// </summary>
+        /// <param name="stages">Stages to set on the model.</param>
+        /// <param name="assignModifedElement">If <c>true</c>, treat elements as modified when constructing stages.</param>
+        /// <param name="assignNewElement">If <c>true</c>, treat elements as new when constructing stages.</param>
         public void SetConstructionStages(List<Stage> stages, bool assignModifedElement = false, bool assignNewElement = false)
         {
             var obj = new ConstructionStages(stages, assignModifedElement, assignNewElement);
@@ -3864,6 +4217,10 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Set the model construction stages and assign stage IDs to elements in each stage.
+        /// </summary>
+        /// <param name="obj">Construction stages to set.</param>
         private void SetConstructionStages(ConstructionStages obj)
         {
             if (this.ConstructionStages == null)
@@ -3897,8 +4254,8 @@ namespace FemDesign
         /// </summary>
         /// <typeparam name="T">Structural elements (IStructureElement).</typeparam>
         /// <param name="elements">Structural elements to be added.</param>
-        /// <param name="overwrite"></param>
-        /// <returns></returns>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
+        /// <returns>The current model instance.</returns>
         public Model AddElements<T>(IEnumerable<T> elements, bool overwrite = true) where T : IStructureElement
         {
             // check if model contains entities, sections and materials
@@ -3932,9 +4289,9 @@ namespace FemDesign
         /// <summary>
         /// Add Soil to the model.
         /// </summary>
-        /// <param name="element"></param>
-        /// <param name="overwrite"></param>
-        /// <returns></returns>
+        /// <param name="element">Soil elements to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
+        /// <returns>The current model instance.</returns>
         public Model AddSoilElement(Soil.SoilElements element, bool overwrite = true)
         {
             // check if model contains entities
@@ -3950,8 +4307,8 @@ namespace FemDesign
         /// </summary>
         /// <typeparam name="T">ILoadElement is any load object in FEM-Design.</typeparam>
         /// <param name="elements">Load elements to be added.</param>
-        /// <param name="overwrite"></param>
-        /// <returns></returns>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
+        /// <returns>The current model instance.</returns>
         public Model AddLoads<T>(IEnumerable<T> elements, bool overwrite = true) where T : ILoadElement
         {
             // check if model contains entities
@@ -3986,8 +4343,8 @@ namespace FemDesign
         /// </summary>
         /// <typeparam name="T">ISuppotElement is any support object.</typeparam>
         /// <param name="elements">Support elements to be added.</param>
-        /// <param name="overwrite"></param>
-        /// <returns></returns>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching GUID (where supported).</param>
+        /// <returns>The current model instance.</returns>
         public Model AddSupports<T>(IEnumerable<T> elements, bool overwrite = true) where T : ISupportElement
         {
             // check if model contains entities, sections and materials
@@ -4046,77 +4403,137 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Dispatch helper used by <see cref="AddElements{T}(System.Collections.Generic.IEnumerable{T}, bool)"/> and related methods.
+        /// Routes to a type-specific <c>Add*</c> method.
+        /// </summary>
+        /// <param name="obj">Object to add.</param>
+        /// <param name="overwrite">If <c>true</c>, overwrite existing objects with matching identity (where supported).</param>
         private void AddEntity(Bars.Bar obj, bool overwrite) => AddBar(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Shells.Slab obj, bool overwrite) => AddSlab(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Shells.Panel obj, bool overwrite) => AddPanel(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Reinforcement.Ptc obj, bool overwrite) => AddPtc(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Reinforcement.ConcealedBar obj, bool overwrite) => AddConcealedBar(obj, overwrite);
 
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.Cover obj, bool overwrite) => AddCover(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.FictitiousShell obj, bool overwrite) => AddFictShell(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.FictitiousBar obj, bool overwrite) => AddFictBar(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.ConnectedPoints obj, bool overwrite) => AddConnectedPoints(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.ConnectedLines obj, bool overwrite) => AddConnectedLine(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.SurfaceConnection obj, bool overwrite) => AddSurfaceConnection(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(ModellingTools.Diaphragm obj, bool overwrite) => AddDiaphragm(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(AuxiliaryResults.LabelledSection obj, bool overwrite) => AddLabelledSection(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(AuxiliaryResults.ResultPoint obj, bool overwrite) => AddResultPoint(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(AuxiliaryResults.VirtualBar obj, bool overwrite) => AddVirtualBar(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(FiniteElements.PeakSmoothingRegion obj, bool overwrite) => AddPeakSmoothingRegion(obj, overwrite);
 
         #region FOUNDATIONS
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Foundations.IsolatedFoundation obj, bool overwrite) => AddIsolatedFoundation(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Foundations.SlabFoundation obj, bool overwrite) => AddSlabFoundation(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Soil.SoilElements obj, bool overwrite) => AddSoil(obj, overwrite);
 
         #endregion
 
         #region SUPPORTS
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Supports.PointSupport obj, bool overwrite) => AddPointSupport(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Supports.LineSupport obj, bool overwrite) => AddLineSupport(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Supports.SurfaceSupport obj, bool overwrite) => AddSurfaceSupport(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Supports.StiffnessPoint obj, bool overwrite) => AddStiffnessPoint(obj, overwrite);
         #endregion
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(StructureGrid.Axis axis, bool overwrite) => AddAxis(axis, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(StructureGrid.Storey storey, bool overwrite) => AddStorey(storey, overwrite);
 
         #region LOADS
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.PointLoad obj, bool overwrite) => AddPointLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.PointSupportMotion obj, bool overwrite) => AddPointSupportMotion(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.SurfaceTemperatureLoad obj, bool overwrite) => AddSurfaceTemperatureLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.SurfaceLoad obj, bool overwrite) => AddSurfaceLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.SurfaceSupportMotion obj, bool overwrite) => AddSurfaceSupportMotionLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.PressureLoad obj, bool overwrite) => AddPressureLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LineTemperatureLoad obj, bool overwrite) => AddLineTemperatureLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LineStressLoad obj, bool overwrite) => AddLineStressLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LineLoad obj, bool overwrite) => AddLineLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LineSupportMotion obj, bool overwrite) => AddLineSupportMotionLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.Footfall obj, bool overwrite) => AddFootfall(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.MassConversionTable obj, bool overwrite) => AddMassConversionTable(obj);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.MovingLoad obj, bool overwrite) => AddMovingLoad(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.Mass obj, bool overwrite) => AddMass(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.ExcitationForce obj, bool overwrite) => AddExcitationForce(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.PeriodicExcitation obj, bool overwrite) => AddPeriodicExcitationForce(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.PeriodicLoad obj, bool overwrite) => AddPeriodicExcitationForceRecords(obj, overwrite);
 
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LoadCase obj, bool overwrite) => AddLoadCase(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Loads.LoadCombination obj, bool overwrite) => AddLoadCombination(obj, overwrite);
 
         #endregion
 
         #region geometry
         // geometry (drawing) objects are actually not entities but will be put here for now. (:
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Drawing.TextAnnotation obj, bool overwrite) => AddTextAnnotation(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
         private void AddEntity(Drawing.DimensionLinear obj, bool overwrite) => AddLinearDimension(obj, overwrite);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
+        /// <param name="obj">the obj.</param>
+        /// <param name="overwrite)">the overwrite).</param>
         public void AddEntity(Drawing.Point3d obj, bool overwrite) => AddPoint3d(obj);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
+        /// <param name="obj">the obj.</param>
+        /// <param name="overwrite)">the overwrite).</param>
         public void AddEntity(Drawing.Curve obj, bool overwrite) => AddCurve3d(obj);
+        /// <inheritdoc cref="AddEntity(Bars.Bar, bool)"/>
+        /// <param name="obj">the obj.</param>
+        /// <param name="overwrite)">the overwrite).</param>
         public void AddEntity(StruSoft.Interop.StruXml.Data.Layer_type obj, bool overwrite) => AddLayer(obj, overwrite);
         #endregion
 
@@ -4322,7 +4739,6 @@ namespace FemDesign
         /// Get FictitiousShells from Model.
         /// FicititiousShells will be reconstruted from Model incorporating predefined EdgeConnections
         /// </summary>
-        /// <returns></returns>
         internal void GetFictitiousShells()
         {
             foreach (ModellingTools.FictitiousShell item in this.Entities.AdvancedFem.FictitiousShells)
@@ -4342,7 +4758,6 @@ namespace FemDesign
         /// Get Slabs from Model.
         /// Slabs will be reconstruted from Model incorporating all references: Material, Predefined EdgeConnections, SurfaceReinforcementParameters, SurfaceReinforcement.
         /// </summary>
-        /// <returns></returns>
         internal void GetSlabs()
         {
             foreach (Shells.Slab item in this.Entities.Slabs)
@@ -4402,6 +4817,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Get panels from the model and resolve references (material, section, panel types, predefined rigidities).
+        /// </summary>
         internal void GetPanels()
         {
             foreach (Shells.Panel panel in this.Entities.Panels)
@@ -4491,6 +4909,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve point support references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetPointSupports()
         {
             foreach (Supports.PointSupport pointSupport in this.Entities.Supports.PointSupport)
@@ -4514,6 +4935,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve line support references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetLineSupports()
         {
             foreach (Supports.LineSupport lineSupport in this.Entities.Supports.LineSupport)
@@ -4536,6 +4960,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve surface support references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetSurfaceSupports()
         {
             foreach (Supports.SurfaceSupport surfaceSupport in this.Entities.Supports.SurfaceSupport)
@@ -4554,6 +4981,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve point connection references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetPointConnections()
         {
             foreach (ModellingTools.ConnectedPoints connectedPoint in this.Entities.AdvancedFem.ConnectedPoints)
@@ -4572,6 +5002,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve line connection references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetLineConnections()
         {
             foreach (ModellingTools.ConnectedLines connectedLine in this.Entities.AdvancedFem.ConnectedLines)
@@ -4590,6 +5023,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve surface connection references (e.g. predefined rigidity) after deserialization.
+        /// </summary>
         internal void GetSurfaceConnections()
         {
             foreach (ModellingTools.SurfaceConnection connectedSurf in this.Entities.AdvancedFem.SurfaceConnections)
@@ -4608,6 +5044,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Reconstruct construction stages by grouping elements by stage ID and resolving activated load case display names.
+        /// </summary>
         internal void GetConstructionStages()
         {
             var loadCaseNames = this.Entities.Loads.LoadCases?.ToDictionary(lc => lc.Guid, lc => lc.Name);
@@ -4647,6 +5086,10 @@ namespace FemDesign
                 }
             }
         }
+
+        /// <summary>
+        /// Resolve load combination references to load cases and construction stages after deserialization.
+        /// </summary>
         internal void GetLoadCombinations()
         {
             if (!this.Entities.Loads.LoadCases.Any())
@@ -4674,6 +5117,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve load group references to load cases after deserialization.
+        /// </summary>
         internal void GetLoadGroups()
         {
             var loadCasesMap = this.Entities.Loads.LoadCases?.ToDictionary(lc => lc.Guid);
@@ -4704,6 +5150,9 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Resolve load references to their corresponding load case objects after deserialization.
+        /// </summary>
         internal void GetLoads()
         {
             var loads = this.Entities.Loads.GetLoads();
@@ -4716,6 +5165,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Resolve model geometry references after deserialization.
+        /// </summary>
         internal void GetGeometries()
         {
             var geometries = this.Geometry;

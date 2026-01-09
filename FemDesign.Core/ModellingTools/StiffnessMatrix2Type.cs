@@ -3,9 +3,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Stiffness Matrix2 Type.
+    /// </summary>
     [System.Serializable]
     public partial class StiffnessMatrix2Type
     {
+        /// <summary>
+        /// Gets or sets the xz.
+        /// </summary>
         [XmlAttribute("xz")]
         public double _xz;
         [XmlIgnore]
@@ -21,6 +27,9 @@ namespace FemDesign.ModellingTools
             }
         }
         
+        /// <summary>
+        /// Gets or sets the yz.
+        /// </summary>
         [XmlAttribute("yz")]
         public double _yz;
         [XmlIgnore]

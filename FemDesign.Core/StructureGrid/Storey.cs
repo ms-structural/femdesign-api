@@ -4,11 +4,20 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.StructureGrid
 {
+    /// <summary>
+    /// Represents a Storey.
+    /// </summary>
     [System.Serializable]
     public partial class Storey: EntityBase, IStructureElement
     {
+        /// <summary>
+        /// Gets or sets the origo.
+        /// </summary>
         [XmlElement("origo", Order=1)]
         public Geometry.Point3d Origo { get; set; }
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order=2)]
         public Geometry.Vector2d _direction;
         [XmlIgnore]
@@ -24,6 +33,9 @@ namespace FemDesign.StructureGrid
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dimension x.
+        /// </summary>
         [XmlAttribute("dimension_x")]
         public double _dimensionX; // positive double
         [XmlIgnore]
@@ -32,6 +44,9 @@ namespace FemDesign.StructureGrid
             get { return this._dimensionX; }
             set { this._dimensionX = RestrictedDouble.Positive(value); }
         }
+        /// <summary>
+        /// Gets or sets the dimension y.
+        /// </summary>
         [XmlAttribute("dimension_y")]
         public double _dimensionY; // positive double
         [XmlIgnore]
@@ -40,6 +55,9 @@ namespace FemDesign.StructureGrid
             get { return this._dimensionY; }
             set { this._dimensionY = RestrictedDouble.Positive(value); }
         }
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
         

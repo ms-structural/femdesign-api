@@ -15,38 +15,71 @@ namespace FemDesign.Calculate
     public partial class Analysis
     {
         // elements
+        /// <summary>
+        /// Gets or sets the stage.
+        /// </summary>
         [XmlElement("stage")]
         public Stage Stage { get; set; }
 
+        /// <summary>
+        /// Gets or sets the comb.
+        /// </summary>
         [XmlElement("comb")]
         public Comb Comb { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stability.
+        /// </summary>
         [XmlIgnore]
         public Stability Stability { get; set; }
 
+        /// <summary>
+        /// Gets or sets the imperfection.
+        /// </summary>
         [XmlIgnore]
         public Imperfection Imperfection { get; set; }
 
+        /// <summary>
+        /// Gets or sets the freq.
+        /// </summary>
         [XmlElement("freq")]
         public Freq Freq { get; set; }
 
+        /// <summary>
+        /// Gets or sets the footfall.
+        /// </summary>
         [XmlElement("footfall")]
         public Footfall Footfall { get; set; }
 
+        /// <summary>
+        /// Gets or sets the bedding.
+        /// </summary>
         [XmlElement("bedding")]
         public Bedding Bedding { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ground acc.
+        /// </summary>
         [XmlElement("thgroundacc")]
         public GroundAcc GroundAcc { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ex force.
+        /// </summary>
         [XmlElement("thexforce")]
         public ExcitationForce ExForce { get; set; }
 
+        /// <summary>
+        /// Gets or sets the periodic ex.
+        /// </summary>
         [XmlElement("periodicexc")]
         public PeriodicExcitation PeriodicEx { get; set; }
 
 
         // attributes
+        /// <summary>
+        /// Gets or sets the calc case.
+        /// </summary>
         [XmlAttribute("calcCase")]
         public int _calcCase; 
         [XmlIgnore]
@@ -64,6 +97,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc c stage.
+        /// </summary>
         [XmlAttribute("calcCstage")]
         public int _calcCStage; 
         [XmlIgnore]
@@ -81,6 +117,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc impf.
+        /// </summary>
         [XmlAttribute("calcImpf")]
         public int _calcImpf; 
         [XmlIgnore]
@@ -96,6 +135,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc comb.
+        /// </summary>
         [XmlAttribute("calcComb")]
         public int _calcComb;
         [XmlIgnore]
@@ -113,6 +155,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc g max.
+        /// </summary>
         [XmlAttribute("calcGmax")]
         public int _calcGMax; 
         [XmlIgnore]
@@ -128,6 +173,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc stab.
+        /// </summary>
         [XmlAttribute("calcStab")]
         public int _calcStab;
         [XmlIgnore]
@@ -143,6 +191,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc freq.
+        /// </summary>
         [XmlAttribute("calcFreq")]
         public int _calcFreq;
         [XmlIgnore]
@@ -160,6 +211,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc seis.
+        /// </summary>
         [XmlAttribute("calcSeis")]
         public int _calcSeis;
         [XmlIgnore]
@@ -175,6 +229,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc footfall.
+        /// </summary>
         [XmlAttribute("calcFootfall")]
         public int _calcFootfall;
         [XmlIgnore]
@@ -194,6 +251,9 @@ namespace FemDesign.Calculate
 
 
 
+        /// <summary>
+        /// Gets or sets the calc bedding.
+        /// </summary>
         [XmlAttribute("calcBedding")]
         public int _calcBedding;
         [XmlIgnore]
@@ -216,6 +276,9 @@ namespace FemDesign.Calculate
 
 
 
+        /// <summary>
+        /// Gets or sets the calc ground acc.
+        /// </summary>
         [XmlAttribute("calcThGroundAcc")]
         public int _calcGroundAcc;
         [XmlIgnore]
@@ -233,6 +296,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc excitation force.
+        /// </summary>
         [XmlAttribute("calcThExforce")]
         public int _calcExcitationForce;
         [XmlIgnore]
@@ -250,6 +316,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc periodic excitation.
+        /// </summary>
         [XmlAttribute("calcPeriodicExc")]
         public int _calcPeriodicExcitation;
         [XmlIgnore]
@@ -267,6 +336,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the calc design.
+        /// </summary>
         [XmlAttribute("calcDesign")]
         public int _calcDesign;
         [XmlIgnore]
@@ -283,6 +355,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the elem fine.
+        /// </summary>
         [XmlAttribute("elemfine")]
         public int _elemFine;
         [XmlIgnore]
@@ -298,6 +373,9 @@ namespace FemDesign.Calculate
             }
         }
         
+        /// <summary>
+        /// Gets or sets the diaphragm.
+        /// </summary>
         [XmlAttribute("diaphragm")]
         public int _diaphragm;
         [XmlIgnore]
@@ -313,6 +391,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the peak smoothing.
+        /// </summary>
         [XmlAttribute("peaksmoothing")]
         public int _peakSmoothing; 
         [XmlIgnore]
@@ -335,6 +416,36 @@ namespace FemDesign.Calculate
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Analysis"/> class.
+        /// </summary>
+        /// <param name="stage">the stage.</param>
+        /// <param name="stability">the stability.</param>
+        /// <param name="imperfection">the imperfection.</param>
+        /// <param name="comb">the comb.</param>
+        /// <param name="freq">the freq.</param>
+        /// <param name="footfall">the footfall.</param>
+        /// <param name="bedding">the bedding.</param>
+        /// <param name="groundAcc">the ground acc.</param>
+        /// <param name="exForce">the ex force.</param>
+        /// <param name="periodicEx">the periodic ex.</param>
+        /// <param name="calcCase">the calc case.</param>
+        /// <param name="calcCStage">the calc c stage.</param>
+        /// <param name="calcImpf">the calc impf.</param>
+        /// <param name="calcComb">the calc comb.</param>
+        /// <param name="calcGMax">the calc g max.</param>
+        /// <param name="calcStab">the calc stab.</param>
+        /// <param name="calcFreq">the calc freq.</param>
+        /// <param name="calcSeis">the calc seis.</param>
+        /// <param name="calcFootfall">the calc footfall.</param>
+        /// <param name="calcBedding">the calc bedding.</param>
+        /// <param name="calcGroundAcc">the calc ground acc.</param>
+        /// <param name="calcExForce">the calc ex force.</param>
+        /// <param name="calcPeriodicEx">the calc periodic ex.</param>
+        /// <param name="calcDesign">the calc design.</param>
+        /// <param name="elemFine">the elem fine.</param>
+        /// <param name="diaphragm">the diaphragm.</param>
+        /// <param name="peakSmoothing">the peak smoothing.</param>
         [Obsolete("Use Analysis(..., DiaphragmType diaphragm, ...) instead. This constructor will be removed in the next version.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Analysis(Calculate.Stage stage = null, Stability stability = null, Imperfection imperfection = null, Comb comb = null, Freq freq = null, Footfall footfall = null, Bedding bedding = null, GroundAcc groundAcc = null, ExcitationForce exForce = null, PeriodicExcitation periodicEx = null, bool calcCase = false, bool calcCStage = false, bool calcImpf = false, bool calcComb = false, bool calcGMax = false, bool calcStab = false, bool calcFreq = false, bool calcSeis = false, bool calcFootfall = false, bool calcBedding = false, bool calcGroundAcc = false, bool calcExForce = false, bool calcPeriodicEx = false, bool calcDesign = false, bool elemFine = true, int diaphragm = 0, bool peakSmoothing = false) 
@@ -342,6 +453,36 @@ namespace FemDesign.Calculate
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Analysis"/> class.
+        /// </summary>
+        /// <param name="stage">the stage.</param>
+        /// <param name="stability">the stability.</param>
+        /// <param name="imperfection">the imperfection.</param>
+        /// <param name="comb">the comb.</param>
+        /// <param name="freq">the freq.</param>
+        /// <param name="footfall">the footfall.</param>
+        /// <param name="bedding">the bedding.</param>
+        /// <param name="groundAcc">the ground acc.</param>
+        /// <param name="exForce">the ex force.</param>
+        /// <param name="periodicEx">the periodic ex.</param>
+        /// <param name="calcCase">the calc case.</param>
+        /// <param name="calcCStage">the calc c stage.</param>
+        /// <param name="calcImpf">the calc impf.</param>
+        /// <param name="calcComb">the calc comb.</param>
+        /// <param name="calcGMax">the calc g max.</param>
+        /// <param name="calcStab">the calc stab.</param>
+        /// <param name="calcFreq">the calc freq.</param>
+        /// <param name="calcSeis">the calc seis.</param>
+        /// <param name="calcFootfall">the calc footfall.</param>
+        /// <param name="calcBedding">the calc bedding.</param>
+        /// <param name="calcGroundAcc">the calc ground acc.</param>
+        /// <param name="calcExForce">the calc ex force.</param>
+        /// <param name="calcPeriodicEx">the calc periodic ex.</param>
+        /// <param name="calcDesign">the calc design.</param>
+        /// <param name="elemFine">the elem fine.</param>
+        /// <param name="diaphragm">the diaphragm.</param>
+        /// <param name="peakSmoothing">the peak smoothing.</param>
         public Analysis(Calculate.Stage stage = null, Stability stability = null, Imperfection imperfection = null, Comb comb = null, Freq freq = null, Footfall footfall = null, Bedding bedding = null, GroundAcc groundAcc = null, ExcitationForce exForce = null, PeriodicExcitation periodicEx = null, bool calcCase = false, bool calcCStage = false, bool calcImpf = false, bool calcComb = false, bool calcGMax = false, bool calcStab = false, bool calcFreq = false, bool calcSeis = false, bool calcFootfall = false, bool calcBedding = false, bool calcGroundAcc = false, bool calcExForce = false, bool calcPeriodicEx = false, bool calcDesign = false, bool elemFine = true, DiaphragmType diaphragm = DiaphragmType.None, bool peakSmoothing = false)
         {
             this.Stage = stage;
@@ -472,7 +613,7 @@ namespace FemDesign.Calculate
         /// <param name="tEnd">Calculation parameter for Level acceleration spectra analysis.</param>
         /// <param name="q">Calculation parameter for Level acceleration spectra analysis.</param>
         /// <param name="timeHistory">If true, the time history calculation will be executed.</param>
-        /// <param name="step">The number of every nth time steps when results are saved during the calculation.</param>
+        /// <param name="step">the step.</param>
         /// <param name="lastMoment">Last time moment of the time history calculation.</param>
         /// <param name="method">Integration scheme method type.</param>
         /// <param name="alpha">'alpha' coefficient in the Rayleigh damping matrix.</param>
@@ -488,7 +629,7 @@ namespace FemDesign.Calculate
         /// <summary>
         /// Define excitation force analysis.
         /// </summary>
-        /// <param name="step">The number of every nth time steps when results are saved during the calculation.</param>
+        /// <param name="step">the step.</param>
         /// <param name="lastMoment">Last time moment of the time history calculation.</param>
         /// <param name="method">Integration scheme method type.</param>
         /// <param name="alpha">'alpha' coefficient in the Rayleigh damping matrix.</param>
@@ -552,6 +693,10 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Sets the comb analysis.
+        /// </summary>
+        /// <param name="connection">the connection.</param>
         public void SetCombAnalysis(FemDesignConnection connection)
         {
             //this.Comb.CombItem.Clear();
@@ -598,6 +743,10 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Sets the stability analysis.
+        /// </summary>
+        /// <param name="connection">the connection.</param>
         public void SetStabilityAnalysis(FemDesignConnection connection)
         {
             // ordered load combinations in the model
@@ -638,6 +787,10 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Sets the imperfection analysis.
+        /// </summary>
+        /// <param name="connection">the connection.</param>
         public void SetImperfectionAnalysis(FemDesignConnection connection)
         {
             // ordered load combinations in the model

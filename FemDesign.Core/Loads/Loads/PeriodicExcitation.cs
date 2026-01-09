@@ -8,24 +8,45 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Periodic Excitation.
+    /// </summary>
     [System.Serializable]
     public partial class PeriodicExcitation : FemDesign.GenericClasses.ILoadElement
     {
+        /// <summary>
+        /// Gets or sets the records.
+        /// </summary>
         [XmlElement("record")]
         public List<PeriodicLoad> Records { get; set; } = new List<PeriodicLoad>();
 
+        /// <summary>
+        /// Gets or sets the last change.
+        /// </summary>
         [XmlAttribute("last_change")]
         public DateTime LastChange { get; set; } = DateTime.Now;
 
+        /// <summary>
+        /// Gets or sets the action.
+        /// </summary>
         [XmlAttribute("action")]
         public string Action { get; set; } = "added";
 
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlIgnore]
         public Guid Guid { get; set; }
+        /// <summary>
+        /// Entity Created.
+        /// </summary>
         public void EntityCreated()
         {
             return;
         }
+        /// <summary>
+        /// Entity Modified.
+        /// </summary>
         public void EntityModified()
         {
             return;
@@ -33,18 +54,31 @@ namespace FemDesign.Loads
 
         internal PeriodicExcitation() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeriodicExcitation"/> class.
+        /// </summary>
+        /// <param name="records">the records.</param>
         public PeriodicExcitation(List<PeriodicLoad> records)
         {
             this.Records = records;
         }
     }
 
+    /// <summary>
+    /// Represents a Periodic Load.
+    /// </summary>
     [System.Serializable]
     public partial class PeriodicLoad : FemDesign.GenericClasses.ILoadElement
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the frequency.
+        /// </summary>
         [XmlAttribute("frequency")]
         public double _frequency;
 
@@ -55,9 +89,15 @@ namespace FemDesign.Loads
             set { this._frequency = RestrictedDouble.PositiveMax_1000(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the case.
+        /// </summary>
         [XmlElement("case")]
         public List<PeriodicCase> Case { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeriodicLoad"/> class.
+        /// </summary>
         public PeriodicLoad() { }
 
         /// <summary>
@@ -87,20 +127,35 @@ namespace FemDesign.Loads
         }
 
 
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlIgnore]
         public Guid Guid { get; set; }
+        /// <summary>
+        /// Entity Created.
+        /// </summary>
         public void EntityCreated()
         {
             return;
         }
+        /// <summary>
+        /// Entity Modified.
+        /// </summary>
         public void EntityModified()
         {
             return;
         }
     }
 
+    /// <summary>
+    /// Represents a Periodic Case.
+    /// </summary>
     public partial class PeriodicCase
     {
+        /// <summary>
+        /// Defines the Shape enumeration.
+        /// </summary>
         public enum Shape
         {
             [Parseable("cos", "Cos", "c")]
@@ -111,6 +166,9 @@ namespace FemDesign.Loads
             Sin,
         }
 
+        /// <summary>
+        /// Gets or sets the factor.
+        /// </summary>
         [XmlAttribute("factor")]
         public double _factor;
 
@@ -121,12 +179,21 @@ namespace FemDesign.Loads
             set { this._factor = RestrictedDouble.NonNegMax_1000(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the phase.
+        /// </summary>
         [XmlAttribute("phase")]
         public Shape phase { get; set; }
 
+        /// <summary>
+        /// Gets or sets the load case guid.
+        /// </summary>
         [XmlAttribute("load_case")]
         public System.Guid LoadCaseGuid { get; set; }
 
+        /// <summary>
+        /// Gets or sets the load case.
+        /// </summary>
         [XmlIgnore]
         public LoadCase _loadCase { get; set; }
 
@@ -141,8 +208,17 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeriodicCase"/> class.
+        /// </summary>
         public PeriodicCase() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeriodicCase"/> class.
+        /// </summary>
+        /// <param name="factor">the factor.</param>
+        /// <param name="phase">the phase.</param>
+        /// <param name="LoadCase">the load case.</param>
         public PeriodicCase(double factor, Shape phase, LoadCase LoadCase)
         {
             this.Factor = factor;
@@ -150,6 +226,12 @@ namespace FemDesign.Loads
             this.LoadCase = LoadCase;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeriodicCase"/> class.
+        /// </summary>
+        /// <param name="factor">the factor.</param>
+        /// <param name="phase">the phase.</param>
+        /// <param name="LoadCaseGuid">the load case guid.</param>
         public PeriodicCase(double factor, Shape phase, Guid LoadCaseGuid)
         {
             this.Factor = factor;

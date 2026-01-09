@@ -9,13 +9,16 @@ using System.Xml.Serialization;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// load_case_type
+    /// Represents a Load Case.
     /// </summary>
     [System.Serializable]
     public partial class LoadCase: EntityBase
     {
         private static Regex _caseNamePattern = new Regex(@"^[ -#%'-;=?A-\uFFFD]{1,80}$");
         // attributes
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string _name;
 
@@ -34,9 +37,15 @@ namespace FemDesign.Loads
                 this._name = value;
             }
         }
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public LoadCaseType Type { get; set; } // loadcasetype_type
 
+        /// <summary>
+        /// Gets or sets the duration class.
+        /// </summary>
         [XmlAttribute("duration_class")]
         public LoadCaseDuration _durationClass; // loadcasedurationtype
 
@@ -76,11 +85,14 @@ namespace FemDesign.Loads
         }
 
         /// <summary>
-        /// Returns a LoadCase from a list of LoadCases by name. The first LoadCase with a matching name will be returned.
+        /// Get the first <see cref="LoadCase"/> in a list with a matching <see cref="Name"/>.
         /// </summary>
-        /// <remarks>Create</remarks>
-        /// <param name="loadCases">List of LoadCase.</param>
-        /// <param name="name">Name of LoadCase.</param>
+        /// <remarks>
+        /// Name matching is case-sensitive. Returns <c>null</c> if no match is found.
+        /// </remarks>
+        /// <param name="loadCases">List of load cases to search.</param>
+        /// <param name="name">Load case name to match against <see cref="Name"/>.</param>
+        /// <returns>The first matching <see cref="LoadCase"/>, or <c>null</c> if not found.</returns>
         public static LoadCase LoadCaseFromListByName(List<LoadCase> loadCases, string name)
         {
             foreach (LoadCase _loadCase in loadCases)
@@ -93,6 +105,10 @@ namespace FemDesign.Loads
             return null;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name} ID: {this.Name}, Type: {this.Type}, Duration: {this.DurationClass}";

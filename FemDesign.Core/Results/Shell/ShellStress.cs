@@ -107,6 +107,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = caseIdentifier;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -175,6 +179,9 @@ namespace FemDesign.Results
         /// The method has been created for returning the value for Grasshopper and Dynamo.
         /// The method can still be use for C# users.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="Result">the result.</param>
+        /// <param name="LoadCase">the load case.</param>
         public static Dictionary<string, object> DeconstructShellStress(List<FemDesign.Results.ShellStress> Result, string LoadCase)
         {
             var shellStress = Result.Cast<FemDesign.Results.ShellStress>();

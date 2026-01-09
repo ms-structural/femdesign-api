@@ -16,6 +16,9 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public class SteelBarCalculationParameters : CONFIG
     {
+        /// <summary>
+        /// Defines the Buckling Curve enumeration.
+        /// </summary>
         public enum BucklingCurve
         {
             [XmlEnum("-1")]
@@ -38,6 +41,9 @@ namespace FemDesign.Calculate
             d,
         }
 
+        /// <summary>
+        /// Defines the Buckling Curve Lt enumeration.
+        /// </summary>
         public enum BucklingCurveLt
         {
             [XmlEnum("-1")]
@@ -57,6 +63,9 @@ namespace FemDesign.Calculate
             d,
         }
 
+        /// <summary>
+        /// Defines the Second Order enumeration.
+        /// </summary>
         public enum SecondOrder
         {
             [XmlEnum("0")]
@@ -70,6 +79,9 @@ namespace FemDesign.Calculate
             ConsiderAndFirstOrderDesign
         }
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type = "ECCALCPARAMBARST";
 
@@ -103,6 +115,9 @@ namespace FemDesign.Calculate
         [XmlAttribute("aBucklingCurve_ltt")]
         public BucklingCurveLt BucklingCurveLtt { get; set; } = BucklingCurveLt.Auto;
 
+        /// <summary>
+        /// Gets or sets the check resistance only.
+        /// </summary>
         [XmlAttribute("CheckResistanceOnly")]
         public int _checkResistanceOnly = 0;
 
@@ -120,6 +135,9 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Gets or sets the class4 ignored.
+        /// </summary>
         [XmlAttribute("class4Ignored")]
         public int _class4Ignored = 0;
 
@@ -136,9 +154,15 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the convergency ratio.
+        /// </summary>
         [XmlAttribute("convergencyratio")]
         public double ConvergencyRatio { get; set; } = 1.0;
 
+        /// <summary>
+        /// Gets or sets the f lat tor buck gen.
+        /// </summary>
         [XmlAttribute("fLatTorBuckGen")]
         public int _fLatTorBuckGen = 1;
 
@@ -156,6 +180,9 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Gets or sets the f lat tor buck gen spec for i.
+        /// </summary>
         [XmlAttribute("fLatTorBuckGenSpecForI")]
         public int _fLatTorBuckGenSpecForI = 0;
 
@@ -172,9 +199,15 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the max iter step.
+        /// </summary>
         [XmlAttribute("maxIterStep")]
         public int MaxIterStep { get; set; } = 50;
 
+        /// <summary>
+        /// Gets or sets the plastic ignored.
+        /// </summary>
         [XmlAttribute("plasticIgnored")]
         public int _plasticIgnored = 0;
 
@@ -197,9 +230,15 @@ namespace FemDesign.Calculate
         [XmlAttribute("rStep")]
         public double DistanceCalculatedSection { get; set; } = 0.50;
 
+        /// <summary>
+        /// Gets or sets the s2nd order.
+        /// </summary>
         [XmlAttribute("s2ndOrder")]
         public SecondOrder S2ndOrder { get; set; } = SecondOrder.ConsiderIfAvailable;
 
+        /// <summary>
+        /// Gets or sets the use equation6 41.
+        /// </summary>
         [XmlAttribute("UseEqation6_41")]
         public int _useEquation6_41 = 1;
 
@@ -222,11 +261,19 @@ namespace FemDesign.Calculate
         [XmlElement("GUID")]
         public List<Guid> Guids { get; set; }
 
+        /// <summary>
+        /// Sets the parameters on bars.
+        /// </summary>
+        /// <param name="bars">the bars.</param>
         public void SetParametersOnBars(List<Bar> bars)
         {
             this.Guids = bars.Select(x => x.BarPart.Guid).ToList();
         }
 
+        /// <summary>
+        /// Sets the parameters on bars.
+        /// </summary>
+        /// <param name="bar">the bar.</param>
         public void SetParametersOnBars(Bar bar)
         {
             if (bar.IsSteel() == false)
@@ -235,10 +282,31 @@ namespace FemDesign.Calculate
             }
             this.SetParametersOnBars(new List<Bar> { bar });
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelBarCalculationParameters"/> class.
+        /// </summary>
         public SteelBarCalculationParameters()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelBarCalculationParameters"/> class.
+        /// </summary>
+        /// <param name="sectionsDistance">the sections distance.</param>
+        /// <param name="secondOrder">the second order.</param>
+        /// <param name="plasticCalculation">the plastic calculation.</param>
+        /// <param name="equation641">the equation641.</param>
+        /// <param name="class4">the class4.</param>
+        /// <param name="ignore">the ignore.</param>
+        /// <param name="convergence">the convergence.</param>
+        /// <param name="iteration">the iteration.</param>
+        /// <param name="stiffDirection">the stiff direction.</param>
+        /// <param name="weakDirection">the weak direction.</param>
+        /// <param name="torsionalDirection">the torsional direction.</param>
+        /// <param name="en1993_1_1_6_3_2_2">the en1993 1 1 6 3 2 2.</param>
+        /// <param name="en1993_1_1_6_3_2_3">the en1993 1 1 6 3 2 3.</param>
+        /// <param name="topFlange">the top flange.</param>
+        /// <param name="bottomFlange">the bottom flange.</param>
         public SteelBarCalculationParameters(double sectionsDistance, SecondOrder secondOrder, bool plasticCalculation, bool equation641, bool class4, bool ignore, double convergence, int iteration, BucklingCurve stiffDirection, BucklingCurve weakDirection, BucklingCurve torsionalDirection, bool en1993_1_1_6_3_2_2, bool en1993_1_1_6_3_2_3, BucklingCurveLt topFlange, BucklingCurveLt bottomFlange)
         {
             this.DistanceCalculatedSection = sectionsDistance;

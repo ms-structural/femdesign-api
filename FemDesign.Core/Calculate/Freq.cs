@@ -11,6 +11,9 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class Freq
     {
+        /// <summary>
+        /// Gets or sets the num shapes.
+        /// </summary>
         [XmlAttribute("Numshapes")]
         public int NumShapes { get; set; } = 3;
 
@@ -20,6 +23,9 @@ namespace FemDesign.Calculate
         [XmlAttribute("AutoIter")]
         public int AutoIter { get; set; } = 0;
 
+        /// <summary>
+        /// Gets or sets the shape normalization.
+        /// </summary>
         [XmlAttribute("NormUnit")]
         public int _shapeNormalization = 0;
 
@@ -39,9 +45,15 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the max sturm.
+        /// </summary>
         [XmlAttribute("MaxSturm")]
         public int MaxSturm { get; set; } = 0;
 
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlAttribute("X")]
         public bool _x;
 
@@ -58,6 +70,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlAttribute("Y")]
         public bool _y;
 
@@ -74,6 +89,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("Z")]
         public bool _z;
 
@@ -90,6 +108,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the top.
+        /// </summary>
         [XmlAttribute("top")]
         public double Top { get; set; } = -0.01;
 
@@ -154,6 +175,9 @@ namespace FemDesign.Calculate
 
     }
 
+    /// <summary>
+    /// Defines the Shape Normalisation enumeration.
+    /// </summary>
     public enum ShapeNormalisation
     {
         [Parseable("MassMatrix")]

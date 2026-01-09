@@ -9,6 +9,9 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class Stage
     {
+        /// <summary>
+        /// Gets or sets the ghost.
+        /// </summary>
         [XmlAttribute("ghost")]
         public bool _ghost { get; set; }
 
@@ -19,6 +22,9 @@ namespace FemDesign.Calculate
             set { _ghost = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the time dependent analysis.
+        /// </summary>
         [XmlAttribute("tda")]
         public bool _timeDependentAnalysis { get; set; }
         [XmlIgnore]
@@ -28,6 +34,9 @@ namespace FemDesign.Calculate
             set { _timeDependentAnalysis = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the creep increment limit.
+        /// </summary>
         [XmlAttribute("creepincrementlimit")]
         public double _creepIncrementLimit { get; set; } = 0.25;
 
@@ -57,6 +66,12 @@ namespace FemDesign.Calculate
             
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Stage"/> class.
+        /// </summary>
+        /// <param name="ghost">the ghost.</param>
+        /// <param name="timeDependent">the time dependent.</param>
+        /// <param name="creepLimit">the creep limit.</param>
         public Stage(bool ghost = false, bool timeDependent = false, double? creepLimit = null)
         {
             this.Ghost = ghost;
@@ -67,6 +82,7 @@ namespace FemDesign.Calculate
         /// <summary>
         /// Default Construction stages method (incremental).
         /// </summary>
+        /// <returns>The result.</returns>
         public static Stage Default()
         {
             return new Stage(false);
@@ -75,6 +91,7 @@ namespace FemDesign.Calculate
         /// Construction stages method.
         /// </summary>
         /// <param name="ghost">Ghost construction method. True/false. If false incremental method is used.</param>
+        /// <returns>The result.</returns>
         public static Stage Define(bool ghost = false)
         {
             return new Stage(ghost);

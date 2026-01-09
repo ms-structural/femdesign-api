@@ -12,16 +12,31 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.Drawing
 {
+    /// <summary>
+    /// Represents a Point3d.
+    /// </summary>
     public class Point3d : IDrawing
     {
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlIgnore]
         public double X { get; set; }
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlIgnore]
         public double Y { get; set; }
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlIgnore]
         public double Z { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets the style.
+        /// </summary>
         [XmlElement("style")]
         public Style_type Style { get; set; }
 
@@ -29,6 +44,14 @@ namespace FemDesign.Drawing
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Point3d"/> class.
+        /// </summary>
+        /// <param name="x">value for <paramref name="x"/>.</param>
+        /// <param name="y">value for <paramref name="y"/>.</param>
+        /// <param name="z">value for <paramref name="z"/>.</param>
+        /// <param name="layer">the layer.</param>
+        /// <param name="style">the style.</param>
         public Point3d(double x, double y, double z, Layer_type layer, Style_type style)
         {
             this.X = x;

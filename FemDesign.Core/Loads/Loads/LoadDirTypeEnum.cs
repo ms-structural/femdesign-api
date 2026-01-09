@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Defines the Load Dir Type enumeration.
+    /// </summary>
     public enum LoadDirType
     {
         [XmlEnum("constant")]

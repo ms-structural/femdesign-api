@@ -8,14 +8,20 @@ using FemDesign.GenericClasses;
 namespace FemDesign.Bars.Buckling
 {
     /// <summary>
-    /// buckling_record
+    /// Represents a Buckling Length.
     /// </summary>
     [System.Serializable]
     public partial class BucklingLength
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public BucklingType Type { get; set; } // bar_buckling_type
 
+        /// <summary>
+        /// Gets or sets the beta.
+        /// </summary>
         [XmlAttribute("beta")]
         public string _beta; // non_neg_max_100
 
@@ -32,18 +38,33 @@ namespace FemDesign.Bars.Buckling
             }
         }
 
+        /// <summary>
+        /// Gets or sets the sway.
+        /// </summary>
         [XmlAttribute("sway")]
         public bool Sway;
 
+        /// <summary>
+        /// Gets or sets the load position.
+        /// </summary>
         [XmlAttribute("load_position")]
         public VerticalAlignment LoadPosition { get; set; }
 
+        /// <summary>
+        /// Gets or sets the continously restrained.
+        /// </summary>
         [XmlAttribute("continously_restrained")]
         public bool ContinouslyRestrained;
 
+        /// <summary>
+        /// Gets a value indicating whether ntilever.
+        /// </summary>
         [XmlAttribute("cantilever")]
         public bool Cantilever;
 
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
         [XmlElement("position")]
         public Position Position { get; set; } // segmentposition_type
 

@@ -13,9 +13,35 @@ namespace FemDesign.Results
     [Result(typeof(CLTFireUtilization), ListProc.CLTPanelFireUtilizationLoadCombination)]
     public class CLTFireUtilization : CLTShellUtilization, IResult
     {
+        /// <summary>
+        /// Gets or sets the duration.
+        /// </summary>
         public double Duration { get; }
+        /// <summary>
+        /// Gets or sets the protection.
+        /// </summary>
         public string Protection { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CLTFireUtilization"/> class.
+        /// </summary>
+        /// <param name="id">the id.</param>
+        /// <param name="duration">the duration.</param>
+        /// <param name="fireProtection">the fire protection.</param>
+        /// <param name="max">the max.</param>
+        /// <param name="tensionX">the tension x.</param>
+        /// <param name="tensionY">the tension y.</param>
+        /// <param name="compressionX">the compression x.</param>
+        /// <param name="compressionY">the compression y.</param>
+        /// <param name="shearXY">the shear xy.</param>
+        /// <param name="shearX">the shear x.</param>
+        /// <param name="shearY">the shear y.</param>
+        /// <param name="shearInteraction">the shear interaction.</param>
+        /// <param name="tensionShear">the tension shear.</param>
+        /// <param name="compressionShear">the compression shear.</param>
+        /// <param name="buckling">the buckling.</param>
+        /// <param name="torsion">the torsion.</param>
+        /// <param name="caseIndentifier">the case indentifier.</param>
         [JsonConstructor]
         public CLTFireUtilization(string id, double duration, string fireProtection, double max, double tensionX, double tensionY, double compressionX, double compressionY, double shearXY, double shearX, double shearY, double shearInteraction, double tensionShear, double compressionShear, double buckling, double torsion, string caseIndentifier) : base(id, max, tensionX, tensionY, compressionX, compressionY, shearXY, shearX,  shearY, shearInteraction, tensionShear, compressionShear, buckling, torsion, caseIndentifier)
         {
@@ -38,6 +64,10 @@ namespace FemDesign.Results
             CaseIdentifier = caseIndentifier;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

@@ -9,11 +9,14 @@ using System.Xml.Serialization;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// line_load_type
+    /// Represents a Line Load.
     /// </summary>
     [System.Serializable]
     public partial class LineLoad : ForceLoadBase
     {
+        /// <summary>
+        /// Gets or sets the constant load direction.
+        /// </summary>
         [XmlAttribute("load_dir")]
         public LoadDirType _constantLoadDirection; // load_dir_type
         [XmlIgnore]
@@ -28,16 +31,31 @@ namespace FemDesign.Loads
                 this._constantLoadDirection = value ? LoadDirType.Constant : LoadDirType.Changing;
             }
         }
+        /// <summary>
+        /// Gets or sets the load projection.
+        /// </summary>
         [XmlAttribute("load_projection")]
         public bool LoadProjection { get; set; } // bool
 
         // elements
+        /// <summary>
+        /// Gets or sets the edge.
+        /// </summary>
         [XmlElement("edge", Order = 1)]
         public Geometry.Edge Edge { get; set; } // edge_type
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order = 2)]
         public Geometry.Vector3d Direction { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the normal.
+        /// </summary>
         [XmlElement("normal", Order = 3)]
         public Geometry.Vector3d Normal { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the load.
+        /// </summary>
         [XmlElement("load", Order = 4)]
         public LoadLocationValue[] Load = new LoadLocationValue[2];
         [XmlIgnore]
@@ -89,6 +107,16 @@ namespace FemDesign.Loads
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineLoad"/> class.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="constantForce">the constant force.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="loadType">the load type.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="constLoadDir">the const load dir.</param>
+        /// <param name="loadProjection">the load projection.</param>
         public LineLoad(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, ForceLoadType loadType, string comment = "", bool constLoadDir = true, bool loadProjection = false)
         {
             this.EntityCreated();
@@ -105,6 +133,14 @@ namespace FemDesign.Loads
         /// <summary>
         /// Internal constructor.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="startForce">the start force.</param>
+        /// <param name="endForce">the end force.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="loadType">the load type.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="constLoadDir">the const load dir.</param>
+        /// <param name="loadProjection">the load projection.</param>
         public LineLoad(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, ForceLoadType loadType, string comment = "", bool constLoadDir = true, bool loadProjection = false)
         {
             this.EntityCreated();
@@ -118,6 +154,18 @@ namespace FemDesign.Loads
             this.SetStartAndEndForces(startForce, endForce);
         }
 
+        /// <summary>
+        /// Set line load direction and start/end magnitudes from two vectors.
+        /// </summary>
+        /// <remarks>
+        /// The input vectors must be parallel or antiparallel. Their lengths are used as the start/end magnitudes,
+        /// and the (normalized) vector direction is stored in <see cref="Direction"/>.
+        /// </remarks>
+        /// <param name="startForce">Vector defining load direction and start magnitude (length).</param>
+        /// <param name="endForce">Vector defining load direction and end magnitude (length).</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when both vectors are zero, or when they are neither parallel nor antiparallel.
+        /// </exception>
         internal void SetStartAndEndForces(Geometry.Vector3d startForce, Geometry.Vector3d endForce)
         {
             if (startForce.IsZero() && !endForce.IsZero())
@@ -163,16 +211,22 @@ namespace FemDesign.Loads
 
 
         /// <summary>
-        /// Create a Distributed Force Load to be applied to an Edge [kNm/m]
+        /// Create a variable (linearly varying) distributed force line load along an edge.
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="startForce"></param>
-        /// <param name="endForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Units: <c>kN/m</c>. <paramref name="startForce"/> and <paramref name="endForce"/> must be parallel or antiparallel.
+        /// </remarks>
+        /// <param name="edge">Edge to apply the line load to.</param>
+        /// <param name="startForce">Force per length at the start of the edge (vector direction defines load direction).</param>
+        /// <param name="endForce">Force per length at the end of the edge (vector direction defines load direction).</param>
+        /// <param name="loadCase">Load case to assign to the line load.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant load direction along the edge.</param>
+        /// <param name="loadProjection">If <c>true</c>, the load is projected.</param>
+        /// <returns>A <see cref="LineLoad"/> of type <see cref="ForceLoadType.Force"/>.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown when both vectors are zero, or when they are neither parallel nor antiparallel.
+        /// </exception>
         public static LineLoad VariableForce(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, string comment = "", bool constLoadDir = true, bool loadProjection = false)
 		{
             return new LineLoad(edge, startForce, endForce, loadCase, ForceLoadType.Force, comment, constLoadDir, loadProjection);
@@ -180,36 +234,55 @@ namespace FemDesign.Loads
 
 
         /// <summary>
-        /// Create a Distributed Moment Load to be applied to an Edge [kN/m]
+        /// Create a variable (linearly varying) distributed moment line load along an edge.
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="startForce"></param>
-        /// <param name="endForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Units: <c>kNm/m</c>. <paramref name="startForce"/> and <paramref name="endForce"/> must be parallel or antiparallel.
+        /// </remarks>
+        /// <param name="edge">Edge to apply the line load to.</param>
+        /// <param name="startForce">Moment per length at the start of the edge (vector direction defines load direction).</param>
+        /// <param name="endForce">Moment per length at the end of the edge (vector direction defines load direction).</param>
+        /// <param name="loadCase">Load case to assign to the line load.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant load direction along the edge.</param>
+        /// <param name="loadProjection">If <c>true</c>, the load is projected.</param>
+        /// <returns>A <see cref="LineLoad"/> of type <see cref="ForceLoadType.Moment"/>.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown when both vectors are zero, or when they are neither parallel nor antiparallel.
+        /// </exception>
         public static LineLoad VariableMoment(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, string comment = "", bool constLoadDir = true, bool loadProjection = false)
         {
             return new LineLoad(edge, startForce, endForce, loadCase, ForceLoadType.Moment, comment, constLoadDir, loadProjection);
         }
 
         /// <summary>
-        /// Create a UniformDistributed Force Load to be applied to an Edge [kNm/m]
+        /// Create a uniform distributed force line load along an edge.
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="constantForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <remarks>Units: <c>kN/m</c>.</remarks>
+        /// <param name="edge">Edge to apply the line load to.</param>
+        /// <param name="constantForce">Force per length (vector direction defines load direction).</param>
+        /// <param name="loadCase">Load case to assign to the line load.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant load direction along the edge.</param>
+        /// <param name="loadProjection">If <c>true</c>, the load is projected.</param>
+        /// <returns>A <see cref="LineLoad"/> of type <see cref="ForceLoadType.Force"/>.</returns>
         public static LineLoad UniformForce(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, string comment = "", bool constLoadDir = true, bool loadProjection = false)
         {
             return new LineLoad(edge, constantForce, loadCase, ForceLoadType.Force, comment, constLoadDir, loadProjection);
         }
 
+        /// <summary>
+        /// Create a uniform distributed force line load along an edge without a load case.
+        /// </summary>
+        /// <remarks>
+        /// Units: <c>kN/m</c>. This is mainly intended for interoperability with the "caseless" StruXML load types.
+        /// </remarks>
+        /// <param name="edge">Edge to apply the line load to.</param>
+        /// <param name="constantForce">Force per length (vector direction defines load direction).</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant load direction along the edge.</param>
+        /// <param name="loadProjection">If <c>true</c>, the load is projected.</param>
+        /// <returns>A <see cref="LineLoad"/> with <see cref="LoadCase"/> left unset.</returns>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="constantForce"/> is a zero vector.</exception>
         public static LineLoad CaselessUniformForce(Geometry.Edge edge, Geometry.Vector3d constantForce, bool constLoadDir = true, bool loadProjection = false)
         {
             var caseless = new LineLoad();
@@ -226,20 +299,26 @@ namespace FemDesign.Loads
         }
 
         /// <summary>
-        /// Create a Uniform Distributed Moment Load to be applied to an Edge [kNm/m]
+        /// Create a uniform distributed moment line load along an edge.
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="constantForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <remarks>Units: <c>kNm/m</c>.</remarks>
+        /// <param name="edge">Edge to apply the line load to.</param>
+        /// <param name="constantForce">Moment per length (vector direction defines load direction).</param>
+        /// <param name="loadCase">Load case to assign to the line load.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant load direction along the edge.</param>
+        /// <param name="loadProjection">If <c>true</c>, the load is projected.</param>
+        /// <returns>A <see cref="LineLoad"/> of type <see cref="ForceLoadType.Moment"/>.</returns>
         public static LineLoad UniformMoment(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, string comment = "", bool constLoadDir = true, bool loadProjection = false)
         {
             return new LineLoad(edge, constantForce, loadCase, ForceLoadType.Moment, comment, constLoadDir, loadProjection);
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static explicit operator LineLoad(StruSoft.Interop.StruXml.Data.Caseless_line_load_type obj)
         {
             var lineLoad = new LineLoad();
@@ -270,6 +349,10 @@ namespace FemDesign.Loads
             return lineLoad;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             var units = this.LoadType == ForceLoadType.Force ? "kN" : "kNm";

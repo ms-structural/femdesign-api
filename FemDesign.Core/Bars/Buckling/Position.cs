@@ -5,11 +5,14 @@ using System.Xml.Serialization;
 namespace FemDesign.Bars.Buckling
 {
     /// <summary>
-    /// segmentposition_type
+    /// Represents a Position.
     /// </summary>
     [System.Serializable]
     public partial class Position
     {
+        /// <summary>
+        /// Gets or sets the start.
+        /// </summary>
         [XmlAttribute("start")]
         public double _start; // position_type
         [XmlIgnore]
@@ -18,6 +21,9 @@ namespace FemDesign.Bars.Buckling
             get { return this._start; }
             set { this._start = RestrictedDouble.PositionType(value); }
         }
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlAttribute("end")]
         public double _end; // position_type
         [XmlIgnore]
@@ -63,6 +69,7 @@ namespace FemDesign.Bars.Buckling
         /// <remarks>Private</remarks>
         /// <param name="startParameter">Start of buckling length. Value equal to or between 0 and 1. 0 = start of bar, 1 = end of bar.</param>
         /// <param name="endParameter">End of buckling length. Value equal to or between 0 and 1. 0 = start of bar, 1 = end of bar</param>
+        /// <returns>The result.</returns>
         public static Position ByParameters(double startParameter, double endParameter)
         {
             return new Position(startParameter, endParameter);

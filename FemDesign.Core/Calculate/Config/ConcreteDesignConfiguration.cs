@@ -9,12 +9,21 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Concrete Design Config.
+    /// </summary>
     [System.Serializable]
     public partial class ConcreteDesignConfig : CONFIG
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type = "ECRCCONFIG";
 
+        /// <summary>
+        /// Defines the Calculation Method enumeration.
+        /// </summary>
         public enum CalculationMethod
         {
             [XmlEnum("0")]
@@ -25,6 +34,9 @@ namespace FemDesign.Calculate
             NominalCurvature
         }
 
+        /// <summary>
+        /// Gets or sets the second order calculation method.
+        /// </summary>
         [XmlAttribute("s2ndOrder")]
         public CalculationMethod SecondOrderCalculationMethod { get; set; } = ConcreteDesignConfig.CalculationMethod.NominalStiffness;
 
@@ -67,6 +79,15 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConcreteDesignConfig"/> class.
+        /// </summary>
+        /// <param name="secondOrder">the second order.</param>
+        /// <param name="crackQuasiPermanent">the crack quasi permanent.</param>
+        /// <param name="crackFrequent">the crack frequent.</param>
+        /// <param name="crackCharacteristic">the crack characteristic.</param>
+        /// <param name="reopeningCracks">the reopening cracks.</param>
+        /// <param name="useUpperLimitForEq711">the use upper limit for eq711.</param>
         public ConcreteDesignConfig(CalculationMethod secondOrder, bool crackQuasiPermanent = true, bool crackFrequent = false, bool crackCharacteristic = false, bool reopeningCracks = false, bool useUpperLimitForEq711 = false)
         {
             SecondOrderCalculationMethod = secondOrder;
@@ -77,11 +98,27 @@ namespace FemDesign.Calculate
             UseUpperLimitForEq711 = useUpperLimitForEq711;
         }
 
+        /// <summary>
+        /// Nominal Stiffness.
+        /// </summary>
+        /// <param name="crackQuasiPermanent">the crack quasi permanent.</param>
+        /// <param name="crackFrequent">the crack frequent.</param>
+        /// <param name="crackCharacteristic">the crack characteristic.</param>
+        /// <param name="useUpperLimitForEq711">the use upper limit for eq711.</param>
+        /// <returns>The result.</returns>
         public static ConcreteDesignConfig NominalStiffness(bool crackQuasiPermanent = true, bool crackFrequent = false, bool crackCharacteristic = false, bool useUpperLimitForEq711 = false)
         {
             return new ConcreteDesignConfig(CalculationMethod.NominalStiffness, crackQuasiPermanent, crackFrequent, crackCharacteristic, useUpperLimitForEq711: useUpperLimitForEq711);
         }
 
+        /// <summary>
+        /// Nominal Curvature.
+        /// </summary>
+        /// <param name="crackQuasiPermanent">the crack quasi permanent.</param>
+        /// <param name="crackFrequent">the crack frequent.</param>
+        /// <param name="crackCharacteristic">the crack characteristic.</param>
+        /// <param name="useUpperLimitForEq711">the use upper limit for eq711.</param>
+        /// <returns>The result.</returns>
         public static ConcreteDesignConfig NominalCurvature(bool crackQuasiPermanent = true, bool crackFrequent = false, bool crackCharacteristic = false, bool useUpperLimitForEq711 = false)
         {
             return new ConcreteDesignConfig(CalculationMethod.NominalCurvature, crackQuasiPermanent, crackFrequent, crackCharacteristic, useUpperLimitForEq711: useUpperLimitForEq711);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,9 @@ using Autodesk.DesignScript.Runtime;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Defines the List Proc enumeration.
+    /// </summary>
     [System.Serializable]
 #if ISDYNAMO
 	[IsVisibleInDynamoLibrary(false)]
@@ -699,6 +702,11 @@ namespace FemDesign.Calculate
 
     public static class ListProcExtension
     {
+        /// <summary>
+        /// Determines whether load case.
+        /// </summary>
+        /// <param name="listProc">the list proc.</param>
+        /// <returns>The result.</returns>
         public static bool IsLoadCase(this ListProc listProc)
         {
             {
@@ -709,6 +717,11 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Determines whether load combination.
+        /// </summary>
+        /// <param name="listProc">the list proc.</param>
+        /// <returns>The result.</returns>
         public static bool IsLoadCombination(this ListProc listProc)
         {
             {
@@ -721,6 +734,11 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Determines whether quantity estimation.
+        /// </summary>
+        /// <param name="listProc">the list proc.</param>
+        /// <returns>The result.</returns>
         public static bool IsQuantityEstimation(this ListProc listProc)
         {
             {
@@ -731,6 +749,11 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Determines whether max comb.
+        /// </summary>
+        /// <param name="listProc">the list proc.</param>
+        /// <returns>The result.</returns>
         public static bool IsMaxComb(this ListProc listProc)
         {
             {
@@ -741,6 +764,11 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Determines whether max load group.
+        /// </summary>
+        /// <param name="listProc">the list proc.</param>
+        /// <returns>The result.</returns>
         public static bool IsMaxLoadGroup(this ListProc listProc)
         {
             {

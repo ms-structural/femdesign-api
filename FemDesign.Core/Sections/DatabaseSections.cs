@@ -11,6 +11,9 @@ namespace FemDesign.Sections
     [System.Serializable]
     public partial class DatabaseSections
     {
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
         [XmlElement("section")]
         public List<Section> Section = new List<Section>();
     }

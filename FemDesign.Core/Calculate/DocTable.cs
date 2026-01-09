@@ -10,14 +10,20 @@ namespace FemDesign.Calculate
 {
 
     /// <summary>
-    /// cmddoctable
+    /// Represents a Cmd Doc Table.
     /// </summary>
     [System.Serializable]
     public partial class CmdDocTable
     {   
+        /// <summary>
+        /// Gets or sets the doc table.
+        /// </summary>
         [XmlElement("doctable", Order = 1)]
         public DocTable DocTable { get; set; }
 
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string _command = "; CXL $MODULE DOCTABLE";
 
@@ -40,28 +46,46 @@ namespace FemDesign.Calculate
     }
     
     /// <summary>
-    /// doctable
+    /// Represents a Doc Table.
     /// </summary>
     [System.Serializable]
     public partial class DocTable
     {
+        /// <summary>
+        /// Gets or sets the list proc.
+        /// </summary>
         [XmlElement("listproc", Order = 2)]
         public ListProc ListProc { get; set; }
 
+        /// <summary>
+        /// Gets or sets the fem design version.
+        /// </summary>
         [XmlElement("version", Order = 3)]
         public string FemDesignVersion { get; set; } = FdScript.Version;
         
 
         // micro pattern to avoid an empty element
         // https://stackoverflow.com/a/610630/14969396
+        /// <summary>
+        /// Gets or sets the case index.
+        /// </summary>
         [XmlIgnore]
         public int? CaseIndex { get; set; }
+        /// <summary>
+        /// Gets or sets the xml some value.
+        /// </summary>
         [XmlElement("index", Order = 4)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public int _xmlSomeValue { get { return CaseIndex.Value; } set { CaseIndex = value; } }
+        /// <summary>
+        /// Gets or sets the xml some value specified.
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool _xmlSomeValueSpecified { get { return CaseIndex.HasValue; } }
 
+        /// <summary>
+        /// Gets or sets the suffix.
+        /// </summary>
         [XmlElement("suffix", Order = 5)]
         public string Suffix { get; set; }
 
@@ -83,12 +107,21 @@ namespace FemDesign.Calculate
         [XmlElement("coldata", Order = 6)]
         public List<Coldata> ColData = Coldata.Default(); // we are using 61 column data as it should be the maximum number of column in our result type
 
+        /// <summary>
+        /// Gets or sets the units.
+        /// </summary>
         [XmlElement("units", Order = 7)]
         public List<FemDesign.Results.Units> Units { get; set; }
 
+        /// <summary>
+        /// Gets or sets the option.
+        /// </summary>
         [XmlElement("options", Order = 8)]
         public Options Option { get; set; }
         
+        /// <summary>
+        /// Gets or sets the res type.
+        /// </summary>
         [XmlElement("restype", Order = 9)]
         public int ResType { get; set; }
 

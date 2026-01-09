@@ -45,6 +45,10 @@ namespace FemDesign.Results
             this.Node1Prime = node1Prime;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {ElementId}, {Node1}, {Node1Prime}";

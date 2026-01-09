@@ -10,6 +10,9 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class ExcitationForce
     {
+        /// <summary>
+        /// Gets or sets the time step.
+        /// </summary>
         [XmlAttribute("nres")]
         public int _timeStep = 5;
         [XmlIgnore]
@@ -25,6 +28,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the last moment of th calc.
+        /// </summary>
         [XmlAttribute("tcend")]
         public double _lastMomentOfThCalc = 20.0;
         [XmlIgnore]
@@ -40,6 +46,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the method.
+        /// </summary>
         [XmlAttribute("method")]
         public int _method = 0;
         [XmlIgnore]
@@ -55,6 +64,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the alpha.
+        /// </summary>
         [XmlAttribute("alpha")]
         public double _alpha = 0.0;
         [XmlIgnore]
@@ -70,6 +82,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the beta.
+        /// </summary>
         [XmlAttribute("beta")]
         public double _beta = 0.0;
         [XmlIgnore]
@@ -85,6 +100,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dmp factor.
+        /// </summary>
         [XmlAttribute("ksi")]
         public double _dmpFactor = 5.0;
         [XmlIgnore]
@@ -111,7 +129,7 @@ namespace FemDesign.Calculate
         /// <summary>
         /// Define calculation parameters for excitation force calculation.
         /// </summary>
-        /// <param name="step">The number of every nth time steps when results are saved during the calculation.</param>
+        /// <param name="step">the step.</param>
         /// <param name="lastMoment">Last time moment of the time history calculation [s].</param>
         /// <param name="method">Integration scheme method type.</param>
         /// <param name="alpha">'alpha' coefficient in the Rayleigh damping matrix.</param>
@@ -127,6 +145,10 @@ namespace FemDesign.Calculate
             this.DmpFactor = dampingFactor;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static ExcitationForce Default()
         {
             return new ExcitationForce(5, 20.0, IntegrationSchemeMethod.Newmark, 0, 0, 5.0); 

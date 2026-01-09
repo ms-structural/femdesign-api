@@ -7,11 +7,14 @@ using System.Xml.Serialization;
 namespace FemDesign.ModellingTools
 {
     /// <summary>
-    /// cover_referencelist_type
+    /// Represents a Cover Reference List.
     /// </summary>
     [System.Serializable]
     public partial class CoverReferenceList
     {
+        /// <summary>
+        /// Gets or sets the ref guid.
+        /// </summary>
         [XmlElement("ref")]
         public List<GuidListType> RefGuid = new List<GuidListType>(); // guidtype
 

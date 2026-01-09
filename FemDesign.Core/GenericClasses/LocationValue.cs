@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace FemDesign
 {
     /// <summary>
-    /// location_value_type
+    /// Represents a Location Value.
     /// </summary>
     [System.Serializable]
     public partial class LocationValue: Geometry.Point3d
@@ -33,6 +33,7 @@ namespace FemDesign
         /// <summary>
         /// Convert coordinates of LocationValue to FdPoint.
         /// </summary>
+        /// <returns>The result.</returns>
         public Geometry.Point3d GetFdPoint()
         {
             return new Geometry.Point3d(this.X, this.Y, this.Z);

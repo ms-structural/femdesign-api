@@ -10,6 +10,9 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class GroundAcc
     {
+        /// <summary>
+        /// Gets or sets the level acceleraton spectra.
+        /// </summary>
         [XmlAttribute("flevelspectra")]
         public int _levelAcceleratonSpectra = 1;
         [XmlIgnore]
@@ -25,6 +28,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the delta t.
+        /// </summary>
         [XmlAttribute("dts")]
         public double _deltaT = 0.20;
         [XmlIgnore]
@@ -40,6 +46,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the t end.
+        /// </summary>
         [XmlAttribute("tsend")]
         public double _tEnd = 5.0;
         [XmlIgnore]
@@ -55,6 +64,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the q.
+        /// </summary>
         [XmlAttribute("q")]
         public double _q = 1.0;
         [XmlIgnore]
@@ -70,6 +82,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the time history.
+        /// </summary>
         [XmlAttribute("facc")]
         public int _timeHistory = 1;
         [XmlIgnore]
@@ -85,6 +100,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the time step.
+        /// </summary>
         [XmlAttribute("nres")]
         public int _timeStep = 5;
         [XmlIgnore]
@@ -100,6 +118,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the last moment of th calc.
+        /// </summary>
         [XmlAttribute("tcend")]
         public double _lastMomentOfThCalc = 20.0;
         [XmlIgnore]
@@ -115,6 +136,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the method.
+        /// </summary>
         [XmlAttribute("method")]
         public int _method = 0;
         [XmlIgnore]
@@ -130,6 +154,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the alpha.
+        /// </summary>
         [XmlAttribute("alpha")]
         public double _alpha = 0.0;
         [XmlIgnore]
@@ -145,6 +172,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the beta.
+        /// </summary>
         [XmlAttribute("beta")]
         public double _beta = 0.0;
         [XmlIgnore]
@@ -160,6 +190,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dmp factor.
+        /// </summary>
         [XmlAttribute("ksi")]
         public double _dmpFactor = 5.0;
         [XmlIgnore]
@@ -191,7 +224,7 @@ namespace FemDesign.Calculate
         /// <param name="tEnd">Calculation parameter for Level acceleration spectra analysis [s].</param>
         /// <param name="q">Calculation parameter for Level acceleration spectra analysis.</param>
         /// <param name="timeHistory">If true, the time history calculation will be executed.</param>
-        /// <param name="step">The number of every nth time steps when results are saved during the calculation.</param>
+        /// <param name="step">the step.</param>
         /// <param name="lastMoment">Last time moment of the time history calculation [s].</param>
         /// <param name="method">Integration scheme method type.</param>
         /// <param name="alpha">'alpha' coefficient in the Rayleigh damping matrix.</param>
@@ -231,7 +264,7 @@ namespace FemDesign.Calculate
         /// <summary>
         /// Define calculation parameters for time history analysis (ground acceleration calculation).
         /// </summary>
-        /// <param name="step">The number of every nth time steps when results are saved during the calculation.</param>
+        /// <param name="step">the step.</param>
         /// <param name="lastMoment">Last time moment of the time history calculation [s].</param>
         /// <param name="method">Integration scheme method type.</param>
         /// <param name="alpha">'alpha' coefficient in the Rayleigh damping matrix.</param>
@@ -253,6 +286,9 @@ namespace FemDesign.Calculate
         }
     }
 
+    /// <summary>
+    /// Defines the Integration Scheme Method enumeration.
+    /// </summary>
     public enum IntegrationSchemeMethod
     {
         [Parseable("Newmark")]

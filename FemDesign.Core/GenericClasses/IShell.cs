@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.GenericClasses
 {
+    /// <summary>
+    /// Defines the I Shell interface.
+    /// </summary>
     public interface IShell
     {
         void UpdateMaterial(Materials.Material material);

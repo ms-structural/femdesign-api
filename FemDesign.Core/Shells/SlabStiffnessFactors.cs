@@ -8,9 +8,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Shells
 {
+    /// <summary>
+    /// Represents a Slab Stiffness Factors.
+    /// </summary>
     [System.Serializable]
     public partial class SlabStiffnessFactors
     {
+        /// <summary>
+        /// Gets or sets the factors.
+        /// </summary>
         [XmlElement("factors", Order = 1)]
         public List<SlabStiffnessRecord> _factors { get; set; }
 
@@ -24,14 +30,24 @@ namespace FemDesign.Shells
             set { this._factors = value; }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SlabStiffnessFactors"/> class.
+        /// </summary>
         public SlabStiffnessFactors()
         {
 
         }
 
+        /// <summary>
+        /// Gets or sets the key pair analysys factors.
+        /// </summary>
         [XmlIgnore]
         public Dictionary<StiffnessAnalysisType, SlabStiffnessRecord> _keyPairAnalysysFactors { get; set; }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static Dictionary<StiffnessAnalysisType, SlabStiffnessRecord> Default()
         {
             var stiffRecordDefault = new SlabStiffnessRecord(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
@@ -40,6 +56,11 @@ namespace FemDesign.Shells
 
 
 
+        /// <summary>
+        /// Same All Calculation.
+        /// </summary>
+        /// <param name="stiffRecord">the stiff record.</param>
+        /// <returns>The result.</returns>
         public static Dictionary<StiffnessAnalysisType, SlabStiffnessRecord> SameAllCalculation(SlabStiffnessRecord stiffRecord)
         {
             var defaultValues = new Dictionary<StiffnessAnalysisType, SlabStiffnessRecord>();

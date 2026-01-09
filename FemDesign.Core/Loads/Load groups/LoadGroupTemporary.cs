@@ -13,6 +13,9 @@ namespace FemDesign.Loads
     [System.Serializable]
     public partial class LoadGroupTemporary : LoadGroupBase
     {
+        /// <summary>
+        /// Gets or sets the safety factor.
+        /// </summary>
         [XmlAttribute("safety_factor")]
         public double _safetyFactor;
         [XmlIgnore]
@@ -27,6 +30,9 @@ namespace FemDesign.Loads
                 this._safetyFactor = RestrictedDouble.Positive(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the psi0.
+        /// </summary>
         [XmlAttribute("psi_0")]
         public double _psi0;
         [XmlIgnore]
@@ -41,6 +47,9 @@ namespace FemDesign.Loads
                 this._psi0 = RestrictedDouble.NonNegMax_10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the psi1.
+        /// </summary>
         [XmlAttribute("psi_1")]
         public double _psi1;
         [XmlIgnore]
@@ -55,6 +64,9 @@ namespace FemDesign.Loads
                 this._psi1 = RestrictedDouble.NonNegMax_10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the psi2.
+        /// </summary>
         [XmlAttribute("psi_2")]
         public double _psi2;
         [XmlIgnore]
@@ -69,17 +81,32 @@ namespace FemDesign.Loads
                 this._psi2 = RestrictedDouble.NonNegMax_10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the leading cases.
+        /// </summary>
         [XmlAttribute("leading_cases")]
         public bool LeadingCases { get; set; }
+        /// <summary>
+        /// Gets or sets the ignore sls.
+        /// </summary>
         [XmlAttribute("ignore_sls")]
         public bool IgnoreSls { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the custom table.
+        /// </summary>
         [XmlElement(ElementName = "custom_table", Order = 1)]
         public TemporaryGroupRecord CustomTable { get; set; }
 
+        /// <summary>
+        /// Gets or sets the model load case.
+        /// </summary>
         [XmlElement("load_case", Order = 2)]
         public List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
 
+        /// <summary>
+        /// Gets or sets the temporary effect.
+        /// </summary>
         [XmlAttribute("temporary_effect")]
         public TemporaryEffect TemporaryEffect { get; set; } = TemporaryEffect.General;
 
@@ -100,6 +127,14 @@ namespace FemDesign.Loads
         /// <summary>
         /// Public constructor.
         /// </summary>
+        /// <param name="safetyFactor">the safety factor.</param>
+        /// <param name="psi0">the psi0.</param>
+        /// <param name="psi1">the psi1.</param>
+        /// <param name="psi2">the psi2.</param>
+        /// <param name="potentiallyLeadingAction">the potentially leading action.</param>
+        /// <param name="loadCases">the load cases.</param>
+        /// <param name="relationsship">the relationsship.</param>
+        /// <param name="name">the name.</param>
         public LoadGroupTemporary(double safetyFactor,
                                        double psi0, double psi1, double psi2,
                                        bool potentiallyLeadingAction, List<LoadCase> loadCases,
@@ -119,6 +154,7 @@ namespace FemDesign.Loads
         /// <summary>
         /// Add LoadCase to group.
         /// </summary>
+        /// <param name="loadCase">the load case.</param>
         public void AddLoadCase(LoadCase loadCase)
         {
             if (LoadCaseInLoadGroup(loadCase))
@@ -136,17 +172,29 @@ namespace FemDesign.Loads
         }
     }
 
+    /// <summary>
+    /// Represents a Temporary Group Record.
+    /// </summary>
     [System.Serializable]
     public class TemporaryGroupRecord
     {
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
         [XmlElement("record")]
         public List<StruSoft.Interop.StruXml.Data.Temporary_load_groupRecord> Record { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TemporaryGroupRecord"/> class.
+        /// </summary>
         public TemporaryGroupRecord()
         {
         }
     }
 
+    /// <summary>
+    /// Defines the Temporary Effect enumeration.
+    /// </summary>
     public enum TemporaryEffect
     {
         [Parseable("General", "general", "0")]

@@ -5,10 +5,16 @@ using System.IO;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Cmd Interaction Surface.
+    /// </summary>
     [XmlRoot("cmdinteractionsurface")]
     [System.Serializable]
     public partial class CmdInteractionSurface : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ CODE_COM INTERACTIONSURFACE"; // token
 
@@ -30,6 +36,9 @@ namespace FemDesign.Calculate
         [XmlAttribute("fUlt")]
         public bool fUlt { get; set; }
 
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         [XmlAttribute("outfile")]
         public string FilePath { get; set; }
 
@@ -41,6 +50,13 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdInteractionSurface"/> class.
+        /// </summary>
+        /// <param name="bar">the bar.</param>
+        /// <param name="filePath">the file path.</param>
+        /// <param name="offset">the offset.</param>
+        /// <param name="ultimate">the ultimate.</param>
         public CmdInteractionSurface(FemDesign.Bars.Bar bar, string filePath, double offset = 0.0, bool ultimate = true)
         {
             if (bar.BarPart.ComplexMaterialObj.Family != Materials.Family.Concrete)
@@ -55,6 +71,10 @@ namespace FemDesign.Calculate
             this.FilePath = Path.GetFullPath(filePath);
         }
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdInteractionSurface>(this);

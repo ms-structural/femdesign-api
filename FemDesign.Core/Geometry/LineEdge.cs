@@ -7,24 +7,48 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Line Edge.
+    /// </summary>
     [XmlRoot("database", Namespace = "urn:strusoft")]
     [System.Serializable]
     public partial class LineEdge : Edge
     {
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
         [XmlIgnore]
         public Point3d StartPoint => base.Points[0];
 
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
         [XmlIgnore]
         public Point3d EndPoint => base.Points[1];
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineEdge"/> class.
+        /// </summary>
         public LineEdge()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineEdge"/> class.
+        /// </summary>
+        /// <param name="startPoint">the start point.</param>
+        /// <param name="endPoint">the end point.</param>
+        /// <param name="plane">the plane.</param>
         public LineEdge(Point3d startPoint, Point3d endPoint, Plane plane) : base(startPoint, endPoint, plane)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineEdge"/> class.
+        /// </summary>
+        /// <param name="startPoint">the start point.</param>
+        /// <param name="endPoint">the end point.</param>
+        /// <param name="localY">the local y.</param>
         public LineEdge(Point3d startPoint, Point3d endPoint, Vector3d localY = null) : base(startPoint, endPoint, localY)
         {
         }

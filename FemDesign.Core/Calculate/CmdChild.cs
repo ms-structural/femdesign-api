@@ -12,6 +12,9 @@ namespace FemDesign.Calculate
     [XmlRoot("cmdchild")]
     public partial class CmdChild : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the template path.
+        /// </summary>
         [XmlText]
         public string _templatePath;
 
@@ -37,10 +40,18 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdChild"/> class.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
         public CmdChild(string filePath)
         {
             TemplatePath = Path.GetFullPath(filePath);
         }
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdChild>(this);

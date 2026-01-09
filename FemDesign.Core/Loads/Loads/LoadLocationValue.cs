@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// location_value_type
+    /// Represents a Load Location Value.
     /// </summary>
     [System.Serializable]
     public partial class LoadLocationValue: LocationValue
@@ -20,6 +20,8 @@ namespace FemDesign.Loads
         /// <summary>
         /// Internal constructor accessed by GH components and Dynamo nodes.
         /// </summary>
+        /// <param name="loadPosition">the load position.</param>
+        /// <param name="val">the val.</param>
         public LoadLocationValue(Geometry.Point3d loadPosition, double val)
         {
             this.X = loadPosition.X;
@@ -29,6 +31,11 @@ namespace FemDesign.Loads
         }
 
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static implicit operator LoadLocationValue(StruSoft.Interop.StruXml.Data.Location_value obj)
         {
             var loadLocation = new LoadLocationValue();

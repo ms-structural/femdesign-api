@@ -11,6 +11,9 @@ using FemDesign.Releases;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Surface Connection.
+    /// </summary>
     [System.Serializable]
     public partial class SurfaceConnection: NamedEntityBase, IStructureElement
     {
@@ -18,16 +21,28 @@ namespace FemDesign.ModellingTools
         private static int _surfaceConnectionInstances = 0;
         protected override int GetUniqueInstanceCount() => ++_surfaceConnectionInstances;
 
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order = 1)]
         public Geometry.Region Region { get; set; }
         
         // choice rigidity data
+        /// <summary>
+        /// Gets or sets the rigidity.
+        /// </summary>
         [XmlElement("rigidity", Order = 2)]
         public Releases.RigidityDataType1 Rigidity { get; set; } 
 
+        /// <summary>
+        /// Gets or sets the predef rigidity ref.
+        /// </summary>
         [XmlElement("predefined_rigidity", Order = 3)]
         public GuidListType _predefRigidityRef;
 
+        /// <summary>
+        /// Gets or sets the predef rigidity.
+        /// </summary>
         [XmlIgnore]
         public Releases.RigidityDataLibType1 _predefRigidity;
 
@@ -47,12 +62,21 @@ namespace FemDesign.ModellingTools
 
         // choice rigidity group
 
+        /// <summary>
+        /// Gets or sets the references.
+        /// </summary>
         [XmlElement("ref", Order = 4)]
         public GuidListType[] References { get; set; }
 
+        /// <summary>
+        /// Gets or sets the plane.
+        /// </summary>
         [XmlElement("local_system", Order = 5)]
         public Geometry.Plane _plane;
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 6)]
         public EntityColor Colouring { get; set; }
 
@@ -108,6 +132,9 @@ namespace FemDesign.ModellingTools
             }
         }
         
+        /// <summary>
+        /// Gets or sets the distance.
+        /// </summary>
         [XmlAttribute("distance")]
         public double _distance;
 
@@ -124,6 +151,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the interface.
+        /// </summary>
         [XmlAttribute("interface")]
         public double _interface;
 
@@ -151,6 +181,12 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using their GUIDs and rigidity.
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, RigidityDataType1 rigidity, GuidListType[] references, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             this.Initialize(region, rigidity, references, identifier, distance, interfaceAttribute);
@@ -159,6 +195,12 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using their GUIDs and rigidity (motions).
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, Motions motions, GuidListType[] references, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             RigidityDataType1 rigidity = new RigidityDataType1(motions);
@@ -168,6 +210,13 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using their GUIDs and rigidity (motions and platic limits).
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, Motions motions, MotionsPlasticLimits motionsPlasticLimits, GuidListType[] references, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             RigidityDataType1 rigidity = new RigidityDataType1(motions, motionsPlasticLimits);
@@ -177,6 +226,12 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using elements and rigidity.
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, RigidityDataType1 rigidity, IEnumerable<EntityBase> elements, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             GuidListType[] references = elements.Select(r => new GuidListType(r)).ToArray();
@@ -186,6 +241,12 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using their GUIDs and rigidity (motions).
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, Motions motions, IEnumerable<EntityBase> elements, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             RigidityDataType1 rigidity = new RigidityDataType1(motions);
@@ -196,6 +257,13 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a surface connection between surface structural elements (e.g. slabs, surface supports, etc.) using their GUIDs and rigidity (motions and platic limits).
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="distance">the distance.</param>
+        /// <param name="interfaceAttribute">the interface attribute.</param>
         public SurfaceConnection(Region region, Motions motions, MotionsPlasticLimits motionsPlasticLimits, IEnumerable<EntityBase> elements, string identifier = "CS", double distance = 0, double interfaceAttribute = 0)
         {
             RigidityDataType1 rigidity = new RigidityDataType1(motions, motionsPlasticLimits);

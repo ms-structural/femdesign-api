@@ -11,7 +11,7 @@ using StruSoft.Interop.StruXml.Data;
 namespace FemDesign.Bars
 {
     /// <summary>
-    /// bar_type
+    /// Represents a Bar.
     /// 
     /// Bar-element
     /// </summary>
@@ -89,12 +89,21 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the shell model.
+        /// </summary>
         [XmlAttribute("shell_model")]
         public ShellModelType ShellModel = ShellModelType.None;
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public BarType Type { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int _stageId = 1;
 
@@ -110,6 +119,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the bar part.
+        /// </summary>
         [XmlElement("bar_part", Order = 1)]
         public BarPart _barPart; // bar_part_type
 
@@ -128,15 +140,27 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the truss behaviour.
+        /// </summary>
         [XmlElement("truss_behaviour", Order = 2)]
         public StruSoft.Interop.StruXml.Data.Truss_chr_type TrussBehaviour { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 3)]
         public string End = "";
 
+        /// <summary>
+        /// Gets or sets the ptc.
+        /// </summary>
         [XmlIgnore]
         public List<Reinforcement.Ptc> Ptc = new List<Reinforcement.Ptc>();
 
+        /// <summary>
+        /// Gets or sets the reinforcement.
+        /// </summary>
         [XmlIgnore]
         public List<Reinforcement.BarReinforcement> Reinforcement = new List<Reinforcement.BarReinforcement>();
 
@@ -158,18 +182,30 @@ namespace FemDesign.Bars
         }
 
 
+        /// <summary>
+        /// Determines whether steel.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool IsSteel()
         {
             return this.BarPart.ComplexMaterialObj.Family == Materials.Family.Steel;
 
         }
 
+        /// <summary>
+        /// Determines whether concrete.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool IsConcrete()
         {
             return this.BarPart.ComplexMaterialObj.Family == Materials.Family.Concrete;
 
         }
 
+        /// <summary>
+        /// Determines whether timber.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool IsTimber()
         {
             return this.BarPart.ComplexMaterialObj.Family == Materials.Family.Timber;
@@ -414,6 +450,7 @@ namespace FemDesign.Bars
         /// <param name="material"></param>
         /// <param name="section"></param>
         /// <param name="identifier"></param>
+        /// <returns>The result.</returns>
         /// <exception cref="System.Exception"></exception>
         public static Bar Truss(Geometry.Edge edge, Materials.Material material, Sections.Section section, string identifier)
         {
@@ -441,6 +478,10 @@ namespace FemDesign.Bars
             this.ShellModel = type;
         }
 
+        /// <summary>
+        /// Updates the section.
+        /// </summary>
+        /// <param name="section">the section.</param>
         public void UpdateSection(Sections.Section section)
         {
             if(this.Type == BarType.Truss)
@@ -531,6 +572,10 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (this.Type == BarType.Beam || this.Type == BarType.Column)
@@ -560,6 +605,9 @@ namespace FemDesign.Bars
         }
     }
 
+    /// <summary>
+    /// Defines the Shell Model Type enumeration.
+    /// </summary>
     [System.Serializable]
     public enum ShellModelType
     {

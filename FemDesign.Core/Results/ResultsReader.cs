@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -21,8 +21,10 @@ namespace FemDesign.Results
         private Dictionary<Type, Regex> ResultTypesIdentificationExpressions;
         private Dictionary<Type, ResultParserType> ResultTypesRowParsers;
 
-        /// <inheritdoc cref="ResultsReader"/>
-        /// <param name="filePath">Path to a .txt/.csv file with listed results from FEM-Design</param>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResultsReader"/> class.
+        /// </summary>
+        /// <param name="filePath">Path to a <c>.txt</c>/<c>.csv</c> results file exported from FEM-Design.</param>
         public ResultsReader(string filePath) : base(filePath, delimiter: '\t')
         {
             Type iResultType = typeof(Results.IResult);
@@ -196,6 +198,11 @@ namespace FemDesign.Results
             return (ResultParserType)mathodInfo.CreateDelegate(typeof(ResultParserType));
         }
 
+        /// <summary>
+        /// Object Representation.
+        /// </summary>
+        /// <param name="myObject">the my object.</param>
+        /// <returns>The result.</returns>
         public static string ObjectRepresentation(object myObject)
         {
 
@@ -224,8 +231,17 @@ namespace FemDesign.Results
     /// </summary>
     public partial class CsvParser : IDisposable
     {
+        /// <summary>
+        /// Gets or sets the delimiter.
+        /// </summary>
         public char Delimiter { get; }
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         public string FilePath { get; }
+        /// <summary>
+        /// Gets or sets the stream.
+        /// </summary>
         public StreamReader Stream;
         private Queue<string> BufferedLines = new Queue<string>();
         /// <summary>
@@ -241,7 +257,13 @@ namespace FemDesign.Results
         /// </summary>
         protected string Header;
         protected Dictionary<string, string> HeaderData = new Dictionary<string, string>();
+        /// <summary>
+        /// Gets a value indicating whether done.
+        /// </summary>
         public bool IsDone { get { return Stream.Peek() == -1 && BufferedLines.Count == 0; } }
+        /// <summary>
+        /// Gets a value indicating whether n peek.
+        /// </summary>
         public bool CanPeek { get { return Stream.Peek() != -1; } }
 
         protected CsvParser(string filePath, char delimiter = ',', Func<string[], CsvParser, Dictionary<string, string>, object> rowParser = null, Func<string, CsvParser, bool> headerParser = null)
@@ -365,21 +387,35 @@ namespace FemDesign.Results
     /// </summary>
     public partial class ParseException : ApplicationException
     {
+        /// <summary>
+        /// Gets or sets the type not parsed.
+        /// </summary>
         public Type TypeNotParsed;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ParseException"/> class.
+        /// </summary>
+        /// <param name="typeNotParsed">The result type that failed to parse.</param>
+        /// <param name="lineNotParsed">The input line that could not be parsed.</param>
         public ParseException(Type typeNotParsed, string lineNotParsed) : base($"Could not parse line '{lineNotParsed}' to type {typeNotParsed.GetType().FullName}")
         {
             TypeNotParsed = typeNotParsed;
         }
         /// <summary>
-        /// No results in file.
+        /// Initializes a new instance of the <see cref="ParseException"/> class for a file with no results.
         /// </summary>
-        /// <param name="typeNotParsed"></param>
-        /// <param name="message"></param>
-        /// <param name="path"></param>
+        /// <param name="typeNotParsed">The expected result type.</param>
+        /// <param name="message">Additional context message.</param>
+        /// <param name="path">Path to the results file.</param>
         public ParseException(Type typeNotParsed, string message, string path) : base($"No results read. Are there any results in the file? ({path})" + (string.IsNullOrEmpty(path) ? "" : ". " + message))
         {
             TypeNotParsed = typeNotParsed;
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ParseException"/> class.
+        /// </summary>
+        /// <param name="typeNotParsed">the type not parsed.</param>
+        /// <param name="lineNotParsed">the line not parsed.</param>
+        /// <param name="inner">the inner.</param>
         public ParseException(Type typeNotParsed, string lineNotParsed, Exception inner) : base($"Could not parse line '{lineNotParsed}' to type {typeNotParsed.GetType().FullName}", inner)
         {
             TypeNotParsed = typeNotParsed;

@@ -17,6 +17,9 @@ namespace FemDesign.GenericClasses
     #if ISDYNAMO
     [IsVisibleInDynamoLibrary(false)]
     #endif
+    /// <summary>
+    /// Defines the Face enumeration.
+    /// </summary>
     public enum Face
     {
         [Parseable("top", "Top", "TOP", "up", "Up", "UP")]

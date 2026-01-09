@@ -3,6 +3,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Materials
 {
+    /// <summary>
+    /// Defines the Timber Service Class Enum enumeration.
+    /// </summary>
     [System.Serializable]
     public enum TimberServiceClassEnum
     {

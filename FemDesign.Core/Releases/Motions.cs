@@ -3,6 +3,9 @@
 
 namespace FemDesign.Releases
 {
+    /// <summary>
+    /// Represents motions.
+    /// </summary>
     [System.Serializable]
     public partial class Motions : StiffnessType
     {
@@ -54,6 +57,7 @@ namespace FemDesign.Releases
         /// <param name="yPos">Ky' tension [kN/m, kN/m/m or kN/m2/m].</param>
         /// <param name="zNeg">Kz' compression [kN/m, kN/m/m or kN/m2/m].</param>
         /// <param name="zPos">Kz' tension [kN/m, kN/m/m or kN/m2/m].</param>
+        /// <returns>The result.</returns>
         public static Motions Define(double xNeg = 0, double xPos = 0, double yNeg = 0, double yPos = 0, double zNeg = 0, double zPos = 0)
         {
             return new Motions(xNeg, xPos, yNeg, yPos, zNeg, zPos);
@@ -61,6 +65,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Define a rigid translation release for a point-type release (1.000e+10 kN/m)
         /// </summary>
+        /// <returns>The result.</returns>
         public static Motions RigidPoint()
         {
             double val = Motions.ValueRigidPoint;
@@ -69,6 +74,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Define a rigid translation release for a line-type release (1.000e+7 kN/m/m)
         /// </summary>
+        /// <returns>The result.</returns>
         public static Motions RigidLine()
         {
             double val = Motions.ValueRigidLine;
@@ -77,6 +83,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Define a rigid translation release for a surface-type release (1.000e+5 kN/m2/m)
         /// </summary>
+        /// <returns>The result.</returns>
         public static Motions RigidSurface()
         {
             double val = Motions.ValueRigidSurface;
@@ -85,6 +92,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Define a free translation release.
         /// </summary>
+        /// <returns>The result.</returns>
         public static Motions Free()
         {
             return new Motions(0, 0, 0, 0, 0, 0);

@@ -20,7 +20,7 @@ namespace FemDesign.Results
         /// <summary>
         /// To json.
         /// </summary>
-        /// <param name="value">The value.</param>
+        /// <param name="value">the value.</param>
         /// <returns>The Json of an IResult object.</returns>
         public static string ToJSON(this IResult value)
         {
@@ -41,7 +41,7 @@ namespace FemDesign.Results
         /// <summary>
         /// To json.
         /// </summary>
-        /// <param name="value">The value.</param>
+        /// <param name="value">the value.</param>
         /// <returns>The Json of an IResult object.</returns>
         public static string ToJSON(this IEnumerable<IResult> value)
         {

@@ -16,11 +16,20 @@ namespace FemDesign.Calculate
     [XmlRoot("fdscript")]
     public partial class Bsc
     {
+        /// <summary>
+        /// Gets or sets the xml attrib.
+        /// </summary>
         [XmlAttribute("noNamespaceSchemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
         public const string XmlAttrib = "fdscript.xsd";
+        /// <summary>
+        /// Gets or sets the fd script header.
+        /// </summary>
         [XmlElement("fdscriptheader", Order = 1)]
         public FdScriptHeader FdScriptHeader { get; set; } // FDSCRIPTHEADER
 
+        /// <summary>
+        /// Gets or sets the cmd doc table.
+        /// </summary>
         [XmlElement("cmddoctable", Order = 2)]
         public CmdDocTable _cmdDocTable;  // CMDDOCTABLE
 
@@ -37,10 +46,16 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the cmd end session.
+        /// </summary>
         [XmlElement("cmdendsession", Order = 3)]
         public CmdEndSession CmdEndSession { get; set; } // CMDENDSESSION
         [XmlIgnore]
         internal string Cwd { get; set; } // current work directory, string
+        /// <summary>
+        /// Gets or sets the bsc path.
+        /// </summary>
         [XmlIgnore]
         public string BscPath { get; set; } // path to fdscript file, string
 
@@ -100,6 +115,15 @@ namespace FemDesign.Calculate
             SerializeBsc(); // why it is in the constructor?
         }
 
+        /// <summary>
+        /// Bsc Path From Result Types.
+        /// </summary>
+        /// <param name="resultTypes">the result types.</param>
+        /// <param name="strPath">the str path.</param>
+        /// <param name="units">the units.</param>
+        /// <param name="options">the options.</param>
+        /// <param name="allLoadCase">the all load case.</param>
+        /// <returns>The result.</returns>
         public static List<string> BscPathFromResultTypes(IEnumerable<Type> resultTypes, string strPath, Results.UnitResults units = null, Options options = null, bool allLoadCase = true)
         {
             var notAResultType = resultTypes.Where(r => !typeof(Results.IResult).IsAssignableFrom(r)).FirstOrDefault();

@@ -13,6 +13,9 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class CombItem
     {
+        /// <summary>
+        /// Gets or sets the calc.
+        /// </summary>
         [XmlAttribute("Calc")]
         public int _calc { get; set; } = 1;
 
@@ -36,6 +39,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the nle.
+        /// </summary>
         [XmlAttribute("NLE")]
         public int _nle { get; set; }
 
@@ -57,6 +63,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the pl.
+        /// </summary>
         [XmlAttribute("PL")]
         public int _pl { get; set; }
 
@@ -77,6 +86,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the nls.
+        /// </summary>
         [XmlAttribute("NLS")]
         public int _nls { get; set; }
 
@@ -90,6 +102,9 @@ namespace FemDesign.Calculate
             set { _nls = Convert.ToInt32(value); }
         }
 
+        /// <summary>
+        /// Gets or sets the cr.
+        /// </summary>
         [XmlAttribute("Cr")]
         public int _cr { get; set; }
 
@@ -110,6 +125,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the f2nd.
+        /// </summary>
         [XmlAttribute("f2nd")]
         public int _f2nd { get; set; }
 
@@ -130,21 +148,39 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the im.
+        /// </summary>
         [XmlAttribute("Im")]
         public int Im { get; set; }
 
+        /// <summary>
+        /// Gets or sets the waterlevel.
+        /// </summary>
         [XmlAttribute("Waterlevel")]
         public int Waterlevel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the impf rqd.
+        /// </summary>
         [XmlAttribute("ImpfRqd")]
         public int ImpfRqd { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stab rqd.
+        /// </summary>
         [XmlAttribute("StabRqd")]
         public int StabRqd { get; set; }
 
+        /// <summary>
+        /// Gets or sets the amplitude.
+        /// </summary>
         [XmlAttribute("Amplitudo")]
         public double Amplitude { get; set; }
 
+        /// <summary>
+        /// Gets or sets the comb name.
+        /// </summary>
         [XmlIgnore]
         public string CombName { get; set; }
 
@@ -157,19 +193,18 @@ namespace FemDesign.Calculate
         }
 
         /// <summary>
-        /// Load combination-specific settings for calculations.
+        /// Initializes a new instance of the <see cref="CombItem"/> class.
         /// </summary>
-        /// <param name="impfRqd">Required imperfection shapes.</param >
-        /// <param name="stabReq">Required buckling shapes for stability analysis.</param>
-        /// <param name="NLE">Consider elastic nonlinear behaviour of structural elements.</param>
-        /// <param name="PL">Consider plastic behaviour of structural elements.</param>
-        /// <param name="NLS">Consider nonlinear behaviour of soil.</param>
-        /// <param name="Cr">Cracked section analysis. Note that Cr only executes properly in RCDesign with DesignCheck set to true.</param>
-        /// <param name="f2nd">2nd order analysis.</param>
-        /// <param name="Im">Imperfection shape for 2nd order analysis.</param>
-        /// <param name="amplitude">Amplitude of selected imperfection shape.</param>
-        /// <param name="waterlevel">Ground water level.</param>
-        // <param name="Amplitude">Amplitude of selected imperfection shape.</param> // TODO Amplitude?
+        /// <param name="impfRqd">the impf rqd.</param>
+        /// <param name="stabReq">the stab req.</param>
+        /// <param name="NLE">the nle.</param>
+        /// <param name="PL">the pl.</param>
+        /// <param name="NLS">the nls.</param>
+        /// <param name="Cr">the cr.</param>
+        /// <param name="f2nd">the f2nd.</param>
+        /// <param name="Im">the im.</param>
+        /// <param name="amplitude">the amplitude.</param>
+        /// <param name="waterlevel">the waterlevel.</param>
         public CombItem(int impfRqd = 0, int stabReq = 0, bool NLE = true, bool PL = true, bool NLS = false, bool Cr = false, bool f2nd = false, int Im = 0, double amplitude = 0.0, int waterlevel = 0)
         {
             this.NLE = NLE;
@@ -185,20 +220,19 @@ namespace FemDesign.Calculate
         }
 
         /// <summary>
-        /// Load combination-specific settings for calculations.
+        /// Initializes a new instance of the <see cref="CombItem"/> class.
         /// </summary>
-        /// <param name="combName">Load combination name.</param>
-        /// <param name="impfRqd">Required imperfection shapes.</param >
-        /// <param name="stabReq">Required buckling shapes for stability analysis.</param>
-        /// <param name="NLE">Consider elastic nonlinear behaviour of structural elements.</param>
-        /// <param name="PL">Consider plastic behaviour of structural elements.</param>
-        /// <param name="NLS">Consider nonlinear behaviour of soil.</param>
-        /// <param name="Cr">Cracked section analysis. Note that Cr only executes properly in RCDesign with DesignCheck set to true.</param>
-        /// <param name="f2nd">2nd order analysis.</param>
-        /// <param name="Im">Imperfection shape for 2nd order analysis.</param>
-        /// <param name="amplitude">Amplitude of selected imperfection shape.</param>
-        /// <param name="waterlevel">Ground water level.</param>
-        // <param name="Amplitude">Amplitude of selected imperfection shape.</param> // TODO Amplitude?
+        /// <param name="combName">the comb name.</param>
+        /// <param name="impfRqd">the impf rqd.</param>
+        /// <param name="stabReq">the stab req.</param>
+        /// <param name="NLE">the nle.</param>
+        /// <param name="PL">the pl.</param>
+        /// <param name="NLS">the nls.</param>
+        /// <param name="Cr">the cr.</param>
+        /// <param name="f2nd">the f2nd.</param>
+        /// <param name="Im">the im.</param>
+        /// <param name="amplitude">the amplitude.</param>
+        /// <param name="waterlevel">the waterlevel.</param>
         public CombItem(string combName, int impfRqd = 0, int stabReq = 0, bool NLE = true, bool PL = true, bool NLS = false, bool Cr = false, bool f2nd = false, int Im = 0, double amplitude = 0.0, int waterlevel = 0)
         {
             this.CombName = combName;
@@ -214,24 +248,43 @@ namespace FemDesign.Calculate
             this.StabRqd = stabReq;
         }
 
+        /// <summary>
+        /// Stability.
+        /// </summary>
+        /// <param name="stabReq">the stab req.</param>
+        /// <returns>The result.</returns>
         public static CombItem Stability(int stabReq)
         {
             var combItem = new CombItem(stabReq: stabReq);
             return combItem;
         }
 
+        /// <summary>
+        /// Imperfection.
+        /// </summary>
+        /// <param name="impfRqd">the impf rqd.</param>
+        /// <returns>The result.</returns>
         public static CombItem Imperfection(int impfRqd)
         {
             var combItem = new CombItem(impfRqd: impfRqd);
             return combItem;
         }
 
+        /// <summary>
+        /// Non Linear.
+        /// </summary>
+        /// <param name="plastic">the plastic.</param>
+        /// <returns>The result.</returns>
         public static CombItem NonLinear(bool plastic = true)
         {
             var combItem = new CombItem(NLE: true, PL: plastic);
             return combItem;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static CombItem Default()
         {
             int impfRqd = 0;

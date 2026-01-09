@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Xml.Serialization;
 using System.ComponentModel;
 using System.Globalization;
@@ -16,6 +16,9 @@ namespace FemDesign
     [System.Serializable]
     public partial class ConstructionStages
     {
+        /// <summary>
+        /// Gets or sets the last change.
+        /// </summary>
         [XmlAttribute("last_change")]
         public string _lastChange;
         [XmlIgnore]
@@ -30,21 +33,39 @@ namespace FemDesign
                 this._lastChange = value.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
             }
         }
+        /// <summary>
+        /// Gets or sets the action.
+        /// </summary>
         [XmlAttribute("action")]
         public string Action { get; set; }
 
+        /// <summary>
+        /// Gets or sets the assign modified element.
+        /// </summary>
         [XmlAttribute("auto-assign_modified_elements")]
         public bool AssignModifiedElement { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the assign new element.
+        /// </summary>
         [XmlAttribute("auto-assign_newly_created_elements")]
         public bool AssignNewElement { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the ghost method.
+        /// </summary>
         [XmlAttribute("ghost_method")]
         public bool GhostMethod { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the time dependent analysis.
+        /// </summary>
         [XmlAttribute("time-dependent_analysis")]
         public bool TimeDependentAnalysis { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the creep strain increment limit.
+        /// </summary>
         [XmlAttribute("creep_strain_increment_limit")]
         public double _creepStrainIncrementLimit { get; set; } = 0.25;  // struxml attribute
 
@@ -64,6 +85,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Gets or sets the stages.
+        /// </summary>
         [XmlElement("stage")]
         public List<Stage> Stages { get; set; } = new List<Stage>();
 
@@ -77,14 +101,11 @@ namespace FemDesign
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ConstructionStages"/> class.
         /// </summary>
-        /// <param name="stages"></param>
-        /// <param name="assignModifedElement"></param>
-        /// <param name="assignNewElement"></param>
-        /// <param name="ghostMethod"></param>
-        /// <param name="timeDependentAnalysis"></param>
-        /// <param name="creepLimit"></param>
+        /// <param name="stages">List of construction stages.</param>
+        /// <param name="assignModifedElement">If <c>true</c>, assigns modified elements to stages.</param>
+        /// <param name="assignNewElement">If <c>true</c>, assigns new elements to stages.</param>
         public ConstructionStages(List<Stage> stages, bool assignModifedElement = false, bool assignNewElement = false)
         {
             // it does not required the Guid

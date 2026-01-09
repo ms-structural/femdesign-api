@@ -6,16 +6,25 @@ using System.Xml.Serialization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// rigidity_data_type1
+    /// Represents a Rigidity Data Type1.
     /// </summary>
     [System.Serializable]
     public partial class RigidityDataType1
     {
+        /// <summary>
+        /// Gets or sets the motions.
+        /// </summary>
         [XmlElement("motions", Order=1)]
         public Releases.Motions Motions { get; set; }
+        /// <summary>
+        /// Gets or sets the plastic limit forces.
+        /// </summary>
         [XmlElement("plastic_limit_forces", Order=2)]
         public Releases.MotionsPlasticLimits PlasticLimitForces { get; set; }
 
+        /// <summary>
+        /// Gets or sets the deach type.
+        /// </summary>
         [XmlAttribute("detach")]
         public DetachType _deachType = DetachType.None;
 
@@ -68,6 +77,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct RigidityDataType1 with motions only
         /// </summary>
+        /// <param name="motions">the motions.</param>
         public RigidityDataType1(Motions motions)
         {
             this.Motions = motions;
@@ -76,6 +86,9 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct RigidityDataType1 with motions and plastic limits forces only
         /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="detachType">the detach type.</param>
         public RigidityDataType1(Motions motions, MotionsPlasticLimits motionsPlasticLimits, DetachType detachType = DetachType.None)
         {
             this.Motions = motions;

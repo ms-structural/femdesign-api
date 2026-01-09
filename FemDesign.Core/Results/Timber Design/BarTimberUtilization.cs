@@ -16,11 +16,17 @@ namespace FemDesign.Results
     [Result(typeof(BarTimberUtilization), ListProc.TimberBarUtilizationLoadCombination)]
     public partial class BarTimberUtilization : IResult
     {
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         public string Id { get; }
         /// <summary>
         /// Applied profile
         /// </summary>
         public string Section { get; }
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
         public string Status { get; }
         /// <summary>
         /// Maximum utilisation from all the verifications
@@ -52,6 +58,9 @@ namespace FemDesign.Results
         /// </summary>
         public double Ltb { get; }
 
+        /// <summary>
+        /// Gets or sets the case identifier.
+        /// </summary>
         public string CaseIdentifier { get; }
 
         [JsonConstructor]
@@ -70,6 +79,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = caseIdentifier;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

@@ -4,13 +4,13 @@ using System.Xml.Serialization;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// timber_factors_type
+    /// Represents a Timber Factors.
     /// </summary>
     [System.Serializable]
     public partial class TimberFactors
     {
         /// <summary>
-        /// gamma_m_u
+        /// Gets or sets the gamma mu.
         /// </summary>
         [XmlAttribute("gamma_m_u")]
         public double _gammaMU;
@@ -28,7 +28,7 @@ namespace FemDesign.Materials
         }
 
         /// <summary>
-        /// gamma_m_as
+        /// Gets or sets the gamma m as.
         /// </summary>
         [XmlAttribute("gamma_m_as")]
         public double _gammaMAs;
@@ -118,13 +118,13 @@ namespace FemDesign.Materials
         }
 
         /// <summary>
-        /// service_class
+        /// Gets or sets the service class.
         /// </summary>
         [XmlAttribute("service_class")]
         public TimberServiceClassEnum ServiceClass { get; set; }
 
         /// <summary>
-        /// system_factor
+        /// Gets or sets the system factor.
         /// </summary>
         [XmlAttribute("system_factor")]
         public double _systemFactor;

@@ -6,6 +6,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign
 {
+    /// <summary>
+    /// Represents a Force Load Base.
+    /// </summary>
     [System.Serializable]
     public partial class ForceLoadBase: LoadBase
     {
@@ -23,9 +26,15 @@ namespace FemDesign
 
     }
 
+    /// <summary>
+    /// Represents a Support Motion Base.
+    /// </summary>
     [System.Serializable]
     public partial class SupportMotionBase : LoadBase
     {
+        /// <summary>
+        /// Gets or sets the support motion type.
+        /// </summary>
         [XmlAttribute("load_type")]
         public SupportMotionType SupportMotionType { get; set; }
     }

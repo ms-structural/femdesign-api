@@ -8,13 +8,16 @@ using System.Xml.Serialization;
 namespace FemDesign.Geometry
 {
     /// <summary>
-    /// region_type
+    /// Represents a Region.
     /// 
     /// Surfaces in FEM-Design are expressed as regions of contours (outlines). This extended region also contains a LCS to keep track of directions.
     /// </summary>
     [System.Serializable]
     public partial class Region
     {
+        /// <summary>
+        /// Gets or sets the plane.
+        /// </summary>
         [XmlIgnore]
         public Plane Plane { get; set; }
 
@@ -65,6 +68,9 @@ namespace FemDesign.Geometry
             set { this._contours = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the contours.
+        /// </summary>
         [XmlElement("contour")]
         public List<Contour> _contours { get; set; }
 
@@ -76,12 +82,21 @@ namespace FemDesign.Geometry
             
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Region"/> class.
+        /// </summary>
+        /// <param name="contours">the contours.</param>
         public Region(List<Contour> contours)
         {
             this.Contours = contours;
             this.Plane = contours[0].Edges[0].Plane;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Region"/> class.
+        /// </summary>
+        /// <param name="contours">the contours.</param>
+        /// <param name="plane">the plane.</param>
         public Region(List<Contour> contours, Plane plane)
         {
             this.Contours = contours;
@@ -160,6 +175,13 @@ namespace FemDesign.Geometry
             this.Plane = plane;
         }
 
+        /// <summary>
+        /// Rectangle XZ.
+        /// </summary>
+        /// <param name="corner">the corner.</param>
+        /// <param name="widthX">the width x.</param>
+        /// <param name="heightZ">the height z.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleXZ(Point3d corner, double widthX, double heightZ)
         {
             var points0 = corner + new Vector3d(0, 0, 0);
@@ -176,6 +198,12 @@ namespace FemDesign.Geometry
 
             return region;
         }
+        /// <summary>
+        /// Rectangle XZ.
+        /// </summary>
+        /// <param name="width">the width.</param>
+        /// <param name="height">the height.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleXZ(double width, double height)
         {
             var points0 = new Point3d(0,0,0);
@@ -193,6 +221,13 @@ namespace FemDesign.Geometry
             return region;
         }
 
+        /// <summary>
+        /// Rectangle XY.
+        /// </summary>
+        /// <param name="corner">the corner.</param>
+        /// <param name="widthX">the width x.</param>
+        /// <param name="widthY">the width y.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleXY(Point3d corner, double widthX, double widthY)
         {
             var points0 = corner + new Vector3d(0, 0, 0);
@@ -209,6 +244,12 @@ namespace FemDesign.Geometry
 
             return region;
         }
+        /// <summary>
+        /// Rectangle XY.
+        /// </summary>
+        /// <param name="widthX">the width x.</param>
+        /// <param name="widthY">the width y.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleXY(double widthX, double widthY)
         {
             var points0 = new Point3d(0, 0, 0);
@@ -226,6 +267,13 @@ namespace FemDesign.Geometry
             return region;
         }
 
+        /// <summary>
+        /// Rectangle YZ.
+        /// </summary>
+        /// <param name="corner">the corner.</param>
+        /// <param name="widthY">the width y.</param>
+        /// <param name="heightZ">the height z.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleYZ(Point3d corner, double widthY, double heightZ)
         {
             var points0 = corner + new Vector3d(0, 0, 0);
@@ -242,6 +290,12 @@ namespace FemDesign.Geometry
 
             return region;
         }
+        /// <summary>
+        /// Rectangle YZ.
+        /// </summary>
+        /// <param name="widthY">the width y.</param>
+        /// <param name="heightZ">the height z.</param>
+        /// <returns>The result.</returns>
         public static Region RectangleYZ(double widthY, double heightZ)
         {
             var points0 = new Point3d(0, 0, 0);
@@ -273,6 +327,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Get region from a Slab.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="slab">the slab.</param>
         public static Region FromSlab(Shells.Slab slab)
         {
             return slab.SlabPart.Region;
@@ -281,6 +337,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set EdgeConnection on Edge in region by index.
         /// </summary>
+        /// <param name="edgeConnection">the edge connection.</param>
+        /// <param name="index">the index.</param>
         public void SetEdgeConnection(Shells.EdgeConnection edgeConnection, int index)
         {
             int edgeIdx = 0;
@@ -324,6 +382,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set EdgeConnection on all Edges in Region.
         /// </summary>
+        /// <param name="edgeConnection">the edge connection.</param>
         public void SetEdgeConnections(Shells.EdgeConnection edgeConnection)
         {
             if (edgeConnection.Release)
@@ -354,6 +413,10 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Sets the edge connections.
+        /// </summary>
+        /// <param name="edgeConnections">the edge connections.</param>
         public void SetEdgeConnections(List<Shells.EdgeConnection> edgeConnections)
         {
             if (edgeConnections?.Count == 0)
@@ -378,6 +441,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Get all EdgeConnection from all Edges in Region.
         /// </summary>
+        /// <returns>The result.</returns>
         public List<Shells.EdgeConnection> GetEdgeConnections()
         {
             var edgeConnections = new List<Shells.EdgeConnection>();
@@ -424,6 +488,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Set line connection types (i.e predefined line connection type) on region edges
         /// </summary>
+        /// <param name="predefinedTypes">the predefined types.</param>
         public void SetPredefinedRigidities(List<Releases.RigidityDataLibType3> predefinedTypes)
         {
             foreach (Geometry.Contour contour in this.Contours)
@@ -469,12 +534,22 @@ namespace FemDesign.Geometry
         }
 
 
+        /// <summary>
+        /// Area.
+        /// </summary>
+        /// <param name="points">the points.</param>
+        /// <returns>The result.</returns>
         public static double Area(List<Point3d> points)
         {
             var area = System.Math.Abs(points.Take(points.Count - 1).Select((p, i) => (points[i + 1].X - p.X) * (points[i + 1].Y + p.Y)).Sum() / 2);
             return area;
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Region(StruSoft.Interop.StruXml.Data.Region_type obj)
         {
             var edges = obj.Contour[0].Edge.Select( x => (Edge)x).ToList();

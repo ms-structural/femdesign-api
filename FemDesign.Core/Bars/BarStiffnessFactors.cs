@@ -8,9 +8,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Bars
 {
+    /// <summary>
+    /// Represents a Bar Stiffness Factors.
+    /// </summary>
     [System.Serializable]
     public partial class BarStiffnessFactors
     {
+        /// <summary>
+        /// Gets or sets the factors.
+        /// </summary>
         [XmlElement("factors", Order = 1)]
         public List<StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record> _factors { get; set; }
 
@@ -24,15 +30,27 @@ namespace FemDesign.Bars
             set { this._factors = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the key pair analysys factors.
+        /// </summary>
         [XmlIgnore]
         public Dictionary<StiffnessAnalysisType, StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record> _keyPairAnalysysFactors { get; set; }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static Dictionary<StiffnessAnalysisType, StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record> Default()
         {
             var stiffRecordDefault = new StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
             return SameAllCalculation(stiffRecordDefault);
         }
 
+        /// <summary>
+        /// Same All Calculation.
+        /// </summary>
+        /// <param name="stiffRecord">the stiff record.</param>
+        /// <returns>The result.</returns>
         public static Dictionary<StiffnessAnalysisType, StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record> SameAllCalculation(StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record stiffRecord)
         {
             var defaultValues = new Dictionary<StiffnessAnalysisType, StruSoft.Interop.StruXml.Data.Bar_stiffness_factor_record>();

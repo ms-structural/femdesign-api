@@ -8,23 +8,41 @@ using System.Collections.Generic;
 namespace FemDesign.Reinforcement
 {
     /// <summary>
-    /// surface_rf_type
+    /// Represents a Surface Reinforcement.
     /// 
     /// Surface reinforcement
     /// </summary>
     [System.Serializable]
     public partial class SurfaceReinforcement: EntityBase
     {
+        /// <summary>
+        /// Gets or sets the base shell.
+        /// </summary>
         [XmlElement("base_shell", Order=1)]
         public GuidListType BaseShell { get; set; } // guid_list_type // reference to slabPart of slab
+        /// <summary>
+        /// Gets or sets the surface reinforcement parameters guid.
+        /// </summary>
         [XmlElement("surface_reinforcement_parameters", Order=2)]
         public FemDesign.GuidListType SurfaceReinforcementParametersGuid { get; set; } // guid_list_type
+        /// <summary>
+        /// Gets or sets the straight.
+        /// </summary>
         [XmlElement("straight", Order=3)]
         public Straight Straight { get; set; } // choice
+        /// <summary>
+        /// Gets or sets the centric.
+        /// </summary>
         [XmlElement("centric", Order=4)]
         public Centric Centric { get; set; } // next choice
+        /// <summary>
+        /// Gets or sets the wire.
+        /// </summary>
         [XmlElement("wire", Order=5)] 
         public Wire Wire { get; set; } // rf_wire_type
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order=6)]
         public Geometry.Region Region { get; set; } // region_type
 
@@ -55,6 +73,10 @@ namespace FemDesign.Reinforcement
         /// Create straight lay-out surface reinforcement.
         /// Internal static method used by GH components and Dynamo nodes.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="region">the region.</param>
+        /// <param name="straight">the straight.</param>
+        /// <param name="wire">the wire.</param>
         public static SurfaceReinforcement DefineStraightSurfaceReinforcement(Geometry.Region region, Straight straight, Wire wire)
         {
             // set straight (e.g. centric == null)
@@ -71,6 +93,11 @@ namespace FemDesign.Reinforcement
         /// Add SurfaceReinforcement to slab.
         /// Internal method use by GH components and Dynamo nodes.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="slab">the slab.</param>
+        /// <param name="srfReinfs">the srf reinfs.</param>
+        /// <param name="xDir">value for <paramref name="xDir"/>.</param>
+        /// <param name="yDir">value for <paramref name="yDir"/>.</param>
         public static Shells.Slab AddReinforcementToSlab(Shells.Slab slab, List<SurfaceReinforcement> srfReinfs, Geometry.Vector3d xDir = null, Geometry.Vector3d yDir = null)
         {
             // deep clone. downstreams objs will contain changes made in this method, upstream objs will not.
@@ -190,6 +217,12 @@ namespace FemDesign.Reinforcement
         }
 
 
+        /// <summary>
+        /// Adds punching reinforcement.
+        /// </summary>
+        /// <param name="slab">the slab.</param>
+        /// <param name="punchingReinforcements">the punching reinforcements.</param>
+        /// <returns>The result.</returns>
         public static Shells.Slab AddPunchingReinforcement(Shells.Slab slab, List<PunchingReinforcement> punchingReinforcements)
         {
             // deep clone. downstreams objs will contain changes made in this method, upstream objs will not.
@@ -213,6 +246,12 @@ namespace FemDesign.Reinforcement
             return clone;
         }
 
+        /// <summary>
+        /// Adds shear control region to slab.
+        /// </summary>
+        /// <param name="slab">the slab.</param>
+        /// <param name="shearControlRegions">the shear control regions.</param>
+        /// <returns>The result.</returns>
         public static Shells.Slab AddShearControlRegionToSlab(Shells.Slab slab, List<ShearControlRegionType> shearControlRegions)
         {
             // deep clone. downstreams objs will contain changes made in this method, upstream objs will not.

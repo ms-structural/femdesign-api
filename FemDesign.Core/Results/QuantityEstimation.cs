@@ -11,6 +11,9 @@ using Newtonsoft.Json;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Defines the I Quantity Estimation Result interface.
+    /// </summary>
     public interface IQuantityEstimationResult : IResult
     {
         /// <summary>
@@ -119,6 +122,10 @@ namespace FemDesign.Results
             CO2Footprint = c02Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -216,6 +223,10 @@ namespace FemDesign.Results
             CO2Footprint = cO2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -322,6 +333,10 @@ namespace FemDesign.Results
             CO2Footprint = co2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -431,6 +446,10 @@ namespace FemDesign.Results
             CO2Footprint = co2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -554,6 +573,10 @@ namespace FemDesign.Results
             CO2Footprint = cO2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -685,6 +708,10 @@ namespace FemDesign.Results
             CO2Footprint = cO2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -793,6 +820,10 @@ namespace FemDesign.Results
             CO2Footprint = cO2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -901,6 +932,10 @@ namespace FemDesign.Results
             CO2Footprint = cO2Footprint;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

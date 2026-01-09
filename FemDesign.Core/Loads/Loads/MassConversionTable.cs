@@ -4,9 +4,15 @@ using System.Collections.Generic;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Mass Conversion.
+    /// </summary>
     [System.Serializable]
     public partial class MassConversion
     {
+        /// <summary>
+        /// Gets or sets the factor.
+        /// </summary>
         [XmlAttribute("factor")]
         public double _factor;
         [XmlIgnore]
@@ -21,6 +27,9 @@ namespace FemDesign.Loads
                 this._factor = RestrictedDouble.NonNegMax_10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the load case guid.
+        /// </summary>
         [XmlAttribute("load_case")]
         public System.Guid LoadCaseGuid { get; set; }
 
@@ -44,9 +53,15 @@ namespace FemDesign.Loads
         }
     }
 
+    /// <summary>
+    /// Represents a Mass Conversion Table.
+    /// </summary>
     [System.Serializable]
     public partial class MassConversionTable : EntityBase, GenericClasses.ILoadElement
     {
+        /// <summary>
+        /// Gets or sets the mass conversions.
+        /// </summary>
         [XmlElement("conversion", Order = 1)]
         public List<MassConversion> MassConversions = new List<MassConversion>();
 
@@ -105,6 +120,10 @@ namespace FemDesign.Loads
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MassConversionTable"/> class.
+        /// </summary>
+        /// <param name="values">the values.</param>
         public MassConversionTable(params (double gamma, LoadCase lc)[] values)
         {
             // get factors and load cases

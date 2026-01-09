@@ -7,6 +7,9 @@ using Struxml = StruSoft.Interop.StruXml.Data;
 
 namespace FemDesign.Drawing
 {
+    /// <summary>
+    /// Represents a Dimension Linear.
+    /// </summary>
     public class DimensionLinear : EntityBase, IStructureElement
     {
         /// <value>
@@ -102,11 +105,18 @@ namespace FemDesign.Drawing
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"DimensionLinear: O: {Plane.Origin}, X: {Plane.LocalX}, Measures: {string.Join(" ", Distances.Select(x => Math.Round(x, Decimals)))}";
         }
 
+        /// <summary>
+        /// Initialise.
+        /// </summary>
         public void Initialise()
         {
             EntityCreated();
@@ -117,6 +127,8 @@ namespace FemDesign.Drawing
         /// <summary>
         /// Construct a new linear dimension from reference points and the plane of the dimension.
         /// </summary>   
+        /// <param name="referencePoints">the reference points.</param>
+        /// <param name="dimPlane">the dim plane.</param>
         public DimensionLinear(List<FemDesign.Geometry.Point3d> referencePoints, Plane dimPlane)
         {
             Initialise();

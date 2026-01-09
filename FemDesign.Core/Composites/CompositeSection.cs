@@ -13,9 +13,15 @@ using System.ComponentModel;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Represents a Composite Section.
+    /// </summary>
     [System.Serializable]
     public partial class CompositeSection : EntityBase
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public CompositeSectionType _type;
 
@@ -32,6 +38,9 @@ namespace FemDesign.Composites
             }
         }
 
+        /// <summary>
+        /// Gets or sets the parts.
+        /// </summary>
         [XmlElement("part", Order = 1)]
         public List<CompositeSectionPart> Parts { get; set; }
 
@@ -65,6 +74,9 @@ namespace FemDesign.Composites
             }
         }
 
+        /// <summary>
+        /// Gets or sets the parameter list.
+        /// </summary>
         [XmlElement("property", Order = 2)]
         public List<CompositeSectionParameter> ParameterList { get; set; }
 
@@ -89,8 +101,8 @@ namespace FemDesign.Composites
         /// Create a composite section with offset. Use this constructor for beam types. For column types offset must be 0.
         /// </summary>
         /// <param name="type">CompositeType enum member.</param>
-        /// <param name="materials">The list of materials corresponding to each composite section part.</param>
-        /// <param name="sections">The list of sections corresponding to each composite section part.</param>
+        /// <param name="materials">the materials.</param>
+        /// <param name="sections">the sections.</param>
         /// <param name="offsetY">Offset of center of each section from center of steel section in Y direction. It must be expressed in meter.</param>
         /// <param name="offsetZ">Offset of center of each section from center of steel section in Z direction.  It must be expressed in meter.</param>
         /// <param name="parameters">List of composite section parameters describing the composite section (e.g. name, geometry, etc.). Values of geometry parameters must be expressed in milimeters.</param>
@@ -119,8 +131,8 @@ namespace FemDesign.Composites
         /// Create a composite section without offset. Use this constructor for column types.
         /// </summary>
         /// <param name="type">CompositeType enum member.</param>
-        /// <param name="materials">The list of materials corresponding to each composite section part.</param>
-        /// <param name="sections">The list of sections corresponding to each composite section part.</param>
+        /// <param name="materials">the materials.</param>
+        /// <param name="sections">the sections.</param>
         /// <param name="parameters">List of composite section parameters describing the composite section (e.g. name, geometry, etc.). Values of geometry parameters must be expressed in milimeters.</param>
         /// <exception cref="ArgumentException"></exception>
         internal CompositeSection(CompositeSectionType type, List<Material> materials, List<Section> sections, List<CompositeSectionParameter> parameters)
@@ -1049,6 +1061,11 @@ namespace FemDesign.Composites
             return sections;
         }
 
+        /// <summary>
+        /// Check Steel Section Compatibility.
+        /// </summary>
+        /// <param name="type">the type.</param>
+        /// <param name="steelSection">the steel section.</param>
         public static void CheckSteelSectionCompatibility(CompositeSectionType type, Section steelSection)
         {
             // check section material
@@ -1063,6 +1080,11 @@ namespace FemDesign.Composites
                 throw new ArgumentException($"Invalid steel section type. Compatible section types for {type}: {string.Join(", ", compatibleSectionTypes)}.");
         }
 
+        /// <summary>
+        /// Gets the compatible steel section type.
+        /// </summary>
+        /// <param name="type">the type.</param>
+        /// <returns>The result.</returns>
         public static List<Sections.Family> GetCompatibleSteelSectionType(CompositeSectionType type)
         {
             switch (type)
@@ -1183,6 +1205,10 @@ namespace FemDesign.Composites
             return sections;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             List<string> parameters = ParameterDictionary.Select(d => d.Key + " = " + d.Value).ToList();

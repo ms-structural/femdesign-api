@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// rigidity_data_type3
+    /// Represents a Rigidity Data Type3.
     /// </summary>
     [System.Serializable]
     public partial class RigidityDataType3: RigidityDataType2
@@ -47,6 +47,8 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct RigidityDataType3 with default friction
         /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
         public RigidityDataType3(Motions motions, Rotations rotations) : base(motions, rotations)
         {
         }
@@ -54,10 +56,23 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct RigidityDataType3 with default friction
         /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
         public RigidityDataType3(Motions motions, MotionsPlasticLimits motionsPlasticLimits, Rotations rotations, RotationsPlasticLimits rotationsPlasticLimits) : base(motions, motionsPlasticLimits, rotations, rotationsPlasticLimits)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RigidityDataType3"/> class.
+        /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
+        /// <param name="friction">the friction.</param>
+        /// <param name="detachType">the detach type.</param>
         public RigidityDataType3(Motions motions, MotionsPlasticLimits motionsPlasticLimits, Rotations rotations, RotationsPlasticLimits rotationsPlasticLimits, double friction, DetachType detachType) : base(motions, motionsPlasticLimits, rotations, rotationsPlasticLimits)
         {
             this.Friction = friction;
@@ -67,6 +82,9 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct RigidityDataType3 with defined friction
         /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="friction">the friction.</param>
         public RigidityDataType3(Motions motions, Rotations rotations, double friction) : base(motions, rotations)
         {
             this.Friction = friction;
@@ -75,6 +93,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct simple hinged line RidigityDataType3.
         /// </summary>
+        /// <returns>The result.</returns>
         public static RigidityDataType3 HingedLine()
         {
             return new RigidityDataType3(Motions.RigidLine(), Rotations.Free());
@@ -83,6 +102,7 @@ namespace FemDesign.Releases
         /// <summary>
         /// Construct simple rigid line RigidityDataType3.
         /// </summary>
+        /// <returns>The result.</returns>
         public static RigidityDataType3 RigidLine()
         {
             return new RigidityDataType3(Motions.RigidLine(), Rotations.RigidLine());

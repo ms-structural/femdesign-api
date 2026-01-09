@@ -3,6 +3,9 @@
 
 namespace FemDesign.Releases
 {
+    /// <summary>
+    /// Represents a Motions Plastic Limits.
+    /// </summary>
     [System.Serializable]
     public partial class MotionsPlasticLimits : PlasticityType3d
     {

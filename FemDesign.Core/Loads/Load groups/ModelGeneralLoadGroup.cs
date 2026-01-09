@@ -13,22 +13,46 @@ namespace FemDesign.Loads
     [System.Serializable]
     public partial class ModelGeneralLoadGroup
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public System.Guid Guid { get; set; } = Guid.NewGuid();
+        /// <summary>
+        /// Gets or sets the consider in gmax.
+        /// </summary>
         [XmlAttribute("consider_in_gmax")]
         [DefaultValue(true)]
         public bool ConsiderInGmax { get; set; } = true;
+        /// <summary>
+        /// Gets or sets the accidental load group.
+        /// </summary>
         [XmlElement("accidental", Order = 1)]
         public StruSoft.Interop.StruXml.Data.Accidental_load_group AccidentalLoadGroup { get; set; }
 
+        /// <summary>
+        /// Gets or sets the model load group permanent.
+        /// </summary>
         [XmlElement("permanent", Order = 2)]
         public LoadGroupPermanent ModelLoadGroupPermanent { get; set; }
+        /// <summary>
+        /// Gets or sets the seismic load group.
+        /// </summary>
         [XmlElement("seismic", Order = 3)]
         public StruSoft.Interop.StruXml.Data.Seismic_load_group SeismicLoadGroup { get; set; }
+        /// <summary>
+        /// Gets or sets the stress load group.
+        /// </summary>
         [XmlElement("stress", Order = 4)]
         public StruSoft.Interop.StruXml.Data.Stress_load_group StressLoadGroup { get; set; }
+        /// <summary>
+        /// Gets or sets the model load group temporary.
+        /// </summary>
         [XmlElement("temporary", Order = 5)]
         public LoadGroupTemporary ModelLoadGroupTemporary { get; set; }
 

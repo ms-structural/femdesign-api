@@ -15,17 +15,29 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class Options
     {
+        /// <summary>
+        /// Represents a Sort.
+        /// </summary>
         [System.Serializable]
         public class Sort
         {
+            /// <summary>
+            /// Gets or sets the value.
+            /// </summary>
             [XmlElement("sort")]
             public int Value { get; set; } = 1;
         }
 
 
+        /// <summary>
+        /// Gets or sets the bar.
+        /// </summary>
         [XmlElement("bar")]
         public int Bar { get; set; }
 
+        /// <summary>
+        /// Gets or sets the step.
+        /// </summary>
         [DefaultValue(0)]
         [XmlElement("step")]
         public double _step { get; set; }
@@ -37,9 +49,15 @@ namespace FemDesign.Calculate
             set { this._step = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the srf values.
+        /// </summary>
         [XmlElement("surface")]
         public int SrfValues { get; set; }
 
+        /// <summary>
+        /// Gets or sets the util c max.
+        /// </summary>
         [XmlElement("utilcmax")]
         public Sort UtilCMax { get; set; }
 
@@ -76,6 +94,10 @@ namespace FemDesign.Calculate
             this.SrfValues = (int)shellResult;
         }
 
+        /// <summary>
+        /// Default.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static Options Default()
         {
             return new Options(BarResultPosition.ByStep, ShellResultPosition.Vertices, 0.50);
@@ -86,6 +108,11 @@ namespace FemDesign.Calculate
         // Future Development...Get the user to decide the step ?
         // It is RUBBISH code developed to Deconstruct the Results
 
+        /// <summary>
+        /// Gets the options.
+        /// </summary>
+        /// <param name="resultType">the result type.</param>
+        /// <returns>The result.</returns>
         public static Options GetOptions(ListProc resultType)
         {
             string r = resultType.ToString();
@@ -112,6 +139,9 @@ namespace FemDesign.Calculate
         }
     }
 
+    /// <summary>
+    /// Defines the Bar Result Position enumeration.
+    /// </summary>
     public enum BarResultPosition
     {
         [Parseable("OnlyNodes", "0")]
@@ -124,6 +154,9 @@ namespace FemDesign.Calculate
         ResultPoints = 2,
     }
 
+    /// <summary>
+    /// Defines the Shell Result Position enumeration.
+    /// </summary>
     public enum ShellResultPosition
     {
         [Parseable("Center", "0")]

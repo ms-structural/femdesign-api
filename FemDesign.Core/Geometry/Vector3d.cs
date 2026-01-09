@@ -6,19 +6,43 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Vector3d.
+    /// </summary>
     [System.Serializable]
     public partial class Vector3d
     {
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlAttribute("x")]
         public double X { get; set; }
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlAttribute("y")]
         public double Y { get; set; }
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("z")]
         public double Z { get; set; }
 
+        /// <summary>
+        /// Gets or sets the unit x.
+        /// </summary>
         public static Vector3d UnitX => new Vector3d(1, 0, 0);
+        /// <summary>
+        /// Gets or sets the unit y.
+        /// </summary>
         public static Vector3d UnitY => new Vector3d(0, 1, 0);
+        /// <summary>
+        /// Gets or sets the unit z.
+        /// </summary>
         public static Vector3d UnitZ => new Vector3d(0, 0, 1);
+        /// <summary>
+        /// Gets or sets the zero length.
+        /// </summary>
         public static Vector3d ZeroLength => new Vector3d(0, 0, 0);
 
 
@@ -55,6 +79,10 @@ namespace FemDesign.Geometry
             this.Z = p1.Z - p0.Z;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Vector3d"/> class.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
         public Vector3d(LineEdge edge)
         {
             this.X = (edge.EndPoint - edge.StartPoint).X;
@@ -101,6 +129,7 @@ namespace FemDesign.Geometry
         /// Implicitly convert Point to Vector
         /// </summary>
         /// <param name="point"></param>
+        /// <returns>The result.</returns>
         public static implicit operator Vector3d(Point3d point)
 		{
             var x = point.X;
@@ -113,6 +142,7 @@ namespace FemDesign.Geometry
         /// Implicitly convert LineEedge to Vector
         /// </summary>
         /// <param name="edge"></param>
+        /// <returns>The result.</returns>
         public static implicit operator Vector3d(LineEdge edge)
 		{
             return edge.EndPoint - edge.StartPoint;
@@ -121,6 +151,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Calculate length of FdVector3d.
         /// </summary>
+        /// <returns>The result.</returns>
         public double Length()
         {
             double len = Math.Pow((Math.Pow(this.X, 2) + Math.Pow(this.Y, 2) + Math.Pow(this.Z, 2)), (1.0/2.0));
@@ -130,6 +161,7 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Normalize FdVector3d (i.e. scale so that length equals 1).
         /// </summary>
+        /// <returns>The result.</returns>
         public Vector3d Normalize()
         {
             double l = this.Length();
@@ -140,6 +172,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Calculate cross-product of this FdVector3d and v FdVector3d.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public Vector3d Cross(Vector3d v)
         {
             Vector3d v0 = this;
@@ -158,6 +192,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Calculate dot-product of this FdVector3d and v FdVector3d.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public double Dot(Vector3d v)
         {
             Vector3d v0 = this;
@@ -172,6 +208,8 @@ namespace FemDesign.Geometry
         /// <summary>
         /// Scale this FdVector3d by s.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="s">value for <paramref name="s"/>.</param>
         public Vector3d Scale(double s)
         {   
             return new Vector3d(this.X * s, this.Y * s, this.Z * s);
@@ -222,6 +260,8 @@ namespace FemDesign.Geometry
         /// Check if this FdVector3d is parallel to v.
         /// Returns 1 if parallel, -1 if antiparallel, 0 if not parallel.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public int IsParallel(Vector3d v)
         {
             Vector3d v0 = this.Normalize();
@@ -244,6 +284,8 @@ namespace FemDesign.Geometry
         /// Check if this FdVector3d is perpendicular to v.
         /// Returns true if perpendicular, false if not perpendicular.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="v">value for <paramref name="v"/>.</param>
         public bool IsPerpendicular(Vector3d v)
         {
             Vector3d v1 = this.Normalize();
@@ -268,6 +310,11 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public override bool Equals(System.Object obj)
         {
             if (obj == null)
@@ -282,6 +329,11 @@ namespace FemDesign.Geometry
             return (X == v.X) && (Y == v.Y) && (Z == v.Z);            
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="v">value for <paramref name="v"/>.</param>
+        /// <returns>The result.</returns>
         public bool Equals(Vector3d v)
         {
             if ((object)v == null)
@@ -291,6 +343,12 @@ namespace FemDesign.Geometry
             return (X == v.X) && (Y == v.Y) && (Z == v.Z);
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="v">value for <paramref name="v"/>.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool Equals(Vector3d v, double tol)
         {
             if ((object)v == null)
@@ -323,6 +381,11 @@ namespace FemDesign.Geometry
             Z = v.Z
         };
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Vector3d(StruSoft.Interop.StruXml.Data.Point_type_3d p) => new Vector3d
         {
             X = p.X,
@@ -331,11 +394,19 @@ namespace FemDesign.Geometry
         };
 
 
+        /// <summary>
+        /// Gets the hash code.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override int GetHashCode()
         {
             return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"({this.X.ToString(FemDesign.TextFormatting.decimalRounding)}, {this.Y.ToString(FemDesign.TextFormatting.decimalRounding)}, {this.Z.ToString(FemDesign.TextFormatting.decimalRounding)})";

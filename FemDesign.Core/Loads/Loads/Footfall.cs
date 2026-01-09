@@ -8,17 +8,29 @@ using FemDesign.GenericClasses;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// footfall_analysis_data
+    /// Represents a Footfall.
     /// </summary>
     [System.Serializable]
     public partial class Footfall : EntityBase, ILoadElement
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name;
+        /// <summary>
+        /// Gets or sets the comment.
+        /// </summary>
         [XmlAttribute("comment")]
         public string Comment;
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region")] 
         public Region Region;
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
         [XmlElement("position")]
         public Point3d Position;
 

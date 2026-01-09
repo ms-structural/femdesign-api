@@ -12,7 +12,7 @@ using StruSoft.Interop.StruXml.Data;
 namespace FemDesign.Bars
 {
     /// <summary>
-    /// bar_part_type
+    /// Represents a Bar Part.
     /// 
     /// Underlying representation of a Bar-element.
     /// </summary>
@@ -46,6 +46,9 @@ namespace FemDesign.Bars
         [XmlElement("curve", Order = 1)]
         public Geometry.Edge _edge;
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int StageId { get; set; } = 1;
 
@@ -156,6 +159,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local-y", Order = 2)]
         public Geometry.Vector3d _localY;
 
@@ -182,6 +188,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlIgnore]
         public BarType Type;
 
@@ -213,9 +222,16 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the complex composite ref.
+        /// </summary>
         [XmlAttribute("complex_composite")]
         public System.Guid _complexCompositeRef;
 
+        /// <summary>
+        /// Should Serialize complex Composite Ref.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_complexCompositeRef()
         {
             return this.HasComplexCompositeRef;
@@ -234,9 +250,15 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether s complex composite ref.
+        /// </summary>
         [XmlIgnore]
         public bool HasComplexCompositeRef { get => this.ComplexCompositeRef != System.Guid.Empty; }
 
+        /// <summary>
+        /// Gets or sets the complex composite obj.
+        /// </summary>
         [XmlIgnore]
         public Composites.ComplexComposite _complexCompositeObj;
 
@@ -266,9 +288,16 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the complex material ref.
+        /// </summary>
         [XmlAttribute("complex_material")]
         public System.Guid _complexMaterialRef;
 
+        /// <summary>
+        /// Should Serialize complex Material Ref.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_complexMaterialRef()
         {
             return this.HasComplexMaterialRef;
@@ -287,6 +316,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether s complex material ref.
+        /// </summary>
         [XmlIgnore]
         public bool HasComplexMaterialRef { get => this.ComplexMaterialRef != System.Guid.Empty; }
 
@@ -313,9 +345,16 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the complex section ref.
+        /// </summary>
         [XmlAttribute("complex_section")]
         public string _complexSectionRef;
 
+        /// <summary>
+        /// Should Serialize complex Section Ref.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_complexSectionRef()
         {
             return this.HasComplexSectionRef;
@@ -362,12 +401,21 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether s complex section ref.
+        /// </summary>
         [XmlIgnore]
         public bool HasComplexSectionRef { get => this.ComplexSectionRef != null; }
 
+        /// <summary>
+        /// Gets a value indicating whether s delta beam complex section ref.
+        /// </summary>
         [XmlIgnore]
         public bool HasDeltaBeamComplexSectionRef { get => !System.Guid.TryParse(this.ComplexSectionRef, out System.Guid result); }
 
+        /// <summary>
+        /// Gets or sets the complex section obj.
+        /// </summary>
         [XmlIgnore]
         public Sections.ComplexSection _complexSectionObj;
 
@@ -385,9 +433,15 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the truss uniform section obj.
+        /// </summary>
         [XmlIgnore]
         public Sections.Section TrussUniformSectionObj;
 
+        /// <summary>
+        /// Gets or sets the steel made type.
+        /// </summary>
         [XmlIgnore]
         public SteelMadeType? SteelMadeType;
 
@@ -399,13 +453,23 @@ namespace FemDesign.Bars
             set { SteelMadeType = value; }
         }
 
+        /// <summary>
+        /// Should Serializesteel Made Type.
+        /// </summary>
+        /// <returns>The result.</returns>
         [System.ComponentModel.Browsable(false), System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool ShouldSerializesteelMadeType() => SteelMadeType.HasValue;
 
+        /// <summary>
+        /// Gets or sets the eccentricity calc.
+        /// </summary>
         [XmlAttribute("ecc_calc")]
         public bool EccentricityCalc { get; set; } // bool
 
 
+        /// <summary>
+        /// Gets or sets the connectivity.
+        /// </summary>
         [XmlElement("connectivity", Order = 3)]
         public Connectivity[] _connectivity = new Connectivity[2]; // connectivity_type
 
@@ -439,6 +503,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the eccentricity type field.
+        /// </summary>
         [XmlElement("eccentricity", Order = 4)]
         public ModelEccentricity _eccentricityTypeField;
 
@@ -516,37 +583,67 @@ namespace FemDesign.Bars
                 }
             }
         }
+        /// <summary>
+        /// Gets or sets the buckling data.
+        /// </summary>
         [XmlElement("buckling_data", Order = 5)]
         public Buckling.BucklingData BucklingData { get; set; } // buckling_data_type
 
+        /// <summary>
+        /// Gets or sets the camber type2d.
+        /// </summary>
         [XmlElement("camber_type_2d", Order = 6)]
         public StruSoft.Interop.StruXml.Data.Camber_type_2d CamberType2d { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stiffness modifiers.
+        /// </summary>
         [XmlElement("stiffness_modifiers", Order = 7)]
         public List<BarStiffnessFactors> StiffnessModifiers { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 8)]
         public EntityColor Colouring { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 9)]
         public string End = "";
 
+        /// <summary>
+        /// Gets or sets the ecc crack.
+        /// </summary>
         [XmlAttribute("ecc_crack")]
         [DefaultValue(false)]
         public bool EccCrack { get; set; }
 
+        /// <summary>
+        /// Gets or sets the first order analysis u.
+        /// </summary>
         [XmlAttribute("first_order_analysis_U")]
         [DefaultValue(false)]
         public bool FirstOrderAnalysisU { get; set; }
 
+        /// <summary>
+        /// Gets or sets the first order analysis sq.
+        /// </summary>
         [XmlAttribute("first_order_analysis_Sq")]
         [DefaultValue(false)]
         public bool FirstOrderAnalysisSq { get; set; }
 
+        /// <summary>
+        /// Gets or sets the first order analysis sf.
+        /// </summary>
         [XmlAttribute("first_order_analysis_Sf")]
         [DefaultValue(false)]
         public bool FirstOrderAnalysisSf { get; set; }
 
+        /// <summary>
+        /// Gets or sets the first order analysis sc.
+        /// </summary>
         [XmlAttribute("first_order_analysis_Sc")]
         [DefaultValue(false)]
         public bool FirstOrderAnalysisSc { get; set; }
@@ -562,6 +659,13 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct beam or column with uniform section and uniform start/end conditions.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="section">the section.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="connectivity">the connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section section, Eccentricity eccentricity, Connectivity connectivity, string identifier)
         {
             if (type == BarType.Truss)
@@ -586,6 +690,15 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct beam or column with uniform section and different start/end conditions.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="section">the section.</param>
+        /// <param name="startEccentricity">the start eccentricity.</param>
+        /// <param name="endEccentricity">the end eccentricity.</param>
+        /// <param name="startConnectivity">the start connectivity.</param>
+        /// <param name="endConnectivity">the end connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section section, Eccentricity startEccentricity, Eccentricity endEccentricity, Connectivity startConnectivity, Connectivity endConnectivity, string identifier)
         {
             if (type == BarType.Truss)
@@ -610,6 +723,16 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct beam or column with start/end section and different start/end conditions
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="startSection">the start section.</param>
+        /// <param name="endSection">the end section.</param>
+        /// <param name="startEccentricity">the start eccentricity.</param>
+        /// <param name="endEccentricity">the end eccentricity.</param>
+        /// <param name="startConnectivity">the start connectivity.</param>
+        /// <param name="endConnectivity">the end connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section startSection, Sections.Section endSection, Eccentricity startEccentricity, Eccentricity endEccentricity, Connectivity startConnectivity, Connectivity endConnectivity, string identifier)
         {
             if (type == BarType.Truss)
@@ -634,6 +757,13 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct beam or column with non-uniform section and start/end conditions
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="sections">the sections.</param>
+        /// <param name="eccentricities">the eccentricities.</param>
+        /// <param name="connectivities">the connectivities.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section[] sections, Eccentricity[] eccentricities, Connectivity[] connectivities, string identifier)
         {
             if (type == BarType.Truss)
@@ -658,6 +788,15 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct beam or column with non-uniform section and start/end conditions
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="sections">the sections.</param>
+        /// <param name="positions">the positions.</param>
+        /// <param name="eccentricities">the eccentricities.</param>
+        /// <param name="startConnectivity">the start connectivity.</param>
+        /// <param name="endConnectivity">the end connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section[] sections, double[] positions, Eccentricity[] eccentricities, Connectivity startConnectivity, Connectivity endConnectivity, string identifier)
         {
             if (type == BarType.Truss)
@@ -682,6 +821,11 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct BarPart (truss)
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="section">the section.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Materials.Material material, Sections.Section section, string identifier)
         {
             if (type != BarType.Truss)
@@ -704,6 +848,12 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct a composite barpart with uniform section and uniform start/end conditions.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="compositeSection">the composite section.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="connectivity">the connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Composites.CompositeSection compositeSection, Eccentricity eccentricity, Connectivity connectivity, string identifier)
         {
             if (type == BarType.Truss)
@@ -726,6 +876,14 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct a composite barpart with uniform section and different start/end conditions.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="compositeSection">the composite section.</param>
+        /// <param name="startEccentricity">the start eccentricity.</param>
+        /// <param name="endEccentricity">the end eccentricity.</param>
+        /// <param name="startConnectivity">the start connectivity.</param>
+        /// <param name="endConnectivity">the end connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
         public BarPart(Geometry.Edge edge, BarType type, Composites.CompositeSection compositeSection, Eccentricity startEccentricity, Eccentricity endEccentricity, Connectivity startConnectivity, Connectivity endConnectivity, string identifier)
         {
             if (type == BarType.Truss)

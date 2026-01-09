@@ -15,13 +15,22 @@ using FemDesign.Geometry;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Cmd Config.
+    /// </summary>
     [XmlRoot("cmdconfig")]
     [System.Serializable]
     public partial class CmdConfig : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command = "$ MODULECOM APPLYCFG";
 
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         [XmlAttribute("file")]
         public string FilePath { get; set; }
 
@@ -54,6 +63,11 @@ namespace FemDesign.Calculate
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdConfig"/> class.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
+        /// <param name="configs">the configs.</param>
         public CmdConfig(string filePath, List<CONFIG> configs)
         {
             this.FilePath = System.IO.Path.GetFullPath(filePath);
@@ -62,6 +76,11 @@ namespace FemDesign.Calculate
             config.Serialize(this.FilePath);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdConfig"/> class.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
+        /// <param name="configs">the configs.</param>
         public CmdConfig(string filePath, params CONFIG[] configs)
         {
             this.FilePath = System.IO.Path.GetFullPath(filePath);
@@ -70,6 +89,10 @@ namespace FemDesign.Calculate
             config.Serialize(this.FilePath);
         }
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdConfig>(this);
@@ -77,10 +100,16 @@ namespace FemDesign.Calculate
     }
 
 
+    /// <summary>
+    /// Represents a Config.
+    /// </summary>
     [System.Serializable]
     [XmlRoot("configs")]
     public partial class Config
     {
+        /// <summary>
+        /// Gets or sets the configs.
+        /// </summary>
         [XmlElement("CONFIG")]
         public List<CONFIG> CONFIGS { get; set; }
 
@@ -88,16 +117,28 @@ namespace FemDesign.Calculate
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Config"/> class.
+        /// </summary>
+        /// <param name="configs">the configs.</param>
         public Config(List<CONFIG> configs)
         {
             this.CONFIGS = configs;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Config"/> class.
+        /// </summary>
+        /// <param name="configs">the configs.</param>
         public Config(params CONFIG[] configs)
         {
             this.CONFIGS = configs.ToList();
         }
 
+        /// <summary>
+        /// Serializes .
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
         public void Serialize(string filePath)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Config));
@@ -124,6 +165,10 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public abstract class CONFIG
     {
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

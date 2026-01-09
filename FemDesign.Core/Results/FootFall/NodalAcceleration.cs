@@ -6,6 +6,9 @@ using FemDesign.Calculate;
 using Newtonsoft.Json;
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Nodal Acceleration.
+    /// </summary>
     [Result(typeof(NodalAcceleration), ListProc.NodalAcceleration)]
     public partial class NodalAcceleration : IResult
     {
@@ -49,6 +52,10 @@ namespace FemDesign.Results
             this.AccZ = accZ;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {AccX}, {AccY}, {AccZ}";

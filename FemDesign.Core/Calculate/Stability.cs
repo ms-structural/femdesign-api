@@ -5,18 +5,33 @@ using System.Linq;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Stability.
+    /// </summary>
     public partial class Stability
     {
 
+        /// <summary>
+        /// Gets or sets the comb names.
+        /// </summary>
         [XmlIgnore]
         public List<string> CombNames { get; set; }
 
+        /// <summary>
+        /// Gets or sets the num shapes.
+        /// </summary>
         [XmlIgnore]
         public List<int> NumShapes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the positive only.
+        /// </summary>
         [XmlIgnore]
         public bool PositiveOnly { get; set; }
 
+        /// <summary>
+        /// Gets or sets the number iteration.
+        /// </summary>
         [XmlIgnore]
         public int numberIteration { get; set; }
 
@@ -28,6 +43,13 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Stability"/> class.
+        /// </summary>
+        /// <param name="loadCombinations">the load combinations.</param>
+        /// <param name="numShapes">the num shapes.</param>
+        /// <param name="positiveOnly">the positive only.</param>
+        /// <param name="numberIteration">the number iteration.</param>
         public Stability(List<string> loadCombinations, List<int> numShapes, bool positiveOnly = false, int numberIteration = 5)
         {
             if(loadCombinations.Count != numShapes.Count)
@@ -41,6 +63,13 @@ namespace FemDesign.Calculate
             this.numberIteration = numberIteration;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Stability"/> class.
+        /// </summary>
+        /// <param name="loadCombination">the load combination.</param>
+        /// <param name="numShape">the num shape.</param>
+        /// <param name="positiveOnly">the positive only.</param>
+        /// <param name="numberIteration">the number iteration.</param>
         public Stability(string loadCombination, int numShape, bool positiveOnly = false, int numberIteration = 5)
         {
             this.CombNames = new List<string> { loadCombination };

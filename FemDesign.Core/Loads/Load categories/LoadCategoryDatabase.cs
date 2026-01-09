@@ -14,26 +14,59 @@ namespace FemDesign.Loads
     [XmlRoot("database", Namespace="urn:strusoft")]
     public partial class LoadCategoryDatabase
     {
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         [XmlIgnore]
         public string FilePath {get; set; }
+        /// <summary>
+        /// Gets or sets the struxml version.
+        /// </summary>
         [XmlAttribute("struxml_version")]
         public string StruxmlVersion { get; set; }
+        /// <summary>
+        /// Gets or sets the source software.
+        /// </summary>
         [XmlAttribute("source_software")]
         public string SourceSoftware { get; set; }
+        /// <summary>
+        /// Gets or sets the start time.
+        /// </summary>
         [XmlAttribute("start_time")]
         public string StartTime { get; set; }
+        /// <summary>
+        /// Gets or sets the end time.
+        /// </summary>
         [XmlAttribute("end_time")]
         public string EndTime { get; set; }
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public string Guid { get; set; }
+        /// <summary>
+        /// Gets or sets the convert id.
+        /// </summary>
         [XmlAttribute("convertid")]
         public string ConvertId { get; set; }
+        /// <summary>
+        /// Gets or sets the standard.
+        /// </summary>
         [XmlAttribute("standard")]
         public string Standard { get; set; }
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
         [XmlAttribute("country")]
         public string Country { get; set; }
+        /// <summary>
+        /// Gets or sets the load categories.
+        /// </summary>
         [XmlElement("load_categories")]
         public LoadCategories LoadCategories { get; set;}
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end")]
         public string End { get; set; }
 

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Bars
 {
     /// <summary>
-    /// eccentricity_type
+    /// Represents a Model Eccentricity.
     /// 
     /// This class is called ModelEccentricity as Eccentricity (ecc_value_type) is the Dynamo facing class and thus need to be named accordingly.
     /// </summary>
@@ -14,10 +14,16 @@ namespace FemDesign.Bars
     public partial class ModelEccentricity
     {
         // attributes
+        /// <summary>
+        /// Gets or sets the use default physical alignment.
+        /// </summary>
         [XmlAttribute("use_default_physical_alignment")]
         public bool UseDefaultPhysicalAlignment { get; set; } // bool
 
         // elements
+        /// <summary>
+        /// Gets or sets the analytical.
+        /// </summary>
         [XmlElement("analytical", Order = 1)]
         public Eccentricity[] _analytical = new Eccentricity[2]; // ecc_value_type
 
@@ -73,6 +79,9 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Gets or sets the physical.
+        /// </summary>
         [XmlElement("physical", Order = 2)]
         public Eccentricity[] _physical = new Eccentricity[2]; // ecc_value_type
 
@@ -139,6 +148,8 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct uniform ModelEccentricity with presets from Eccentricity.
         /// </summary>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="useDefaultPhysicalAlignment">the use default physical alignment.</param>
         public ModelEccentricity(Eccentricity eccentricity, bool useDefaultPhysicalAlignment = false)
         {
             this.UseDefaultPhysicalAlignment = useDefaultPhysicalAlignment;
@@ -150,6 +161,9 @@ namespace FemDesign.Bars
         /// <summary>
         /// Construct non-uniform ModelEccentricity with presets from Eccentricity.
         /// </summary>
+        /// <param name="startEccentricity">the start eccentricity.</param>
+        /// <param name="endEccentricity">the end eccentricity.</param>
+        /// <param name="useDefaultPhysicalAlignment">the use default physical alignment.</param>
         public ModelEccentricity(Eccentricity startEccentricity, Eccentricity endEccentricity, bool useDefaultPhysicalAlignment = false)
         {
             this.UseDefaultPhysicalAlignment = useDefaultPhysicalAlignment;

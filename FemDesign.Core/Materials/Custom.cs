@@ -13,6 +13,22 @@ namespace FemDesign.Materials
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Custom"/> class.
+        /// </summary>
+        /// <param name="mass">the mass.</param>
+        /// <param name="e_0">value for <paramref name="e_0"/>.</param>
+        /// <param name="e_1">value for <paramref name="e_1"/>.</param>
+        /// <param name="e_2">value for <paramref name="e_2"/>.</param>
+        /// <param name="nu_0">the nu 0.</param>
+        /// <param name="nu_1">the nu 1.</param>
+        /// <param name="nu_2">the nu 2.</param>
+        /// <param name="alfa_0">the alfa 0.</param>
+        /// <param name="alfa_1">the alfa 1.</param>
+        /// <param name="alfa_2">the alfa 2.</param>
+        /// <param name="G_0">value for <paramref name="G_0"/>.</param>
+        /// <param name="G_1">value for <paramref name="G_1"/>.</param>
+        /// <param name="G_2">value for <paramref name="G_2"/>.</param>
         public Custom(double mass, double e_0, double e_1, double e_2, double nu_0, double nu_1, double nu_2, double alfa_0, double alfa_1, double alfa_2, double G_0, double G_1, double G_2)
         {
             this.Mass = mass;

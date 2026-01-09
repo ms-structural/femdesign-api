@@ -5,9 +5,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Represents a Complex Composite Part.
+    /// </summary>
     [System.Serializable]
     public partial class ComplexCompositePart
     {
+        /// <summary>
+        /// Gets or sets the composite section ref.
+        /// </summary>
         [XmlAttribute("guid")]
         public Guid _compositeSectionRef { get; set; }
         
@@ -18,9 +24,15 @@ namespace FemDesign.Composites
             set { this._compositeSectionRef = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the composite section obj.
+        /// </summary>
         [XmlIgnore]
         public CompositeSection CompositeSectionObj { get; set; }
 
+        /// <summary>
+        /// Gets or sets the pos.
+        /// </summary>
         [XmlAttribute("pos")]
         public double _pos;
 

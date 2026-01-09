@@ -17,8 +17,17 @@ namespace FemDesign.Results
     [Result(typeof(CriticalParameter), ListProc.CriticalParameters)]
     public partial class CriticalParameter : IResult
     {
+        /// <summary>
+        /// Gets or sets the case identifier.
+        /// </summary>
         public string CaseIdentifier { get; }
+        /// <summary>
+        /// Gets or sets the shape.
+        /// </summary>
         public int Shape { get; }
+        /// <summary>
+        /// Gets or sets the critical param.
+        /// </summary>
         public double CriticalParam { get; }
 
         [JsonConstructor]
@@ -29,6 +38,10 @@ namespace FemDesign.Results
             CriticalParam = criticalParam;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

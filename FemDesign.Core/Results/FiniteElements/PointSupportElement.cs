@@ -11,6 +11,9 @@ using FemDesign.Calculate;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Point Support Element.
+    /// </summary>
     [Result(typeof(PointSupportElement), ListProc.FemPointSupport)]
     public partial class PointSupportElement : IResult
     {
@@ -36,6 +39,10 @@ namespace FemDesign.Results
             this.Node = node;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {ElementId}, {Node}";

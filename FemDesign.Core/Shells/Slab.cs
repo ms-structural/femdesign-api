@@ -10,7 +10,7 @@ using FemDesign.Geometry;
 namespace FemDesign.Shells
 {
     /// <summary>
-    /// slab_type
+    /// Represents a Slab.
     /// </summary>
     [System.Serializable]
     public partial class Slab : NamedEntityBase, INamedEntity, IStructureElement, IStageElement, IShell
@@ -32,23 +32,44 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the material.
+        /// </summary>
         [XmlIgnore]
         public Materials.Material Material { get; set; }
+        /// <summary>
+        /// Gets or sets the surface reinforcement parameters.
+        /// </summary>
         [XmlIgnore]
         public Reinforcement.SurfaceReinforcementParameters SurfaceReinforcementParameters { get; set; }
+        /// <summary>
+        /// Gets or sets the surface reinforcement.
+        /// </summary>
         [XmlIgnore]
         public List<Reinforcement.SurfaceReinforcement> SurfaceReinforcement { get; set; } = new List<Reinforcement.SurfaceReinforcement>();
 
+        /// <summary>
+        /// Gets or sets the shear control regions.
+        /// </summary>
         [XmlIgnore]
         public List<Reinforcement.ShearControlRegionType> ShearControlRegions { get; set; } = new List<Reinforcement.ShearControlRegionType>();
 
+        /// <summary>
+        /// Gets or sets the punching reinforcement.
+        /// </summary>
         [XmlIgnore]
         public List<Reinforcement.PunchingReinforcement> PunchingReinforcement { get; set; } = new List<Reinforcement.PunchingReinforcement>();
 
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public SlabType Type { get; set; }
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int _stageId = 1;
 
@@ -64,6 +85,9 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the slab part.
+        /// </summary>
         [XmlElement("slab_part", Order = 1)]
         public SlabPart _slabPart;
 
@@ -82,6 +106,9 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 2)]
         public string End { get; set; } // empty_type
 
@@ -118,6 +145,10 @@ namespace FemDesign.Shells
         /// <summary>
         /// Construct Slab.
         /// </summary>
+        /// <param name="type">the type.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="slabPart">the slab part.</param>
+        /// <param name="material">the material.</param>
         public Slab(SlabType type, string identifier, SlabPart slabPart, Materials.Material material)
         {
             this.EntityCreated();
@@ -128,6 +159,17 @@ namespace FemDesign.Shells
             this.End = "";
         }
 
+        /// <summary>
+        /// Plate.
+        /// </summary>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="shellEdgeConnection">the shell edge connection.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <returns>The result.</returns>
         public static Slab Plate(string identifier, Materials.Material material, Geometry.Region region, EdgeConnection shellEdgeConnection, ShellEccentricity eccentricity, ShellOrthotropy orthotropy, List<Thickness> thickness)
         {
             SlabType type = SlabType.Plate;
@@ -136,6 +178,17 @@ namespace FemDesign.Shells
             return shell;
         }
 
+        /// <summary>
+        /// Plate.
+        /// </summary>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="shellEdgeConnection">the shell edge connection.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <returns>The result.</returns>
         public static Slab Plate(string identifier, Materials.Material material, Geometry.Region region, EdgeConnection shellEdgeConnection, ShellEccentricity eccentricity, ShellOrthotropy orthotropy, double thickness)
         {
             var thicknesses = new List<Thickness>();
@@ -240,6 +293,17 @@ namespace FemDesign.Shells
         }
 
 
+        /// <summary>
+        /// Wall.
+        /// </summary>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="shellEdgeConnection">the shell edge connection.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <returns>The result.</returns>
         public static Slab Wall(string identifier, Materials.Material material, Geometry.Region region, EdgeConnection shellEdgeConnection, ShellEccentricity eccentricity, ShellOrthotropy orthotropy, List<Thickness> thickness)
         {
             // check if surface is vertical
@@ -255,6 +319,17 @@ namespace FemDesign.Shells
             return shell;
         }
 
+        /// <summary>
+        /// Wall.
+        /// </summary>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="material">the material.</param>
+        /// <param name="region">the region.</param>
+        /// <param name="shellEdgeConnection">the shell edge connection.</param>
+        /// <param name="eccentricity">the eccentricity.</param>
+        /// <param name="orthotropy">the orthotropy.</param>
+        /// <param name="thickness">the thickness.</param>
+        /// <returns>The result.</returns>
         public static Slab Wall(string identifier, Materials.Material material, Geometry.Region region, EdgeConnection shellEdgeConnection, ShellEccentricity eccentricity, ShellOrthotropy orthotropy, double thickness)
         {
             var thicknesses = new List<Thickness>();
@@ -271,6 +346,7 @@ namespace FemDesign.Shells
         /// <param name="slab">Slab.</param>
         /// <param name="shellEdgeConnection">EdgeConnection.</param>
         /// <param name="indices">Index. List of items. Use SlabDeconstruct to extract index for each respective edge.</param>
+        /// <returns>The result.</returns>
         public static Slab SetEdgeConnection(Slab slab, EdgeConnection shellEdgeConnection, List<int> indices)
         {
             // deep clone. downstreams objs will contain changes made in this method, upstream objs will not.
@@ -294,6 +370,7 @@ namespace FemDesign.Shells
         /// <param name="slab">Slab.</param>
         /// <param name="shellEdgeConnection">EdgeConnection.</param>
         /// <param name="index">Index of edge to set.</param>
+        /// <returns>The result.</returns>
         public static Slab SetEdgeConnection(Slab slab, EdgeConnection shellEdgeConnection, int index)
         {
             // deep clone. downstreams objs will contain changes made in this method, upstream objs will not.
@@ -366,12 +443,20 @@ namespace FemDesign.Shells
         }
 
 
+        /// <summary>
+        /// Updates the material.
+        /// </summary>
+        /// <param name="material">the material.</param>
         public void UpdateMaterial(Materials.Material material)
         {
             this.SlabPart.ComplexMaterial = material;
             this.SlabPart.ComplexMaterialGuid = material.Guid;
         }
 
+        /// <summary>
+        /// Updates the thickness.
+        /// </summary>
+        /// <param name="thickness">the thickness.</param>
         public void UpdateThickness(double thickness)
         {
             var thicknessObj = new List<FemDesign.Shells.Thickness>();
@@ -379,6 +464,11 @@ namespace FemDesign.Shells
             this.SlabPart.Thickness = thicknessObj;
         }
 
+        /// <summary>
+        /// Updates the thickness.
+        /// </summary>
+        /// <param name="points">the points.</param>
+        /// <param name="thickness">the thickness.</param>
         public void UpdateThickness(List<Geometry.Point3d> points , List<double> thickness)
         {
             if(points.Count != 3) throw new System.ArgumentException("points must have exactly three items.");
@@ -388,6 +478,10 @@ namespace FemDesign.Shells
             this.SlabPart.Thickness = thicknessObj;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             var isVariable = IsVariableThickness == true ? "Variable" : "";

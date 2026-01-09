@@ -46,6 +46,10 @@ namespace FemDesign.Results
             this.Nodej = nodej;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {ElementId}, {Nodei}, {Nodej}";
@@ -81,6 +85,8 @@ namespace FemDesign.Results
         /// The method has been created for returning the value for Grasshopper and Dynamo.
         /// The method can still be use for C# users.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="Result">the result.</param>
         public static Dictionary<string, object> DeconstructFeaBar(List<FemDesign.Results.FemBar> Result)
         {
             var feaBars = Result.Cast<FemDesign.Results.FemBar>();

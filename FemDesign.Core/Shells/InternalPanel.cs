@@ -10,6 +10,9 @@ namespace FemDesign
     [System.Serializable]
     public partial class InternalPanels
     {
+        /// <summary>
+        /// Gets or sets the int panels.
+        /// </summary>
         [XmlElement("item")]
         public List<InternalPanel> IntPanels { get; set; }
 
@@ -24,6 +27,7 @@ namespace FemDesign
         /// <summary>
         /// Construct InternalPanels object from a single internal panel.
         /// </summary>
+        /// <param name="obj">the obj.</param>
         public InternalPanels(InternalPanel obj)
         {
             this.IntPanels = new List<InternalPanel>{obj};
@@ -32,6 +36,7 @@ namespace FemDesign
         /// <summary>
         /// Construct InternalPanels object from List of internal panels.
         /// </summary>
+        /// <param name="objs">the objs.</param>
         public InternalPanels(List<InternalPanel> objs)
         {
             this.IntPanels = objs;
@@ -39,15 +44,24 @@ namespace FemDesign
     }
 
     /// <summary>
-    /// internal_panel_type
+    /// Represents a Internal Panel.
     /// </summary>
     [System.Serializable]
     public partial class InternalPanel
     {
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region")]
         public Geometry.Region Region { get; set; }
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public System.Guid Guid { get; set; }
+        /// <summary>
+        /// Gets or sets the mesh size.
+        /// </summary>
         [XmlAttribute("mesh_size")]
         public double _meshSize; // non_neg_max_1e20
         [XmlIgnore]

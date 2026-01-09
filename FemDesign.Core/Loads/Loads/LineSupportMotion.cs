@@ -1,4 +1,4 @@
-﻿// https://strusoft.com/
+// https://strusoft.com/
 
 using FemDesign.Geometry;
 using StruSoft.Interop.StruXml.Data;
@@ -8,9 +8,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Line Support Motion.
+    /// </summary>
     [System.Serializable]
     public partial class LineSupportMotion : SupportMotionBase
     {
+        /// <summary>
+        /// Gets or sets the constant load direction.
+        /// </summary>
         [XmlAttribute("load_dir")]
         public LoadDirType _constantLoadDirection; // load_dir_type
         [XmlIgnore]
@@ -27,12 +33,24 @@ namespace FemDesign.Loads
         }
 
         // elements
+        /// <summary>
+        /// Gets or sets the edge.
+        /// </summary>
         [XmlElement("edge", Order = 1)]
         public Geometry.Edge Edge { get; set; } // edge_type
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order = 2)]
         public Geometry.Vector3d Direction { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the normal.
+        /// </summary>
         [XmlElement("normal", Order = 3)]
         public Geometry.Vector3d Normal { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the displacement.
+        /// </summary>
         [XmlElement("displacement", Order = 4)]
         public LoadLocationValue[] Displacement = new LoadLocationValue[2];
         [XmlIgnore]
@@ -84,6 +102,15 @@ namespace FemDesign.Loads
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineSupportMotion"/> class.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="constantForce">the constant force.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="supportMotionType">the support motion type.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="constLoadDir">the const load dir.</param>
         public LineSupportMotion(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, SupportMotionType supportMotionType, string comment = "", bool constLoadDir = true)
         {
             this.EntityCreated();
@@ -96,6 +123,16 @@ namespace FemDesign.Loads
             this.SetStartAndEndDisplacements(constantForce, constantForce);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineSupportMotion"/> class.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="startForce">the start force.</param>
+        /// <param name="endForce">the end force.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="supportMotionType">the support motion type.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="constLoadDir">the const load dir.</param>
         public LineSupportMotion(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, SupportMotionType supportMotionType, string comment = "", bool constLoadDir = true)
         {
             this.EntityCreated();
@@ -155,14 +192,13 @@ namespace FemDesign.Loads
         /// <summary>
         /// Create a Distributed Motion Load to be applied to an Edge [m]
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="startForce"></param>
-        /// <param name="endForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <param name="edge">Edge to apply the support motion to.</param>
+        /// <param name="startForce">Displacement vector at the start of the edge.</param>
+        /// <param name="endForce">Displacement vector at the end of the edge.</param>
+        /// <param name="loadCase">Load case to assign to the support motion.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant direction along the edge.</param>
+        /// <returns>The created <see cref="LineSupportMotion"/>.</returns>
         public static LineSupportMotion VariableMotion(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, string comment = "", bool constLoadDir = true)
         {
             return new LineSupportMotion(edge, startForce, endForce, loadCase, SupportMotionType.Motion, comment, constLoadDir);
@@ -172,14 +208,13 @@ namespace FemDesign.Loads
         /// <summary>
         /// Create a Distributed Rotation Load to be applied to an Edge [rad]
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="startForce"></param>
-        /// <param name="endForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <param name="edge">Edge to apply the support rotation to.</param>
+        /// <param name="startForce">Rotation vector at the start of the edge.</param>
+        /// <param name="endForce">Rotation vector at the end of the edge.</param>
+        /// <param name="loadCase">Load case to assign to the support motion.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant direction along the edge.</param>
+        /// <returns>The created <see cref="LineSupportMotion"/>.</returns>
         public static LineSupportMotion VariableRotation(Geometry.Edge edge, Geometry.Vector3d startForce, Geometry.Vector3d endForce, LoadCase loadCase, string comment = "", bool constLoadDir = true)
         {
             return new LineSupportMotion(edge, startForce, endForce, loadCase, SupportMotionType.Rotation, comment, constLoadDir);
@@ -188,13 +223,12 @@ namespace FemDesign.Loads
         /// <summary>
         /// Create a UniformDistributed Motion Load to be applied to an Edge [m]
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="constantForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <param name="edge">Edge to apply the support motion to.</param>
+        /// <param name="constantForce">Displacement vector along the edge.</param>
+        /// <param name="loadCase">Load case to assign to the support motion.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant direction along the edge.</param>
+        /// <returns>The created <see cref="LineSupportMotion"/>.</returns>
         public static LineSupportMotion UniformMotion(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, string comment = "", bool constLoadDir = true)
         {
             return new LineSupportMotion(edge, constantForce, loadCase, SupportMotionType.Motion, comment, constLoadDir);
@@ -203,18 +237,21 @@ namespace FemDesign.Loads
         /// <summary>
         /// Create a Uniform Distributed Rotation Load to be applied to an Edge [rad]
         /// </summary>
-        /// <param name="edge"></param>
-        /// <param name="constantForce"></param>
-        /// <param name="loadCase"></param>
-        /// <param name="comment"></param>
-        /// <param name="constLoadDir"></param>
-        /// <param name="loadProjection"></param>
-        /// <returns></returns>
+        /// <param name="edge">Edge to apply the support rotation to.</param>
+        /// <param name="constantForce">Rotation vector along the edge.</param>
+        /// <param name="loadCase">Load case to assign to the support motion.</param>
+        /// <param name="comment">Optional comment.</param>
+        /// <param name="constLoadDir">If <c>true</c>, keeps a constant direction along the edge.</param>
+        /// <returns>The created <see cref="LineSupportMotion"/>.</returns>
         public static LineSupportMotion UniformRotation(Geometry.Edge edge, Geometry.Vector3d constantForce, LoadCase loadCase, string comment = "", bool constLoadDir = true)
         {
             return new LineSupportMotion(edge, constantForce, loadCase, SupportMotionType.Rotation, comment, constLoadDir);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             var units = this.SupportMotionType == SupportMotionType.Motion ? "m" : "rad";

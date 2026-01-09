@@ -18,6 +18,9 @@ namespace FemDesign.Sections
     {
         internal static int _fuzzyScore = 85;
 
+        /// <summary>
+        /// Gets or sets the region group.
+        /// </summary>
         [XmlElement("region_group", Order = 1)]
         public Geometry.RegionGroup _regionGroup;
 
@@ -60,24 +63,45 @@ namespace FemDesign.Sections
             }
         }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 2)]
         public string _end { get; set; } // enpty_type
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; } // string i.e. GroupName, TypeName, SizeName --> "Steel sections, CHS, 20-2.0"
 
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type { get; set; } // sectiontype
 
+        /// <summary>
+        /// Gets or sets the material type.
+        /// </summary>
         [XmlAttribute("fd-mat")]
         public string MaterialType { get; set; } // int i.e. 1, 2, 3
 
+        /// <summary>
+        /// Gets or sets the group name.
+        /// </summary>
         [XmlAttribute("fd_name_code")]
         public string GroupName { get; set; } // string. Optional i.e. Steel section, Concrete section
 
+        /// <summary>
+        /// Gets or sets the type name.
+        /// </summary>
         [XmlAttribute("fd_name_type")]
         public string TypeName { get; set; } // string. Optional i.e. CHS, HE-A
 
+        /// <summary>
+        /// Gets or sets the size name.
+        /// </summary>
         [XmlAttribute("fd_name_size")]
         public string SizeName { get; set; } // string. Optional
 
@@ -110,6 +134,12 @@ namespace FemDesign.Sections
         /// <summary>
         /// Construct a new section
         /// </summary>
+        /// <param name="regionGroup">the region group.</param>
+        /// <param name="type">the type.</param>
+        /// <param name="materialTypeEnum">the material type enum.</param>
+        /// <param name="groupName">the group name.</param>
+        /// <param name="typeName">the type name.</param>
+        /// <param name="sizeName">the size name.</param>
         public Section(Geometry.RegionGroup regionGroup, string type, Materials.MaterialTypeEnum materialTypeEnum, string groupName, string typeName, string sizeName)
         {
             this.EntityCreated();
@@ -142,6 +172,10 @@ namespace FemDesign.Sections
                     return "Custom";
             }
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.Name}";
@@ -149,6 +183,9 @@ namespace FemDesign.Sections
     }
 
 
+    /// <summary>
+    /// Defines the Family enumeration.
+    /// </summary>
     public enum Family
     {
         IPE,
@@ -186,6 +223,12 @@ namespace FemDesign.Sections
 
     public static class SectionExtension
     {
+        /// <summary>
+        /// Filter Sections By Family.
+        /// </summary>
+        /// <param name="sections">the sections.</param>
+        /// <param name="family">the family.</param>
+        /// <returns>The result.</returns>
         public static List<FemDesign.Sections.Section> FilterSectionsByFamily(this List<FemDesign.Sections.Section> sections, FemDesign.Sections.Family family)
         {
             var familyString = family.ToString().Replace("_","-");
@@ -199,6 +242,12 @@ namespace FemDesign.Sections
             return sectionByFamily;
         }
 
+        /// <summary>
+        /// Section By Name.
+        /// </summary>
+        /// <param name="sections">the sections.</param>
+        /// <param name="sectionName">the section name.</param>
+        /// <returns>The result.</returns>
         public static Section SectionByName(this List<FemDesign.Sections.Section> sections, string sectionName)
         {
             // abbreviation HEA 100
@@ -219,6 +268,13 @@ namespace FemDesign.Sections
         }
 
 
+        /// <summary>
+        /// Gets the section properties.
+        /// </summary>
+        /// <param name="section">the section.</param>
+        /// <param name="sectionUnits">the section units.</param>
+        /// <param name="fdInstallationDir">the fd installation dir.</param>
+        /// <returns>The result.</returns>
         public static Results.SectionProperties GetSectionProperties(this Section section, Results.SectionalData sectionUnits = Results.SectionalData.mm, string fdInstallationDir = null)
         {
             // Check input
@@ -229,6 +285,13 @@ namespace FemDesign.Sections
             return secProp[0];
         }
 
+        /// <summary>
+        /// Gets the section properties.
+        /// </summary>
+        /// <param name="sections">the sections.</param>
+        /// <param name="sectionUnits">the section units.</param>
+        /// <param name="fdInstallationDir">the fd installation dir.</param>
+        /// <returns>The result.</returns>
         public static List<Results.SectionProperties> GetSectionProperties(this List<Section> sections, Results.SectionalData sectionUnits = Results.SectionalData.mm, string fdInstallationDir = null)
         {
             // Check input

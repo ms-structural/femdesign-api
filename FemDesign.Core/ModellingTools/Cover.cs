@@ -8,7 +8,7 @@ using FemDesign.GenericClasses;
 namespace FemDesign.ModellingTools
 {
     /// <summary>
-    /// cover_type
+    /// Represents a Cover.
     /// </summary>
     [System.Serializable]
     public partial class Cover: NamedEntityBase, IStructureElement
@@ -62,6 +62,11 @@ namespace FemDesign.ModellingTools
         }
 
         /// Create OneWayCover.
+        /// <returns>The result.</returns>
+        /// <param name="region">the region.</param>
+        /// <param name="supportingStructures">the supporting structures.</param>
+        /// <param name="loadBearingDirection">the load bearing direction.</param>
+        /// <param name="identifier">the identifier.</param>
         public static Cover OneWayCover(Geometry.Region region, List<object> supportingStructures, Geometry.Vector3d loadBearingDirection, string identifier)
         {
             // get supportingStructures.guid
@@ -73,6 +78,14 @@ namespace FemDesign.ModellingTools
             return _cover;
         } 
 
+        /// <summary>
+        /// One Way Cover.
+        /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="supportingStructures">the supporting structures.</param>
+        /// <param name="loadBearingDirection">the load bearing direction.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <returns>The result.</returns>
         public static Cover OneWayCover(Geometry.Region region, List<FemDesign.GenericClasses.IStructureElement> supportingStructures, Geometry.Vector3d loadBearingDirection, string identifier)
         {
             // get supportingStructures.guid
@@ -85,6 +98,10 @@ namespace FemDesign.ModellingTools
         }
 
         /// Create TwoWayCover.
+        /// <returns>The result.</returns>
+        /// <param name="region">the region.</param>
+        /// <param name="supportingStructures">the supporting structures.</param>
+        /// <param name="identifier">the identifier.</param>
         public static Cover TwoWayCover(Geometry.Region region, List<object> supportingStructures, string identifier)
         {
             // get supportingStructures.guid
@@ -96,6 +113,13 @@ namespace FemDesign.ModellingTools
             return _cover;
         }
 
+        /// <summary>
+        /// Two Way Cover.
+        /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="supportingStructures">the supporting structures.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <returns>The result.</returns>
         public static Cover TwoWayCover(Geometry.Region region, List<FemDesign.GenericClasses.IStructureElement> supportingStructures, string identifier)
         {
             // get supportingStructures.guid

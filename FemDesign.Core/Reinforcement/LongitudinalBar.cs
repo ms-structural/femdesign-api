@@ -4,24 +4,45 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Reinforcement
 {
+    /// <summary>
+    /// Represents a Longitudinal Bar.
+    /// </summary>
     [System.Serializable]
     public partial class LongitudinalBar
     {
+        /// <summary>
+        /// Gets or sets the position2d.
+        /// </summary>
         [XmlElement("cross-sectional_position", Order = 1)]
         public Geometry.Point2d Position2d { get; set; }
 
+        /// <summary>
+        /// Gets or sets the anchorage.
+        /// </summary>
         [XmlElement("anchorage", Order = 2)]
         public StartEndType Anchorage { get; set; }
 
+        /// <summary>
+        /// Gets or sets the prescribed lengthening.
+        /// </summary>
         [XmlElement("prescribed_lengthening", Order = 3)]
         public StartEndType PrescribedLengthening { get; set; }
 
+        /// <summary>
+        /// Gets or sets the start.
+        /// </summary>
         [XmlAttribute("start")]
         public double Start { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlAttribute("end")]
         public double End { get; set; }
 
+        /// <summary>
+        /// Gets or sets the auxiliary.
+        /// </summary>
         [XmlAttribute("auxiliary")]
         public bool Auxiliary { get; set; }
 

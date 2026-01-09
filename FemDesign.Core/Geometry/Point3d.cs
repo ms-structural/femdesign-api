@@ -10,13 +10,25 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Point3d.
+    /// </summary>
     [System.Serializable]
     public partial class Point3d
     {
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlAttribute("x")]
         public double X;
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlAttribute("y")]
         public double Y;
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("z")]
         public double Z;
 
@@ -87,6 +99,11 @@ namespace FemDesign.Geometry
             return new Point2d(this.X, this.Y);
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public override bool Equals(System.Object obj)
         {
             if (obj == null)
@@ -101,6 +118,11 @@ namespace FemDesign.Geometry
             return (X == p.X) && (Y == p.Y) && (Z == p.Z);            
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <returns>The result.</returns>
         public bool Equals(Point3d p)
         {
             if ((object)p == null)
@@ -110,6 +132,12 @@ namespace FemDesign.Geometry
             return (X == p.X) && (Y == p.Y) && (Z == p.Z);
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <param name="tolerance">the tolerance.</param>
+        /// <returns>The result.</returns>
         public bool Equals(Point3d p, double tolerance)
         {
             if ((object)p == null)
@@ -119,11 +147,20 @@ namespace FemDesign.Geometry
             return (Math.Abs(X - p.X) < tolerance) && (Math.Abs(Y - p.Y) < tolerance) && (Math.Abs(Z - p.Z) < tolerance);
         }
 
+        /// <summary>
+        /// Gets the hash code.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override int GetHashCode()
         {
             return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="plane">the plane.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Point3d(Plane plane)
         {
             var x = plane.Origin.X;
@@ -133,6 +170,11 @@ namespace FemDesign.Geometry
             return point;
         }
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="feaNode">the fea node.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Point3d(FemDesign.Results.FemNode feaNode)
         {
             var point = new Geometry.Point3d(feaNode.X, feaNode.Y, feaNode.Z);
@@ -160,6 +202,13 @@ namespace FemDesign.Geometry
         }
 
 
+        /// <summary>
+        /// Are Points Collinear.
+        /// </summary>
+        /// <param name="p1">the p1.</param>
+        /// <param name="p2">the p2.</param>
+        /// <param name="p3">the p3.</param>
+        /// <returns>The result.</returns>
         public static bool ArePointsCollinear(Point3d p1, Point3d p2, Point3d p3)
         {
             double area = 0.5 * ((p2.X - p1.X) * (p3.Y - p1.Y) - (p3.X - p1.X) * (p2.Y - p1.Y));
@@ -167,6 +216,11 @@ namespace FemDesign.Geometry
         }
 
 
+        /// <summary>
+        /// Are Points On Plane.
+        /// </summary>
+        /// <param name="points">the points.</param>
+        /// <returns>The result.</returns>
         public static bool ArePointsOnPlane(List<Point3d> points)
         {
             (double a, double b, double c, double d) = _getPlaneEquation(points[0], points[1], points[points.Count-1]);
@@ -232,6 +286,11 @@ namespace FemDesign.Geometry
         }
 
         // Calculate the distance between a point and a line defined by two points in 3D space
+        /// <summary>
+        /// Distance Point To Line.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <returns>The result.</returns>
         public double DistancePointToLine(Edge edge)
         {
             var lineStart = edge.Points[0];
@@ -276,6 +335,11 @@ namespace FemDesign.Geometry
             Z = p.Z
         };
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Point3d (StruSoft.Interop.StruXml.Data.Point_type_3d p) => new Point3d
         {
             X = p.X,
@@ -284,6 +348,10 @@ namespace FemDesign.Geometry
         };
 
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"({this.X.ToString(FemDesign.TextFormatting.decimalRounding)}, {this.Y.ToString(FemDesign.TextFormatting.decimalRounding)}, {this.Z.ToString(FemDesign.TextFormatting.decimalRounding)})";

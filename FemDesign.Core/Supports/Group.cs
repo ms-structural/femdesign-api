@@ -38,6 +38,9 @@ namespace FemDesign.Supports
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order = 1)]
         public Geometry.Vector3d _localX;
 
@@ -50,6 +53,9 @@ namespace FemDesign.Supports
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order = 2)]
         public Geometry.Vector3d _localY;
 
@@ -76,12 +82,21 @@ namespace FemDesign.Supports
             }
         }
 
+        /// <summary>
+        /// Gets or sets the rigidity.
+        /// </summary>
         [XmlElement("rigidity", Order = 3)]
         public RigidityDataType2 Rigidity { get; set; }
 
+        /// <summary>
+        /// Gets or sets the predef rigidity ref.
+        /// </summary>
         [XmlElement("predefined_rigidity", Order = 4)]
         public GuidListType _predefRigidityRef; // reference_type
 
+        /// <summary>
+        /// Gets or sets the predef rigidity.
+        /// </summary>
         [XmlIgnore]
         public Releases.RigidityDataLibType2 _predefRigidity;
 
@@ -99,6 +114,9 @@ namespace FemDesign.Supports
             }
         }
 
+        /// <summary>
+        /// Gets or sets the rigidity group.
+        /// </summary>
         [XmlElement("rigidity_group", Order = 5)]
         public StruSoft.Interop.StruXml.Data.Rigidity_group_type2 RigidityGroup { get; set; }
 
@@ -142,6 +160,10 @@ namespace FemDesign.Supports
         /// <summary>
         /// Constructor by vectors and rigidity. Used to create group for point support
         /// </summary>
+        /// <param name="localX">the local x.</param>
+        /// <param name="localY">the local y.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
         public Group(Geometry.Vector3d localX, Geometry.Vector3d localY, Motions motions, Rotations rotations)
         {
             this._localX = localX;
@@ -159,6 +181,10 @@ namespace FemDesign.Supports
             this.Plane = cs;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"x: {this.LocalX}, y: {this.LocalY}, z: {this.LocalZ}";

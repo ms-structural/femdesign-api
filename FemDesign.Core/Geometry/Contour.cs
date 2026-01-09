@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Geometry
 {
     /// <summary>
-    /// contour_type
+    /// Represents a Contour.
     /// </summary>
     [System.Serializable]
     public partial class Contour
@@ -105,6 +105,9 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Gets or sets the edges.
+        /// </summary>
         [XmlElement("edge")]
         public List<Edge> Edges = new List<Edge>(); // sequence: edge_type
 
@@ -133,6 +136,7 @@ namespace FemDesign.Geometry
         /// Construct Contour from Edges.
         /// Edges should form a closed contour.
         /// </summary>
+        /// <param name="edges">the edges.</param>
         public Contour(List<Edge> edges)
         {
             this.Edges = edges;

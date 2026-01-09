@@ -12,6 +12,9 @@ namespace FemDesign.GenericClasses
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
     public partial class ParseableAttribute : Attribute
     {
+        /// <summary>
+        /// Gets or sets the names.
+        /// </summary>
         public readonly string[] Names;
 
         /// <summary>
@@ -72,6 +75,9 @@ namespace FemDesign.GenericClasses
 
         private static class ParseEnumImpl<TEnum> where TEnum : struct
         {
+            /// <summary>
+            /// Gets or sets the values.
+            /// </summary>
             public static readonly Dictionary<string, TEnum> Values = new Dictionary<string, TEnum>();
 
             static ParseEnumImpl()

@@ -13,6 +13,9 @@ namespace FemDesign.Sections
     [System.Serializable]
     public partial class ComplexSection : EntityBase
     {
+        /// <summary>
+        /// Gets or sets the parts.
+        /// </summary>
         [XmlElement("section")]
         public List<ComplexSectionPart> Parts = new List<ComplexSectionPart>();
         [XmlIgnore]
@@ -82,6 +85,9 @@ namespace FemDesign.Sections
             }
         }
 
+        /// <summary>
+        /// Check Start End.
+        /// </summary>
         public void CheckStartEnd()
         {
             if (this.Parts[0].Pos != 0)

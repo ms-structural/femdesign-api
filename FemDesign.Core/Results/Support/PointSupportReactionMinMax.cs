@@ -98,6 +98,10 @@ namespace FemDesign.Results
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name}, Max: {this.Max}, Id: {this.Id}, NodeId: {this.NodeId}, Pos: ({this.X}, {this.Y}, {this.Z}), Force: ({this.Fx}, {this.Fy}, {this.Fz}), Moment: ({this.Mx}, {this.My}, {this.Mz}), Fr: {this.Fr}, Mr: {this.Mr}, CaseIdentifier: {this.CaseIdentifier}";

@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// service_class_kdefs
+    /// Represents a Timber Service Class Kdfes.
     /// </summary>
     [System.Serializable]
     public partial class TimberServiceClassKdfes

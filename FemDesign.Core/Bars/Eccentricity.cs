@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Bars
 {
     /// <summary>
-    /// ecc_value_type
+    /// Represents a Eccentricity.
     /// 
     /// This class called Eccentricity as it is the Dynamo facing class.
     /// </summary>
@@ -102,6 +102,11 @@ namespace FemDesign.Bars
             this.Z = z;
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public override bool Equals(System.Object obj)
         {
             if (obj == null)
@@ -116,6 +121,11 @@ namespace FemDesign.Bars
             return (X == p.X) && (Y == p.Y) && (Z == p.Z);            
         }
 
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <returns>The result.</returns>
         public bool Equals(Eccentricity p)
         {
             if ((object)p == null)
@@ -125,6 +135,10 @@ namespace FemDesign.Bars
             return (X == p.X) && (Y == p.Y) && (Z == p.Z);
         }
 
+        /// <summary>
+        /// Gets the hash code.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override int GetHashCode()
         {
             return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
@@ -136,6 +150,10 @@ namespace FemDesign.Bars
         /// <remarks>Create</remarks>
         /// <returns></returns>
         public static Eccentricity Default => new Eccentricity(0, 0);
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name} Local-Y: {this.Y.ToString(FemDesign.TextFormatting.decimalRounding)}, Local-Z: {this.Z.ToString(FemDesign.TextFormatting.decimalRounding)}";

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.GenericClasses
 {
+    /// <summary>
+    /// Defines the I Bar interface.
+    /// </summary>
     public interface IBar
     {
         Edge Edge { get; }

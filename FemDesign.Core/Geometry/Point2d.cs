@@ -5,14 +5,26 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Point2d.
+    /// </summary>
     [System.Serializable]
     public partial class Point2d
     {
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlAttribute("x")]
         public double X { get; set;}
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlAttribute("y")]
         public double Y { get; set; }
 
+        /// <summary>
+        /// Gets or sets the origin.
+        /// </summary>
         public static Point2d Origin => new Point2d(0, 0);
 
         /// <summary>

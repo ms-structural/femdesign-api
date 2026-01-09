@@ -10,32 +10,56 @@ using FemDesign.Geometry;
 
 namespace FemDesign.Reinforcement
 {
+    /// <summary>
+    /// Represents a Concealed Bar.
+    /// </summary>
     [System.Serializable]
     public partial class ConcealedBar: NamedEntityBase, IStructureElement
     {
         private static int _concealedBarInstances = 0;
         protected override int GetUniqueInstanceCount() => ++_concealedBarInstances;
 
+        /// <summary>
+        /// Gets or sets the rectangle.
+        /// </summary>
         [XmlElement("rectangle", Order = 1)]
         public RectangleType Rectangle { get; set; }
 
+        /// <summary>
+        /// Gets or sets the start.
+        /// </summary>
         [XmlElement("start", Order = 2)]
         public Point3d Start { get; set; }
 
+        /// <summary>
+        /// Gets or sets the buckling data.
+        /// </summary>
         [XmlElement("buckling_data", Order = 3)]
         public Bars.Buckling.BucklingData BucklingData { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end", Order = 4)]
         public string End = "";
 
+        /// <summary>
+        /// Gets or sets the base shell.
+        /// </summary>
         [XmlAttribute("base_shell")]
         public Guid BaseShell { get; set; }
 
+        /// <summary>
+        /// Gets or sets the axis in longer side.
+        /// </summary>
         [XmlAttribute("axis_in_longer_side")]
         [DefaultValue(true)]
         public bool AxisInLongerSide { get; set; } = true;
 
 
+        /// <summary>
+        /// Gets or sets the reinforcement.
+        /// </summary>
         [XmlIgnore]
         public List<BarReinforcement> Reinforcement = new List<BarReinforcement>();
 

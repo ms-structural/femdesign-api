@@ -5,8 +5,14 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Footfall.
+    /// </summary>
     public partial class Footfall
     {
+        /// <summary>
+        /// Gets or sets the top.
+        /// </summary>
         [XmlAttribute("TopOfSubstructure")]
         public double Top { get; set; }
 

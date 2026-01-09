@@ -14,6 +14,9 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class SteelDesignConfiguration : CONFIG
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type = "ECSTCONFIG";
 
@@ -48,6 +51,10 @@ namespace FemDesign.Calculate
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SteelDesignConfiguration"/> class.
+        /// </summary>
+        /// <param name="interaction">the interaction.</param>
         public SteelDesignConfiguration(Method interaction = Method.Method1)
         {
             InteractionFactors = interaction;

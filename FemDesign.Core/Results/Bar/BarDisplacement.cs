@@ -74,6 +74,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);
@@ -113,6 +117,9 @@ namespace FemDesign.Results
         /// The method has been created for returning the value for Grasshopper and Dynamo.
         /// The method can still be use for C# users.
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="Result">the result.</param>
+        /// <param name="LoadCase">the load case.</param>
         public static Dictionary<string, object> DeconstructBarDisplacements(List<FemDesign.Results.BarDisplacement> Result, string LoadCase)
         {
             var barDisplacements = Result.Cast<FemDesign.Results.BarDisplacement>();

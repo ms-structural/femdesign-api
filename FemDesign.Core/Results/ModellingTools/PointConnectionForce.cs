@@ -20,8 +20,17 @@ namespace FemDesign.Results
         /// Identifier "No."
         /// </summary>
         public string Id { get; }
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         public double X { get; }
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         public double Y { get; }
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         public double Z { get; }
         /// <summary>
         /// Finite element node id
@@ -64,8 +73,17 @@ namespace FemDesign.Results
         /// </summary>
         public string CaseIdentifier { get; }
 
+        /// <summary>
+        /// Gets or sets the pos.
+        /// </summary>
         public FemDesign.Geometry.Point3d Pos => new Geometry.Point3d(X, Y, Z);
+        /// <summary>
+        /// Gets or sets the force.
+        /// </summary>
         public FemDesign.Geometry.Vector3d Force => new Geometry.Vector3d(Fx, Fy, Fz);
+        /// <summary>
+        /// Gets or sets the moment.
+        /// </summary>
         public FemDesign.Geometry.Vector3d Moment => new Geometry.Vector3d(Mx, My, Mz);
 
         [JsonConstructor]
@@ -87,6 +105,10 @@ namespace FemDesign.Results
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

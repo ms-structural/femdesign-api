@@ -8,6 +8,9 @@ namespace FemDesign
 {
     public static class TextFormatting
     {
+        /// <summary>
+        /// Gets or sets the decimal rounding.
+        /// </summary>
         public static string decimalRounding = "0.000";
     }
 }

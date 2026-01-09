@@ -12,9 +12,15 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public partial class CmdApplyDesignChanges : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string Command; // token
 
+        /// <summary>
+        /// Gets or sets the cmd.
+        /// </summary>
         public static string Cmd = "; CXL FEM $CODE(DESCHANGESAPPLY)";
 
         /// <summary>
@@ -25,6 +31,10 @@ namespace FemDesign.Calculate
             this.Command = CmdApplyDesignChanges.Cmd;
         }
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdApplyDesignChanges>(this);

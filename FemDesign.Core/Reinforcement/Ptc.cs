@@ -7,6 +7,9 @@ using FemDesign.Bars;
 
 namespace FemDesign.Reinforcement
 {
+    /// <summary>
+    /// Defines the Jacking Side enumeration.
+    /// </summary>
     public enum JackingSide
     {
         [Parseable("start", "Start", "START")]
@@ -23,26 +26,50 @@ namespace FemDesign.Reinforcement
         EndThenStart,
     }
 
+    /// <summary>
+    /// Represents a Ptc Losses.
+    /// </summary>
     [System.Serializable]
     public partial class PtcLosses
     {
+        /// <summary>
+        /// Gets or sets the curvature coefficient.
+        /// </summary>
         [XmlAttribute("curvature_coefficient")]
         public double CurvatureCoefficient { get; set; }
 
+        /// <summary>
+        /// Gets or sets the wobble coefficient.
+        /// </summary>
         [XmlAttribute("wobble_coefficient")]
         public double WobbleCoefficient { get; set; }
 
+        /// <summary>
+        /// Gets or sets the anchorage set slip.
+        /// </summary>
         [XmlAttribute("anchorage_set_slip")]
         public double AnchorageSetSlip { get; set; }
+        /// <summary>
+        /// Gets or sets the elastic shortening.
+        /// </summary>
         [XmlAttribute("elastic_shortening")]
         public double ElasticShortening { get; set; }
 
+        /// <summary>
+        /// Gets or sets the creep stress.
+        /// </summary>
         [XmlAttribute("creep_stress")]
         public double CreepStress { get; set; }
 
+        /// <summary>
+        /// Gets or sets the shrinkage stress.
+        /// </summary>
         [XmlAttribute("shrinkage_stress")]
         public double ShrinkageStress { get; set; }
 
+        /// <summary>
+        /// Gets or sets the relaxation stress.
+        /// </summary>
         [XmlAttribute("relaxation_stress")]
         public double RelaxationStress { get; set; }
 
@@ -54,6 +81,16 @@ namespace FemDesign.Reinforcement
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PtcLosses"/> class.
+        /// </summary>
+        /// <param name="curvatureCoefficient">the curvature coefficient.</param>
+        /// <param name="wobbleCoefficient">the wobble coefficient.</param>
+        /// <param name="anchorageSetSlip">the anchorage set slip.</param>
+        /// <param name="elasticShortening">the elastic shortening.</param>
+        /// <param name="creepStress">the creep stress.</param>
+        /// <param name="shrinkageStress">the shrinkage stress.</param>
+        /// <param name="relaxationStress">the relaxation stress.</param>
         public PtcLosses(double curvatureCoefficient, double wobbleCoefficient, double anchorageSetSlip, double elasticShortening, double creepStress, double shrinkageStress, double relaxationStress)
         {
             CurvatureCoefficient = curvatureCoefficient;
@@ -72,17 +109,32 @@ namespace FemDesign.Reinforcement
     [System.Serializable]
     public partial class PtcShapeType
     {
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
         [XmlElement("start_point", Order = 1)]
         public PtcShapeStart StartPoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the intermediate point.
+        /// </summary>
         [XmlElement("intermediate_point", Order = 2)]
         public PtcShapeInner[] IntermediatePoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
         [XmlElement("end_point", Order = 3)]
         public PtcShapeEnd EndPoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the top.
+        /// </summary>
         [XmlAttribute("top")]
         public double Top { get; set; }
+        /// <summary>
+        /// Gets or sets the bottom.
+        /// </summary>
         [XmlAttribute("bottom")]
         public double Bottom { get; set; }
 
@@ -97,6 +149,9 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Defines the shape of a Post Tensioned Cable.
         /// </summary>
+        /// <param name="start">the start.</param>
+        /// <param name="end">the end.</param>
+        /// <param name="intermediates">the intermediates.</param>
         public PtcShapeType(PtcShapeStart start, PtcShapeEnd end, IEnumerable<PtcShapeInner> intermediates)
         {
             DenormalizePriorInflectionParameters(ref end, ref intermediates);
@@ -156,12 +211,21 @@ namespace FemDesign.Reinforcement
         }
     }
 
+    /// <summary>
+    /// Represents a Ptc Shape Start.
+    /// </summary>
     [System.Serializable]
     public partial class PtcShapeStart
     {
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("z")]
         public double Z { get; set; }
 
+        /// <summary>
+        /// Gets or sets the tangent.
+        /// </summary>
         [XmlAttribute("tangent")]
         public double Tangent { get; set; }
 
@@ -170,6 +234,11 @@ namespace FemDesign.Reinforcement
         /// </summary>
         private PtcShapeStart() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PtcShapeStart"/> class.
+        /// </summary>
+        /// <param name="z">value for <paramref name="z"/>.</param>
+        /// <param name="tangent">the tangent.</param>
         public PtcShapeStart(double z = 0.0, double tangent = 0.0)
         {
             Z = z;
@@ -177,6 +246,9 @@ namespace FemDesign.Reinforcement
         }
     }
 
+    /// <summary>
+    /// Represents a Ptc Shape Inner.
+    /// </summary>
     [System.Serializable]
     public partial class PtcShapeInner
     {
@@ -190,8 +262,14 @@ namespace FemDesign.Reinforcement
         /// </summary>
         [XmlAttribute("z")]
         public double Z { get; set; }
+        /// <summary>
+        /// Gets or sets the tangent.
+        /// </summary>
         [XmlAttribute("tangent")]
         public double Tangent { get; set; }
+        /// <summary>
+        /// Gets or sets the prior inflection position.
+        /// </summary>
         [XmlAttribute("prior_inflection_pos")]
         public string _priorInflectionPosition;
         [XmlIgnore]
@@ -238,13 +316,25 @@ namespace FemDesign.Reinforcement
         }
     }
 
+    /// <summary>
+    /// Represents a Ptc Shape End.
+    /// </summary>
     [System.Serializable]
     public partial class PtcShapeEnd
     {
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("z")]
         public double Z { get; set; }
+        /// <summary>
+        /// Gets or sets the tangent.
+        /// </summary>
         [XmlAttribute("tangent")]
         public double Tangent { get; set; }
+        /// <summary>
+        /// Gets or sets the prior inflection position.
+        /// </summary>
         [XmlAttribute("prior_inflection_pos")]
         public string _priorInflectionPosition;
         [XmlIgnore]
@@ -275,6 +365,12 @@ namespace FemDesign.Reinforcement
         /// </summary>
         private PtcShapeEnd() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PtcShapeEnd"/> class.
+        /// </summary>
+        /// <param name="z">value for <paramref name="z"/>.</param>
+        /// <param name="tangent">the tangent.</param>
+        /// <param name="priorInflectionPosition">the prior inflection position.</param>
         public PtcShapeEnd(double z = 0.0, double tangent = 0.0, double? priorInflectionPosition = null)
         {
             Z = z;
@@ -283,6 +379,9 @@ namespace FemDesign.Reinforcement
         }
     }
 
+    /// <summary>
+    /// Represents a Ptc Manufacturing Type.
+    /// </summary>
     [System.Serializable]
     public partial class PtcManufacturingType
     {
@@ -326,9 +425,15 @@ namespace FemDesign.Reinforcement
             }
         }
 
+        /// <summary>
+        /// Gets or sets the shift x.
+        /// </summary>
         [XmlAttribute("shift_x")]
         public double ShiftX { get; set; }
 
+        /// <summary>
+        /// Gets or sets the shift z.
+        /// </summary>
         [XmlAttribute("shift_z")]
         public double ShiftZ { get; set; }
 
@@ -340,6 +445,12 @@ namespace FemDesign.Reinforcement
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PtcManufacturingType"/> class.
+        /// </summary>
+        /// <param name="positions">the positions.</param>
+        /// <param name="shiftX">the shift x.</param>
+        /// <param name="shiftZ">the shift z.</param>
         public PtcManufacturingType(List<double> positions, double shiftX, double shiftZ)
         {
             _positions = positions.ToArray();
@@ -348,46 +459,88 @@ namespace FemDesign.Reinforcement
         }
     }
 
+    /// <summary>
+    /// Represents a Ptc.
+    /// </summary>
     [System.Serializable]
     public partial class Ptc : EntityBase, IStructureElement
     {
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
         [XmlElement("start_point", Order = 1)]
         public Geometry.Point3d StartPoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
         [XmlElement("end_point", Order = 2)]
         public Geometry.Point3d EndPoint { get; set; }
 
+        /// <summary>
+        /// Gets or sets the local z.
+        /// </summary>
         [XmlElement("local_z", Order = 3)]
         public Geometry.Vector3d LocalZ { get; set; }
 
+        /// <summary>
+        /// Gets or sets the losses.
+        /// </summary>
         [XmlElement("losses", Order = 4)]
         public PtcLosses Losses { get; set; }
 
+        /// <summary>
+        /// Gets or sets the shape base points.
+        /// </summary>
         [XmlElement("shape_base_points", Order = 5)]
         public PtcShapeType ShapeBasePoints { get; set; }
 
+        /// <summary>
+        /// Gets or sets the manufacturing.
+        /// </summary>
         [XmlElement("manufacturing", Order = 6)]
         public PtcManufacturingType Manufacturing { get; set; }
 
+        /// <summary>
+        /// Gets or sets the base object.
+        /// </summary>
         [XmlAttribute("base_object")]
         public Guid BaseObject { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets the strand type guid.
+        /// </summary>
         [XmlAttribute("strand_type")]
         public Guid StrandTypeGuid { get; set; }
         
+        /// <summary>
+        /// Gets or sets the strand type.
+        /// </summary>
         [XmlIgnore]
         public PtcStrandLibType StrandType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the number of strands.
+        /// </summary>
         [XmlAttribute("number_of_strands")]
         public int NumberOfStrands { get; set; }
 
+        /// <summary>
+        /// Gets or sets the jacking side.
+        /// </summary>
         [XmlAttribute("jacking_side")]
         public JackingSide JackingSide { get; set; }
 
+        /// <summary>
+        /// Gets or sets the jacking stress.
+        /// </summary>
         [XmlAttribute("jacking_stress")]
         public double JackingStress { get; set; }
 
@@ -446,8 +599,7 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Construct post-tension cable
         /// </summary>
-        /// <param name="line">Reference line element</param>
-        /// <param name="line">Cable line</param>
+        /// <param name="line">Reference line element defining the cable geometry.</param>
         /// <param name="shape"></param>
         /// <param name="losses"></param>
         /// <param name="manufacturing"></param>
@@ -488,6 +640,7 @@ namespace FemDesign.Reinforcement
         /// <param name="bar"></param>
         /// <param name="ptc"></param>
         /// <param name="overwrite">Overwrite PTC on bar if a PTC sharing guid already exists on the bar?</param>
+        /// <returns>The result.</returns>
         public static Bars.Bar AddPtcToBar(Bars.Bar bar, List<Ptc> ptc, bool overwrite)
         {
             // check if bar is curved and if it's not check if BarPart's and PTC line is fully overlapping
@@ -561,6 +714,10 @@ namespace FemDesign.Reinforcement
             }
             return bar;
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().FullName} - {this.Name}; Strand: {this.StrandType.Name}; Jacking side: {this.JackingSide}; Jacking stress: {this.JackingStress}; Number of strands: {this.NumberOfStrands}";
@@ -568,16 +725,28 @@ namespace FemDesign.Reinforcement
 
     }
 
+    /// <summary>
+    /// Represents a Ptc Strand Type.
+    /// </summary>
     [System.Serializable]
     public partial class PtcStrandType
     {
+        /// <summary>
+        /// Gets or sets the ptc strand lib types.
+        /// </summary>
         [XmlElement("predefined_type")]
         public List<PtcStrandLibType> PtcStrandLibTypes { get; set; } = new List<PtcStrandLibType>();
     }
 
+    /// <summary>
+    /// Represents a Ptc Strand Lib Type.
+    /// </summary>
     [System.Serializable]
     public partial class PtcStrandLibType : LibraryBase
     {
+        /// <summary>
+        /// Gets or sets the ptc strand data.
+        /// </summary>
         [XmlElement("ptc_strand_data", Order = 1)]
         public PtcStrandData PtcStrandData { get; set; }
 
@@ -605,6 +774,10 @@ namespace FemDesign.Reinforcement
             PtcStrandData = new PtcStrandData(f_pk, a_p, e_p, rho, relaxationClass, rho_1000);
             EntityCreated();
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().FullName} - Name: {this.Name}";
@@ -623,18 +796,33 @@ namespace FemDesign.Reinforcement
         [XmlAttribute("f_pk")]
         public double F_pk { get; set; }
 
+        /// <summary>
+        /// Gets or sets the a p.
+        /// </summary>
         [XmlAttribute("A_p")]
         public double A_p { get; set; }
 
+        /// <summary>
+        /// Gets or sets the e p.
+        /// </summary>
         [XmlAttribute("E_p")]
         public double E_p { get; set; }
 
+        /// <summary>
+        /// Gets or sets the density.
+        /// </summary>
         [XmlAttribute("density")]
         public double Density { get; set; }
 
+        /// <summary>
+        /// Gets or sets the relaxation class.
+        /// </summary>
         [XmlAttribute("relaxation_class")]
         public int RelaxationClass { get; set; }
 
+        /// <summary>
+        /// Gets or sets the rho 1000.
+        /// </summary>
         [XmlAttribute("Rho_1000")]
         public double Rho_1000 { get; set; }
 

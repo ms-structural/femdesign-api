@@ -8,6 +8,9 @@ using StruSoft.Interop.StruXml.Data;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Fictitious Bar.
+    /// </summary>
     [System.Serializable]
     public partial class FictitiousBar: NamedEntityBase, IStructureElement
     {
@@ -15,6 +18,9 @@ namespace FemDesign.ModellingTools
         private static int _ficticiousBarInstances = 0;
         protected override int GetUniqueInstanceCount() => ++_ficticiousBarInstances;
 
+        /// <summary>
+        /// Gets or sets the edge.
+        /// </summary>
         [XmlElement("edge", Order = 1)]
         public Geometry.Edge Edge { get; set; }
 
@@ -61,6 +67,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local-y", Order = 2)]
         public Geometry.Vector3d _localY;
 
@@ -87,12 +96,21 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the connectivity.
+        /// </summary>
         [XmlElement("connectivity", Order = 3)]
         public Bars.Connectivity[] _connectivity = new Bars.Connectivity[2];
 
+        /// <summary>
+        /// Gets or sets the truss behaviour.
+        /// </summary>
         [XmlElement("truss_behaviour", Order = 4)]
         public Simple_truss_chr_type TrussBehaviour { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 5)]
         public EntityColor Colouring { get; set; }
 
@@ -122,6 +140,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ae.
+        /// </summary>
         [XmlAttribute("AE")]
         public double _ae;
 
@@ -138,6 +159,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the mass.
+        /// </summary>
         [XmlAttribute("unit_mass")]
         public double _mass;
 
@@ -154,12 +178,16 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the itg.
+        /// </summary>
         [XmlAttribute("ItG")]
         public double _itg;
 
         /// <summary>
         /// Only for serialization purposes!
         /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_itg() => this.TrussBehaviour == null;
 
         [XmlIgnore]
@@ -175,12 +203,16 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the i1e.
+        /// </summary>
         [XmlAttribute("I1E")]
         public double _i1e;
 
         /// <summary>
         /// Only for serialization purposes!
         /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_i1e() => this.TrussBehaviour == null;
 
 
@@ -197,12 +229,16 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the i2e.
+        /// </summary>
         [XmlAttribute("I2E")]
         public double _i2e;
 
         /// <summary>
         /// Only for serialization purposes!
         /// </summary>
+        /// <returns>The result.</returns>
         public bool ShouldSerialize_i2e() => this.TrussBehaviour == null;
 
         [XmlIgnore]
@@ -229,6 +265,16 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Bended bar type FictitiousBar constructor.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="localY">the local y.</param>
+        /// <param name="startConnectivity">the start connectivity.</param>
+        /// <param name="endConnectivity">the end connectivity.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="ae">the ae.</param>
+        /// <param name="itg">the itg.</param>
+        /// <param name="i1e">the i1e.</param>
+        /// <param name="i2e">the i2e.</param>
+        /// <param name="mass">the mass.</param>
         public FictitiousBar(Geometry.Edge edge, Geometry.Vector3d localY, Bars.Connectivity startConnectivity, Bars.Connectivity endConnectivity, string identifier = "BF", double ae = 1e+07, double itg = 1e+07, double i1e = 1e+07, double i2e = 1e+07, double mass = 0.1)
         {
             this.EntityCreated();
@@ -247,6 +293,11 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Truss type FictitiousBar constructor.
         /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="localY">the local y.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="ae">the ae.</param>
+        /// <param name="mass">the mass.</param>
         /// <param name="trussBehaviour">If null, elastic behaviour is set.</param>
         public FictitiousBar(Geometry.Edge edge, Geometry.Vector3d localY, string identifier, double ae = 1e+07, double mass = 0.1, Simple_truss_chr_type trussBehaviour = null)
         {
@@ -304,6 +355,10 @@ namespace FemDesign.ModellingTools
             return new Simple_truss_chr_type(compression, tension);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if(TrussBehaviour is null)

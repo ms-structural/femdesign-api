@@ -19,18 +19,33 @@ using FemDesign.Materials;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Moving Load.
+    /// </summary>
     [System.Serializable]
     public partial class MovingLoad : EntityBase, ILoadElement
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the vehicle guid.
+        /// </summary>
         [XmlAttribute("vehicle")]
         public Guid _vehicleGuid { get; set; }
 
+        /// <summary>
+        /// Gets or sets the vehicle.
+        /// </summary>
         [XmlIgnore]
         public StruSoft.Interop.StruXml.Data.Vehicle_lib_type Vehicle { get; set; }
 
+        /// <summary>
+        /// Gets or sets the vehicle shift x.
+        /// </summary>
         [DefaultValue(0.0)]
         [XmlAttribute("vehicle_shift_x")]
         public double _vehicleShiftX = 0.0;
@@ -47,6 +62,9 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vehicle shift y.
+        /// </summary>
         [DefaultValue(0.0)]
         [XmlAttribute("vehicle_shift_y")]
         public double _vehicleShiftY = 0.0;
@@ -63,6 +81,9 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Gets or sets the division point.
+        /// </summary>
         [XmlElement("division_points")]
         public int _divisionPoint;
 
@@ -101,17 +122,29 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Gets or sets the vehicle position.
+        /// </summary>
         [XmlElement("vehicle_positions")]
         public VehiclePosition VehiclePosition { get; set; }
 
+        /// <summary>
+        /// Gets or sets the return.
+        /// </summary>
         [DefaultValue(false)]
         [XmlAttribute("return")]
         public bool Return { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the lock direction.
+        /// </summary>
         [DefaultValue(false)]
         [XmlAttribute("lock_direction")]
         public bool LockDirection { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the cut to path.
+        /// </summary>
         [DefaultValue(false)]
         [XmlAttribute("cut_to_path")]
         public bool CutToPath { get; set; } = false;
@@ -119,6 +152,18 @@ namespace FemDesign.Loads
 
         private MovingLoad() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MovingLoad"/> class.
+        /// </summary>
+        /// <param name="name">the name.</param>
+        /// <param name="vehicle">the vehicle.</param>
+        /// <param name="pathPosition">the path position.</param>
+        /// <param name="vehiclePosition">the vehicle position.</param>
+        /// <param name="shiftX">the shift x.</param>
+        /// <param name="shiftY">the shift y.</param>
+        /// <param name="returnPath">the return path.</param>
+        /// <param name="lockDirection">the lock direction.</param>
+        /// <param name="cutLoadsToPathExtent">the cut loads to path extent.</param>
         public MovingLoad(string name, Vehicle_lib_type vehicle, List<Point3d> pathPosition, List<Point3d> vehiclePosition, double shiftX = 0.00, double shiftY = 0.00, bool returnPath = false, bool lockDirection = false, bool cutLoadsToPathExtent = false)
         {
             this.EntityCreated();
@@ -137,6 +182,11 @@ namespace FemDesign.Loads
         }
 
 
+        /// <summary>
+        /// Defines an operator overload.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public static implicit operator Moving_load_type(MovingLoad obj)
         {
             var movingLoad = new StruSoft.Interop.StruXml.Data.Moving_load_type();
@@ -200,23 +250,37 @@ namespace FemDesign.Loads
             return movingLoad;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.GetType().Name} Name: {this.Name}, Vehicle: {this.Vehicle.Name}, LockDirection: {this.LockDirection}: Return: {this.Return}, CutToPath: {this.CutToPath}";
         }
     }
 
+    /// <summary>
+    /// Represents a Vehicle Position.
+    /// </summary>
     public partial class VehiclePosition
     {
         private VehiclePosition()
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VehiclePosition"/> class.
+        /// </summary>
+        /// <param name="Position">the position.</param>
         public VehiclePosition(List<Point3d> Position)
         {
             this.Position = Position;
         }
 
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
         [XmlElement("position")]
         public List<Point3d> Position { get; set; }
     }

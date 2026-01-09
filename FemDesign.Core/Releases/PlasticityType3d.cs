@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// stiffness_type
+    /// Represents a Plasticity Type3d.
     /// </summary>
     [Serializable]
     public partial class PlasticityType3d : StiffnessType

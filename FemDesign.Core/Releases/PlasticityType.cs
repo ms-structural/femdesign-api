@@ -6,11 +6,14 @@ using System.Globalization;
 namespace FemDesign.Releases
 {
     /// <summary>
-    /// stiff_base_type
+    /// Represents a Plasticity Type.
     /// </summary>
     [System.Serializable]
     public partial class PlasticityType
     {
+        /// <summary>
+        /// Gets or sets the neg.
+        /// </summary>
         [XmlAttribute("neg")]
         public string _neg;
 
@@ -27,6 +30,9 @@ namespace FemDesign.Releases
             }
         }
 
+        /// <summary>
+        /// Gets or sets the pos.
+        /// </summary>
         [XmlAttribute("pos")]
         public string _pos;
 
@@ -45,11 +51,14 @@ namespace FemDesign.Releases
     }
 
     /// <summary>
-    /// stiff_base_type
+    /// Represents a Plasticity Type2.
     /// </summary>
     [System.Serializable]
     public partial class PlasticityType2
     {
+        /// <summary>
+        /// Gets or sets the neg.
+        /// </summary>
         [XmlAttribute("neg")]
         public double _neg;
 
@@ -66,6 +75,9 @@ namespace FemDesign.Releases
             }
         }
 
+        /// <summary>
+        /// Gets or sets the pos.
+        /// </summary>
         [XmlAttribute("pos")]
         public double _pos;
 

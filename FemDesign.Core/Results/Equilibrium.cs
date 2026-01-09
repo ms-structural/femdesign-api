@@ -10,12 +10,27 @@ using System.Threading.Tasks;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Equilibrium.
+    /// </summary>
     [Result(typeof(Equilibrium), ListProc.EquilibriumLoadCase, ListProc.EquilibriumLoadCombination)]
     public class Equilibrium : IResult
     {
+        /// <summary>
+        /// Gets or sets the case identifier.
+        /// </summary>
         public string CaseIdentifier { get; }
+        /// <summary>
+        /// Gets or sets the component.
+        /// </summary>
         public string Component { get; }
+        /// <summary>
+        /// Gets or sets the loads.
+        /// </summary>
         public double Loads { get; }
+        /// <summary>
+        /// Gets or sets the reactions.
+        /// </summary>
         public double Reactions { get; }
         /// <summary>
         /// Error express in percentage.
@@ -33,6 +48,10 @@ namespace FemDesign.Results
             this.Error = error;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

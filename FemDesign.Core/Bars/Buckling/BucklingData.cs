@@ -4,9 +4,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Bars.Buckling
 {
+    /// <summary>
+    /// Represents a Buckling Data.
+    /// </summary>
     [System.Serializable]
     public partial class BucklingData
     {
+        /// <summary>
+        /// Gets or sets the buckling length.
+        /// </summary>
         [XmlElement("buckling_length")]
         public List<BucklingLength> BucklingLength = new List<BucklingLength>();
         private BucklingData()

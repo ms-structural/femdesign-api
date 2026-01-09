@@ -9,21 +9,30 @@ using FemDesign.Releases;
 namespace FemDesign.Supports
 {
     /// <summary>
-    /// line_support_type
+    /// Represents a Line Support.
     /// </summary>
     [System.Serializable]
     public partial class LineSupport: NamedEntityBase, IStructureElement, ISupportElement, IStageElement
     {
         protected override int GetUniqueInstanceCount() => ++PointSupport._instance; // PointSupport and LineSupport share the same instance counter.
 
+        /// <summary>
+        /// Gets or sets the moving local.
+        /// </summary>
         [XmlAttribute("moving_local")]
         public bool MovingLocal { get; set; } // bool
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int StageId { get; set; } = 1;
 
         [XmlIgnore]
         private Group group;
+        /// <summary>
+        /// Gets or sets the group.
+        /// </summary>
         [XmlElement("group", Order = 1)]
         public Group Group { 
             get => group; 
@@ -51,6 +60,9 @@ namespace FemDesign.Supports
 
         [XmlIgnore]
         private Directed directed;
+        /// <summary>
+        /// Gets or sets the directed.
+        /// </summary>
         [XmlElement("directed", Order = 2)]
         public Directed Directed { 
             get => directed; 
@@ -60,11 +72,26 @@ namespace FemDesign.Supports
             } 
         }
         
+        /// <summary>
+        /// Gets or sets the edge.
+        /// </summary>
         [XmlElement("edge", Order = 3)]
         public Edge Edge { get; set; } // edge_type
+        /// <summary>
+        /// Gets or sets the motions.
+        /// </summary>
         public Motions Motions { get { return Group?.Rigidity?.Motions; } }
+        /// <summary>
+        /// Gets or sets the motions plasticity limits.
+        /// </summary>
         public MotionsPlasticLimits MotionsPlasticityLimits { get { return Group?.Rigidity?.PlasticLimitForces; } }
+        /// <summary>
+        /// Gets or sets the rotations.
+        /// </summary>
         public Rotations Rotations { get { return Group?.Rigidity?.Rotations; } }
+        /// <summary>
+        /// Gets or sets the rotations plasticity limits.
+        /// </summary>
         public RotationsPlasticLimits RotationsPlasticityLimits { get { return Group?.Rigidity?.PlasticLimitMoments; } }
 
         /// <summary>
@@ -73,6 +100,9 @@ namespace FemDesign.Supports
         [XmlElement("normal", Order = 4)]
         public Vector3d EdgeNormal;
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 5)]
         public EntityColor Colouring { get; set; }
 
@@ -116,6 +146,18 @@ namespace FemDesign.Supports
             Initialize(edge, group, movingLocal, identifier);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LineSupport"/> class.
+        /// </summary>
+        /// <param name="edge">the edge.</param>
+        /// <param name="tx">the tx.</param>
+        /// <param name="ty">the ty.</param>
+        /// <param name="tz">the tz.</param>
+        /// <param name="rx">the rx.</param>
+        /// <param name="ry">the ry.</param>
+        /// <param name="rz">the rz.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="identifier">the identifier.</param>
         public LineSupport(Edge edge, bool tx, bool ty, bool tz, bool rx, bool ry, bool rz, bool movingLocal, string identifier = "S")
         {
             double x = tx == true ? Motions.ValueRigidLine : 0;
@@ -173,6 +215,7 @@ namespace FemDesign.Supports
         /// <param name="edge">Position of the support. </param>
         /// <param name="movingLocal">Keep direction along line (false) or Direction changes along line (true). </param>
         /// <param name="identifier">Name.</param>
+        /// <returns>The result.</returns>
         public static LineSupport Rigid(Edge edge, bool movingLocal, string identifier = "S")
         {
             Motions motions = Motions.RigidLine();
@@ -186,12 +229,17 @@ namespace FemDesign.Supports
         /// <param name="edge">Position of the support. </param>
         /// <param name="movingLocal">Keep direction along line (false) or Direction changes along line (true). </param>
         /// <param name="identifier">Name.</param>
+        /// <returns>The result.</returns>
         public static LineSupport Hinged(Edge edge, bool movingLocal, string identifier = "S")
         {
             Motions motions = Motions.RigidLine();
             Rotations rotations = Rotations.Free();
             return new LineSupport(edge, motions, rotations, movingLocal, identifier);
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (IsGroup)

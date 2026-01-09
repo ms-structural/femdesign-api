@@ -6,16 +6,31 @@ using FemDesign.Releases;
 
 namespace FemDesign.Supports
 {
+    /// <summary>
+    /// Represents a Simple Rigidity Group.
+    /// </summary>
     [System.Serializable]
     public partial class SimpleRigidityGroup
     {
+        /// <summary>
+        /// Gets or sets the motion type.
+        /// </summary>
         [XmlAttribute("type")]
         public MotionType MotionType;
 
+        /// <summary>
+        /// Gets or sets the stiffnesses.
+        /// </summary>
         [XmlElement("springs")]
         public List<StiffBaseType> Stiffnesses;
+        /// <summary>
+        /// Gets or sets the plastic limits.
+        /// </summary>
         [XmlElement("plastic_limits")]
         public List<PlasticityType> PlasticLimits;
+        /// <summary>
+        /// Gets or sets the plastic limits2.
+        /// </summary>
         [XmlElement("plastic_limits2")]
         public List<PlasticityType2> PlasticLimits2;
 
@@ -34,11 +49,17 @@ namespace FemDesign.Supports
     [System.Serializable]
     public partial class Directed
     {
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order = 1)]
         public Vector3d Direction;
 
         [XmlIgnore]
         private StiffBaseType movement;
+        /// <summary>
+        /// Gets or sets the movement.
+        /// </summary>
         [XmlElement("mov", Order = 2)]
         public StiffBaseType Movement { 
             get => movement; 
@@ -56,6 +77,9 @@ namespace FemDesign.Supports
 
         [XmlIgnore]
         private StiffBaseType rotation;
+        /// <summary>
+        /// Gets or sets the rotation.
+        /// </summary>
         [XmlElement("rot", Order = 3)]
         public StiffBaseType Rotation { 
             get => rotation; 
@@ -86,6 +110,9 @@ namespace FemDesign.Supports
 
         [XmlIgnore]
         private PlasticityType plasticLimitMoments;
+        /// <summary>
+        /// Gets or sets the plastic limit moments.
+        /// </summary>
         [XmlElement("plastic_limit_moments", Order = 5)]
         public PlasticityType PlasticLimitMoments { 
             get => plasticLimitMoments; 
@@ -98,6 +125,9 @@ namespace FemDesign.Supports
 
         [XmlIgnore]
         private SimpleRigidityGroup rigidityGroup;
+        /// <summary>
+        /// Gets or sets the rigidity group.
+        /// </summary>
         [XmlElement("rigidity_group", Order = 6)]
         public SimpleRigidityGroup RigidityGroup { 
             get => rigidityGroup; 

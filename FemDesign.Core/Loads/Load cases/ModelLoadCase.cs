@@ -12,6 +12,9 @@ namespace FemDesign.Loads
     [Serializable]
     public partial class ModelLoadCase : LoadCombinationCaseBase
     {
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public string _guid = string.Empty;
         [XmlIgnore]
@@ -50,12 +53,24 @@ namespace FemDesign.Loads
                 _guid = $"{Guid}#{value}";
             }
         }
+        /// <summary>
+        /// Gets a value indicating whether moving load load case.
+        /// </summary>
         [XmlIgnore]
         public bool IsMovingLoadLoadCase { get { return _guid.IndexOf('#') != -1; } }
+        /// <summary>
+        /// Gets or sets the indexed guid.
+        /// </summary>
         [XmlIgnore]
         public string IndexedGuid => _guid;
+        /// <summary>
+        /// Gets or sets the load case.
+        /// </summary>
         [XmlIgnore]
         public LoadCase LoadCase { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModelLoadCase"/> class.
+        /// </summary>
         public ModelLoadCase()
         {
             // parameterless constructor for serialization

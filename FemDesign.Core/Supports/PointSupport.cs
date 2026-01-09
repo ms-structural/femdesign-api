@@ -8,7 +8,7 @@ using FemDesign.Releases;
 namespace FemDesign.Supports
 {
     /// <summary>
-    /// point_support_type
+    /// Represents a Point Support.
     /// </summary>
     [System.Serializable]
     public partial class PointSupport : NamedEntityBase, IStructureElement, ISupportElement, IStageElement
@@ -17,11 +17,17 @@ namespace FemDesign.Supports
         internal static int _instance = 0; // Shared instance counter for both PointSupport and LineSupport
         protected override int GetUniqueInstanceCount() => ++_instance;
 
+        /// <summary>
+        /// Gets or sets the stage id.
+        /// </summary>
         [XmlAttribute("stage")]
         public int StageId { get; set; } = 1;
 
         [XmlIgnore]
         private Group group;
+        /// <summary>
+        /// Gets or sets the group.
+        /// </summary>
         [XmlElement("group", Order = 1)]
         public Group Group {
             get => group;
@@ -50,6 +56,9 @@ namespace FemDesign.Supports
 
         [XmlIgnore]
         private Directed directed;
+        /// <summary>
+        /// Gets or sets the directed.
+        /// </summary>
         [XmlElement("directed", Order = 2)]
         public Directed Directed {
             get => directed;
@@ -59,14 +68,32 @@ namespace FemDesign.Supports
             }
         }
 
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
         [XmlElement("position", Order = 3)]
         public Point3d Position { get; set; } // point_type_3d
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 4)]
         public EntityColor Colouring { get; set; }
+        /// <summary>
+        /// Gets or sets the motions.
+        /// </summary>
         public Motions Motions { get { return Group?.Rigidity?.Motions; } }
+        /// <summary>
+        /// Gets or sets the motions plasticity limits.
+        /// </summary>
         public MotionsPlasticLimits MotionsPlasticityLimits { get { return Group?.Rigidity?.PlasticLimitForces; } }
+        /// <summary>
+        /// Gets or sets the rotations.
+        /// </summary>
         public Rotations Rotations { get { return Group?.Rigidity?.Rotations; } }
+        /// <summary>
+        /// Gets or sets the rotations plasticity limits.
+        /// </summary>
         public RotationsPlasticLimits RotationsPlasticityLimits { get { return Group?.Rigidity?.PlasticLimitMoments; } }
 
         private PointSupport()
@@ -173,6 +200,7 @@ namespace FemDesign.Supports
         /// </summary>
         /// <param name="plane">Position of the support. </param>
         /// <param name="identifier">Name.</param>
+        /// <returns>The result.</returns>
         public static PointSupport Rigid(Plane plane, string identifier = "S")
         {
             Motions motions = Motions.RigidPoint();
@@ -185,6 +213,7 @@ namespace FemDesign.Supports
         /// </summary>
         /// <param name="plane">Position of the support. </param>
         /// <param name="identifier">Name.</param>
+        /// <returns>The result.</returns>
         public static PointSupport Hinged(Plane plane, string identifier = "S")
         {
             Releases.Motions motions = Releases.Motions.RigidPoint();
@@ -192,6 +221,10 @@ namespace FemDesign.Supports
             return new PointSupport(plane, motions, rotations, identifier);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (IsGroup)

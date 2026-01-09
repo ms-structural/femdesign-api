@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,6 @@ namespace FemDesign.Results
         /// </summary>
         public double TensionY { get; protected set; }
         /// <summary>
-        /// <summary> [%]
         /// Compression X [%]
         /// </summary>
         public double CompressionX { get; protected set; }
@@ -74,12 +73,33 @@ namespace FemDesign.Results
         /// Torsion [%]
         /// </summary>
         public double Torsion { get; protected set; }
+        /// <summary>
+        /// Gets or sets the deflection.
+        /// </summary>
         public double Deflection { get; protected set; }
         /// <summary>
         /// Load case or combination name
         /// </summary>
         public string CaseIdentifier { get; protected set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CLTShellUtilization"/> class.
+        /// </summary>
+        /// <param name="id">the id.</param>
+        /// <param name="max">the max.</param>
+        /// <param name="tensionX">the tension x.</param>
+        /// <param name="tensionY">the tension y.</param>
+        /// <param name="compressionX">the compression x.</param>
+        /// <param name="compressionY">the compression y.</param>
+        /// <param name="shearXY">the shear xy.</param>
+        /// <param name="shearX">the shear x.</param>
+        /// <param name="shearY">the shear y.</param>
+        /// <param name="shearInteraction">the shear interaction.</param>
+        /// <param name="tensionShear">the tension shear.</param>
+        /// <param name="compressionShear">the compression shear.</param>
+        /// <param name="buckling">the buckling.</param>
+        /// <param name="torsion">the torsion.</param>
+        /// <param name="caseIndentifier">the case indentifier.</param>
         [JsonConstructor]
         public CLTShellUtilization(string id, double max, double tensionX, double tensionY, double compressionX, double compressionY, double shearXY, double shearX, double shearY, double shearInteraction, double tensionShear, double compressionShear, double buckling, double torsion, string caseIndentifier)
         {
@@ -100,6 +120,10 @@ namespace FemDesign.Results
             CaseIdentifier = caseIndentifier;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

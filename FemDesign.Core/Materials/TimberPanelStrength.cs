@@ -4,11 +4,14 @@ using System.Xml.Serialization;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// strength
+    /// Represents a Timber Panel Strength.
     /// </summary>
     [System.Serializable]
     public partial class TimberPanelStrength
     {
+        /// <summary>
+        /// Gets or sets the fm k0.
+        /// </summary>
         [XmlAttribute("fm_k0")]
         public double _fm_k0;
         [XmlIgnore]
@@ -24,6 +27,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fm k90.
+        /// </summary>
         [XmlAttribute("fm_k90")]
         public double _fm_k90;
         [XmlIgnore]
@@ -39,6 +45,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ft k0.
+        /// </summary>
         [XmlAttribute("ft_k0")]
         public double _ft_k0;
         [XmlIgnore]
@@ -54,6 +63,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ft k90.
+        /// </summary>
         [XmlAttribute("ft_k90")]
         public double _ft_k90;
         [XmlIgnore]
@@ -69,6 +81,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fc k0.
+        /// </summary>
         [XmlAttribute("fc_k0")]
         public double _fc_k0;
         [XmlIgnore]
@@ -84,6 +99,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fc k90.
+        /// </summary>
         [XmlAttribute("fc_k90")]
         public double _fc_k90;
         [XmlIgnore]
@@ -99,6 +117,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fr k0.
+        /// </summary>
         [XmlAttribute("fr_k0")]
         public double _fr_k0;
         [XmlIgnore]
@@ -114,6 +135,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fr k90.
+        /// </summary>
         [XmlAttribute("fr_k90")]
         public double _fr_k90;
         [XmlIgnore]
@@ -129,6 +153,9 @@ namespace FemDesign.Materials
             }
         }
         
+        /// <summary>
+        /// Gets or sets the fv k.
+        /// </summary>
         [XmlAttribute("fv_k")]
         public double _fv_k;
         [XmlIgnore]

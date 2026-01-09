@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,9 @@ using Autodesk.DesignScript.Runtime;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Defines the Length enumeration.
+    /// </summary>
     public enum Length
     {
         mm,
@@ -22,11 +25,17 @@ namespace FemDesign.Results
         feet,
         yd
     }
+    /// <summary>
+    /// Defines the Angle enumeration.
+    /// </summary>
     public enum Angle
     {
         rad,
         deg
     }
+    /// <summary>
+    /// Defines the Sectional Data enumeration.
+    /// </summary>
     public enum SectionalData
     {
         mm,
@@ -37,6 +46,9 @@ namespace FemDesign.Results
         feet,
         yd
     }
+    /// <summary>
+    /// Defines the Force enumeration.
+    /// </summary>
     public enum Force
     {
         N,
@@ -46,6 +58,9 @@ namespace FemDesign.Results
         lbf,
         kips
     }
+    /// <summary>
+    /// Defines the Mass enumeration.
+    /// </summary>
     public enum Mass
     {
         t,
@@ -54,6 +69,9 @@ namespace FemDesign.Results
         tonUK,
         tonUS
     }
+    /// <summary>
+    /// Defines the Displacement enumeration.
+    /// </summary>
     public enum Displacement
     {
         mm,
@@ -64,6 +82,9 @@ namespace FemDesign.Results
         feet,
         yd
     }
+    /// <summary>
+    /// Defines the Stress enumeration.
+    /// </summary>
     public enum Stress
     {
         Pa,
@@ -73,7 +94,7 @@ namespace FemDesign.Results
     }
 
     /// <summary>
-    /// doctable
+    /// Represents units.
     /// </summary>
     [System.Serializable]
     #if ISDYNAMO
@@ -81,12 +102,21 @@ namespace FemDesign.Results
     #endif
     public partial class Units
     {
+        /// <summary>
+        /// Gets or sets the num.
+        /// </summary>
         [XmlElement("num")]
         public int Num { get; set; }
 
+        /// <summary>
+        /// Gets or sets the unit.
+        /// </summary>
         [XmlElement("unit")]
         public int Unit { get; set; }
 
+        /// <summary>
+        /// Gets or sets the unit results.
+        /// </summary>
         [XmlIgnore]
         public UnitResults UnitResults { get; set; }
 
@@ -104,6 +134,11 @@ namespace FemDesign.Results
             this.Unit = unit;
         }
 
+        /// <summary>
+        /// Gets the units.
+        /// </summary>
+        /// <param name="unitResult">the unit result.</param>
+        /// <returns>The result.</returns>
         public static List<Units> GetUnits(UnitResults unitResult = null)
         {
             // Define the Units for some output
@@ -140,14 +175,38 @@ namespace FemDesign.Results
         
     }
 
+    /// <summary>
+    /// Represents a Unit Results.
+    /// </summary>
     public partial class UnitResults
     {
+        /// <summary>
+        /// Gets or sets the length.
+        /// </summary>
         public Length Length { get; set; } = Length.m;
+        /// <summary>
+        /// Gets or sets the angle.
+        /// </summary>
         public Angle Angle { get; set; } = Angle.deg;
+        /// <summary>
+        /// Gets or sets the sectional data.
+        /// </summary>
         public SectionalData SectionalData { get; set; } = SectionalData.mm;
+        /// <summary>
+        /// Gets or sets the force.
+        /// </summary>
         public Force Force { get; set; } = Force.kN;
+        /// <summary>
+        /// Gets or sets the mass.
+        /// </summary>
         public Mass Mass { get; set; } = Mass.kg;
+        /// <summary>
+        /// Gets or sets the displacement.
+        /// </summary>
         public Displacement Displacement { get; set; } = Displacement.mm;
+        /// <summary>
+        /// Gets or sets the stress.
+        /// </summary>
         public Stress Stress { get; set; } = Stress.MPa;
 
         /// <summary>
@@ -158,6 +217,16 @@ namespace FemDesign.Results
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnitResults"/> class.
+        /// </summary>
+        /// <param name="length">the length.</param>
+        /// <param name="angle">the angle.</param>
+        /// <param name="sectionalData">the sectional data.</param>
+        /// <param name="force">the force.</param>
+        /// <param name="mass">the mass.</param>
+        /// <param name="displacement">the displacement.</param>
+        /// <param name="stress">the stress.</param>
         public UnitResults(Length length = Length.m, Angle angle = Angle.deg, SectionalData sectionalData = SectionalData.mm, Force force = Force.kN, Mass mass = Mass.kg, Displacement displacement = Displacement.mm, Stress stress = Stress.MPa)
         {
             this.Length = length;
@@ -172,6 +241,7 @@ namespace FemDesign.Results
         /// <summary>
         /// Returns the Default UnitResults
         /// </summary>
+        /// <returns>The result.</returns>
         public static UnitResults Default()
         {
             return new UnitResults(Results.Length.m, Results.Angle.deg, Results.SectionalData.m, Results.Force.kN, Results.Mass.kg, Results.Displacement.m, Results.Stress.Pa);

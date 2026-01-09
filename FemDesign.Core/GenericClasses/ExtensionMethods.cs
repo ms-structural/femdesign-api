@@ -20,6 +20,11 @@ namespace FemDesign
     {
         private static readonly MethodInfo CloneMethod = typeof(Object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
 
+        /// <summary>
+        /// Determines whether primitive.
+        /// </summary>
+        /// <param name="type">the type.</param>
+        /// <returns>The result.</returns>
         public static bool IsPrimitive(this Type type)
         {
             if (type == typeof(String)) return true;
@@ -29,6 +34,8 @@ namespace FemDesign
         /// <summary>
         /// Extension method used to clone instances of objects
         /// </summary>
+        /// <returns>The result.</returns>
+        /// <param name="originalObject">the original object.</param>
         public static Object DeepClone(this Object originalObject)
         {
             return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()));
@@ -83,12 +90,26 @@ namespace FemDesign
         }
     }
 
+    /// <summary>
+    /// Represents a Reference Equality Comparer.
+    /// </summary>
     public partial class ReferenceEqualityComparer : EqualityComparer<Object>
     {
+        /// <summary>
+        /// Equals.
+        /// </summary>
+        /// <param name="x">value for <paramref name="x"/>.</param>
+        /// <param name="y">value for <paramref name="y"/>.</param>
+        /// <returns>The result.</returns>
         public override bool Equals(object x, object y)
         {
             return ReferenceEquals(x, y);
         }
+        /// <summary>
+        /// Gets the hash code.
+        /// </summary>
+        /// <param name="obj">the obj.</param>
+        /// <returns>The result.</returns>
         public override int GetHashCode(object obj)
         {
             if (obj == null) return 0;
@@ -97,6 +118,11 @@ namespace FemDesign
     }
     public static partial class ArrayExtensions
     {
+        /// <summary>
+        /// For Each.
+        /// </summary>
+        /// <param name="array">the array.</param>
+        /// <param name="action">the action.</param>
         public static void ForEach(this Array array, Action<Array, int[]> action)
         {
             if (array.LongLength == 0) return;
@@ -108,9 +134,16 @@ namespace FemDesign
 
     internal class ArrayTraverse
     {
+        /// <summary>
+        /// Gets or sets the position.
+        /// </summary>
         public int[] Position;
         private int[] maxLengths;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ArrayTraverse"/> class.
+        /// </summary>
+        /// <param name="array">the array.</param>
         public ArrayTraverse(Array array)
         {
             maxLengths = new int[array.Rank];
@@ -121,6 +154,10 @@ namespace FemDesign
             Position = new int[array.Rank];
         }
 
+        /// <summary>
+        /// Step.
+        /// </summary>
+        /// <returns>The result.</returns>
         public bool Step()
         {
             for (int i = 0; i < Position.Length; ++i)

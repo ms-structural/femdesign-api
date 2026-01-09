@@ -5,9 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 namespace FemDesign.Geometry
 {
+    /// <summary>
+    /// Represents a Line3d.
+    /// </summary>
     public partial class Line3d
     {
+        /// <summary>
+        /// Gets or sets the start.
+        /// </summary>
         public Point3d Start { get; set; }
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         public Point3d End { get; set; } 
         public Point3d Mid
         {
@@ -49,6 +58,11 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Line3d"/> class.
+        /// </summary>
+        /// <param name="start">the start.</param>
+        /// <param name="end">the end.</param>
         public Line3d(Point3d start, Point3d end)
         {
             this.Start = start;
@@ -56,17 +70,33 @@ namespace FemDesign.Geometry
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Line3d"/> class.
+        /// </summary>
+        /// <param name="start">the start.</param>
+        /// <param name="direction">the direction.</param>
         public Line3d(Point3d start, Vector3d direction)
         {
             this.Start = start;
             this.End = start + direction;
         }
 
+        /// <summary>
+        /// Point At Parameter.
+        /// </summary>
+        /// <param name="parameter">the parameter.</param>
+        /// <returns>The result.</returns>
         public Point3d PointAtParameter(double parameter)
         {
             return this.Start.Translate(this.Tangent.Scale(parameter * this.Length));
         }
 
+        /// <summary>
+        /// Parameter By Point.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public double ParameterByPoint(Point3d p, double tol)
         {
             if (p.Equals(this.Start, tol))
@@ -88,6 +118,12 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Determines whether line fully overlapping.
+        /// </summary>
+        /// <param name="line">the line.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool IsLineFullyOverlapping(Line3d line, double tol)
         {
             int par = this.Tangent.IsParallel(line.Tangent);
@@ -109,6 +145,12 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Determines whether line partially overlapping.
+        /// </summary>
+        /// <param name="line">the line.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool IsLinePartiallyOverlapping(Line3d line, double tol)
         {
             if (this.Tangent.IsParallel(line.Tangent) != 0)
@@ -121,11 +163,23 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Determines whether line on line axis.
+        /// </summary>
+        /// <param name="otherLine">the other line.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool IsLineOnLineAxis(Line3d otherLine, double tol)
         {
             return (this.IsPointOnLineAxis(otherLine.Start, tol) && (this.Tangent.IsParallel(otherLine.Tangent) != 0));
         }
 
+        /// <summary>
+        /// Determines whether point on line.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool IsPointOnLine(Point3d p, double tol)
         {
             if (this.IsPointOnLineAxis(p, tol))
@@ -139,6 +193,12 @@ namespace FemDesign.Geometry
             }
         }
 
+        /// <summary>
+        /// Determines whether point on line axis.
+        /// </summary>
+        /// <param name="p">value for <paramref name="p"/>.</param>
+        /// <param name="tol">the tol.</param>
+        /// <returns>The result.</returns>
         public bool IsPointOnLineAxis(Point3d p, double tol)
         {
             if (p.Equals(this.Start, tol))

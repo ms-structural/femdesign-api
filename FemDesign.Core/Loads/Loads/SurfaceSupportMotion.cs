@@ -6,16 +6,25 @@ using System.Linq;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// surface_load_type
+    /// Represents a Surface Support Motion.
     /// </summary>
     [System.Serializable]
     public partial class SurfaceSupportMotion : SupportMotionBase
     {
         // elements
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order = 1)]
         public Geometry.Region Region { get; set; }
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction", Order = 2)]
         public Geometry.Vector3d Direction { get; set; }
+        /// <summary>
+        /// Gets or sets the displacements.
+        /// </summary>
         [XmlElement("displacement", Order = 3)]
         public List<LoadLocationValue> Displacements = new List<LoadLocationValue>();
         [XmlIgnore]
@@ -53,6 +62,11 @@ namespace FemDesign.Loads
         /// <summary>
         /// Variable surface support motion
         /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="displacements">the displacements.</param>
+        /// <param name="loadDirection">the load direction.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="comment">the comment.</param>
         public SurfaceSupportMotion(Geometry.Region region, List<LoadLocationValue> displacements, Geometry.Vector3d loadDirection, LoadCase loadCase, string comment = "")
         {
             this.EntityCreated();
@@ -99,6 +113,10 @@ namespace FemDesign.Loads
             return new SurfaceSupportMotion(region, loadLocationValue, direction, loadCase, comment);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             string text = "";

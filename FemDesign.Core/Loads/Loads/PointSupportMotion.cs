@@ -8,13 +8,19 @@ using System;
 namespace FemDesign.Loads
 {
     /// <summary>
-    /// point_support_motion_load_type
+    /// Represents a Point Support Motion.
     /// </summary>
     [System.Serializable]
     public partial class PointSupportMotion : SupportMotionBase
     {
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlElement("direction")]
         public Geometry.Vector3d Direction { get; set; } // point_type_3d
+        /// <summary>
+        /// Gets or sets the displacement.
+        /// </summary>
         [XmlElement("displacement")]
         public LoadLocationValue Displacement { get; set; } // location_value
 
@@ -26,6 +32,14 @@ namespace FemDesign.Loads
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PointSupportMotion"/> class.
+        /// </summary>
+        /// <param name="point">the point.</param>
+        /// <param name="disp">the disp.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="type">the type.</param>
         public PointSupportMotion(Geometry.Point3d point, Geometry.Vector3d disp, LoadCase loadCase, string comment, SupportMotionType type)
         {
             this.EntityCreated();
@@ -37,16 +51,36 @@ namespace FemDesign.Loads
         }
 
 
+        /// <summary>
+        /// Motion.
+        /// </summary>
+        /// <param name="point">the point.</param>
+        /// <param name="disp">the disp.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="comment">the comment.</param>
+        /// <returns>The result.</returns>
         public static PointSupportMotion Motion(Geometry.Point3d point, Geometry.Vector3d disp, LoadCase loadCase, string comment = "")
         {
             return new PointSupportMotion(point, disp, loadCase, comment, SupportMotionType.Motion);
         }
 
+        /// <summary>
+        /// Rotation.
+        /// </summary>
+        /// <param name="point">the point.</param>
+        /// <param name="disp">the disp.</param>
+        /// <param name="loadCase">the load case.</param>
+        /// <param name="comment">the comment.</param>
+        /// <returns>The result.</returns>
         public static PointSupportMotion Rotation(Geometry.Point3d point, Geometry.Vector3d disp, LoadCase loadCase, string comment = "")
         {
             return new PointSupportMotion(point, disp, loadCase, comment, SupportMotionType.Rotation);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             var units = this.SupportMotionType == SupportMotionType.Motion ? "m" : "rad";

@@ -15,34 +15,79 @@ namespace FemDesign.Materials
     [XmlRoot("database", Namespace = "urn:strusoft")]
     public partial class MaterialDatabase
     {
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
         [XmlIgnore]
         public string FilePath { get; set; }
+        /// <summary>
+        /// Gets or sets the struxml version.
+        /// </summary>
         [XmlAttribute("struxml_version")]
         public string StruxmlVersion { get; set; }
+        /// <summary>
+        /// Gets or sets the source software.
+        /// </summary>
         [XmlAttribute("source_software")]
         public string SourceSoftware { get; set; }
+        /// <summary>
+        /// Gets or sets the start time.
+        /// </summary>
         [XmlAttribute("start_time")]
         public string StartTime { get; set; }
+        /// <summary>
+        /// Gets or sets the end time.
+        /// </summary>
         [XmlAttribute("end_time")]
         public string EndTime { get; set; }
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlAttribute("guid")]
         public string Guid { get; set; }
+        /// <summary>
+        /// Gets or sets the convert id.
+        /// </summary>
         [XmlAttribute("convertid")]
         public string ConvertId { get; set; }
+        /// <summary>
+        /// Gets or sets the standard.
+        /// </summary>
         [XmlAttribute("standard")]
         public string Standard { get; set; }
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
         [XmlAttribute("country")]
         public string Country { get; set; }
+        /// <summary>
+        /// Gets or sets the xmlns.
+        /// </summary>
         [XmlAttribute("xmlns")]
         public string Xmlns { get; set; }
+        /// <summary>
+        /// Gets or sets the materials.
+        /// </summary>
         [XmlElement("materials")]
         public Materials Materials { get; set; } // materials
+        /// <summary>
+        /// Gets or sets the reinforcing materials.
+        /// </summary>
         [XmlElement("reinforcing_materials")]
         public Materials ReinforcingMaterials { get; set; } // reinforcing_materials
+        /// <summary>
+        /// Gets or sets the clt panel types.
+        /// </summary>
         [XmlElement("clt_panel_types")]
         public CltPanelTypes CltPanelTypes { get; set; } // clt_panel_types
+        /// <summary>
+        /// Gets or sets the orthotropic panel types.
+        /// </summary>
         [XmlElement("timber_panel_types")]
         public OrthotropicPanelTypes OrthotropicPanelTypes { get; set; } // clt_panel_types
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
         [XmlElement("end")]
         public string End { get; set; }
         [XmlIgnore]
@@ -139,6 +184,10 @@ namespace FemDesign.Materials
             throw new System.ArgumentException($"Material was not found. Incorrect material name ({materialName}) or empty material database.");
         }
 
+        /// <summary>
+        /// Gets the soil material.
+        /// </summary>
+        /// <returns>The result.</returns>
         public List<Material> GetSoilMaterial()
         {
             var soilMaterial = new List<Material>();
@@ -151,6 +200,10 @@ namespace FemDesign.Materials
             return soilMaterial;
         }
 
+        /// <summary>
+        /// Gets the clt panel library.
+        /// </summary>
+        /// <returns>The result.</returns>
         public List<CltPanelLibraryType> GetCltPanelLibrary()
         {
             if (this.CltPanelTypes != null)
@@ -160,6 +213,10 @@ namespace FemDesign.Materials
             return null;
         }
 
+        /// <summary>
+        /// Gets the orthotropic panel library.
+        /// </summary>
+        /// <returns>The result.</returns>
         public List<OrthotropicPanelLibraryType> GetOrthotropicPanelLibrary()
         {
             if (this.OrthotropicPanelTypes != null)
@@ -169,6 +226,11 @@ namespace FemDesign.Materials
             return null;
         }
 
+        /// <summary>
+        /// Gets the clt panel library type by name.
+        /// </summary>
+        /// <param name="panelLibraryTypeName">the panel library type name.</param>
+        /// <returns>The result.</returns>
         public CltPanelLibraryType GetCltPanelLibraryTypeByName(string panelLibraryTypeName)
         {
             if (this.CltPanelTypes != null)
@@ -287,6 +349,10 @@ namespace FemDesign.Materials
             return _defaultSectionDatabaseCache[countryCode];
         }
 
+        /// <summary>
+        /// Default Timber Plate Library.
+        /// </summary>
+        /// <returns>The result.</returns>
         public static MaterialDatabase DefaultTimberPlateLibrary()
         {
             var database = DeserializeResourceTimberPlate();

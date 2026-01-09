@@ -4,9 +4,15 @@ using System.Xml.Serialization;
 
 namespace FemDesign
 {
+    /// <summary>
+    /// Represents a Camber.
+    /// </summary>
     [System.Serializable]
     public partial class Camber
     {
+        /// <summary>
+        /// Gets or sets the force.
+        /// </summary>
         [XmlAttribute("force")]
         public double _force;
 
@@ -23,6 +29,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Gets or sets the eccentricity.
+        /// </summary>
         [XmlAttribute("e")]
         public double _eccentricity;
         [XmlIgnore]

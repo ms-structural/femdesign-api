@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace FemDesign.Bars
 {
     /// <summary>
-    /// connectivity_type
+    /// Represents a Connectivity.
     /// 
     /// Connectivity / End-condition releases
     /// </summary>
@@ -116,6 +116,9 @@ namespace FemDesign.Bars
         }
 
         // semi-rigid       
+        /// <summary>
+        /// Gets or sets the tx release.
+        /// </summary>
         [XmlAttribute("m_x_release")]
         public double _txRelease; // non_neg_max_1e10. Default = 0. Valid only if m_x is false.
         [XmlIgnore]
@@ -130,6 +133,9 @@ namespace FemDesign.Bars
                 this._txRelease = RestrictedDouble.NonNegMax_1e10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the ty release.
+        /// </summary>
         [XmlAttribute("m_y_release")]
         public double _tyRelease; // non_neg_max_1e10. Default = 0. Valid only if m_y is false.
         [XmlIgnore]
@@ -144,6 +150,9 @@ namespace FemDesign.Bars
                 this._tyRelease = RestrictedDouble.NonNegMax_1e10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the tz release.
+        /// </summary>
         [XmlAttribute("m_z_release")]
         public double _tzRelease; // non_neg_max_1e10. Default = 0. Valid only if m_z is false.
         [XmlIgnore]
@@ -158,6 +167,9 @@ namespace FemDesign.Bars
                 this._tzRelease = RestrictedDouble.NonNegMax_1e10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the rx release.
+        /// </summary>
         [XmlAttribute("r_x_release")]
         public double _rxRelease; // non_neg_max_1e10. Default = 0. Valid only if r_x is false.
         [XmlIgnore]
@@ -172,6 +184,9 @@ namespace FemDesign.Bars
                 this._rxRelease = RestrictedDouble.NonNegMax_1e10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the ry release.
+        /// </summary>
         [XmlAttribute("r_y_release")]
         public double _ryRelease; // non_neg_max_1e10. Default = 0. Valid only if r_y is false.
         [XmlIgnore]
@@ -186,6 +201,9 @@ namespace FemDesign.Bars
                 this._ryRelease = RestrictedDouble.NonNegMax_1e10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the rz release.
+        /// </summary>
         [XmlAttribute("r_z_release")]
         public double _rzRelease; // non_neg_max_1e10. Default = 0. Valid only if r_z is false.
         [XmlIgnore]
@@ -313,6 +331,10 @@ namespace FemDesign.Bars
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (IsRigid)

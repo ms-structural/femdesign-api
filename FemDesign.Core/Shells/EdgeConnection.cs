@@ -8,7 +8,7 @@ using FemDesign.Releases;
 namespace FemDesign.Shells
 {
     /// <summary>
-    /// ec_type
+    /// Represents a Edge Connection.
     /// </summary>
     [System.Serializable]
     public partial class EdgeConnection : EdgeConnectionBase
@@ -18,12 +18,24 @@ namespace FemDesign.Shells
         /// </summary>
         [XmlIgnore]
         public bool Release { get; set; } = true;
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; } // identifier
+        /// <summary>
+        /// Gets or sets the rigidity.
+        /// </summary>
         [XmlElement("rigidity")]
         public Releases.RigidityDataType3 Rigidity { get; set; } // rigidity_data_type2(3?)
+        /// <summary>
+        /// Gets or sets the predef rigidity ref.
+        /// </summary>
         [XmlElement("predefined_rigidity")]
         public GuidListType _predefRigidityRef; // reference_type
+        /// <summary>
+        /// Gets or sets the predef rigidity.
+        /// </summary>
         [XmlIgnore]
         public Releases.RigidityDataLibType3 _predefRigidity;
         [XmlIgnore]
@@ -39,12 +51,21 @@ namespace FemDesign.Shells
                 this._predefRigidityRef = new GuidListType(value.Guid);
             }
         }
+        /// <summary>
+        /// Gets or sets the rigidity group.
+        /// </summary>
         [XmlElement("rigidity_group")]
         public StruSoft.Interop.StruXml.Data.Rigidity_group_type2 RigidityGroup { get; set; }
 
+        /// <summary>
+        /// Gets or sets the edge.
+        /// </summary>
         [XmlIgnore]
         public FemDesign.Geometry.Edge Edge { get; set; }
 
+        /// <summary>
+        /// Gets or sets the normal.
+        /// </summary>
         [XmlIgnore]
         public FemDesign.Geometry.Vector3d Normal { get; set; }
 
@@ -131,6 +152,16 @@ namespace FemDesign.Shells
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EdgeConnection"/> class.
+        /// </summary>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationsPlasticLimits">the rotations plastic limits.</param>
+        /// <param name="friction">the friction.</param>
+        /// <param name="detachType">the detach type.</param>
+        /// <param name="libraryName">the library name.</param>
         public EdgeConnection(Releases.Motions motions, Releases.MotionsPlasticLimits motionsPlasticLimits, Releases.Rotations rotations, Releases.RotationsPlasticLimits rotationsPlasticLimits, double friction, DetachType detachType, string libraryName = null) : this(new Releases.RigidityDataType3(motions, motionsPlasticLimits, rotations, rotationsPlasticLimits, friction, detachType), libraryName)
         {
 
@@ -172,6 +203,10 @@ namespace FemDesign.Shells
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if(!this.IsLibraryItem)

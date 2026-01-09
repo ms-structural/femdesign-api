@@ -8,15 +8,21 @@ using System.Linq;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// material_type
+    /// Represents a Material.
     /// </summary>
     [System.Serializable]
     public partial class Material: EntityBase, IMaterial
     {
         internal static int _fuzzyScore = 80;
 
+        /// <summary>
+        /// Gets or sets the standard.
+        /// </summary>
         [XmlAttribute("standard")]
         public string Standard { get; set; } // standardtype
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
         [XmlAttribute("country")]
         public string Country { get; set; } // eurocodetype
         /// <summary>
@@ -25,20 +31,44 @@ namespace FemDesign.Materials
         /// <value></value>
         [XmlAttribute("name")]
         public string Name { get; set; } // name256
+        /// <summary>
+        /// Gets or sets the timber.
+        /// </summary>
         [XmlElement("timber")]
         public Timber Timber { get; set; }
+        /// <summary>
+        /// Gets or sets the concrete.
+        /// </summary>
         [XmlElement("concrete")]
         public Concrete Concrete { get; set; }
+        /// <summary>
+        /// Gets or sets the custom.
+        /// </summary>
         [XmlElement("custom")]
         public Custom Custom { get; set; }
+        /// <summary>
+        /// Gets or sets the steel.
+        /// </summary>
         [XmlElement("steel")]
         public Steel Steel { get; set; }
+        /// <summary>
+        /// Gets or sets the reinforcing steel.
+        /// </summary>
         [XmlElement("reinforcing_steel")]
         public ReinforcingSteel ReinforcingSteel { get; set; }
+        /// <summary>
+        /// Gets or sets the stratum.
+        /// </summary>
         [XmlElement("stratum")]
         public StruSoft.Interop.StruXml.Data.Material_typeStratum Stratum { get; set; }
+        /// <summary>
+        /// Gets or sets the brick.
+        /// </summary>
         [XmlElement("brick")]
         public StruSoft.Interop.StruXml.Data.Material_typeBrick Brick { get; set; }
+        /// <summary>
+        /// Gets or sets the masonry.
+        /// </summary>
         [XmlElement("masonry")]
         public StruSoft.Interop.StruXml.Data.Material_typeMasonry Masonry { get; set; }
 
@@ -62,6 +92,10 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{this.Name}";
@@ -144,6 +178,15 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Custom Uniaxial Material.
+        /// </summary>
+        /// <param name="name">the name.</param>
+        /// <param name="mass">the mass.</param>
+        /// <param name="e_0">value for <paramref name="e_0"/>.</param>
+        /// <param name="nu_0">the nu 0.</param>
+        /// <param name="alfa_0">the alfa 0.</param>
+        /// <returns>The result.</returns>
         public static Material CustomUniaxialMaterial(string name, double mass, double e_0, double nu_0, double alfa_0)
         {
             var material = new Material();
@@ -157,6 +200,9 @@ namespace FemDesign.Materials
         }
     }
 
+    /// <summary>
+    /// Defines the Family enumeration.
+    /// </summary>
     public enum Family
     {
         Steel,
@@ -170,6 +216,12 @@ namespace FemDesign.Materials
 
     public static class MaterialExtension
     {
+        /// <summary>
+        /// Material By Name.
+        /// </summary>
+        /// <param name="materials">the materials.</param>
+        /// <param name="materialName">the material name.</param>
+        /// <returns>The result.</returns>
         public static Material MaterialByName(this List<FemDesign.Materials.Material> materials, string materialName)
         {
             var materialNames = materials.Select(x => x.Name).ToArray();
@@ -198,6 +250,13 @@ namespace FemDesign.Materials
             return newMaterial;
         }
 
+        /// <summary>
+        /// Sets the steel plasticity.
+        /// </summary>
+        /// <param name="material">the material.</param>
+        /// <param name="plastic">the plastic.</param>
+        /// <param name="strainLimit">the strain limit.</param>
+        /// <returns>The result.</returns>
         public static Material SetSteelPlasticity(this Material material, List<bool> plastic, List<double> strainLimit)
         {
             if (material.Steel == null)
@@ -215,6 +274,19 @@ namespace FemDesign.Materials
             return newMaterial;
         }
 
+        /// <summary>
+        /// Sets the concrete plasticity.
+        /// </summary>
+        /// <param name="material">the material.</param>
+        /// <param name="plastic">the plastic.</param>
+        /// <param name="hardening">the hardening.</param>
+        /// <param name="crushing">the crushing.</param>
+        /// <param name="tensionStrength">the tension strength.</param>
+        /// <param name="tensionStiffening">the tension stiffening.</param>
+        /// <param name="reducedCompression">the reduced compression.</param>
+        /// <param name="reducedTransverse">the reduced transverse.</param>
+        /// <param name="ultimateStrainRebars">the ultimate strain rebars.</param>
+        /// <returns>The result.</returns>
         public static Material SetConcretePlasticity(this Material material, bool plastic = true, bool hardening = true, CrushingCriterion crushing = CrushingCriterion.Prager, bool tensionStrength = true, TensionStiffening tensionStiffening = TensionStiffening.Hinton, ReducedCompression reducedCompression = ReducedCompression.Vecchio1, bool reducedTransverse = false, bool ultimateStrainRebars = true)
         {
             if (material.Concrete == null)
@@ -232,6 +304,16 @@ namespace FemDesign.Materials
             return newMaterial;
         }
 
+        /// <summary>
+        /// Sets the creep.
+        /// </summary>
+        /// <param name="material">the material.</param>
+        /// <param name="to">the to.</param>
+        /// <param name="humidity">the humidity.</param>
+        /// <param name="nonLinearCreep">the non linear creep.</param>
+        /// <param name="cementType">the cement type.</param>
+        /// <param name="increaseFinalValue">the increase final value.</param>
+        /// <returns>The result.</returns>
         public static Material SetCreep(this Material material, int to = 28, int humidity = 50, bool nonLinearCreep = true, StruSoft.Interop_24.Cement_type cementType = StruSoft.Interop_24.Cement_type.Class_S, bool increaseFinalValue = true)
         {
             if (material.Concrete == null)
@@ -263,6 +345,14 @@ namespace FemDesign.Materials
             return newMaterial;
         }
 
+        /// <summary>
+        /// Sets the shrinkage.
+        /// </summary>
+        /// <param name="material">the material.</param>
+        /// <param name="to">the to.</param>
+        /// <param name="humidity">the humidity.</param>
+        /// <param name="cementType">the cement type.</param>
+        /// <returns>The result.</returns>
         public static Material SetShrinkage(this Material material, int to = 28, int humidity = 50, StruSoft.Interop_24.Cement_type cementType = StruSoft.Interop_24.Cement_type.Class_S)
         {
             if (material.Concrete == null)
@@ -292,6 +382,13 @@ namespace FemDesign.Materials
             return newMaterial;
         }
 
+        /// <summary>
+        /// set Elasticity.
+        /// </summary>
+        /// <param name="material">the material.</param>
+        /// <param name="to">the to.</param>
+        /// <param name="cementType">the cement type.</param>
+        /// <returns>The result.</returns>
         public static Material setElasticity(this Material material, int to = 28, StruSoft.Interop_24.Cement_type cementType = StruSoft.Interop_24.Cement_type.Class_S)
         {
             if (material.Concrete == null)

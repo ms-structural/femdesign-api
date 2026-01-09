@@ -8,9 +8,15 @@ using FemDesign.Reinforcement;
 
 namespace FemDesign.StructureGrid
 {
+    /// <summary>
+    /// Represents axis.
+    /// </summary>
     [System.Serializable]
     public partial class Axis: EntityBase, IStructureElement
     {
+        /// <summary>
+        /// Gets or sets the start point.
+        /// </summary>
         [XmlElement("start_point", Order = 1)]
         public Geometry.Point2d _startPoint; // point_type_2d
 
@@ -21,6 +27,9 @@ namespace FemDesign.StructureGrid
             set { this._startPoint = value.To2d(); }
         }
 
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
         [XmlElement("end_point", Order = 2)]
         public Geometry.Point2d _endPoint; // point_type_2d
 
@@ -31,6 +40,9 @@ namespace FemDesign.StructureGrid
             set { this._endPoint = value.To2d(); }
         }
 
+        /// <summary>
+        /// Gets or sets the prefix.
+        /// </summary>
         [XmlAttribute("prefix")]
         public string _prefix; // string15
 
@@ -47,10 +59,16 @@ namespace FemDesign.StructureGrid
              }
         }
 
+        /// <summary>
+        /// Gets or sets the axis label.
+        /// </summary>
         [XmlElement("axis_label_props", Order = 3)]
         public StruSoft.Interop.StruXml.Data.Axis_label_props AxisLabel { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         [XmlAttribute("id")]
         public int _id; // int_1_to_321272406
 
@@ -91,6 +109,9 @@ namespace FemDesign.StructureGrid
             }
         }
 
+        /// <summary>
+        /// Gets or sets the id is letter.
+        /// </summary>
         [XmlAttribute("id_is_letter")]
         public bool IdIsLetter { get; set; } // bool
 
@@ -123,6 +144,11 @@ namespace FemDesign.StructureGrid
 
         }
 
+        /// <summary>
+        /// Int To Alphabet.
+        /// </summary>
+        /// <param name="index">the index.</param>
+        /// <returns>The result.</returns>
         public static string IntToAlphabet(int index)
         {
             string result = "";
@@ -156,6 +182,13 @@ namespace FemDesign.StructureGrid
             this.Prefix = prefix;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Axis"/> class.
+        /// </summary>
+        /// <param name="startPoint">the start point.</param>
+        /// <param name="endPoint">the end point.</param>
+        /// <param name="number">the number.</param>
+        /// <param name="prefix">the prefix.</param>
         public Axis(Geometry.Point3d startPoint, Geometry.Point3d endPoint, int number, string prefix = "")
         {
             this.EntityCreated();
@@ -166,6 +199,13 @@ namespace FemDesign.StructureGrid
             this.Prefix = prefix;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Axis"/> class.
+        /// </summary>
+        /// <param name="startPoint">the start point.</param>
+        /// <param name="endPoint">the end point.</param>
+        /// <param name="letter">the letter.</param>
+        /// <param name="prefix">the prefix.</param>
         public Axis(Geometry.Point3d startPoint, Geometry.Point3d endPoint, string letter, string prefix = "")
         {
             this.EntityCreated();

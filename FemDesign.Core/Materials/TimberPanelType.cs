@@ -6,13 +6,13 @@ using System.Xml.Serialization;
 namespace FemDesign.Materials
 {
     /// <summary>
-    /// timber_application_data
+    /// Represents a Timber Panel Type.
     /// </summary>
     [System.Serializable]
     public partial class TimberPanelType : IMaterial
     {
         /// <summary>
-        /// factors
+        /// Gets or sets the timber factors.
         /// </summary>
         [XmlElement("factors")]
         public List<TimberFactors> _timberFactors;
@@ -36,6 +36,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the panel type reference.
+        /// </summary>
         [XmlAttribute("panel_type")]
         public System.Guid _panelTypeReference;
 
@@ -60,7 +63,7 @@ namespace FemDesign.Materials
         }
 
         /// <summary>
-        /// shear_coupling
+        /// Gets or sets the shear coupling.
         /// </summary>
         [XmlAttribute("shear_coupling")]
         public bool _shearCoupling = true;
@@ -78,7 +81,7 @@ namespace FemDesign.Materials
         }
 
         /// <summary>
-        /// glued_narrow_sides
+        /// Gets or sets the glued narrow sides.
         /// </summary>
         [XmlAttribute("glued_narrow_sides")]
         public bool _gluedNarrowSides = true;
@@ -95,6 +98,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         [XmlIgnore]
         public string Name {
             get {
@@ -111,6 +117,9 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the guid.
+        /// </summary>
         [XmlIgnore]
         public Guid Guid { 
             get => PanelType.Guid; 

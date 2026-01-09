@@ -10,6 +10,9 @@ using FemDesign.Calculate;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Nodal Response Factor.
+    /// </summary>
     [Result(typeof(NodalResponseFactor), ListProc.NodalResponseFactor)]
     public partial class NodalResponseFactor : IResult
     {
@@ -53,6 +56,10 @@ namespace FemDesign.Results
             this.RespFactorZ = respFactorZ;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return $"{base.ToString()}, {Id}, {RespFactorX}, {RespFactorY}, {RespFactorZ}";

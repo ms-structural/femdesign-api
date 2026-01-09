@@ -9,62 +9,224 @@ using System.Threading.Tasks;
 
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Section Properties.
+    /// </summary>
     [Result(typeof(SectionProperties), ListProc.SectionProperties)]
     public class SectionProperties :IResult
     {
         // use the following text to create properties Section	Composite	Height	Width	A	P	A/P	Yg	Zg	Ys	Zs	Iy	Wy	ez max	ez min	iy	Sy	Iz	Wz	ey max	ey min	iz	Sz	It	Wt	Iw	Iyz	zω	alfa1	I1	W1 min	W1 max	e2 max	e2 min	i1	S1	S01	c1	rho1	z2	alfa2	I2	W2 min	W2 max	e1 max	e1 min	i2	S2	S02	c2	rho2	z1	Other
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
         public string Section { get; }
+        /// <summary>
+        /// Gets or sets the composite.
+        /// </summary>
         public string Composite { get; }
+        /// <summary>
+        /// Gets or sets the height.
+        /// </summary>
         public double Height { get; }
+        /// <summary>
+        /// Gets or sets the width.
+        /// </summary>
         public double Width { get; }
+        /// <summary>
+        /// Gets or sets the a.
+        /// </summary>
         public double A { get; }
+        /// <summary>
+        /// Gets or sets the p.
+        /// </summary>
         public double P { get; }
+        /// <summary>
+        /// Gets or sets the ap.
+        /// </summary>
         public double AP { get; }
+        /// <summary>
+        /// Gets or sets the yg.
+        /// </summary>
         public double Yg { get; }
+        /// <summary>
+        /// Gets or sets the zg.
+        /// </summary>
         public double Zg { get; }
+        /// <summary>
+        /// Gets or sets the ys.
+        /// </summary>
         public double Ys { get; }
+        /// <summary>
+        /// Gets or sets the zs.
+        /// </summary>
         public double Zs { get; }
+        /// <summary>
+        /// Gets or sets the iy.
+        /// </summary>
         public double Iy { get; }
+        /// <summary>
+        /// Gets or sets the wy.
+        /// </summary>
         public double Wy { get; }
+        /// <summary>
+        /// Gets or sets the ezmax.
+        /// </summary>
         public double ezmax { get; }
+        /// <summary>
+        /// Gets or sets the ezmin.
+        /// </summary>
         public double ezmin { get; }
+        /// <summary>
+        /// Gets or sets the iy.
+        /// </summary>
         public double iy { get; }
+        /// <summary>
+        /// Gets or sets the sy.
+        /// </summary>
         public double Sy { get; }
+        /// <summary>
+        /// Gets or sets the iz.
+        /// </summary>
         public double Iz { get; }
+        /// <summary>
+        /// Gets or sets the wz.
+        /// </summary>
         public double Wz { get; }
+        /// <summary>
+        /// Gets or sets the eymax.
+        /// </summary>
         public double eymax { get; }
+        /// <summary>
+        /// Gets or sets the eymin.
+        /// </summary>
         public double eymin { get; }
+        /// <summary>
+        /// Gets or sets the iz.
+        /// </summary>
         public double iz { get; }
+        /// <summary>
+        /// Gets or sets the sz.
+        /// </summary>
         public double Sz { get; }
+        /// <summary>
+        /// Gets or sets the it.
+        /// </summary>
         public double It { get; }
+        /// <summary>
+        /// Gets or sets the wt.
+        /// </summary>
         public double Wt { get; }
+        /// <summary>
+        /// Gets or sets the iw.
+        /// </summary>
         public double Iw { get; }
+        /// <summary>
+        /// Gets or sets the iyz.
+        /// </summary>
         public double Iyz { get; }
+        /// <summary>
+        /// Gets or sets the zomega.
+        /// </summary>
         public double zomega { get; }
+        /// <summary>
+        /// Gets or sets the alfa1.
+        /// </summary>
         public double alfa1 { get; }
+        /// <summary>
+        /// Gets or sets the i1.
+        /// </summary>
         public double I1 { get; }
+        /// <summary>
+        /// Gets or sets the w1min.
+        /// </summary>
         public double W1min { get; }
+        /// <summary>
+        /// Gets or sets the w1max.
+        /// </summary>
         public double W1max { get; }
+        /// <summary>
+        /// Gets or sets the e2max.
+        /// </summary>
         public double e2max { get; }
+        /// <summary>
+        /// Gets or sets the e2min.
+        /// </summary>
         public double e2min { get; }
+        /// <summary>
+        /// Gets or sets the i1.
+        /// </summary>
         public double i1 { get; }
+        /// <summary>
+        /// Gets or sets the s1.
+        /// </summary>
         public double S1 { get; }
+        /// <summary>
+        /// Gets or sets the s01.
+        /// </summary>
         public double S01 { get; }
+        /// <summary>
+        /// Gets or sets the c1.
+        /// </summary>
         public double c1 { get; }
+        /// <summary>
+        /// Gets or sets the rho1.
+        /// </summary>
         public double rho1 { get; }
+        /// <summary>
+        /// Gets or sets the z2.
+        /// </summary>
         public double z2 { get; }
+        /// <summary>
+        /// Gets or sets the alfa2.
+        /// </summary>
         public double alfa2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the i2.
+        /// </summary>
         public double I2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the w2min.
+        /// </summary>
         public double W2min { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the w2max.
+        /// </summary>
         public double W2max { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the e1max.
+        /// </summary>
         public double e1max { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the e1min.
+        /// </summary>
         public double e1min { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the i2.
+        /// </summary>
         public double i2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the s2.
+        /// </summary>
         public double S2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the s02.
+        /// </summary>
         public double S02 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the c2.
+        /// </summary>
         public double c2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the rho2.
+        /// </summary>
         public double rho2 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the z1.
+        /// </summary>
         public double z1 { get; }    // NO!
+        /// <summary>
+        /// Gets or sets the other.
+        /// </summary>
         public string Other { get; }    // NO!
 
 
@@ -126,6 +288,10 @@ namespace FemDesign.Results
             this.Other = other;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

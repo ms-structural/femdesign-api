@@ -13,10 +13,19 @@ namespace FemDesign.Loads
     [System.Serializable]
     public partial class LoadGroupPermanent: LoadGroupBase
     {
+        /// <summary>
+        /// Gets or sets the standard favourable.
+        /// </summary>
         [XmlAttribute("standard_favourable")]
         public double StandardFavourable { get; set; }
+        /// <summary>
+        /// Gets or sets the standard unfavourable.
+        /// </summary>
         [XmlAttribute("standard_unfavourable")]
         public double StandardUnfavourable { get; set; }
+        /// <summary>
+        /// Gets or sets the xi.
+        /// </summary>
         [XmlAttribute("xi")]
         public double _xi;
         [XmlIgnore]
@@ -31,11 +40,20 @@ namespace FemDesign.Loads
                 this._xi = RestrictedDouble.NonNegMax_10(value);
             }
         }
+        /// <summary>
+        /// Gets or sets the accidental favourable.
+        /// </summary>
         [XmlAttribute("accidental_favourable")]
         public double AccidentalFavourable { get; set; }
+        /// <summary>
+        /// Gets or sets the accidental unfavourable.
+        /// </summary>
         [XmlAttribute("accidental_unfavourable")]
         public double AccidentalUnfavourable { get; set; }
 
+        /// <summary>
+        /// Gets or sets the custom table.
+        /// </summary>
         [XmlElement(ElementName = "custom_table", Order = 1)]
         public PermanentGroupRecord CustomTable { get; set; }
         /// <summary>
@@ -45,6 +63,9 @@ namespace FemDesign.Loads
         [XmlElement("load_case", Order = 2)]
         public List<Reference_type> Load_case { get; set; }
 
+        /// <summary>
+        /// Gets or sets the model load case.
+        /// </summary>
         [XmlElement("load_case", Order = 3)]
         public new List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
 
@@ -88,6 +109,7 @@ namespace FemDesign.Loads
         /// <summary>
         /// Add LoadCase to group.
         /// </summary>
+        /// <param name="loadCase">the load case.</param>
         public new void AddLoadCase(LoadCase loadCase)
         {
             if (LoadCaseInLoadGroup(loadCase))
@@ -106,12 +128,21 @@ namespace FemDesign.Loads
 
     }
 
+    /// <summary>
+    /// Represents a Permanent Group Record.
+    /// </summary>
     [System.Serializable]
     public class PermanentGroupRecord
     {
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
         [XmlElement("record")]
         public List<StruSoft.Interop.StruXml.Data.Permanent_load_groupRecord> Record { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PermanentGroupRecord"/> class.
+        /// </summary>
         public PermanentGroupRecord()
         {
         }

@@ -10,6 +10,9 @@ namespace FemDesign.Calculate
     /// </summary>
     public partial class PeriodicExcitation
     {
+        /// <summary>
+        /// Gets or sets the delta t.
+        /// </summary>
         [XmlAttribute("deltat")]
         public double _deltaT = 0.01;
         [XmlIgnore]
@@ -25,6 +28,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the t end.
+        /// </summary>
         [XmlAttribute("tend")]
         public double _tEnd = 5.0;
         [XmlIgnore]
@@ -40,6 +46,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dmp type.
+        /// </summary>
         [XmlAttribute("dampeningtype")]
         public int _dmpType = 0;
         [XmlIgnore]
@@ -55,6 +64,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the alpha.
+        /// </summary>
         [XmlAttribute("alpha")]
         public double _alpha = 0.0;
         [XmlIgnore]
@@ -70,6 +82,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the beta.
+        /// </summary>
         [XmlAttribute("beta")]
         public double _beta = 0.0;
         [XmlIgnore]
@@ -85,6 +100,9 @@ namespace FemDesign.Calculate
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dmp factor.
+        /// </summary>
         [XmlAttribute("ksi")]
         public double _dmpFactor = 5.0;
         [XmlIgnore]
@@ -137,6 +155,9 @@ namespace FemDesign.Calculate
         }
     }
 
+    /// <summary>
+    /// Defines the Damping Type enumeration.
+    /// </summary>
     public enum DampingType
     {
         [Parseable("Rayleigh")]

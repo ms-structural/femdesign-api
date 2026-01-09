@@ -9,15 +9,21 @@ using Newtonsoft.Json.Linq;
 namespace FemDesign
 {
     /// <summary>
-    /// entity_attribs
+    /// Represents a Entity Color.
     /// </summary>
     [Serializable]
     public partial class EntityColor
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityColor"/> class.
+        /// </summary>
         public EntityColor()
         {
         }
 
+        /// <summary>
+        /// Gets or sets the tone.
+        /// </summary>
         [XmlAttribute("tone")]
         public string _tone;
 
@@ -35,6 +41,9 @@ namespace FemDesign
             }
         }
 
+        /// <summary>
+        /// Gets or sets the pen width.
+        /// </summary>
         [XmlAttribute("penwidth")]
         public double PenWidth { get; set; }
 

@@ -7,9 +7,15 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.FiniteElements
 {
+    /// <summary>
+    /// Represents a Peak Smoothing Region.
+    /// </summary>
     [System.Serializable]
     public partial class PeakSmoothingRegion : EntityBase, IStructureElement
     {
+        /// <summary>
+        /// Gets or sets the inactive.
+        /// </summary>
         [XmlAttribute("inactive")]
         public bool _inactive = false;
 
@@ -20,6 +26,9 @@ namespace FemDesign.FiniteElements
             set { this._inactive = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the contours.
+        /// </summary>
         [XmlElement("contour")]
         public List<Geometry.Contour> _contours;
 
@@ -45,18 +54,32 @@ namespace FemDesign.FiniteElements
 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeakSmoothingRegion"/> class.
+        /// </summary>
+        /// <param name="region">the region.</param>
+        /// <param name="inactive">the inactive.</param>
         public PeakSmoothingRegion(Region region, bool inactive = false)
         {
             this.EntityCreated();
             this.Region = region;
             this.Inactive = inactive;
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PeakSmoothingRegion"/> class.
+        /// </summary>
+        /// <param name="contours">the contours.</param>
+        /// <param name="inactive">the inactive.</param>
         public PeakSmoothingRegion(List<Geometry.Contour> contours, bool inactive = false)
         {
             this.EntityCreated();
             this.Contours = contours;
             this.Inactive = inactive;
         }
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (this.Inactive)

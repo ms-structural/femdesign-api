@@ -10,6 +10,9 @@ namespace FemDesign.StructureGrid
     [System.Serializable]
     public partial class Axes
     {
+        /// <summary>
+        /// Gets or sets the axis.
+        /// </summary>
         [XmlElement("axis", Order = 1)]
         public List<Axis> Axis = new List<Axis>();
     }

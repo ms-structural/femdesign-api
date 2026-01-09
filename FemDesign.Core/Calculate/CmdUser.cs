@@ -4,10 +4,16 @@ using System.Xml.Linq;
 
 namespace FemDesign.Calculate
 {
+    /// <summary>
+    /// Represents a Cmd User.
+    /// </summary>
     [XmlRoot("cmduser")]
     [System.Serializable]
     public partial class CmdUser : CmdCommand
     {
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
         [XmlAttribute("command")]
         public string _command; // token
         [XmlIgnore]
@@ -24,11 +30,19 @@ namespace FemDesign.Calculate
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CmdUser"/> class.
+        /// </summary>
+        /// <param name="module">the module.</param>
         public CmdUser(CmdUserModule module)
         {
             this.Command = module;
         }
 
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override XElement ToXElement()
         {
             return Extension.ToXElement<CmdUser>(this);

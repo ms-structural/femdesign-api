@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.Materials
 {
+    /// <summary>
+    /// Defines the I Material interface.
+    /// </summary>
     public interface IMaterial
     {
         string Name { get; set; }

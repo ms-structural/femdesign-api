@@ -5,9 +5,15 @@ using System;
 
 namespace FemDesign.Loads
 {
+    /// <summary>
+    /// Represents a Surface Temperature Load.
+    /// </summary>
     [System.Serializable]
     public partial class SurfaceTemperatureLoad: LoadBase
     {
+        /// <summary>
+        /// Gets or sets the region.
+        /// </summary>
         [XmlElement("region", Order=1)]
         public Geometry.Region Region { get; set; }
 
@@ -24,6 +30,9 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Gets or sets the temperature.
+        /// </summary>
         [XmlElement("temperature", Order=2)]
         public List<TopBotLocationValue> _temperature;
 
@@ -48,6 +57,9 @@ namespace FemDesign.Loads
             }
         }
 
+        /// <summary>
+        /// Gets or sets the temperature values.
+        /// </summary>
         [XmlElement("temperature_values", Order = 3)]
         public List<TopBotLocationValue> _temperatureValues;
 
@@ -116,6 +128,10 @@ namespace FemDesign.Loads
             this.Comment = comment;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             if (Temperature!= null && Temperature.Any())

@@ -9,6 +9,9 @@ using FemDesign.Calculate;
 using Newtonsoft.Json;
 namespace FemDesign.Results
 {
+    /// <summary>
+    /// Represents a Labelled Section Internal Force.
+    /// </summary>
     [Result(typeof(LabelledSectionInternalForce), ListProc.LabelledSectionsInternalForcesLoadCase, ListProc.LabelledSectionsInternalForcesLoadCombination)]
     public partial class LabelledSectionInternalForce : IResult
     {
@@ -73,6 +76,10 @@ namespace FemDesign.Results
             this.CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

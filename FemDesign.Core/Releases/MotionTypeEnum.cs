@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace FemDesign.Releases
 {
+    /// <summary>
+    /// Defines the Motion Type enumeration.
+    /// </summary>
     public enum MotionType
     {
         [XmlEnum("motion")]

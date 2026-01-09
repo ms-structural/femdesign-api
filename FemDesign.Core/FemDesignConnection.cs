@@ -35,8 +35,17 @@ namespace FemDesign
         private readonly int fdVersion = 24;
         private readonly PipeConnection _connection;
         private readonly Process _process;
+        /// <summary>
+        /// Gets a value indicating whether s exited.
+        /// </summary>
         public bool HasExited { get; private set; }
+        /// <summary>
+        /// Gets a value indicating whether connected.
+        /// </summary>
         public bool IsConnected => _connection._inputPipe.IsConnected;
+        /// <summary>
+        /// Gets a value indicating whether disconnected.
+        /// </summary>
         public bool IsDisconnected => !IsConnected;
 
         /// <summary>
@@ -45,7 +54,13 @@ namespace FemDesign
         /// If a user manually open a file in a pipe instance, the file path location will be equal to null.
         /// </summary>
         private string CurrentOpenModel;
+        /// <summary>
+        /// Gets or sets the verbosity.
+        /// </summary>
         public Verbosity Verbosity { get; private set; }
+        /// <summary>
+        /// Gets or sets the default verbosity.
+        /// </summary>
         public const Verbosity DefaultVerbosity = Verbosity.ScriptLogLinesOnly;
 
         /// <summary>
@@ -53,6 +68,10 @@ namespace FemDesign
         /// </summary>
         private bool _keepOpen;
                 
+        /// <summary>
+        /// Represents a callback.
+        /// </summary>
+        /// <param name="output">the output.</param>
         public delegate void OnOutputEvent(string output);
         /// <summary>
         /// Occurs whenever FEM-Design writes a new log message.
@@ -67,7 +86,7 @@ namespace FemDesign
         /// <param name="fdInstallationDir">FEM-Design software installation directory.</param>
         /// <param name="minimized">Open FEM-Design as a minimized window.</param>
         /// <param name="keepOpen">If true FEM-Design will be left open and have to be manually exited.</param>
-        /// <param name="outputDir">The directory to save script files. If set to null, the files will be will be written to a temporary directory and deleted after.</param>
+        /// <param name="outputDir">the output dir.</param>
         /// <param name="tempOutputDir"><code>BE CAREFUL!</code>If true the <paramref name="outputDir"/> will be deleted on exit. This option has no effect unless <paramref name="outputDir"/> has been specified.</param>
         /// <param name="verbosity"></param>
         public FemDesignConnection(
@@ -201,6 +220,7 @@ namespace FemDesign
         /// </summary>
         /// <param name="script"></param>
         /// <param name="filename"></param>
+        /// <returns>The result.</returns>
         /// <exception cref="ArgumentNullException"></exception>
         public async Task RunScriptAsync(FdScript script, string filename = "script")
         {
@@ -216,7 +236,7 @@ namespace FemDesign
         /// <summary>
         /// Open a file in FEM-Design application.
         /// </summary>
-        /// <param name="filePath">The model file to be opened. Typically a .str or .struxml file, but any filetype supported in FEM-Design is valid.</param>
+        /// <param name="filePath">the file path.</param>
         /// <param name="disconnect">Set to True to disconnect to the pipe and leave FEM-Design Open.</param>
         public void Open(string filePath, bool disconnect = false)
         {
@@ -229,7 +249,8 @@ namespace FemDesign
         /// <summary>
         /// Open a file in FEM-Design application.
         /// </summary>
-        /// <param name="filePath">The model file to be opened. Typically a .str or .struxml file, but any filetype supported in FEM-Design is valid.</param>
+        /// <param name="filePath">the file path.</param>
+        /// <returns>The result.</returns>
         public async Task OpenAsync(string filePath)
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -313,6 +334,10 @@ namespace FemDesign
             this.SetConfig(cmdconfig);
         }
 
+        /// <summary>
+        /// Sets the config.
+        /// </summary>
+        /// <param name="cmdConfig">the cmd config.</param>
         public void SetConfig(CmdConfig cmdConfig)
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -323,6 +348,10 @@ namespace FemDesign
             this.RunScript(script, "SetConfig");
         }
 
+        /// <summary>
+        /// Sets the proj description.
+        /// </summary>
+        /// <param name="cmdProjDescr">the cmd proj descr.</param>
         public void SetProjDescription(CmdProjDescr cmdProjDescr)
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -333,6 +362,15 @@ namespace FemDesign
             this.RunScript(script, "SetConfig");
         }
 
+        /// <summary>
+        /// Sets the proj description.
+        /// </summary>
+        /// <param name="project">the project.</param>
+        /// <param name="description">the description.</param>
+        /// <param name="designer">the designer.</param>
+        /// <param name="signature">the signature.</param>
+        /// <param name="comment">the comment.</param>
+        /// <param name="items">the items.</param>
         public void SetProjDescription(string project, string description, string designer, string signature, string comment, List<UserDefinedData> items = null)
         {
             var cmdProjdescr = new CmdProjDescr(project, description, designer, signature, comment, items);
@@ -344,6 +382,7 @@ namespace FemDesign
         /// Open a <see cref="Model"/> in FEM-Design application.
         /// </summary>
         /// <param name="model">Model to be opened.</param>
+        /// <returns>The result.</returns>
         public async Task OpenAsync(Model model)
         {
             var struxml = OutputFileHelper.GetStruxmlPath(OutputDir);
@@ -355,7 +394,7 @@ namespace FemDesign
         /// <summary>
         /// Runs an analysis task on the current model in FEM-Design.
         /// </summary>
-        /// <param name="analysis">The analysis to be run. Defaults to static analysis (<see cref="Analysis.StaticAnalysis(Comb, bool, bool)"/>)</param>
+        /// <param name="analysis">the analysis.</param>
         public void RunAnalysis(Analysis analysis)
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -541,12 +580,19 @@ namespace FemDesign
             this.RunDesign(userModule, design);
         }
 
+        /// <summary>
+        /// Sets the verbosity.
+        /// </summary>
+        /// <param name="verbosity">the verbosity.</param>
         public void SetVerbosity(Verbosity verbosity)
         {
             Verbosity = verbosity;
             _connection.Send("v " + (int)verbosity);
         }
 
+        /// <summary>
+        /// End Session.
+        /// </summary>
         public void EndSession()
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -562,6 +608,7 @@ namespace FemDesign
         /// <summary>
         /// Retrieves the currently opened model with all available elements as a <see cref="Model"/> object.
         /// </summary>
+        /// <returns>The result.</returns>
         public Model GetModel()
         {
             string struxmlPath = OutputFileHelper.GetStruxmlPath(OutputDir, "model_saved");
@@ -617,6 +664,7 @@ namespace FemDesign
         /// <summary>
         /// Retrieves the loads from the currently opened model with all available elements as a <see cref="Loads.Loads"/> object.
         /// </summary>
+        /// <returns>The result.</returns>
         public Loads.Loads GetLoads()
         {
             string struxmlPath = OutputFileHelper.GetStruxmlPath(OutputDir, "model_loads_saved");
@@ -628,6 +676,7 @@ namespace FemDesign
         /// <summary>
         /// Retrieves the load combinations from the currently opened model/> object.
         /// </summary>
+        /// <returns>The result.</returns>
         public Dictionary<int, Loads.LoadCombination> GetLoadCombinations()
         {
             var loadCombinations = this.GetLoads().LoadCombinations;
@@ -648,6 +697,9 @@ namespace FemDesign
         }
 
 
+        /// <summary>
+        /// Generate Fea Model.
+        /// </summary>
         public void GenerateFeaModel()
         {
             string logfile = OutputFileHelper.GetLogfilePath(OutputDir);
@@ -837,6 +889,7 @@ namespace FemDesign
         /// <summary>
         /// Retrieve results using a batch (.bsc) file.
         /// </summary>
+        /// <param name="element">the element.</param>
         /// <param name="inputBscPath"></param>
         /// <param name="outputCsvPath"></param>
         /// <returns></returns>
@@ -1069,6 +1122,10 @@ namespace FemDesign
         */
 
 
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
         public void Save(string filePath)
         {
             if (System.IO.Path.GetExtension(filePath) != ".str" && System.IO.Path.GetExtension(filePath) != ".struxml")
@@ -1081,12 +1138,34 @@ namespace FemDesign
             this.RunScript(script);
         }
 
+        /// <summary>
+        /// Run Interaction Surface.
+        /// </summary>
+        /// <param name="bar">the bar.</param>
+        /// <param name="offset">the offset.</param>
+        /// <param name="fUlt">flag for <paramref name="fUlt"/>.</param>
+        /// <returns>The result.</returns>
         public FemDesign.Results.InteractionSurface RunInteractionSurface(FemDesign.Bars.Bar bar, double offset = 0.0, bool fUlt = true)
         {
             var bars = new List<GenericClasses.IStructureElement> { bar };
             return RunInteractionSurface(bars, offset, fUlt)[0];
         }
 
+        /// <summary>
+        /// Load Group To Load Comb.
+        /// </summary>
+        /// <param name="fu">the fu.</param>
+        /// <param name="fua">the fua.</param>
+        /// <param name="fus">the fus.</param>
+        /// <param name="fsq">the fsq.</param>
+        /// <param name="fsf">the fsf.</param>
+        /// <param name="fsc">the fsc.</param>
+        /// <param name="fSeisSigned">flag for <paramref name="fSeisSigned"/>.</param>
+        /// <param name="fSeisTorsion">flag for <paramref name="fSeisTorsion"/>.</param>
+        /// <param name="fSeisZdir">flag for <paramref name="fSeisZdir"/>.</param>
+        /// <param name="fSkipMinDL">flag for <paramref name="fSkipMinDL"/>.</param>
+        /// <param name="fForceTemp">flag for <paramref name="fForceTemp"/>.</param>
+        /// <param name="fShortName">flag for <paramref name="fShortName"/>.</param>
         public void LoadGroupToLoadComb(bool fu = true, bool fua = true, bool fus = true, bool fsq = true, bool fsf = true, bool fsc = true, bool fSeisSigned = true, bool fSeisTorsion = true, bool fSeisZdir = true, bool fSkipMinDL = true, bool fForceTemp = true, bool fShortName = true)
         {
             var cmdLoadGroupToLoadComb = new CmdLoadGroupToLoadComb(fu, fua, fus, fsq, fsf, fsc, fSeisSigned, fSeisTorsion, fSeisZdir, fSkipMinDL, fForceTemp, fShortName);
@@ -1098,6 +1177,13 @@ namespace FemDesign
             this.RunScript(script, "LoadGroupToLoadComb");
         }
 
+        /// <summary>
+        /// Run Interaction Surface.
+        /// </summary>
+        /// <param name="bars">the bars.</param>
+        /// <param name="offset">the offset.</param>
+        /// <param name="fUlt">flag for <paramref name="fUlt"/>.</param>
+        /// <returns>The result.</returns>
         public List<FemDesign.Results.InteractionSurface> RunInteractionSurface(List<FemDesign.GenericClasses.IStructureElement> bars, double offset = 0.0, bool fUlt = true)
         {
             string outFile = OutputFileHelper.GetIntSrffilePath(OutputDir);
@@ -1129,6 +1215,9 @@ namespace FemDesign
             return intSurfaces;
         }
 
+        /// <summary>
+        /// Dispose.
+        /// </summary>
         public void Dispose()
         {
             if (_keepOpen) Disconnect();
@@ -1478,12 +1567,22 @@ namespace FemDesign
             if (_inputPipe == null) { throw new Exception("setup failed"); }
         }
 
+        /// <summary>
+        /// Wait For Connection.
+        /// </summary>
         public void WaitForConnection()
         {
             _inputPipe.WaitForConnection();
         }
 
+        /// <summary>
+        /// Represents a callback.
+        /// </summary>
+        /// <param name="output">the output.</param>
         public delegate void OnOutputEvent(string output);
+        /// <summary>
+        /// Gets or sets the on output.
+        /// </summary>
         public OnOutputEvent OnOutput { get; set; } = null;
 
         /// <summary>
@@ -1582,11 +1681,17 @@ namespace FemDesign
 
         // ----------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Disconnect.
+        /// </summary>
         public void Disconnect()
         {
             _inputPipe.Disconnect();
         }
 
+        /// <summary>
+        /// Dispose.
+        /// </summary>
         public void Dispose()
         {
             _inputPipe.Dispose();
@@ -1800,6 +1905,11 @@ namespace FemDesign
         private const string _fdscriptFileExtension = ".fdscript";
         private const string _bscFileExtension = ".bsc";
         private const string _csvFileExtension = ".csv";
+        /// <summary>
+        /// Gets the logfile path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <returns>The result.</returns>
         public static string GetLogfilePath(string baseDir)
         {
             string logfilePath = Path.Combine(baseDir, _logFileName);
@@ -1808,6 +1918,11 @@ namespace FemDesign
             return Path.GetFullPath(Path.Combine(baseDir, _logFileName));
         }
 
+        /// <summary>
+        /// Gets the int srffile path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <returns>The result.</returns>
         public static string GetIntSrffilePath(string baseDir)
         {
             if (!Directory.Exists(baseDir))
@@ -1815,6 +1930,11 @@ namespace FemDesign
             return Path.GetFullPath(Path.Combine(baseDir, _intSrfFileName));
         }
 
+        /// <summary>
+        /// Gets the configfile path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <returns>The result.</returns>
         public static string GetConfigfilePath(string baseDir)
         {
             string dir = Path.Combine(baseDir, _scriptsDirectory);
@@ -1823,6 +1943,11 @@ namespace FemDesign
             return Path.GetFullPath(Path.Combine(dir, _configFileName));
         }
 
+        /// <summary>
+        /// Gets the global configfile path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <returns>The result.</returns>
         public static string GetGlobalConfigfilePath(string baseDir)
         {
             string dir = Path.Combine(baseDir, _scriptsDirectory);
@@ -1831,6 +1956,12 @@ namespace FemDesign
             return Path.GetFullPath(Path.Combine(dir, _globalConfigFileName));
         }
 
+        /// <summary>
+        /// Gets the struxml path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="modelName">the model name.</param>
+        /// <returns>The result.</returns>
         public static string GetStruxmlPath(string baseDir, string modelName = null)
         {
             if (!Directory.Exists(baseDir))
@@ -1844,6 +1975,12 @@ namespace FemDesign
             return path;
         }
 
+        /// <summary>
+        /// Gets the docx path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="modelName">the model name.</param>
+        /// <returns>The result.</returns>
         public static string GetDocxPath(string baseDir, string modelName = null)
         {
             if (!Directory.Exists(baseDir))
@@ -1857,6 +1994,12 @@ namespace FemDesign
             return path;
         }
 
+        /// <summary>
+        /// Gets the str path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="modelName">the model name.</param>
+        /// <returns>The result.</returns>
         public static string GetStrPath(string baseDir, string modelName = null)
         {
             if (!Directory.Exists(baseDir))
@@ -1869,6 +2012,12 @@ namespace FemDesign
 
             return path;
         }
+        /// <summary>
+        /// Gets the bsc path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="fileName">the file name.</param>
+        /// <returns>The result.</returns>
         public static string GetBscPath(string baseDir, string fileName)
         {
             string dir = Path.Combine(baseDir, _scriptsDirectory, _bscDirectory);
@@ -1878,6 +2027,12 @@ namespace FemDesign
             string path = Path.GetFullPath(Path.Combine(dir, fileName));
             return path;
         }
+        /// <summary>
+        /// Gets the csv path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="fileName">the file name.</param>
+        /// <returns>The result.</returns>
         public static string GetCsvPath(string baseDir, string fileName)
         {
             string dir = Path.Combine(baseDir, _resultsDirectory);
@@ -1887,6 +2042,12 @@ namespace FemDesign
             string path = Path.GetFullPath(Path.Combine(dir, fileName));
             return path;
         }
+        /// <summary>
+        /// Gets the fd script path.
+        /// </summary>
+        /// <param name="baseDir">the base dir.</param>
+        /// <param name="fileName">the file name.</param>
+        /// <returns>The result.</returns>
         public static string GetFdScriptPath(string baseDir, string fileName = "script")
         {
             string dir = Path.Combine(baseDir, _scriptsDirectory);
@@ -1897,6 +2058,11 @@ namespace FemDesign
             return path;
         }
 
+        /// <summary>
+        /// Determines whether ascii.
+        /// </summary>
+        /// <param name="filePath">the file path.</param>
+        /// <returns>The result.</returns>
         public static bool IsASCII(string filePath)
         {
             // Encode the string using ASCII encoding

@@ -31,11 +31,29 @@ namespace FemDesign.Results
         /// </summary>
         public int? NodeId { get; }
 
+        /// <summary>
+        /// Gets or sets the x bottom.
+        /// </summary>
         public double XBottom { get; }
+        /// <summary>
+        /// Gets or sets the y bottom.
+        /// </summary>
         public double YBottom { get; }
+        /// <summary>
+        /// Gets or sets the x top.
+        /// </summary>
         public double XTop { get; }
+        /// <summary>
+        /// Gets or sets the y top.
+        /// </summary>
         public double YTop { get; }
+        /// <summary>
+        /// Gets or sets the x mid.
+        /// </summary>
         public double? XMid { get; }
+        /// <summary>
+        /// Gets or sets the y mid.
+        /// </summary>
         public double? YMid { get; }
         /// <summary>
         /// Load case or combination name
@@ -57,6 +75,10 @@ namespace FemDesign.Results
             CaseIdentifier = resultCase;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>The result.</returns>
         public override string ToString()
         {
             return ResultsReader.ObjectRepresentation(this);

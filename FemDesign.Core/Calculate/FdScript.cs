@@ -45,6 +45,10 @@ namespace FemDesign.Calculate
     [System.Serializable]
     public abstract partial class CmdCommand
     {
+        /// <summary>
+        /// To X Element.
+        /// </summary>
+        /// <returns>The result.</returns>
         public abstract XElement ToXElement();
 
     }
@@ -55,30 +59,57 @@ namespace FemDesign.Calculate
     [XmlRoot("fdscript")]
     public partial class FdScript
     {
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
         public static readonly string Version = "2300";
                 
+        /// <summary>
+        /// Gets or sets the header.
+        /// </summary>
         public FdScriptHeader Header { get; set; }
 
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
         [XmlIgnore]
         public List<CmdCommand> Commands = new List<CmdCommand>();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FdScript"/> class.
+        /// </summary>
+        /// <param name="logFilePath">the log file path.</param>
+        /// <param name="commands">the commands.</param>
         public FdScript(string logFilePath, params CmdCommand[] commands)
         {
             Header = new FdScriptHeader(logFilePath);
             Commands = commands.ToList();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FdScript"/> class.
+        /// </summary>
+        /// <param name="logFilePath">the log file path.</param>
+        /// <param name="commands">the commands.</param>
         public FdScript(string logFilePath, List<CmdCommand> commands)
         {
             Header = new FdScriptHeader(logFilePath);
             Commands = commands;
         }
 
+        /// <summary>
+        /// Adds .
+        /// </summary>
+        /// <param name="command">the command.</param>
         public void Add(CmdCommand command)
         {
             Commands.Add(command);
         }
 
+        /// <summary>
+        /// Serializes .
+        /// </summary>
+        /// <param name="path">the path.</param>
         public void Serialize(string path)
         {
             XDocument doc = new XDocument();

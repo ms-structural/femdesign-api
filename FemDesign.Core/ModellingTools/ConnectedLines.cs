@@ -7,6 +7,9 @@ using FemDesign.GenericClasses;
 
 namespace FemDesign.ModellingTools
 {
+    /// <summary>
+    /// Represents a Connected Lines.
+    /// </summary>
     [System.Serializable]
     public partial class ConnectedLines: NamedEntityBase, IStructureElement
     {
@@ -14,6 +17,9 @@ namespace FemDesign.ModellingTools
         private static int _connectedLineInstances = 0;
         protected override int GetUniqueInstanceCount() => ++_connectedLineInstances;
 
+        /// <summary>
+        /// Gets or sets the edges.
+        /// </summary>
         [XmlElement("edge" , Order = 1)]
         public Geometry.Edge[] Edges { get; set; }
 
@@ -50,6 +56,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local x.
+        /// </summary>
         [XmlElement("local_x", Order = 3)]
         public Geometry.Vector3d _localX;
 
@@ -68,6 +77,9 @@ namespace FemDesign.ModellingTools
             }
         }
 
+        /// <summary>
+        /// Gets or sets the local y.
+        /// </summary>
         [XmlElement("local_y", Order = 4)]
         public Geometry.Vector3d _localY;
 
@@ -104,12 +116,21 @@ namespace FemDesign.ModellingTools
         // simple stiffness choice
 
         // rigidity data choice
+        /// <summary>
+        /// Gets or sets the rigidity.
+        /// </summary>
         [XmlElement("rigidity", Order = 5)]
         public Releases.RigidityDataType3 Rigidity { get; set; } 
 
+        /// <summary>
+        /// Gets or sets the predef rigidity ref.
+        /// </summary>
         [XmlElement("predefined_rigidity", Order = 6)]
         public GuidListType _predefRigidityRef;
 
+        /// <summary>
+        /// Gets or sets the predef rigidity.
+        /// </summary>
         [XmlIgnore]
         public Releases.RigidityDataLibType3 _predefRigidity;
 
@@ -130,9 +151,15 @@ namespace FemDesign.ModellingTools
         // rigidity group choice
 
         
+        /// <summary>
+        /// Gets or sets the references.
+        /// </summary>
         [XmlElement("ref", Order = 7)]
         public GuidListType[] References { get; set; }
 
+        /// <summary>
+        /// Gets or sets the colouring.
+        /// </summary>
         [XmlElement("colouring", Order = 8)]
         public EntityColor Colouring { get; set; }
 
@@ -192,6 +219,16 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localX">the local x.</param>
+        /// <param name="localY">the local y.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Vector3d localX, Geometry.Vector3d localY, Releases.RigidityDataType3 rigidity, GuidListType[] references, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             this.Initialize(firstEdge, secondEdge, localX, localY, rigidity, references, identifier, movingLocal, interfaceStart, interfaceEnd);
@@ -200,6 +237,15 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.RigidityDataType3 rigidity, GuidListType[] references, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             this.Initialize(firstEdge, secondEdge, localPlane.LocalX, localPlane.LocalY, rigidity, references, identifier, movingLocal, interfaceStart, interfaceEnd);
@@ -208,6 +254,16 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection using motions and rotations. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.Motions motions, Releases.Rotations rotations, GuidListType[] references, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             Releases.RigidityDataType3 rigidity = new Releases.RigidityDataType3(motions, rotations);
@@ -217,6 +273,18 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection using motions, rotations and plastic limits. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationPlasticLimits">the rotation plastic limits.</param>
+        /// <param name="references">the references.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.Motions motions, Releases.MotionsPlasticLimits motionsPlasticLimits, Releases.Rotations rotations, Releases.RotationsPlasticLimits rotationPlasticLimits, GuidListType[] references, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             Releases.RigidityDataType3 rigidity = new Releases.RigidityDataType3(motions, motionsPlasticLimits, rotations, rotationPlasticLimits);
@@ -226,6 +294,15 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="rigidity">the rigidity.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.RigidityDataType3 rigidity, IEnumerable<EntityBase> elements, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             GuidListType[] references = elements.Select(r => new GuidListType(r)).ToArray();
@@ -235,6 +312,16 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection using motions and rotations. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.Motions motions, Releases.Rotations rotations, IEnumerable<EntityBase> elements, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             GuidListType[] references = elements.Select(r => new GuidListType(r)).ToArray();
@@ -245,6 +332,18 @@ namespace FemDesign.ModellingTools
         /// <summary>
         /// Create a line connection using motions, rotations and plastic limits. Local coordinate system declared by a plane object.
         /// </summary>
+        /// <param name="firstEdge">the first edge.</param>
+        /// <param name="secondEdge">the second edge.</param>
+        /// <param name="localPlane">the local plane.</param>
+        /// <param name="motions">the motions.</param>
+        /// <param name="motionsPlasticLimits">the motions plastic limits.</param>
+        /// <param name="rotations">the rotations.</param>
+        /// <param name="rotationPlasticLimits">the rotation plastic limits.</param>
+        /// <param name="elements">the elements.</param>
+        /// <param name="identifier">the identifier.</param>
+        /// <param name="movingLocal">the moving local.</param>
+        /// <param name="interfaceStart">the interface start.</param>
+        /// <param name="interfaceEnd">the interface end.</param>
         public ConnectedLines(Geometry.Edge firstEdge, Geometry.Edge secondEdge, Geometry.Plane localPlane, Releases.Motions motions, Releases.MotionsPlasticLimits motionsPlasticLimits, Releases.Rotations rotations, Releases.RotationsPlasticLimits rotationPlasticLimits, IEnumerable<EntityBase> elements, string identifier = "CL", bool movingLocal = false, double interfaceStart = 0.5, double interfaceEnd = 0.5)
         {
             GuidListType[] references = elements.Select(r => new GuidListType(r)).ToArray();

@@ -11,12 +11,24 @@ namespace FemDesign.Reinforcement
     [System.Serializable]
     public partial class Center
     {
+        /// <summary>
+        /// Gets or sets the x.
+        /// </summary>
         [XmlAttribute("x")]
         public double X { get; set; } // double
+        /// <summary>
+        /// Gets or sets the y.
+        /// </summary>
         [XmlAttribute("y")]
         public double Y { get; set; } // double
+        /// <summary>
+        /// Gets or sets the z.
+        /// </summary>
         [XmlAttribute("z")]
         public double Z { get; set; } // double
+        /// <summary>
+        /// Gets or sets the polar system.
+        /// </summary>
         [XmlAttribute("polar_system")]
         public bool PolarSystem { get; set; } // bool
 

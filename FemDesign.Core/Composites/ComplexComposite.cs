@@ -7,9 +7,15 @@ using System.Linq;
 
 namespace FemDesign.Composites
 {
+    /// <summary>
+    /// Represents a Complex Composite.
+    /// </summary>
     [System.Serializable]
     public partial class ComplexComposite : EntityBase
     {
+        /// <summary>
+        /// Gets or sets the parts.
+        /// </summary>
         [XmlElement("composite_section")]
         public List<ComplexCompositePart> Parts = new List<ComplexCompositePart>();
 

@@ -13,8 +13,14 @@ namespace FemDesign.Reinforcement
     [System.Serializable]
     public partial class Straight
     {
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
         [XmlAttribute("direction")]
         public ReinforcementDirection Direction { get; set; }
+        /// <summary>
+        /// Gets or sets the space.
+        /// </summary>
         [XmlAttribute("space")]
         public double _space; // positive_double. Spacing in meters. Required
         [XmlIgnore]
@@ -23,6 +29,9 @@ namespace FemDesign.Reinforcement
             get {return this._space;}
             set {this._space = RestrictedDouble.Positive(value);}
         }
+        /// <summary>
+        /// Gets or sets the face.
+        /// </summary>
         [XmlAttribute("face")]
         public string _face;
         [XmlIgnore]
@@ -51,6 +60,9 @@ namespace FemDesign.Reinforcement
                 }
             }
         }
+        /// <summary>
+        /// Gets or sets the cover.
+        /// </summary>
         [XmlAttribute("cover")]
         public double _cover; // positive_double. Default = 0.02
         [XmlIgnore]
@@ -103,6 +115,10 @@ namespace FemDesign.Reinforcement
         /// <summary>
         /// Private constructor accessed by static methods.
         /// </summary>
+        /// <param name="direction">the direction.</param>
+        /// <param name="space">the space.</param>
+        /// <param name="face">the face.</param>
+        /// <param name="cover">the cover.</param>
         public Straight(ReinforcementDirection direction, double space, GenericClasses.Face face, double cover = 0.02)
         {
             this.Direction = direction;

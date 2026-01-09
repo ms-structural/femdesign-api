@@ -3,6 +3,9 @@
 
 namespace FemDesign.Releases
 {
+    /// <summary>
+    /// Represents a Rotations Plastic Limits.
+    /// </summary>
     [System.Serializable]
     public partial class RotationsPlasticLimits : PlasticityType3d
     {

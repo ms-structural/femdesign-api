@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FemDesign.GenericClasses
 {
+    /// <summary>
+    /// Defines the I Stage Element interface.
+    /// </summary>
     public interface IStageElement
     {
         //[XmlAttribute("stage")]

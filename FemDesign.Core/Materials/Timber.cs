@@ -10,46 +10,109 @@ namespace FemDesign.Materials
     [System.Serializable]
     public partial class Timber: MaterialBase
     {
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         [XmlAttribute("type")]
         public string Type { get; set; } // integer
+        /// <summary>
+        /// Gets or sets the quality.
+        /// </summary>
         [XmlAttribute("quality")]
         public string Quality { get; set; } // integer
+        /// <summary>
+        /// Gets or sets the fmk0.
+        /// </summary>
         [XmlAttribute("Fmk0")]
         public string Fmk0 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fmk90.
+        /// </summary>
         [XmlAttribute("Fmk90")]
         public string Fmk90 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the ft0k.
+        /// </summary>
         [XmlAttribute("Ft0k")]
         public string Ft0k { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the ft90k.
+        /// </summary>
         [XmlAttribute("Ft90k")]
         public string Ft90k { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fc0k.
+        /// </summary>
         [XmlAttribute("Fc0k")]
         public string Fc0k { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fc90k.
+        /// </summary>
         [XmlAttribute("Fc90k")]
         public string Fc90k { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the fvk.
+        /// </summary>
         [XmlAttribute("Fvk")]
         public string Fvk { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the e0mean.
+        /// </summary>
         [XmlAttribute("E0mean")]
         public string E0mean { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the e90mean.
+        /// </summary>
         [XmlAttribute("E90mean")]
         public string E90mean { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the e0comp.
+        /// </summary>
         [XmlAttribute("E0comp")]
         public string E0comp { get; set; } // double
+        /// <summary>
+        /// Gets or sets the e90comp.
+        /// </summary>
         [XmlAttribute("E90comp")]
         public string E90comp { get; set; } // double
+        /// <summary>
+        /// Gets or sets the gmean.
+        /// </summary>
         [XmlAttribute("Gmean")]
         public string Gmean { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the e005.
+        /// </summary>
         [XmlAttribute("E005")]
         public string E005 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the g005.
+        /// </summary>
         [XmlAttribute("G005")]
         public string G005 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the rhok.
+        /// </summary>
         [XmlAttribute("Rhok")]
         public string Rhok { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the rhomean.
+        /// </summary>
         [XmlAttribute("Rhomean")]
         public string Rhomean { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma m 0.
+        /// </summary>
         [XmlAttribute("gammaM_0")]
         public string GammaM_0 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the gamma m 1.
+        /// </summary>
         [XmlAttribute("gammaM_1")]
         public string GammaM_1 { get; set; } // material_base_value
+        /// <summary>
+        /// Gets or sets the ksys.
+        /// </summary>
         [XmlAttribute("ksys")]
         public double _ksys { get; set; } // system strength factor
 
@@ -64,18 +127,39 @@ namespace FemDesign.Materials
             }
         }
 
+        /// <summary>
+        /// Gets or sets the k cr.
+        /// </summary>
         [XmlAttribute("k_cr")]
         public double k_cr { get; set; } // reduction_factor_type. Optional.
+        /// <summary>
+        /// Gets or sets the service class.
+        /// </summary>
         [XmlAttribute("service_class")]
         public int ServiceClass { get; set; } // timber_service_class_type
+        /// <summary>
+        /// Gets or sets the kdef u.
+        /// </summary>
         [XmlAttribute("kdefU")]
         public double kdefU { get; set; } // material_0base_value. Optional.
+        /// <summary>
+        /// Gets or sets the kdef sq.
+        /// </summary>
         [XmlAttribute("kdefSq")]
         public double kdefSq { get; set; } // material_0base_value. Optional.
+        /// <summary>
+        /// Gets or sets the kdef sf.
+        /// </summary>
         [XmlAttribute("kdefSf")]
         public double kdefSf { get; set; } // material_0base_value. Optional.
+        /// <summary>
+        /// Gets or sets the kdef sc.
+        /// </summary>
         [XmlAttribute("kdefSc")]
         public double kdefSc { get; set; } // material_0base_value. Optional.
+        /// <summary>
+        /// Gets or sets the gamma m fi.
+        /// </summary>
         [XmlAttribute("gammaMfi")]
         public string GammaMFi { get; set; } // material_base_value. Optional.
 
