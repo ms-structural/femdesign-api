@@ -71,7 +71,7 @@ namespace FemDesign
         /// <param name="tempOutputDir"><code>BE CAREFUL!</code>If true the <paramref name="outputDir"/> will be deleted on exit. This option has no effect unless <paramref name="outputDir"/> has been specified.</param>
         /// <param name="verbosity"></param>
         public FemDesignConnection(
-            string fdInstallationDir = @"C:\Program Files\StruSoft\FEM-Design 24\",
+            string fdInstallationDir = @"C:\Program Files\StruSoft\FEM-Design 25\",
             bool minimized = false,
             bool keepOpen = false,
             string outputDir = null,
@@ -110,7 +110,7 @@ namespace FemDesign
             }
             catch
             {
-                throw new Exception(@"fd3dstruct.exe has not been found. `C:\Program Files\StruSoft\FEM-Design 24\` does not exist!");
+                throw new Exception($"fd3dstruct.exe has not been found. {installDir} does not exist!");
             }
 
             _process.Exited += _processExited;
@@ -142,10 +142,10 @@ namespace FemDesign
 
             var defaultDirs = new List<string>()
             {
-                @"C:\Program Files\StruSoft\FEM-Design 24\",
-                @"C:\Program Files\StruSoft\FEM-Design 24 Educational\",
-                @"C:\Program Files\StruSoft\FEM-Design 24 Student\",
-                @"C:\Program Files\StruSoft\FEM-Design 24 Night Install\"   // for StruSoft employees
+                @"C:\Program Files\StruSoft\FEM-Design 25\",
+                @"C:\Program Files\StruSoft\FEM-Design 25 Educational\",
+                @"C:\Program Files\StruSoft\FEM-Design 25 Student\",
+                @"C:\Program Files\StruSoft\FEM-Design 25 Night Install\"   // for StruSoft employees
             };
 
             foreach (var dir in defaultDirs)
