@@ -25,7 +25,7 @@ namespace FemDesign.Examples
             };
 
 
-            using (var femDesign = new FemDesignConnection(keepOpen: true, fdInstallationDir: "C:\\Program Files\\StruSoft\\FEM-Design 24 Night Install"))
+            using (var femDesign = new FemDesignConnection(keepOpen: true, fdInstallationDir: "C:\\Program Files\\StruSoft\\FEM-Design 25"))
             {
                 var filePath = "fea.str";
                 femDesign.Open(filePath);

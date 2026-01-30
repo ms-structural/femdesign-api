@@ -28,7 +28,7 @@ namespace FemDesign.Grasshopper
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("FEM-Design dir", "FEM-Design dir", "Path to the FEM-Design installation directory.", GH_ParamAccess.item, @"C:\\Program Files\\StruSoft\\FEM-Design 24\\");
+            pManager.AddTextParameter("FEM-Design dir", "FEM-Design dir", "Path to the FEM-Design installation directory.", GH_ParamAccess.item, @"C:\\Program Files\\StruSoft\\FEM-Design 25\\");
             pManager[pManager.ParamCount - 1].Optional = true;
 
             pManager.AddBooleanParameter("Minimized", "Minimized", "If true, FEM-Design window will open in a minimised mode.", GH_ParamAccess.item, false);
@@ -48,7 +48,7 @@ namespace FemDesign.Grasshopper
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            string fdDir = @"C:\\Program Files\\StruSoft\\FEM-Design 24\\";
+            string fdDir = @"C:\\Program Files\\StruSoft\\FEM-Design 25\\";
             DA.GetData("FEM-Design dir", ref fdDir);
 
             bool minimized = false;

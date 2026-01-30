@@ -142,7 +142,7 @@ namespace FemDesign.Results
             FemDesign.Calculate.Analysis analysis = new FemDesign.Calculate.Analysis(stability: stability, calcComb: true, calcStab: true, diaphragm: DiaphragmType.None);
 
 
-            using (var femDesign = new FemDesignConnection(fdInstallationDir: @"C:\Program Files\StruSoft\FEM-Design 24\", outputDir: "My analyzed model", keepOpen: false))
+            using (var femDesign = new FemDesignConnection(fdInstallationDir: @"C:\Program Files\StruSoft\FEM-Design 25\", outputDir: "My analyzed model", keepOpen: false))
             {
                 femDesign.RunAnalysis(model, analysis);
 
