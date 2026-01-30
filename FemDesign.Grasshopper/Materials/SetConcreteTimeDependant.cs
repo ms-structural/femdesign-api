@@ -59,7 +59,7 @@ namespace FemDesign.Grasshopper
 
             evaluationUnit.RegisterInputParam(new Param_String(), "CementType", "CementType", "Cement Type as integer according to FemDesign API.", GH_ParamAccess.item, new GH_String("Class_S"));
             evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].Parameter.Optional = true;
-            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_24.Cement_type)).ToList();
+            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_25.Cement_type)).ToList();
 
             evaluationUnit.RegisterInputParam(new Param_Boolean(), "IncreaseFinalValue", "IncreaseFinalValue", "", GH_ParamAccess.item, new GH_Boolean(false));
             evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].Parameter.Optional = true;
@@ -87,7 +87,7 @@ namespace FemDesign.Grasshopper
 
             evaluationUnit.RegisterInputParam(new Param_String(), "CementType", "CementType", "Cement Type as integer according to FemDesign API.", GH_ParamAccess.item, new GH_String("Class_S"));
             evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].Parameter.Optional = true;
-            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_24.Cement_type)).ToList();
+            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_25.Cement_type)).ToList();
 
 
             GH_ExtendableMenu gH_ExtendableMenu1 = new GH_ExtendableMenu(1, "");
@@ -107,7 +107,7 @@ namespace FemDesign.Grasshopper
 
             evaluationUnit.RegisterInputParam(new Param_String(), "CementType", "CementType", "Cement Type as integer according to FemDesign API.", GH_ParamAccess.item, new GH_String("Class_S"));
             evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].Parameter.Optional = true;
-            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_24.Cement_type)).ToList();
+            evaluationUnit.Inputs[evaluationUnit.Inputs.Count - 1].EnumInput = Enum.GetNames(typeof(StruSoft.Interop_25.Cement_type)).ToList();
 
             GH_ExtendableMenu gH_ExtendableMenu2 = new GH_ExtendableMenu(2, "");
             gH_ExtendableMenu2.Name = "Elasticity";
@@ -145,7 +145,7 @@ namespace FemDesign.Grasshopper
 
             string cementType_creep = "Class_S";
             DA.GetData(5, ref cementType_creep);
-            Enum.TryParse<StruSoft.Interop_24.Cement_type>(cementType_creep, out StruSoft.Interop_24.Cement_type _cementType_creep);
+            Enum.TryParse<StruSoft.Interop_25.Cement_type>(cementType_creep, out StruSoft.Interop_25.Cement_type _cementType_creep);
 
             bool increaseFinalValue = false;
             DA.GetData(6, ref increaseFinalValue);
@@ -162,7 +162,7 @@ namespace FemDesign.Grasshopper
 
             string cementType_shrinkage = "Class_S"; ;
             DA.GetData(10, ref cementType_shrinkage);
-            Enum.TryParse<StruSoft.Interop_24.Cement_type>(cementType_shrinkage, out StruSoft.Interop_24.Cement_type _cementType_shrinkage);
+            Enum.TryParse<StruSoft.Interop_25.Cement_type>(cementType_shrinkage, out StruSoft.Interop_25.Cement_type _cementType_shrinkage);
 
             // elasticity
             bool en1992_elasticity = false;
@@ -173,7 +173,7 @@ namespace FemDesign.Grasshopper
 
             string cementType_elasticity = "Class_S";
             DA.GetData(13, ref cementType_elasticity);
-            Enum.TryParse<StruSoft.Interop_24.Cement_type>(cementType_elasticity, out StruSoft.Interop_24.Cement_type _cementType_elasticity);
+            Enum.TryParse<StruSoft.Interop_25.Cement_type>(cementType_elasticity, out StruSoft.Interop_25.Cement_type _cementType_elasticity);
 
 
             // apply the method creep, shrinkage and elasticity using the booleans

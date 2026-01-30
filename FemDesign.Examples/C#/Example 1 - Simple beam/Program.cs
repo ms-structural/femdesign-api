@@ -96,20 +96,6 @@ namespace FemDesign.Examples
             model.AddLoads(loads);
 
 
-            var column = model.Entities.Bars.Where(bar => bar.Type == Bars.BarType.Column).Where(bar => bar.Identifier == "MyElementID").First();
-
-
-            var sectionDatabase = Sections.SectionDatabase.GetDefault();
-            var sectionName = "Concrete sections, Rectangle, 300x900";
-            var newSection = sectionDatabase.SectionByName(sectionName);
-
-            column.UpdateSection( newSection );
-
-            var columns = new List<IStructureElement>();
-            columns.Add(column);
-
-            model.AddElements(columns, overwrite: true);
-
             // Run Analysis
             using (var femDesign = new FemDesignConnection(outputDir: "My simple beam", keepOpen: true))
             {

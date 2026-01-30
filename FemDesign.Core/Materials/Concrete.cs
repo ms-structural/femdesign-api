@@ -1,6 +1,6 @@
 // https://strusoft.com/
 
-using StruSoft.Interop_24;
+using StruSoft.Interop_25;
 using System.Xml.Serialization;
 
 namespace FemDesign.Materials
@@ -12,16 +12,16 @@ namespace FemDesign.Materials
     public partial class Concrete: MaterialBase
     {
         [XmlElement("tda_creep")]
-        public StruSoft.Interop_24.Tda_creep2 CreepTimeDependant { get; set; }
+        public StruSoft.Interop_25.Tda_creep2 CreepTimeDependant { get; set; }
 
         [XmlElement("tda_shrinkage")]
-        public StruSoft.Interop_24.Tda_shrinkage ShrinkageTimeDependant { get; set; }
+        public StruSoft.Interop_25.Tda_shrinkage ShrinkageTimeDependant { get; set; }
 
         [XmlElement("tda_elasticity")]
-        public StruSoft.Interop_24.Tda_elasticity ElasticityTimeDependant { get; set; }
+        public StruSoft.Interop_25.Tda_elasticity ElasticityTimeDependant { get; set; }
 
         [XmlElement("plastic_analysis_data")]
-        public StruSoft.Interop_24.Concrete_pl_data Plasticity { get; set; }
+        public StruSoft.Interop_25.Concrete_pl_data Plasticity { get; set; }
 
         [XmlAttribute("Fck")]
         public string Fck { get; set; } // material_base_value
@@ -101,7 +101,7 @@ namespace FemDesign.Materials
 
         internal void SetPlasticity(bool plastic = true, bool hardening = true, CrushingCriterion crushing = CrushingCriterion.Prager, bool tensionStrength = true, TensionStiffening tensionStiffening = TensionStiffening.Hinton, ReducedCompression reducedCompression = ReducedCompression.Vecchio1, bool reducedTransverse = false, bool ultimateStrainRebars = true )
         {
-            var plasticity = new StruSoft.Interop_24.Concrete_pl_attribs();
+            var plasticity = new StruSoft.Interop_25.Concrete_pl_attribs();
             plasticity.Elasto_plastic_behaviour = plastic;
             plasticity.Plastic_hardening = hardening;
 
@@ -112,7 +112,7 @@ namespace FemDesign.Materials
             else
             {
                 plasticity.Concrete_crushing = true;
-                plasticity.Concrete_crushing_option = (StruSoft.Interop_24.Cc_type)crushing;
+                plasticity.Concrete_crushing_option = (StruSoft.Interop_25.Cc_type)crushing;
             }
 
             plasticity.Tension_strength = tensionStrength;
@@ -124,7 +124,7 @@ namespace FemDesign.Materials
             else
             {
                 plasticity.Tension_stiffening = true;
-                plasticity.Tension_stiffening_option = (StruSoft.Interop_24.Ts_type)tensionStiffening;
+                plasticity.Tension_stiffening_option = (StruSoft.Interop_25.Ts_type)tensionStiffening;
 
                 if(tensionStiffening == TensionStiffening.Hinton)
                     plasticity.Tension_stiffening_param = 0.5;
@@ -143,7 +143,7 @@ namespace FemDesign.Materials
             else
             {
                 plasticity.Reduced_compression_strength = true;
-                plasticity.Reduced_compression_strength_option = (StruSoft.Interop_24.Rcsm_type) reducedCompression;
+                plasticity.Reduced_compression_strength_option = (StruSoft.Interop_25.Rcsm_type) reducedCompression;
 
                 if(reducedCompression == ReducedCompression.Cervera)
                     plasticity.Reduced_compression_strength_param = 0.550;

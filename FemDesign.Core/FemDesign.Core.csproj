@@ -144,7 +144,7 @@
     <Compile Include="Stage\SFactorType.cs" />
     <Compile Include="StruSoft\Interop\StruXml\Data\CaselessLoads.cs" />
     <Compile Include="StruSoft\Interop\StruXml\Data\FD 23.00.001 Strusoft.cs" />
-    <Compile Include="StruSoft\Interop\StruXml\Data\FEM-Design 24.00.005.cs" />
+    <Compile Include="StruSoft\Interop\StruXml\Data\FEM-Design 25.00.001.cs" />
     <Compile Include="StruSoft\Interop\StruXml\Data\Layer_type.cs" />
     <Compile Include="StruSoft\Interop\StruXml\Data\Vehicle_lib_type.cs" />
     <Compile Include="Releases\RigidityDataType0.cs" />

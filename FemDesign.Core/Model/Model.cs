@@ -106,7 +106,7 @@ namespace FemDesign
         public List<StruSoft.Interop.StruXml.Data.Bolt_lib_type> BoltTypes { get; set; }
 
         [XmlElement("bar_end_lib_type", Order = 19)]
-        public List<StruSoft.Interop_24.Bar_end_lib_type> BarEndReleaseTypes { get; set; }
+        public List<StruSoft.Interop_25.Bar_end_lib_type> BarEndReleaseTypes { get; set; }
 
         [XmlElement("geometry", Order = 20)]
         public StruSoft.Interop.StruXml.Data.DatabaseGeometry Geometry { get; set; }
