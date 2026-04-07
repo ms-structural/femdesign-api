@@ -547,6 +547,17 @@ namespace FemDesign
         }
 
         /// <summary>
+        /// Add PTC(s) from Slab to Model.
+        /// </summary>
+        private void AddSlabPtcs(Shells.Slab obj, bool overwrite)
+        {
+            foreach (Reinforcement.Ptc ptc in obj.Ptc)
+            {
+                this.AddPtc(ptc, overwrite);
+            }
+        }
+
+        /// <summary>
         /// Add Post-tensioned cable to Model.
         /// </summary>
         private void AddPtc(Reinforcement.Ptc obj, bool overwrite)
@@ -2206,6 +2217,9 @@ namespace FemDesign
 
             // add PunchingReinforcement
             this.AddPunchingReinforcements(obj, overwrite);
+
+            // add ptc
+            this.AddSlabPtcs(obj, overwrite);
 
             // add line connection types (predefined rigidity)
             foreach (Releases.RigidityDataLibType3 predef in obj.SlabPart.Region.GetPredefinedRigidities())
@@ -4387,6 +4401,33 @@ namespace FemDesign
 
                         // add surface reinforcement to slab
                         item.SurfaceReinforcement.Add(surfaceReinforcement);
+                    }
+                }
+
+                // get ptc
+                foreach (Reinforcement.Ptc ptc in this.Entities.PostTensionedCables)
+                {
+                    if (ptc.BaseObject == item.SlabPart.Guid)
+                    {
+                        // get strand material
+                        foreach (Reinforcement.PtcStrandLibType material in this.PtcStrandTypes.PtcStrandLibTypes)
+                        {
+                            if (ptc.StrandTypeGuid == material.Guid)
+                            {
+                                ptc.StrandType = material;
+                            }
+                        }
+
+                        // check if material found
+                        if (ptc.StrandType == null)
+                        {
+                            throw new System.ArgumentException("No matching ptc strand found. Model.GetSlabs() failed.");
+                        }
+                        else
+                        {
+                            // add ptc to slab
+                            item.Ptc.Add(ptc);
+                        }
                     }
                 }
 

@@ -45,6 +45,8 @@ namespace FemDesign.Shells
         [XmlIgnore]
         public List<Reinforcement.PunchingReinforcement> PunchingReinforcement { get; set; } = new List<Reinforcement.PunchingReinforcement>();
 
+        [XmlIgnore]
+        public List<Reinforcement.Ptc> Ptc { get; set; } = new List<Reinforcement.Ptc>();
 
         [XmlAttribute("type")]
         public SlabType Type { get; set; }

@@ -14,8 +14,10 @@ namespace FemDesign.Grasshopper
         }
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("z'", "z'", "Height", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Tangent", "Tangent", "Tangent of cable at end", GH_ParamAccess.item);
+            pManager.AddNumberParameter("z'", "z'", "Height [m]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("Tangent", "Tangent", "Tangent of cable at end. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
             pManager.AddNumberParameter("PriorInflection x'", "PriorInflection x'", "Parameter of prior inflection point. Parameter between 0-1 along parent element. Optional", GH_ParamAccess.item);
             pManager[pManager.ParamCount - 1].Optional = true;
         }

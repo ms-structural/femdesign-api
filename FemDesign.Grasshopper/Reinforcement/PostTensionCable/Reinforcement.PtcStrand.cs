@@ -21,13 +21,20 @@ namespace FemDesign.Grasshopper
         /// </summary>
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Name", "Name", "Starnd type name.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("f pk", "f pk", "Characteristic value of tensile strength [N/mm2].", GH_ParamAccess.item);
-            pManager.AddNumberParameter("A p", "A p", "Cross sectional area (nominal value).", GH_ParamAccess.item);
-            pManager.AddNumberParameter("E p", "E p", "Modulus of elasticity [N/mm2].", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Rho", "Rho", "Density [t/m3]", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("RelaxationClass", "RelaxationClass", "Relaxation class. Enter a value between 1 and 3.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Rho 1000", "Rho 1000", "Relaxation at 1000 hour [%].", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "Name", "Strand type name. Default is 'Y2060S7-11,3-F1-C1'.", GH_ParamAccess.item, "Y2060S7-11,3-F1-C1");
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("f pk", "f pk", "Characteristic value of tensile strength [N/mm2]. Default is 2060.", GH_ParamAccess.item, 2060);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("A p", "A p", "Cross sectional area (nominal value) [mm2]. Default is 75.", GH_ParamAccess.item, 75);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("E p", "E p", "Modulus of elasticity [N/mm2]. Default is 195000.", GH_ParamAccess.item, 195000);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("Rho", "Rho", "Density [kg/m3]. Default is 7819.", GH_ParamAccess.item, 7819);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddIntegerParameter("RelaxationClass", "RelaxationClass", "Relaxation class. Enter a value between 1 and 3. Default is 2.", GH_ParamAccess.item, 2);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("Rho 1000", "Rho 1000", "Relaxation at 1000 hour [%]. Default is 2.5.", GH_ParamAccess.item, 2.5);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         /// <summary>
@@ -44,23 +51,21 @@ namespace FemDesign.Grasshopper
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            string name = null;
-            double f_pk = 0.0;
-            double a_p = 0.0;
-            double e_p = 0.0;
-            double density = 0.0;
+            string name = "Y2060S7-11,3-F1-C1";
+            double f_pk = 2060;
+            double a_p = 75;
+            double e_p = 195000;
+            double density = 7819;
             int relaxationClass = 2;
-            double rho_1000 = 0.0;
+            double rho_1000 = 2.5;
 
-            if (!DA.GetData(0, ref name)) { return; }
-            if (!DA.GetData(1, ref f_pk)) { return; }
-            if (!DA.GetData(2, ref a_p)) { return; }
-            if (!DA.GetData(3, ref e_p)) { return; }
-            if (!DA.GetData(4, ref density)) { return; }
-            if (!DA.GetData(5, ref relaxationClass)) { return; }
-            if (!DA.GetData(6, ref rho_1000)) { return; }
-
-            if (name == null || f_pk == 0 || a_p == 0 || e_p == 0 || density == 0 || relaxationClass == 0 || rho_1000 == 0) { return; }
+            DA.GetData(0, ref name);
+            DA.GetData(1, ref f_pk);
+            DA.GetData(2, ref a_p);
+            DA.GetData(3, ref e_p);
+            DA.GetData(4, ref density);
+            DA.GetData(5, ref relaxationClass);
+            DA.GetData(6, ref rho_1000);
 
             var strand = new PtcStrandLibType(name, f_pk, a_p, e_p, density, relaxationClass, rho_1000);
 

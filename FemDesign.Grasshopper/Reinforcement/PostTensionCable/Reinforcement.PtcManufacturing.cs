@@ -21,9 +21,12 @@ namespace FemDesign.Grasshopper
         /// </summary>
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("Positions", "Positions", "[m]", GH_ParamAccess.list);
-            pManager.AddNumberParameter("ShiftX", "ShiftX", "[m]", GH_ParamAccess.item);
-            pManager.AddNumberParameter("ShiftZ", "ShiftZ", "[m]", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Positions", "Positions", "Normalized positions along the cable (0 to 1) [m]. Default is {0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1}.", GH_ParamAccess.list);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("ShiftX", "ShiftX", "Shift in X direction [m]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("ShiftZ", "ShiftZ", "Shift in Z direction [m]. Default is 0.1.", GH_ParamAccess.item, 0.1);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         /// <summary>
@@ -42,8 +45,11 @@ namespace FemDesign.Grasshopper
         {
             List<double> positions = new List<double>();
             double shiftX = 0.0;
-            double shiftZ = 0.0;
-            DA.GetDataList("Positions", positions);
+            double shiftZ = 0.1;
+            if (!DA.GetDataList("Positions", positions))
+            {
+                positions = new List<double> { 0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1 };
+            }
             DA.GetData("ShiftX", ref shiftX);
             DA.GetData("ShiftZ", ref shiftZ);
 

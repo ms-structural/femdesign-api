@@ -474,6 +474,7 @@
     <Compile Include="Reinforcement\PostTensionCable\Reinforcement.PtcShapeStart.cs" />
     <Compile Include="Reinforcement\PostTensionCable\Reinforcement.PtcStrand.cs" />
     <Compile Include="Reinforcement\PostTensionCable\Reinforcement.PtcShape.cs" />
+    <Compile Include="Reinforcement\PostTensionCable\Reinforcement.PtcAddToSlab.cs" />
     <Compile Include="Reinforcement\SurfaceReinforcementLayout.cs" />
     <Compile Include="Reinforcement\SurfaceReinforcementAddToSlab.cs" />
     <Compile Include="Reinforcement\SurfaceReinforcementBySurface.cs" />

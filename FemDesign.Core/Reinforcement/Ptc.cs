@@ -561,6 +561,64 @@ namespace FemDesign.Reinforcement
             }
             return bar;
         }
+
+        /// <summary>
+        /// Add PTC to slab.
+        /// Internal method use by GH components and Dynamo nodes.
+        /// </summary>
+        /// <param name="slab"></param>
+        /// <param name="ptc"></param>
+        /// <param name="overwrite">Overwrite PTC on slab if a PTC sharing guid already exists on the slab?</param>
+        public static Shells.Slab AddPtcToSlab(Shells.Slab slab, List<Ptc> ptc, bool overwrite)
+        {
+            // check if slab material is concrete
+            if (slab.SlabPart.ComplexMaterial != null && slab.SlabPart.ComplexMaterial.Concrete == null)
+            {
+                throw new System.ArgumentException("Material of slab must be concrete");
+            }
+
+            foreach (Ptc item in ptc)
+            {
+                // empty base object - update with current slabPart guid
+                if (item.BaseObject == Guid.Empty)
+                {
+                    item.BaseObject = slab.SlabPart.Guid;
+                }
+
+                // base object equals current slabPart guid 
+                else if (item.BaseObject == slab.SlabPart.Guid)
+                {
+                    // pass
+                }
+
+                // base object does not equal current slabPart guid - PTC probably added to another element already.
+                else if (item.BaseObject != slab.SlabPart.Guid)
+                {
+                    throw new System.ArgumentException($"{item.GetType().FullName} with guid: {item.Guid} has a base object guid: {item.BaseObject} that does not correnspond with the current slab");
+                }
+
+                // add PTC to current slab
+                bool exists = slab.Ptc.Any(x => x.Guid == item.Guid);
+                if (exists)
+                {
+                    if (overwrite)
+                    {
+                        slab.Ptc.RemoveAll(x => x.Guid == item.Guid);
+                        slab.Ptc.Add(item);
+                    }
+                    else
+                    {
+                        throw new System.ArgumentException($"{item.GetType().FullName} with guid: {item.Guid} has already been added to the slab. Are you adding the same element twice?");
+                    }
+                }
+                else
+                {
+                    slab.Ptc.Add(item);
+                }
+            }
+            return slab;
+        }
+
         public override string ToString()
         {
             return $"{this.GetType().FullName} - {this.Name}; Strand: {this.StrandType.Name}; Jacking side: {this.JackingSide}; Jacking stress: {this.JackingStress}; Number of strands: {this.NumberOfStrands}";

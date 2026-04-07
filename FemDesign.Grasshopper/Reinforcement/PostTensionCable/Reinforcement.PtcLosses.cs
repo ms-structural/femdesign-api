@@ -19,13 +19,20 @@ namespace FemDesign.Grasshopper
         /// </summary>
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("CurvatureCoefficient", "CurvatureCoefficient", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("WobbleCoefficient", "WobbleCoefficient", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("AnchorageSetSlip", "AnchorageSetSlip", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("ElasticShortening", "ElasticShortening", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("CreepStress", "CreepStress", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("ShrinkageStress", "ShrinkageStress", "", GH_ParamAccess.item);
-            pManager.AddNumberParameter("RelaxationStress", "RelaxationStress", "", GH_ParamAccess.item);
+            pManager.AddNumberParameter("CurvatureCoefficient", "CurvatureCoefficient", "Curvature friction coefficient. Default is 0.05.", GH_ParamAccess.item, 0.05);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("WobbleCoefficient", "WobbleCoefficient", "Wobble friction coefficient [1/m]. Default is 0.007.", GH_ParamAccess.item, 0.007);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("AnchorageSetSlip", "AnchorageSetSlip", "Anchorage set slip [mm]. Default is 6.", GH_ParamAccess.item, 6.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("ElasticShortening", "ElasticShortening", "Elastic shortening stress [N/mm2]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("CreepStress", "CreepStress", "Creep stress [N/mm2]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("ShrinkageStress", "ShrinkageStress", "Shrinkage stress [N/mm2]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddNumberParameter("RelaxationStress", "RelaxationStress", "Relaxation stress [N/mm2]. Default is 0.", GH_ParamAccess.item, 0.0);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         /// <summary>
