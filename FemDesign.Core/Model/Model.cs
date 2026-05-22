@@ -558,6 +558,19 @@ namespace FemDesign
         }
 
         /// <summary>
+        /// Add ShellBuckling from Slab to Model.
+        /// </summary>
+        private void AddShellBuckling(Shells.Slab obj, bool overwrite)
+        {
+            if (obj.ShellBuckling == null)
+                return;
+
+            var shellBuckling = obj.ShellBuckling;
+            this.Entities.ShellBucklings.RemoveAll(x => x.Guid == shellBuckling.Guid);
+            this.Entities.ShellBucklings.Add(shellBuckling);
+        }
+
+        /// <summary>
         /// Add Post-tensioned cable to Model.
         /// </summary>
         private void AddPtc(Reinforcement.Ptc obj, bool overwrite)
@@ -2220,6 +2233,9 @@ namespace FemDesign
 
             // add ptc
             this.AddSlabPtcs(obj, overwrite);
+
+            // add shell buckling
+            this.AddShellBuckling(obj, overwrite);
 
             // add line connection types (predefined rigidity)
             foreach (Releases.RigidityDataLibType3 predef in obj.SlabPart.Region.GetPredefinedRigidities())

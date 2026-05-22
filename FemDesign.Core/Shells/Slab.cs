@@ -48,6 +48,9 @@ namespace FemDesign.Shells
         [XmlIgnore]
         public List<Reinforcement.Ptc> Ptc { get; set; } = new List<Reinforcement.Ptc>();
 
+        [XmlIgnore]
+        public ShellBucklingType ShellBuckling { get; set; }
+
         [XmlAttribute("type")]
         public SlabType Type { get; set; }
 

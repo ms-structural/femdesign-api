@@ -489,6 +489,7 @@
     <Compile Include="Results\ResultsType.cs" />
     <Compile Include="Shells\PanelSetExternalEdgeConnectionForContinuousAnalyticalModel.cs" />
     <Compile Include="Shells\ProfiledPlateConstruct.cs" />
+    <Compile Include="Shells\ShellBucklingSetOnSlab.cs" />
     <Compile Include="Shells\ShellEccentricityConstruct.cs" />
     <Compile Include="Shells\OBSOLETE\EdgeConnectionConstruct_OBSOLETE.cs" />
     <Compile Include="Shells\EdgeConnectionHinged.cs" />
