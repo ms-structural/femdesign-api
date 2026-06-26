@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "FEM-Design"
-version = "0.0.9"
+version = "0.0.10"
 authors = [
   { name="FEM-Design", email="femdesign.api@strusoft.com" },
 ]
@@ -15,12 +15,12 @@ description = "The FEM-Design API package"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "pywin32>=306",
-    "xsdata>=24.1",
+  "pywin32>=306; platform_system == 'Windows'",
+  "xsdata>=24.1",
 ]
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Operating System :: Microsoft :: Windows",
 ]
 license = {text = "MIT"}
 keywords = ["fem", "fea", "structures", "strusoft", "FEM-Design API"]

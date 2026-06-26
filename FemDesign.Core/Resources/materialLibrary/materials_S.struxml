@@ -1,7 +1,1008 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- (c) StruSoft 2012-2023, http://www.strusoft.com -->
-<database struxml_version="01.00.000" source_software="FEM-Design 23.00.003" start_time="1970-01-01T00:00:00.000" end_time="2022-04-25T11:57:24.000" guid="56ffe402-f260-4b65-be3a-ce9bf4c67b93" convertid="00000000-0000-0000-0000-000000000000" standard="EC" country="S" xmlns="urn:strusoft">
-	<materials></materials>
-	<reinforcing_materials></reinforcing_materials>
+<database struxml_version="01.00.000" source_software="FEM-Design 25.00.001" start_time="1970-01-01T00:00:00.000" end_time="2022-04-25T11:57:24.000" guid="938d97ef-c2a2-4fd6-a709-aabff1a758cb" convertid="00000000-0000-0000-0000-000000000000" standard="EC" country="S" xmlns="urn:strusoft">
+	<materials>
+		<material guid="da8f3d02-1ab7-4d50-821d-fde6a6a77741" last_change="2021-01-07T14:43:42.000" action="added" standard="EC" country="S" name="C14">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="14" Fmk90="14" Ft0k="7.2" Ft90k="0.4" Fc0k="16" Fc90k="2" Fvk="3" E0mean="7000" E90mean="230" E0comp="7000" E90comp="230" Gmean="440" E005="4700" G005="294" Rhok="290" Rhomean="350" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="b4341c59-9864-4347-ade8-a4c2567bce42" last_change="2021-01-07T14:44:02.000" action="added" standard="EC" country="S" name="C16">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="16" Fmk90="16" Ft0k="8.5" Ft90k="0.4" Fc0k="17" Fc90k="2.2" Fvk="3.2" E0mean="8000" E90mean="270" E0comp="8000" E90comp="270" Gmean="500" E005="5400" G005="338" Rhok="310" Rhomean="370" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="4fba224a-5f41-47da-9d96-7ad990f2e370" last_change="2021-01-07T14:44:21.000" action="added" standard="EC" country="S" name="C18">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="18" Fmk90="18" Ft0k="10" Ft90k="0.4" Fc0k="18" Fc90k="2.2" Fvk="3.4" E0mean="9000" E90mean="300" E0comp="9000" E90comp="300" Gmean="560" E005="6000" G005="375" Rhok="320" Rhomean="380" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="f3fb3285-72d3-4d84-bea1-f459bb960d3a" last_change="2021-01-07T14:44:55.000" action="added" standard="EC" country="S" name="C20">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="20" Fmk90="20" Ft0k="11.5" Ft90k="0.4" Fc0k="19" Fc90k="2.3" Fvk="3.6" E0mean="9500" E90mean="320" E0comp="9500" E90comp="320" Gmean="590" E005="6400" G005="400" Rhok="330" Rhomean="400" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="4523ec18-4a06-48c9-94e1-e6a249a67027" last_change="2021-01-07T14:45:18.000" action="added" standard="EC" country="S" name="C22">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="22" Fmk90="22" Ft0k="13" Ft90k="0.4" Fc0k="20" Fc90k="2.4" Fvk="3.8" E0mean="10000" E90mean="330" E0comp="10000" E90comp="330" Gmean="630" E005="6700" G005="419" Rhok="340" Rhomean="410" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="6828ec60-244a-41a9-bd95-c7275479bb4f" last_change="2021-01-07T14:45:59.000" action="added" standard="EC" country="S" name="C24">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="24" Fmk90="24" Ft0k="14.5" Ft90k="0.4" Fc0k="21" Fc90k="2.5" Fvk="4" E0mean="11000" E90mean="370" E0comp="11000" E90comp="370" Gmean="690" E005="7400" G005="463" Rhok="350" Rhomean="420" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="0714f3f9-4765-441b-a008-1464b3b7d855" last_change="2021-01-07T14:46:32.000" action="added" standard="EC" country="S" name="C27">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="27" Fmk90="27" Ft0k="16.5" Ft90k="0.4" Fc0k="22" Fc90k="2.5" Fvk="4" E0mean="11500" E90mean="380" E0comp="11500" E90comp="380" Gmean="720" E005="7700" G005="481" Rhok="360" Rhomean="430" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="2568152c-4c8b-4699-b56b-506c023fc6d7" last_change="2021-01-07T14:47:10.000" action="added" standard="EC" country="S" name="C30">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="30" Fmk90="30" Ft0k="19" Ft90k="0.4" Fc0k="24" Fc90k="2.7" Fvk="4" E0mean="12000" E90mean="400" E0comp="12000" E90comp="400" Gmean="750" E005="8000" G005="500" Rhok="380" Rhomean="460" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="ced75cd9-ab5a-440d-96c5-001e5fb2363a" last_change="2021-01-07T14:47:48.000" action="added" standard="EC" country="S" name="C35">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="35" Fmk90="35" Ft0k="22.5" Ft90k="0.4" Fc0k="25" Fc90k="2.7" Fvk="4" E0mean="13000" E90mean="430" E0comp="13000" E90comp="430" Gmean="810" E005="8700" G005="544" Rhok="390" Rhomean="470" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="fd099128-8655-479e-a7fc-b219142a5907" last_change="2021-01-07T14:48:41.000" action="added" standard="EC" country="S" name="C40">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="40" Fmk90="40" Ft0k="26" Ft90k="0.4" Fc0k="27" Fc90k="2.8" Fvk="4" E0mean="14000" E90mean="470" E0comp="14000" E90comp="470" Gmean="880" E005="9400" G005="588" Rhok="400" Rhomean="480" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="01f20349-460b-4c54-9e88-fadf725f9c3d" last_change="2021-01-07T14:53:16.000" action="added" standard="EC" country="S" name="C45">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="45" Fmk90="45" Ft0k="30" Ft90k="0.4" Fc0k="29" Fc90k="2.9" Fvk="4" E0mean="15000" E90mean="500" E0comp="15000" E90comp="500" Gmean="940" E005="10100" G005="631" Rhok="410" Rhomean="490" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="7a0e0ffb-4198-4740-a785-86bf0065242d" last_change="2021-01-07T14:54:02.000" action="added" standard="EC" country="S" name="C50">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="50" Fmk90="50" Ft0k="33.5" Ft90k="0.4" Fc0k="30" Fc90k="3" Fvk="4" E0mean="16000" E90mean="530" E0comp="16000" E90comp="530" Gmean="1000" E005="10700" G005="669" Rhok="430" Rhomean="520" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="5df1fb49-5499-4d6d-9953-0651add8f242" last_change="2021-01-07T14:57:26.000" action="added" standard="EC" country="S" name="D30">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="30" Fmk90="30" Ft0k="18" Ft90k="0.6" Fc0k="24" Fc90k="5.3" Fvk="3.9" E0mean="11000" E90mean="730" E0comp="11000" E90comp="730" Gmean="690" E005="9200" G005="575" Rhok="530" Rhomean="640" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="932a42a9-3ec7-46b9-984d-35258c89ad04" last_change="2021-01-07T14:57:55.000" action="added" standard="EC" country="S" name="D35">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="35" Fmk90="35" Ft0k="21" Ft90k="0.6" Fc0k="25" Fc90k="5.4" Fvk="4.1" E0mean="12000" E90mean="800" E0comp="12000" E90comp="800" Gmean="750" E005="10100" G005="631" Rhok="540" Rhomean="650" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="43b0f67c-de66-4721-90fc-9fd462d55834" last_change="2021-01-07T14:58:26.000" action="added" standard="EC" country="S" name="D40">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="40" Fmk90="40" Ft0k="24" Ft90k="0.6" Fc0k="27" Fc90k="5.5" Fvk="4.2" E0mean="13000" E90mean="870" E0comp="13000" E90comp="860" Gmean="810" E005="10900" G005="681" Rhok="550" Rhomean="660" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="89cf9976-3ace-475e-98b6-73198bce4b29" last_change="2021-01-07T15:00:18.000" action="added" standard="EC" country="S" name="D50">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="50" Fmk90="50" Ft0k="30" Ft90k="0.6" Fc0k="30" Fc90k="6.2" Fvk="4.5" E0mean="14000" E90mean="930" E0comp="14000" E90comp="930" Gmean="880" E005="11800" G005="738" Rhok="620" Rhomean="740" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="3e7f3540-8a50-417b-8bad-1682a8d211a4" last_change="2021-01-07T15:01:50.000" action="added" standard="EC" country="S" name="D60">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="60" Fmk90="60" Ft0k="36" Ft90k="0.6" Fc0k="33" Fc90k="10.5" Fvk="4.8" E0mean="17000" E90mean="1130" E0comp="17000" E90comp="1130" Gmean="1060" E005="14300" G005="894" Rhok="700" Rhomean="840" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="d69ea310-1fc9-4b65-80e7-8096dd17df50" last_change="2021-01-07T15:03:40.000" action="added" standard="EC" country="S" name="D70">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="70" Fmk90="70" Ft0k="42" Ft90k="0.6" Fc0k="36" Fc90k="12" Fvk="5" E0mean="20000" E90mean="1330" E0comp="20000" E90comp="1330" Gmean="1250" E005="16800" G005="1050" Rhok="800" Rhomean="960" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="d358a2b6-09f3-4c12-9989-4035d0cb5372" last_change="2015-08-17T15:56:24.000" action="added" standard="EC" country="S" name="GL 24c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="24" Fmk90="24" Ft0k="17" Ft90k="0.5" Fc0k="21.5" Fc90k="2.5" Fvk="3.5" E0mean="11000" E90mean="300" E0comp="11600" E90comp="320" Gmean="650" E005="9100" G005="540" Rhok="365" Rhomean="400" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="731af972-4fab-4132-a3c1-1efea224f8a9" last_change="2015-08-17T15:59:57.000" action="added" standard="EC" country="S" name="GL 28c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="28" Fmk90="28" Ft0k="19.5" Ft90k="0.5" Fc0k="24" Fc90k="2.5" Fvk="3.5" E0mean="12500" E90mean="300" E0comp="12600" E90comp="390" Gmean="650" E005="10400" G005="540" Rhok="390" Rhomean="420" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="6cc82490-d09f-4b89-912a-9a89d4a3ee68" last_change="2015-08-17T16:02:29.000" action="added" standard="EC" country="S" name="GL 32c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="32" Fmk90="32" Ft0k="19.5" Ft90k="0.5" Fc0k="24.5" Fc90k="2.5" Fvk="3.5" E0mean="13500" E90mean="300" E0comp="13700" E90comp="420" Gmean="650" E005="11200" G005="540" Rhok="400" Rhomean="440" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="0cc32d74-3426-425c-8f6f-22f4cde3bad7" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="GL 36c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="36" Fmk90="36" Ft0k="22.5" Ft90k="0.5" Fc0k="29" Fc90k="3.3" Fvk="3.8" E0mean="14700" E90mean="460" E0comp="14700" E90comp="460" Gmean="850" E005="11900" G005="743.75" Rhok="430" Rhomean="518" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="2afadd44-62bb-4db1-9ecf-86bafdba326e" last_change="2013-07-19T09:36:54.000" action="added" standard="EC" country="S" name="C12/15">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="12" Fck_cube="15" Fctk="1.1" Fctm="1.6" Ecm="27000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="10" Fctd_0="0" Fctd_1="0.916666666666667" Ecd_0="0" Ecd_1="22500" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="c0824052-4627-44a5-afde-2c896afc7546" last_change="2014-11-20T10:38:20.000" action="added" standard="EC" country="S" name="C16/20">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="16" Fck_cube="20" Fctk="1.3" Fctm="1.9" Ecm="29000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="13.3333333333333" Fctd_0="0" Fctd_1="1.08333333333333" Ecd_0="0" Ecd_1="22500" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="f12af331-9311-454a-8d60-ff363d8dfa2d" last_change="2013-07-19T09:37:01.000" action="added" standard="EC" country="S" name="C20/25">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="20" Fck_cube="25" Fctk="1.5" Fctm="2.2" Ecm="30000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="16.6666666666667" Fctd_0="0" Fctd_1="1.25" Ecd_0="0" Ecd_1="25000" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="5ff0aa42-0cc9-42ab-a059-093f0205b538" last_change="2013-07-19T10:00:30.000" action="added" standard="EC" country="S" name="C25/30">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="25" Fctk="1.8" Fctm="2.6" Ecm="31000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="20.8333333333333" Fctd_0="0" Fctd_1="1.5" Ecd_0="0" Ecd_1="25833.3333333333" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="269c0974-3647-4617-9f2b-7763bd542f43" last_change="2013-07-19T10:00:42.000" action="added" standard="EC" country="S" name="C30/37">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="30" Fck_cube="37" Fctk="2" Fctm="2.9" Ecm="33000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="25" Fctd_0="0" Fctd_1="1.66666666666667" Ecd_0="0" Ecd_1="27500" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="66c05309-a399-4ba1-ba2a-9e2485c6fe33" last_change="2013-07-19T10:00:49.000" action="added" standard="EC" country="S" name="C35/45">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="35" Fck_cube="45" Fctk="2.2" Fctm="3.2" Ecm="34000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="29.1666666666667" Fctd_0="0" Fctd_1="1.83333333333333" Ecd_0="0" Ecd_1="28333.3333333333" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="9c983223-0727-4217-9671-bddb37f6fae3" last_change="2013-07-19T10:00:52.000" action="added" standard="EC" country="S" name="C40/50">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="40" Fck_cube="50" Fctk="2.5" Fctm="3.5" Ecm="35000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="33.3333333333333" Fctd_0="0" Fctd_1="2.08333333333333" Ecd_0="0" Ecd_1="29166.6666666667" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="cad50839-f971-49fd-91ca-e93fbd1f86c4" last_change="2013-07-19T10:00:56.000" action="added" standard="EC" country="S" name="C45/55">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="45" Fck_cube="55" Fctk="2.7" Fctm="3.8" Ecm="36000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="37.5" Fctd_0="0" Fctd_1="2.25" Ecd_0="0" Ecd_1="30000" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="12e945c4-9799-443c-8ea6-645c930ff53a" last_change="2013-07-19T10:01:04.000" action="added" standard="EC" country="S" name="C50/60">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="50" Fck_cube="60" Fctk="2.9" Fctm="4.1" Ecm="37000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="cd7f26ab-8fb6-41e3-8207-2021120a48d4" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 235">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="235" Fyk40="235" Fyk63="215" Fyk80="215" Fyk100="215" Fyk150="215" Fyk200="215" Fyk250="215" Fyk400="215" Fuk3="360" Fuk40="360" Fuk100="360" Fuk150="360" Fuk250="360" Fuk400="360" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="bbb2b253-c0aa-4900-9d07-9f35b779dddd" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 275">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="275" Fyk40="275" Fyk63="255" Fyk80="255" Fyk100="255" Fyk150="255" Fyk200="255" Fyk250="255" Fyk400="255" Fuk3="430" Fuk40="430" Fuk100="410" Fuk150="410" Fuk250="410" Fuk400="410" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="2c06b5e4-d35f-475f-aa33-d1b4e994d9fb" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 355">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="355" Fyk63="335" Fyk80="335" Fyk100="335" Fyk150="335" Fyk200="335" Fyk250="335" Fyk400="335" Fuk3="510" Fuk40="510" Fuk100="470" Fuk150="470" Fuk250="470" Fuk400="470" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="82e15e81-6c85-4d05-88f2-671f6b8ff425" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 420">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="420" Fyk40="420" Fyk63="390" Fyk80="390" Fyk100="390" Fyk150="390" Fyk200="390" Fyk250="390" Fyk400="390" Fuk3="520" Fuk40="520" Fuk100="520" Fuk150="520" Fuk250="520" Fuk400="520" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="f0c3769d-fe1d-48b5-b80b-b1826c96cac5" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 450">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="440" Fyk40="440" Fyk63="410" Fyk80="410" Fyk100="410" Fyk150="410" Fyk200="410" Fyk250="410" Fyk400="410" Fuk3="550" Fuk40="550" Fuk100="550" Fuk150="550" Fuk250="550" Fuk400="550" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="7b429c3c-1454-4969-83be-9062c2e871c0" last_change="2012-03-26T09:23:34.000" action="added" standard="EC" country="S" name="S 460">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="460" Fyk40="460" Fyk63="430" Fyk80="430" Fyk100="430" Fyk150="430" Fyk200="430" Fyk250="430" Fyk400="430" Fuk3="540" Fuk40="540" Fuk100="540" Fuk150="540" Fuk250="540" Fuk400="540" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="719bbaa3-b3ea-4ba0-bf05-330189cfb68c" last_change="2021-01-07T14:54:30.000" action="added" standard="EC" country="S" name="GL 24h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="24" Fmk90="24" Ft0k="19.2" Ft90k="0.5" Fc0k="24" Fc90k="2.5" Fvk="3.5" E0mean="11500" E90mean="300" E0comp="11600" E90comp="390" Gmean="650" E005="9600" G005="540" Rhok="385" Rhomean="420" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="a2240640-6429-45eb-a3c3-392af7395f27" last_change="2021-01-07T14:54:40.000" action="added" standard="EC" country="S" name="GL 28h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="28" Fmk90="28" Ft0k="22.3" Ft90k="0.5" Fc0k="28" Fc90k="2.5" Fvk="3.5" E0mean="12600" E90mean="300" E0comp="12600" E90comp="420" Gmean="650" E005="10500" G005="540" Rhok="425" Rhomean="460" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="c4ec562f-a812-4e61-9481-261774ed5ddb" last_change="2021-01-07T14:54:48.000" action="added" standard="EC" country="S" name="GL 32h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="32" Fmk90="32" Ft0k="25.6" Ft90k="0.5" Fc0k="32" Fc90k="2.5" Fvk="3.5" E0mean="14200" E90mean="300" E0comp="13700" E90comp="460" Gmean="650" E005="11800" G005="540" Rhok="440" Rhomean="490" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="856a5b19-d617-4eaa-bd24-d37b72fa9cda" last_change="2021-01-07T14:54:52.000" action="added" standard="EC" country="S" name="GL 36h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="36" Fmk90="36" Ft0k="26" Ft90k="0.6" Fc0k="31" Fc90k="3.6" Fvk="4.3" E0mean="14700" E90mean="490" E0comp="14700" E90comp="490" Gmean="910" E005="11900" G005="743.75" Rhok="450" Rhomean="542" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="9a23a93b-f870-4cc9-bd7e-dcff414bd400" last_change="2012-03-26T09:23:34.000" action="added" standard="general" country="n/a" name="Gypsum">
+			<custom mass="0.72" E_0="4500000" E_1="0" E_2="0" nu_0="0.01" nu_1="0" nu_2="0" alfa_0="0.00001" alfa_1="0.00001" alfa_2="0.00001" G_0="0" G_1="0" G_2="0"></custom>
+		</material>
+		<material guid="dc5e3b85-0ad9-4471-a013-08d7075b9cf9" last_change="2021-01-07T14:55:20.000" action="added" standard="EC" country="S" name="D18">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="18" Fmk90="18" Ft0k="11" Ft90k="0.6" Fc0k="18" Fc90k="4.8" Fvk="3.5" E0mean="9500" E90mean="630" E0comp="95000" E90comp="630" Gmean="590" E005="8000" G005="500" Rhok="475" Rhomean="570" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="6aafb39a-f520-430c-8b7b-d057d1756a9b" last_change="2021-01-07T14:55:58.000" action="added" standard="EC" country="S" name="D24">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="24" Fmk90="24" Ft0k="14" Ft90k="0.6" Fc0k="21" Fc90k="4.9" Fvk="3.7" E0mean="10000" E90mean="670" E0comp="10000" E90comp="670" Gmean="630" E005="8400" G005="525" Rhok="485" Rhomean="580" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="06b06a5d-1cf9-43f6-bffd-32100a24472a" last_change="2012-03-30T12:45:41.000" action="added" standard="EC" country="S" name="L40s">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="30" Fmk90="30" Ft0k="22.5" Ft90k="0.4" Fc0k="29" Fc90k="3.5" Fvk="3.5" E0mean="13200" E90mean="410" E0comp="13200" E90comp="410" Gmean="760" E005="11100" G005="678" Rhok="430" Rhomean="518" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="c8f52cf4-b2ff-4e02-88c7-2d9302a1c23d" last_change="2012-03-30T12:45:34.000" action="added" standard="EC" country="S" name="L40c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="30.8" Fmk90="30.8" Ft0k="17.6" Ft90k="0.4" Fc0k="25.4" Fc90k="3.5" Fvk="3.5" E0mean="13000" E90mean="410" E0comp="13000" E90comp="410" Gmean="760" E005="10500" G005="678" Rhok="400" Rhomean="480" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="bfc7a76c-04e2-4fc0-aebb-42b54683d163" last_change="2022-04-01T07:02:48.000" action="added" standard="EC" country="S" name="C28/35">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="28" Fck_cube="35" Fctk="1.94" Fctm="2.77" Ecm="32300" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="20.8333333333333" Fctd_0="0" Fctd_1="1.5" Ecd_0="0" Ecd_1="25833.3333333333" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="f2b90e44-2701-4ffb-a167-ccaa892c5321" last_change="2022-04-01T07:03:03.000" action="added" standard="EC" country="S" name="C32/40">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="32" Fck_cube="40" Fctk="2.12" Fctm="3.02" Ecm="33350" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="25" Fctd_0="0" Fctd_1="1.66666666666667" Ecd_0="0" Ecd_1="27500" Epsc2="0.002" Epscu2="0.0035" Epsc3="0.00175" Epscu3="0.0035" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="e7a66b7e-0c21-48bd-95cc-0f93b1ab7b6f" last_change="2022-04-01T07:03:29.000" action="added" standard="EC" country="S" name="C54/65">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="54" Fck_cube="65" Fctk="2.93" Fctm="4.18" Ecm="38031" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.17721917934299E-03" Epscu2="0.0031878656" Epsc3="0.00101" Epscu3="0.00319" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="27b664e5-42eb-48af-968d-35f0976ce185" last_change="2013-07-19T10:01:11.000" action="added" standard="EC" country="S" name="C55/67">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="55" Fck_cube="67" Fctk="3" Fctm="4.2" Ecm="38000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.19946790577505E-03" Epscu2="0.00312521875" Epsc3="0.0018" Epscu3="0.0031" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="7d3cd6f6-c15c-4c07-93b1-3fea28a2f04c" last_change="2013-07-19T10:01:15.000" action="added" standard="EC" country="S" name="C58/70">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="58" Fck_cube="70" Fctk="3.01" Fctm="4.3" Ecm="38750" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.25589194705988E-03" Epscu2="0.0029670016" Epsc3="0.00186" Epscu3="0.00297" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="f67a6d3e-1f86-4d0f-99f4-d8b72af7743f" last_change="2013-07-19T10:01:19.000" action="added" standard="EC" country="S" name="C60/75">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="60" Fck_cube="75" Fctk="3.1" Fctm="4.4" Ecm="39000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.28801753271832E-03" Epscu2="0.0028835" Epsc3="0.0019" Epscu3="0.0029" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="4fa1373a-93a7-4f8a-ab6c-d0ad91fce712" last_change="2013-07-19T10:01:23.000" action="added" standard="EC" country="S" name="C70/85">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="70" Fck_cube="85" Fctk="3.2" Fctm="4.6" Ecm="41000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.41587692431434E-03" Epscu2="0.002656" Epsc3="0.002" Epscu3="0.0027" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="245b40fe-189d-4074-89c8-36f562a18753" last_change="2013-07-19T10:01:27.000" action="added" standard="EC" country="S" name="C80/95">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="80" Fck_cube="95" Fctk="3.4" Fctm="4.8" Ecm="42000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.51557659110874E-03" Epscu2="0.0026035" Epsc3="0.0022" Epscu3="0.0026" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="65924e64-13c5-4254-8f89-59c74103936b" last_change="2013-07-19T10:01:30.000" action="added" standard="EC" country="S" name="C90/105">
+			<concrete mass="2.54842" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fck="90" Fck_cube="105" Fctk="3.5" Fctm="5" Ecm="44000" gammaC_0="1.5" gammaC_1="1.2" gammaCE="1.2" gammaS_0="1.15" gammaS_1="1" alfaCc="1" alfaCt="1" Fcd_0="0" Fcd_1="41.6666666666667" Fctd_0="0" Fctd_1="2.41666666666667" Ecd_0="0" Ecd_1="30833.3333333333" Epsc2="2.60049683276158E-03" Epscu2="0.0026" Epsc3="0.0023" Epscu3="0.0026" creep="0" shrinkage="0" nu="0.2" alfa="0.00001">
+				<plastic_analysis_data>
+					<U elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></U>
+					<Sq elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sq>
+					<Sf elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sf>
+					<Sc elasto_plastic_behaviour="false" plastic_hardening="true" concrete_crushing="true" concrete_crushing_option="Prager" tension_strength="true" tension_stiffening="true" tension_stiffening_option="Hinton" tension_stiffening_param="0.5" reduced_compression_strength="true" reduced_compression_strength_option="Vecchio 1" reduced_compression_strength_param="0.55" reduced_transverse_shear_stiffnes="false" ultimate_strain="true"></Sc>
+				</plastic_analysis_data>
+			</concrete>
+		</material>
+		<material guid="212fb96f-037c-46ad-a165-ae9457cb6b49" last_change="2021-01-07T14:54:16.000" action="added" standard="EC" country="S" name="GL 20h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="20" Fmk90="20" Ft0k="16" Ft90k="0.5" Fc0k="20" Fc90k="2.5" Fvk="3.5" E0mean="8400" E90mean="300" E0comp="11600" E90comp="390" Gmean="650" E005="7000" G005="540" Rhok="340" Rhomean="370" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="a9fbdc2c-f82c-4b2c-8592-9b6dc1adc4b3" last_change="2021-01-07T14:54:25.000" action="added" standard="EC" country="S" name="GL 22h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="22" Fmk90="22" Ft0k="17.6" Ft90k="0.5" Fc0k="22" Fc90k="2.5" Fvk="3.5" E0mean="10500" E90mean="300" E0comp="11600" E90comp="390" Gmean="650" E005="8800" G005="540" Rhok="370" Rhomean="410" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="b068182c-0253-4ff9-8d8a-c0b971770e74" last_change="2021-01-07T14:54:37.000" action="added" standard="EC" country="S" name="GL 26h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="26" Fmk90="26" Ft0k="20.8" Ft90k="0.5" Fc0k="26" Fc90k="2.5" Fvk="3.5" E0mean="12100" E90mean="300" E0comp="13700" E90comp="460" Gmean="650" E005="10100" G005="540" Rhok="405" Rhomean="445" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="2d9c485d-32bd-4187-a330-7c46f7aeeae0" last_change="2021-01-07T14:54:44.000" action="added" standard="EC" country="S" name="GL 30h">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="30" Fmk90="30" Ft0k="24" Ft90k="0.5" Fc0k="30" Fc90k="2.5" Fvk="3.5" E0mean="13600" E90mean="300" E0comp="13700" E90comp="460" Gmean="650" E005="11300" G005="540" Rhok="430" Rhomean="480" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="aceea11a-21b5-49c0-bef6-939460ff0cf3" last_change="2015-08-17T15:50:28.000" action="added" standard="EC" country="S" name="GL 20c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="20" Fmk90="20" Ft0k="15" Ft90k="0.5" Fc0k="18.5" Fc90k="2.5" Fvk="3.5" E0mean="10400" E90mean="300" E0comp="11600" E90comp="320" Gmean="650" E005="8600" G005="540" Rhok="355" Rhomean="390" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="c8a4f001-c251-42a5-b1fa-c7836abdb363" last_change="2015-08-17T15:52:15.000" action="added" standard="EC" country="S" name="GL 22c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="22" Fmk90="22" Ft0k="16" Ft90k="0.5" Fc0k="20" Fc90k="2.5" Fvk="3.5" E0mean="10400" E90mean="300" E0comp="11600" E90comp="320" Gmean="650" E005="8600" G005="540" Rhok="355" Rhomean="390" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="d14ccedd-454b-40db-a3ae-eb1bf54cb3c2" last_change="2015-08-17T15:57:47.000" action="added" standard="EC" country="S" name="GL 26c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="26" Fmk90="26" Ft0k="19" Ft90k="0.5" Fc0k="23.5" Fc90k="2.5" Fvk="3.5" E0mean="12000" E90mean="300" E0comp="11600" E90comp="320" Gmean="650" E005="10000" G005="540" Rhok="385" Rhomean="420" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="66321559-0361-47c8-84f6-4df1032eb21b" last_change="2015-08-17T16:04:43.000" action="added" standard="EC" country="S" name="GL 30c">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="1" quality="0" Fmk0="30" Fmk90="30" Ft0k="19.5" Ft90k="0.5" Fc0k="24.5" Fc90k="2.5" Fvk="3.5" E0mean="13000" E90mean="300" E0comp="13700" E90comp="420" Gmean="650" E005="10800" G005="540" Rhok="390" Rhomean="430" gammaM_0="1.25" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="3e7f8d1e-e32b-4af6-abcf-c48d607643eb" last_change="2016-11-10T10:08:16.000" action="added" standard="EC" country="S" name="S355M/ML">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="355" Fyk63="335" Fyk80="335" Fyk100="335" Fyk150="335" Fyk200="335" Fyk250="335" Fyk400="335" Fuk3="470" Fuk40="470" Fuk100="450" Fuk150="450" Fuk250="450" Fuk400="450" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="3010dec5-283b-49d7-850a-02c2695fe177" last_change="2016-11-10T10:09:37.000" action="added" standard="EC" country="S" name="S355N/NL">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="355" Fyk63="335" Fyk80="335" Fyk100="335" Fyk150="335" Fyk200="335" Fyk250="335" Fyk400="335" Fuk3="490" Fuk40="490" Fuk100="470" Fuk150="470" Fuk250="470" Fuk400="470" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="527e564b-03b5-46d6-abef-518e3d490165" last_change="2016-11-10T16:13:51.000" action="added" standard="EC" country="S" name="S355W">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="355" Fyk63="335" Fyk80="335" Fyk100="335" Fyk150="335" Fyk200="335" Fyk250="335" Fyk400="335" Fuk3="510" Fuk40="510" Fuk100="490" Fuk150="490" Fuk250="490" Fuk400="490" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="e080fdc9-7f5c-4407-8e9c-7458456ec32f" last_change="2018-08-28T09:50:01.000" action="added" standard="EC" country="S" name="S235JR">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="235" Fyk40="225" Fyk63="215" Fyk80="215" Fyk100="215" Fyk150="195" Fyk200="185" Fyk250="175" Fyk400="175" Fuk3="360" Fuk40="360" Fuk100="360" Fuk150="350" Fuk250="340" Fuk400="340" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="17204e4c-7e02-435f-b8a8-d4ae00a05a08" last_change="2018-08-28T09:51:09.000" action="added" standard="EC" country="S" name="S235J0">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="235" Fyk40="225" Fyk63="215" Fyk80="215" Fyk100="215" Fyk150="195" Fyk200="185" Fyk250="175" Fyk400="175" Fuk3="360" Fuk40="360" Fuk100="360" Fuk150="350" Fuk250="340" Fuk400="340" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="5a33fdd8-2189-42d8-92ae-16b504393ed5" last_change="2018-08-28T09:52:17.000" action="added" standard="EC" country="S" name="S235J2">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="235" Fyk40="225" Fyk63="215" Fyk80="215" Fyk100="215" Fyk150="195" Fyk200="185" Fyk250="175" Fyk400="165" Fuk3="360" Fuk40="360" Fuk100="360" Fuk150="350" Fuk250="340" Fuk400="330" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="06c4a879-91f6-4f89-8971-1d673720806c" last_change="2018-08-28T09:54:32.000" action="added" standard="EC" country="S" name="S275JR">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="275" Fyk40="265" Fyk63="255" Fyk80="245" Fyk100="235" Fyk150="225" Fyk200="215" Fyk250="205" Fyk400="205" Fuk3="430" Fuk40="410" Fuk100="410" Fuk150="400" Fuk250="380" Fuk400="380" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="a7333757-b341-42c9-9892-16f49f9ae113" last_change="2018-08-28T09:55:49.000" action="added" standard="EC" country="S" name="S275J0">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="275" Fyk40="265" Fyk63="255" Fyk80="245" Fyk100="235" Fyk150="225" Fyk200="215" Fyk250="205" Fyk400="205" Fuk3="430" Fuk40="410" Fuk100="410" Fuk150="400" Fuk250="380" Fuk400="380" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="1fb0a437-500e-4ba2-9b77-07a567225982" last_change="2018-08-28T09:57:03.000" action="added" standard="EC" country="S" name="S275J2">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="275" Fyk40="265" Fyk63="255" Fyk80="245" Fyk100="235" Fyk150="225" Fyk200="215" Fyk250="205" Fyk400="195" Fuk3="430" Fuk40="410" Fuk100="410" Fuk150="400" Fuk250="380" Fuk400="380" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="df9a0b8e-5ee9-4b0d-aad8-23411436e86f" last_change="2018-08-28T09:58:56.000" action="added" standard="EC" country="S" name="S355JR">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="345" Fyk63="335" Fyk80="325" Fyk100="315" Fyk150="295" Fyk200="285" Fyk250="275" Fyk400="275" Fuk3="510" Fuk40="470" Fuk100="470" Fuk150="450" Fuk250="450" Fuk400="450" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="8bde72fb-266b-4036-a2a3-92d243282f02" last_change="2018-08-28T09:59:54.000" action="added" standard="EC" country="S" name="S355J0">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="345" Fyk63="335" Fyk80="325" Fyk100="315" Fyk150="295" Fyk200="285" Fyk250="275" Fyk400="275" Fuk3="510" Fuk40="470" Fuk100="470" Fuk150="450" Fuk250="450" Fuk400="450" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="8258a5de-993b-4f57-8947-05409a7010df" last_change="2018-08-28T10:01:02.000" action="added" standard="EC" country="S" name="S355J2">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="345" Fyk63="335" Fyk80="325" Fyk100="315" Fyk150="295" Fyk200="285" Fyk250="275" Fyk400="265" Fuk3="510" Fuk40="470" Fuk100="470" Fuk150="450" Fuk250="450" Fuk400="450" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="6c4a2d65-7344-44fb-a055-82d23ad9dcef" last_change="2018-08-28T10:02:01.000" action="added" standard="EC" country="S" name="S355K2">
+			<steel mass="7.85" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" Fyk16="355" Fyk40="345" Fyk63="335" Fyk80="325" Fyk100="315" Fyk150="295" Fyk200="285" Fyk250="275" Fyk400="265" Fuk3="510" Fuk40="470" Fuk100="470" Fuk150="450" Fuk250="450" Fuk400="450" gammaM0_0="1" gammaM0_1="1" gammaM1_0="1" gammaM1_1="1" gammaM2_0="1.25" gammaM2_1="1.25" gammaM5_0="1" gammaM5_1="1" Ek="210000" Ed_0="0" Ed_1="0" nu="0.3" G="80769" alfa="0.000012">
+				<plastic_analysis_data elasto_plastic_behaviour_U="false" elasto_plastic_strain_limit_U="true" elasto_plastic_strain_limit_option_U="2.5" elasto_plastic_behaviour_Sq="false" elasto_plastic_strain_limit_Sq="true" elasto_plastic_strain_limit_option_Sq="2.5" elasto_plastic_behaviour_Sf="false" elasto_plastic_strain_limit_Sf="true" elasto_plastic_strain_limit_option_Sf="2.5" elasto_plastic_behaviour_Sc="false" elasto_plastic_strain_limit_Sc="true" elasto_plastic_strain_limit_option_Sc="2.5"></plastic_analysis_data>
+			</steel>
+		</material>
+		<material guid="2d9dc5a5-eda5-463c-8c8a-f7b68ea8ab6c" last_change="2021-01-07T14:56:58.000" action="added" standard="EC" country="S" name="D27">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="27" Fmk90="27" Ft0k="16" Ft90k="0.6" Fc0k="22" Fc90k="5.1" Fvk="3.8" E0mean="10500" E90mean="700" E0comp="10000" E90comp="670" Gmean="660" E005="8800" G005="550" Rhok="510" Rhomean="610" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="81eb5aff-f5c5-4096-b30a-03202ee9ed92" last_change="2021-01-07T14:59:24.000" action="added" standard="EC" country="S" name="D45">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="45" Fmk90="45" Ft0k="27" Ft90k="0.6" Fc0k="29" Fc90k="5.8" Fvk="4.4" E0mean="13500" E90mean="900" E0comp="13000" E90comp="860" Gmean="840" E005="11300" G005="706" Rhok="580" Rhomean="700" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="5169f369-76cf-44e7-9de2-ef37092b5ec1" last_change="2021-01-07T15:01:23.000" action="added" standard="EC" country="S" name="D55">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="55" Fmk90="55" Ft0k="33" Ft90k="0.6" Fc0k="32" Fc90k="6.6" Fvk="4.7" E0mean="15500" E90mean="1030" E0comp="14000" E90comp="930" Gmean="970" E005="13000" G005="813" Rhok="660" Rhomean="790" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="efd881e9-9735-4c69-b881-3b2d42d6ff2f" last_change="2021-01-07T15:03:09.000" action="added" standard="EC" country="S" name="D65">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="65" Fmk90="65" Ft0k="39" Ft90k="0.6" Fc0k="35" Fc90k="11.3" Fvk="5" E0mean="18500" E90mean="1230" E0comp="17000" E90comp="1130" Gmean="1160" E005="15500" G005="969" Rhok="750" Rhomean="900" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="663a37b4-dca0-49a8-bc28-e40d3b008c11" last_change="2021-01-07T15:04:43.000" action="added" standard="EC" country="S" name="D75">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="75" Fmk90="75" Ft0k="45" Ft90k="0.6" Fc0k="37" Fc90k="12.8" Fvk="5" E0mean="22000" E90mean="1470" E0comp="20000" E90comp="1330" Gmean="1380" E005="18500" G005="1156" Rhok="850" Rhomean="1020" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="81076297-a8ef-4ccc-acc4-d6027133336f" last_change="2021-01-07T15:05:42.000" action="added" standard="EC" country="S" name="D80">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0.001" alfa_1="0.001" alfa_2="0.001" G_0="0" G_1="0" G_2="0" type="0" quality="0" Fmk0="80" Fmk90="80" Ft0k="48" Ft90k="0.6" Fc0k="38" Fc90k="13.5" Fvk="5" E0mean="24000" E90mean="1600" E0comp="20000" E90comp="1330" Gmean="1500" E005="20200" G005="1263" Rhok="900" Rhomean="1080" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="379e11bb-413e-405d-aa94-eebc90a70322" last_change="2020-11-10T14:51:02.000" action="added" standard="EC" country="S" name="Haltegel 12 M0.5">
+			<masonry fk="1" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="3b5dbc94-cbc1-48fe-a135-a5e7f3cbdee5" last_change="2020-11-10T14:59:38.000" action="added" standard="EC" country="S" name="Haltegel 12 M1">
+			<masonry fk="2.7" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1350" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="6d50c485-180d-42af-964e-35f29d06d193" last_change="2020-11-10T14:54:31.000" action="added" standard="EC" country="S" name="Haltegel 12 M2.5">
+			<masonry fk="3.6" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="bb7707af-9db1-411d-b0de-677ac857d133" last_change="2020-11-10T14:55:35.000" action="added" standard="EC" country="S" name="Haltegel 12 M10">
+			<masonry fk="5.2" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="74e70698-6e94-4e92-8379-ecae7b379a5f" last_change="2020-11-10T14:57:51.000" action="added" standard="EC" country="S" name="Haltegel 15 M0.5">
+			<masonry fk="1.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="650" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="468b8aa4-8d03-4031-8d1b-58a1f6120312" last_change="2020-11-10T14:59:32.000" action="added" standard="EC" country="S" name="Haltegel 15 M1">
+			<masonry fk="3.2" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="45e08817-533c-4c50-ab10-a3562aefe067" last_change="2020-11-10T15:00:28.000" action="added" standard="EC" country="S" name="Haltegel 15 M2.5">
+			<masonry fk="4.2" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2100" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="51f89421-5321-4347-b057-1bf7a1fe3891" last_change="2020-11-10T15:00:58.000" action="added" standard="EC" country="S" name="Haltegel 15 M10">
+			<masonry fk="5.8" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="dbd55939-9629-415e-819b-b3cdb98a947e" last_change="2020-11-10T15:03:56.000" action="added" standard="EC" country="S" name="Haltegel 25 M0.5">
+			<masonry fk="1.8" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="b68ed4df-94cd-4fc8-b21c-e98417c3d260" last_change="2020-11-10T15:03:45.000" action="added" standard="EC" country="S" name="Haltegel 35 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="02b9e224-cae9-4847-9fc3-a7815241c347" last_change="2020-11-10T15:14:46.000" action="added" standard="EC" country="S" name="Haltegel 25 M1">
+			<masonry fk="4.5" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2250" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="4d998424-02c1-474c-b450-3dc6a93f0a60" last_change="2020-11-10T15:17:18.000" action="added" standard="EC" country="S" name="Haltegel 25 M2.5">
+			<masonry fk="6" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="36ec2175-0e78-477b-88ab-09e5dd449730" last_change="2020-11-10T15:18:54.000" action="added" standard="EC" country="S" name="Haltegel 25 M10">
+			<masonry fk="7.5" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3750" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="b63b1fbd-d5c7-46bf-9716-4fa145f974cc" last_change="2020-11-10T15:28:22.000" action="added" standard="EC" country="S" name="Haltegel 35 M1">
+			<masonry fk="5.7" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2850" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="47607916-6294-4aab-b82f-27f9b4fb27c7" last_change="2020-11-10T15:29:51.000" action="added" standard="EC" country="S" name="Haltegel 35 M2.5">
+			<masonry fk="7.5" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3750" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="455097e6-37ed-46b8-9854-bc8a7835fa92" last_change="2020-11-10T15:30:29.000" action="added" standard="EC" country="S" name="Haltegel 35 M10">
+			<masonry fk="8.9" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4450" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="a0bf5fff-7a44-4bfa-b066-99740bc8383b" last_change="2020-11-10T15:33:50.000" action="added" standard="EC" country="S" name="Haltegel 45 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="06fd0369-9b7f-46aa-9810-72323bceb0c7" last_change="2020-11-10T15:34:16.000" action="added" standard="EC" country="S" name="Haltegel 55 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8414738b-1515-4d8b-996d-3e4a2456cad1" last_change="2020-11-10T15:34:46.000" action="added" standard="EC" country="S" name="Haltegel 65 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="5deae7b7-9750-4c10-91f4-a826d73542b0" last_change="2020-11-10T15:35:30.000" action="added" standard="EC" country="S" name="Haltegel 45 M1">
+			<masonry fk="6.8" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="1bdd0c50-4915-40d5-97d7-419300d470e1" last_change="2020-11-10T15:36:09.000" action="added" standard="EC" country="S" name="Haltegel 45 M2.5">
+			<masonry fk="9" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="edcd34f4-631d-4e2b-ba2c-16fb37595c7a" last_change="2020-11-10T15:38:31.000" action="added" standard="EC" country="S" name="Haltegel 45 M10">
+			<masonry fk="10" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="990853bc-47d3-4347-992e-75d45681d0f6" last_change="2020-11-10T15:39:10.000" action="added" standard="EC" country="S" name="Haltegel 55 M1">
+			<masonry fk="7.8" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="5e94666b-de69-4a26-be98-dfba61a4f864" last_change="2020-11-10T15:40:55.000" action="added" standard="EC" country="S" name="Haltegel 55 M2.5">
+			<masonry fk="10.3" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="c322047b-e2dc-4b0f-928b-6c9db26a61eb" last_change="2020-11-10T15:41:25.000" action="added" standard="EC" country="S" name="Haltegel 55 M10">
+			<masonry fk="11.1" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5550" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="4c9a5862-3879-4103-bf35-5fb7c3ca4b1a" last_change="2020-11-10T15:42:48.000" action="added" standard="EC" country="S" name="Haltegel 65 M1">
+			<masonry fk="8.8" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8e643e0b-ff82-45cc-aa66-ff2f923c3898" last_change="2020-11-10T15:43:11.000" action="added" standard="EC" country="S" name="Haltegel 65 M2.5">
+			<masonry fk="11.6" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ad02d28c-2ad9-4c79-b848-29db04c1be53" last_change="2020-11-10T15:44:20.000" action="added" standard="EC" country="S" name="Haltegel 65 M10">
+			<masonry fk="12.1" nu="0.25" rho="1.6" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="6050" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.6" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="55b386bf-417c-4521-8b9f-43fac4136d5a" last_change="2020-11-10T15:26:36.000" action="added" standard="EC" country="S" name="Tegelsten 12 M0.5">
+			<masonry fk="1" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="44b54077-1bb0-4d89-9ee2-e7decfaea640" last_change="2020-11-10T15:45:21.000" action="added" standard="EC" country="S" name="Tegelsten 12 M1">
+			<masonry fk="2.7" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1350" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8c8afe8b-b5f1-424a-a7e3-a10fe7267f14" last_change="2020-11-10T15:45:37.000" action="added" standard="EC" country="S" name="Tegelsten 12 M10">
+			<masonry fk="5.2" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="5e964220-a8e7-41bd-99fc-2aedc0f38122" last_change="2020-11-10T15:46:02.000" action="added" standard="EC" country="S" name="Tegelsten 12 M2,5">
+			<masonry fk="3.6" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="94e7f0ec-1628-43b0-955c-5c66cbf5c5dc" last_change="2020-11-10T15:50:28.000" action="added" standard="EC" country="S" name="Tegelsten 15 M10">
+			<masonry fk="5.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="c5a779f0-9e71-4a72-a405-97ded7c2df67" last_change="2020-11-10T15:51:49.000" action="added" standard="EC" country="S" name="Tegelsten 65 M2.5">
+			<masonry fk="11.6" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="182fdb74-83eb-4b84-bd6b-c3f154376655" last_change="2020-11-11T10:50:26.000" action="added" standard="EC" country="S" name="Tegelsten 65 M10">
+			<masonry fk="12.1" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="6050" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="1f45a6d3-4d8a-49d2-82a0-3eb6960c65c8" last_change="2020-11-11T10:50:46.000" action="added" standard="EC" country="S" name="Tegelsten 65 M1">
+			<masonry fk="8.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="78354149-0214-4362-a738-9dc0eac51b95" last_change="2020-11-11T10:51:05.000" action="added" standard="EC" country="S" name="Tegelsten 65 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="87f315a2-fb49-40eb-9883-7e0b1c773499" last_change="2020-11-11T10:52:50.000" action="added" standard="EC" country="S" name="Tegelsten 15 M2.5">
+			<masonry fk="4.2" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2100" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="84b7a428-0e54-4e1c-ace4-a3155c945564" last_change="2020-11-11T10:53:31.000" action="added" standard="EC" country="S" name="Tegelsten 25 M10">
+			<masonry fk="7.5" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3750" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="69fdee3f-f015-4ca6-996a-17b5a939168b" last_change="2020-11-11T10:54:45.000" action="added" standard="EC" country="S" name="Tegelsten 35 M10">
+			<masonry fk="8.9" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4450" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="0c07007d-24e5-45a3-87fd-3c94f3f583f7" last_change="2020-11-11T10:56:02.000" action="added" standard="EC" country="S" name="Tegelsten 45 M10">
+			<masonry fk="10" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="cc8c810a-d0a5-4191-a883-126a6779682a" last_change="2020-11-11T10:56:13.000" action="added" standard="EC" country="S" name="Tegelsten 55 M10">
+			<masonry fk="11.1" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5550" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f4eb13ae-1b13-41fd-b865-689d3c9db349" last_change="2020-11-11T10:57:18.000" action="added" standard="EC" country="S" name="Tegelsten 15 M0.5">
+			<masonry fk="1.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="650" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="395e9ac7-765e-46a1-b5af-398c204897ee" last_change="2020-11-11T10:57:37.000" action="added" standard="EC" country="S" name="Tegelsten 25 M0.5">
+			<masonry fk="1.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="76e047ee-99f3-4e23-9626-8d3e1d3e5f03" last_change="2020-11-11T10:57:59.000" action="added" standard="EC" country="S" name="Tegelsten 35 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="815f8767-657c-4359-be9d-ce8eaf0423d5" last_change="2020-11-11T10:58:15.000" action="added" standard="EC" country="S" name="Tegelsten 45 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="95023604-7c8f-410e-b428-86efb5d7c237" last_change="2020-11-11T10:58:29.000" action="added" standard="EC" country="S" name="Tegelsten 55 M0.5">
+			<masonry fk="2.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="1e84adf3-a955-436f-be77-3e8c71ebc8bb" last_change="2020-11-11T10:59:03.000" action="added" standard="EC" country="S" name="Tegelsten 15 M1">
+			<masonry fk="3.2" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="9bfecd01-f917-4afc-98e5-19362faa05ed" last_change="2020-11-11T10:59:27.000" action="added" standard="EC" country="S" name="Tegelsten 25 M1">
+			<masonry fk="4.5" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2250" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="09866af9-5238-4b3f-914a-5871366f544a" last_change="2020-11-11T10:59:37.000" action="added" standard="EC" country="S" name="Tegelsten 35 M1">
+			<masonry fk="5.7" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2850" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="b42d9647-b1f3-476c-87ee-46509841402d" last_change="2020-11-11T10:59:48.000" action="added" standard="EC" country="S" name="Tegelsten 45 M1">
+			<masonry fk="6.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="59fc7232-b173-4148-885c-003b0dc75799" last_change="2020-11-11T11:00:04.000" action="added" standard="EC" country="S" name="Tegelsten 55 M1">
+			<masonry fk="7.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="36b0f0d8-febd-4d59-8625-8862b7a9d13a" last_change="2020-11-11T11:00:59.000" action="added" standard="EC" country="S" name="Tegelsten 25 M2,5">
+			<masonry fk="6" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="2a7c9be7-c2eb-493b-a91a-d2a9d63ddc21" last_change="2020-11-11T11:01:09.000" action="added" standard="EC" country="S" name="Tegelsten 35 M2,5">
+			<masonry fk="7.5" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3750" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="73948079-3592-4afe-967a-40c9f641e5a4" last_change="2020-11-11T11:01:24.000" action="added" standard="EC" country="S" name="Tegelsten 45 M2,5">
+			<masonry fk="9" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="6949afc0-f60f-4e29-8de9-6e249b14618f" last_change="2020-11-11T11:01:34.000" action="added" standard="EC" country="S" name="Tegelsten 55 M2,5">
+			<masonry fk="10.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="cc86e441-3192-4517-9623-384a86c1edd4" last_change="2020-11-11T13:07:23.000" action="added" standard="EC" country="S" name="Kalksandsten 25 M2.5">
+			<masonry fk="6" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="638f4fbb-9df0-4ff6-b7d4-e7a319db3a87" last_change="2020-11-11T13:07:14.000" action="added" standard="EC" country="S" name="Kalksandsten 25 M1">
+			<masonry fk="4.5" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2250" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="803c6053-1eb4-4384-9dec-693ac40fe922" last_change="2020-11-11T13:07:30.000" action="added" standard="EC" country="S" name="Kalksandsten 25 Tunnfogbruk">
+			<masonry fk="12.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="6150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="503f6868-da99-49d9-86a1-77ccc304a6cd" last_change="2020-11-11T12:45:21.000" action="added" standard="EC" country="S" name="Tegelblock 6 Tunnfogbruk">
+			<masonry fk="2" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="774a2dea-4d2b-449b-8e71-00c2d117a065" last_change="2020-11-11T12:45:47.000" action="added" standard="EC" country="S" name="Tegelblock 8 Tunnfogbruk">
+			<masonry fk="2.5" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1250" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="3a9c3fe9-5f2f-4d65-8161-41274843a428" last_change="2020-11-11T12:46:13.000" action="added" standard="EC" country="S" name="Tegelblock 10 Tunnfogbruk">
+			<masonry fk="2.8" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="86c9ef54-cd22-43df-b5e0-eefe9ccd4e30" last_change="2020-11-11T12:46:40.000" action="added" standard="EC" country="S" name="Tegelblock 12 Tunnfogbruk">
+			<masonry fk="3.3" nu="0.25" rho="1.9" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1650" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.9" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="21441458-224e-4c78-b7bb-0612905568df" last_change="2020-11-11T13:07:01.000" action="added" standard="EC" country="S" name="Betongsten 25 M10">
+			<masonry fk="7.5" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="7500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="80d87214-2bfd-45f2-9692-c51a71c291a8" last_change="2020-11-11T13:08:41.000" action="added" standard="EC" country="S" name="Betongsten 25 M2.5">
+			<masonry fk="6" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="6000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f65ddc38-bdfc-46f5-aa1f-def270ee8e16" last_change="2020-11-11T13:09:48.000" action="added" standard="EC" country="S" name="Betonghalblock 5 M2.5">
+			<masonry fk="2" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="547da460-1dd4-413b-9095-929d8c990e6d" last_change="2020-11-11T13:10:22.000" action="added" standard="EC" country="S" name="Betonghalblock 5 M1">
+			<masonry fk="1.5" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="946a9c64-66f6-4b66-b7b4-7631f834e9b7" last_change="2020-11-11T13:11:25.000" action="added" standard="EC" country="S" name="Betonghalblock 10 M10">
+			<masonry fk="2.4" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ba9f1765-2e2b-42bb-8869-9fcdfab0de1f" last_change="2020-11-11T13:12:30.000" action="added" standard="EC" country="S" name="Betonghalblock 10 M2.5">
+			<masonry fk="2.4" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="b6af7c97-a13d-40e0-81af-dde801bcc32d" last_change="2020-11-11T13:13:30.000" action="added" standard="EC" country="S" name="Betonghalblock 10 M1">
+			<masonry fk="2.4" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8db14292-e8c8-4a65-9681-c156c5115a68" last_change="2020-11-11T13:14:11.000" action="added" standard="EC" country="S" name="Betonghalblock 5 Tunnfogbruk">
+			<masonry fk="2.6" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="bc7db22d-aca3-46db-98f7-09702e01649f" last_change="2020-11-11T13:14:48.000" action="added" standard="EC" country="S" name="Betonghalblock 10 Tunnfogbruk">
+			<masonry fk="4.6" nu="0.25" rho="1.4" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="1.4" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="fd65aac2-495e-4859-9d14-8f9b38e06aec" last_change="2020-11-11T13:16:13.000" action="added" standard="EC" country="S" name="Massiva betongblock 10 Tunnfogbruk">
+			<masonry fk="5.7" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="08e8d452-f33e-42eb-8a78-29d634f19403" last_change="2020-11-11T13:16:58.000" action="added" standard="EC" country="S" name="Massiva betongblock 15 Tunnfogbruk">
+			<masonry fk="8" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="8000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f6f71f5b-17e1-4c56-9b02-742839857dda" last_change="2020-11-11T13:18:25.000" action="added" standard="EC" country="S" name="Massiva betongblock 10 M10">
+			<masonry fk="3.8" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f61297b2-f864-4132-8bd3-575fe6f9eea6" last_change="2020-11-11T13:18:09.000" action="added" standard="EC" country="S" name="Massiva betongblock 10 M1">
+			<masonry fk="2.8" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="47375b93-e964-4c8a-9084-ea37b47752d0" last_change="2020-11-11T13:18:39.000" action="added" standard="EC" country="S" name="Massiva betongblock 10 M2.5">
+			<masonry fk="3.6" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="1cbd40bc-f39b-4532-99b8-6e19ce7056de" last_change="2020-11-11T13:20:29.000" action="added" standard="EC" country="S" name="Massiva betongblock 15 M1">
+			<masonry fk="3.7" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ef028cdd-7696-4461-ba6d-403fd7290cd4" last_change="2020-11-11T13:20:52.000" action="added" standard="EC" country="S" name="Massiva betongblock 15 M2.5">
+			<masonry fk="4.7" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="206fe816-b3f7-4f42-a2d4-3ee008d39226" last_change="2020-11-11T13:21:10.000" action="added" standard="EC" country="S" name="Massiva betongblock 15 M10">
+			<masonry fk="4.7" nu="0.25" rho="2.1" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="2.1" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="1cd643e5-bd39-4db4-918d-fd525fc5b3d1" last_change="2020-11-11T13:23:29.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.0 M2.5">
+			<masonry fk="1.2" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="edf31330-c3ee-4953-9a23-464b2d06499a" last_change="2020-11-11T13:24:03.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.0 M1">
+			<masonry fk="0.9" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="c051889a-afb5-4fde-8ead-397c1379d8f0" last_change="2020-11-11T13:24:36.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.0 Tunnfogbruk">
+			<masonry fk="0.7" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ed57b542-6d77-4a1e-830a-35a6e489a3ba" last_change="2020-11-11T13:24:57.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.5 Tunnfogbruk">
+			<masonry fk="1.7" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="850" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="74926408-9aab-4c2a-ac73-511b94a41682" last_change="2020-11-11T13:25:20.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.0 Tunnfogbruk">
+			<masonry fk="2" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="6478c1af-e783-4a07-bab6-e07f5c479363" last_change="2020-11-11T13:25:46.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.5 Tunnfogbruk">
+			<masonry fk="2.3" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1150" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="c72709fc-b651-4e93-aa5e-5d6a10f4a1d7" last_change="2020-11-11T13:26:16.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.0 Tunnfogbruk">
+			<masonry fk="2.6" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1300" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="912602e7-eab6-43fe-802a-742d5db60bd6" last_change="2020-11-11T13:26:46.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.5 Tunnfogbruk">
+			<masonry fk="2.9" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1450" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8c98366e-0e45-4a61-bb40-1fa7a26aff41" last_change="2020-11-11T13:27:06.000" action="added" standard="EC" country="S" name="Lättbetongblock 5.0 Tunnfogbruk">
+			<masonry fk="3.1" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1550" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8f934699-c3b5-49f4-8693-ced7dfcbd49f" last_change="2020-11-11T13:36:11.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.5 M1">
+			<masonry fk="1" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="de2b322e-f0fe-4055-98ce-0164c8c3ea3f" last_change="2020-11-11T13:36:31.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.0 M1">
+			<masonry fk="1.2" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="a9d83d2a-4c8f-48f0-bbb3-955edfe5edb3" last_change="2020-11-11T13:37:14.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.5 M1">
+			<masonry fk="1.3" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1300" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="a85ba6cf-7fdb-4122-8c40-ba0c987b4319" last_change="2020-11-11T13:37:39.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.0 M1">
+			<masonry fk="1.5" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1500" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="a159bdac-d84c-4d3a-80f8-4321140c9f9c" last_change="2020-11-11T13:37:57.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.5 M1">
+			<masonry fk="1.6" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="4fa4ea0a-063e-47a3-942f-8ec92e5608cd" last_change="2020-11-11T13:38:18.000" action="added" standard="EC" country="S" name="Lättbetongblock 5.0 M1">
+			<masonry fk="1.7" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f65a8dbb-824a-4e2b-9582-8b3fed44195e" last_change="2020-11-11T13:40:04.000" action="added" standard="EC" country="S" name="Lättbetongblock 2.5 M2.5">
+			<masonry fk="1.4" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="a9fde776-2146-4fb0-8be2-3c111c5159dd" last_change="2020-11-11T13:40:27.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.0 M2.5">
+			<masonry fk="1.6" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f88c2ab9-5725-4bdf-9dfc-941e1655c0c0" last_change="2020-11-11T13:40:49.000" action="added" standard="EC" country="S" name="Lättbetongblock 3.5 M2.5">
+			<masonry fk="1.7" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="2b2ed980-64b7-48ba-a109-c25b6ca1f3c1" last_change="2020-11-11T13:41:05.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.0 M2.5">
+			<masonry fk="1.9" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1900" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="279a5f16-f01d-425f-9ed2-d7acd7f1e782" last_change="2020-11-11T13:41:26.000" action="added" standard="EC" country="S" name="Lättbetongblock 4.5 M2.5">
+			<masonry fk="2.1" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2100" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="85dfb99d-1970-4f9c-8352-e41461cb3233" last_change="2020-11-11T13:41:42.000" action="added" standard="EC" country="S" name="Lättbetongblock 5.0 M2.5">
+			<masonry fk="2.2" nu="0.25" rho="0.42" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.42" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="8080844c-70f1-4d76-bbc4-9127d9b99d02" last_change="2020-11-11T13:43:45.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 2.0 Tunnfogbruk">
+			<masonry fk="1.4" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="16132881-e088-40dc-b348-8f0c5989ebb1" last_change="2020-11-11T13:44:10.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 3.0 Tunnfogbruk">
+			<masonry fk="2" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="59ed446c-4565-4fe2-aa25-b1360e5596cd" last_change="2020-11-11T13:44:31.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 5.0 Tunnfogbruk">
+			<masonry fk="3.1" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3100" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="50b50137-8e80-435a-b64c-02d2b50c9aae" last_change="2020-11-11T13:44:55.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 10.0 Tunnfogbruk">
+			<masonry fk="5.7" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="5700" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ef33ff2f-4757-4a23-9c0b-b739f395687b" last_change="2020-11-11T13:58:11.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 2.0 M2.5">
+			<masonry fk="1.8" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="986a38ee-4a66-4afe-bb62-cb0c0301bd68" last_change="2020-11-11T13:58:30.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 2.0 M0.5">
+			<masonry fk="0.8" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="800" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="480ae49b-bd59-4706-91ac-6390b3708e4d" last_change="2020-11-11T13:58:47.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 2.0 M1">
+			<masonry fk="1.2" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="7c85b14a-24ca-4715-9b96-55b23d176f87" last_change="2020-11-11T14:05:18.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 10.0 M0.5">
+			<masonry fk="1.2" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="cf82fb8b-d4a1-40d5-8e07-25d60de5769c" last_change="2020-11-11T14:05:35.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 10.0 M2.5">
+			<masonry fk="4.3" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="4300" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="6733b254-6862-4748-8962-06b8f7663bfc" last_change="2020-11-11T14:06:05.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 10.0 M1">
+			<masonry fk="3.4" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="5f454a8a-9457-4afb-bd4a-ffdb4027b3d4" last_change="2020-11-11T14:08:12.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 3.0 M0.5">
+			<masonry fk="1" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1000" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="ac78bb4b-da7b-4b18-9465-169a06e25c93" last_change="2020-11-11T14:08:49.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 3.0 M1">
+			<masonry fk="1.6" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1600" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="f816c40b-61a1-43d4-949e-534ec5bacbae" last_change="2020-11-11T14:09:54.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 3.0 M2.5">
+			<masonry fk="2.4" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="bb51290b-98ea-4839-abe6-67c1ea38a535" last_change="2020-11-11T14:10:16.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 5.0 M2.5">
+			<masonry fk="3.4" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="3400" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="822f29e8-dc66-4f6b-82dd-22a49a117552" last_change="2020-11-11T14:10:31.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 5.0 M1">
+			<masonry fk="2.2" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="2200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="6fa49e6a-7088-4054-92f4-da62c762ec4f" last_change="2020-11-11T14:10:49.000" action="added" standard="EC" country="S" name="Lättklinkerbetong 5.0 M0.5">
+			<masonry fk="1.2" nu="0.25" rho="0.8" alpha_thermal="0.000012" gammaM_0="2" gammaM_1="1.5" fm="5" K="0.55" alpha="0.7" beta="0.3" elasticity_modulus="1200" creep_U="1.5" creep_Sq="1.5" creep_Sf="1.5" creep_Sc="1.5" phi="1.5" filled_vertical_joints="false" km="0.07" muk="1" ct="0.5" fvk0="0.2" fvlt="0.3" muf="0.4">
+				<base_data mass="0.8" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0"></base_data>
+			</masonry>
+		</material>
+		<material guid="e614863d-6703-4a81-a119-3488e1db4e3d" last_change="2022-04-25T11:57:24.000" action="added" standard="EC" country="S" name="KertoS">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="11" quality="0" Fmk0="44" Fmk90="44" Ft0k="35" Ft90k="0.8" Fc0k="35" Fc90k="6" Fvk="4.2" E0mean="13800" E90mean="300" E0comp="7" E90comp="0.23" Gmean="600" E005="11600" G005="400" Rhok="480" Rhomean="510" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+		<material guid="79f2b1f1-e6cf-4744-8e9a-2eb7a94fad58" last_change="2022-04-25T11:57:04.000" action="added" standard="EC" country="S" name="KertoQ">
+			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="11" quality="0" Fmk0="32" Fmk90="32" Ft0k="26" Ft90k="6" Fc0k="26" Fc90k="9" Fvk="4.5" E0mean="10500" E90mean="300" E0comp="7" E90comp="0.23" Gmean="600" E005="8800" G005="400" Rhok="480" Rhomean="510" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
+		</material>
+	</materials>
 	<end></end>
 </database>

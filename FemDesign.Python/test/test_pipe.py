@@ -1,7 +1,16 @@
+import sys
+
+import pytest
+
+pytest.importorskip("win32pipe")
+pytestmark = pytest.mark.skipif(
+    sys.platform != "win32",
+    reason="Requires Windows + pywin32 (Win32 named pipes) and a local FEM-Design installation.",
+)
+
 from femdesign.calculate.command import *
 from femdesign.calculate.analysis import Analysis, CombSettings, Design
 from femdesign.comunication import FemDesignConnection
-import pytest
 
 def test_pipe():
     connection = FemDesignConnection(output_dir="test", minimized=True)
