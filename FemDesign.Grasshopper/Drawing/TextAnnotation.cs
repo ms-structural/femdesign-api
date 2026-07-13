@@ -56,6 +56,8 @@ namespace FemDesign.Grasshopper
             pManager[pManager.ParamCount - 1].Optional = true;
             pManager.AddGenericParameter("VerticalAligment", "VerAlign", $"Vertical alignement of text. Connect 'ValueList' to get the options: {VerAlignValueListDescription}", GH_ParamAccess.item);
             pManager[pManager.ParamCount - 1].Optional = true;
+            pManager.AddGenericParameter("Layer", "Layer", "Layer. If omitted, the text is placed on layer 'TEXT'.", GH_ParamAccess.item);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
@@ -127,6 +129,13 @@ namespace FemDesign.Grasshopper
                 {
                     throw new System.ArgumentException($"Invalid vertical alignment value: {verAlign}, must be one of the following values: {VerAlignValueListDescription}");
                 }
+            }
+
+            StruSoft.Interop.StruXml.Data.Layer_type layer = null;
+            if (DA.GetData(6, ref layer) && layer != null)
+            {
+                textAnnot.StyleType.Layer = layer.Name;
+                textAnnot.StyleType.LayerObj = layer;
             }
 
             DA.SetData(0, textAnnot);
