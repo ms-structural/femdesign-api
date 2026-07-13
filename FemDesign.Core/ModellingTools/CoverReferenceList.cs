@@ -62,6 +62,10 @@ namespace FemDesign.ModellingTools
                 {
                     refList.RefGuid.Add(new GuidListType(((Shells.Slab)elem).SlabPart.Guid));
                 }
+                else if (IsSameOrSubclass(typeof(ModellingTools.FictitiousBar), elem.GetType()))
+                {
+                    refList.RefGuid.Add(new GuidListType(((ModellingTools.FictitiousBar)elem).Guid));
+                }
                 else
                 {
                     throw new System.ArgumentException("Type of supporting structure is not supported. Can be bar or slab.");
@@ -92,6 +96,10 @@ namespace FemDesign.ModellingTools
                 else if (IsSameOrSubclass(typeof(Shells.Slab), elem.GetType()))
                 {
                     refList.RefGuid.Add(new GuidListType(((Shells.Slab)elem).SlabPart.Guid));
+                }
+                else if (IsSameOrSubclass(typeof(ModellingTools.FictitiousBar), elem.GetType()))
+                {
+                    refList.RefGuid.Add(new GuidListType(((ModellingTools.FictitiousBar)elem).Guid));
                 }
                 else
                 {
