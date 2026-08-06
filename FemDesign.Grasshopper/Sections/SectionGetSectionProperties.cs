@@ -54,10 +54,13 @@ namespace FemDesign.Grasshopper
             var sections = new List<Section>();
             if (!DA.GetDataList(0, sections)) { return; }
 
-            SectionalData unit = SectionalData.mm;
-            string sectionalData = null;
-            if(!DA.GetData(1, ref sectionalData))
+            string sectionalData = "mm";
+            DA.GetData(1, ref sectionalData);
+
+            SectionalData unit;
+            if (!Enum.TryParse(sectionalData, true, out unit))
             {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, $"'{sectionalData}' is not a valid unit. Use mm, cm, dm, m, inch, feet or yd.");
                 return;
             }
 
