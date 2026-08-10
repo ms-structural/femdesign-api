@@ -81,7 +81,7 @@ namespace FemDesign.Calculate
         /// Number of Coldata should be equal to the number of columns in the output file
         /// </summary>
         [XmlElement("coldata", Order = 6)]
-        public List<Coldata> ColData = Coldata.Default(); // we are using 61 column data as it should be the maximum number of column in our result type
+        public List<Coldata> ColData = Coldata.Default(); // we are using 64 column data as it should be the maximum number of column in our result type
 
         [XmlElement("units", Order = 7)]
         public List<FemDesign.Results.Units> Units { get; set; }

@@ -61,7 +61,7 @@ namespace FemDesign.Calculate
         public static List<Coldata> Default()
         {
             List<Coldata> coldata = new List<Coldata>();
-            for (int i = 0; i < 61; i++)
+            for (int i = 0; i < 64; i++)
             {
                 coldata.Add(new Coldata(i, 0));
             }
