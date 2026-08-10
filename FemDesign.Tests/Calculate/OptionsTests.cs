@@ -64,7 +64,7 @@ namespace FemDesign.Calculate
 
             var coldataList = Coldata.Default();
             Assert.IsNotNull(coldataList);
-            Assert.IsTrue(coldataList.Count == 61);
+            Assert.IsTrue(coldataList.Count == 64);
         }
     }
 }
