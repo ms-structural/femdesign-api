@@ -37,10 +37,12 @@ namespace FemDesign.Foundations
         public double BeddingModulus { get; set; } = 10000;
 
         [XmlAttribute("bedding_modulus_x")]
-        public double BeddingModulusX { get; set; }
+        [DefaultValue(5000)]
+        public double BeddingModulusX { get; set; } = 5000;
 
         [XmlAttribute("bedding_modulus_y")]
-        public double BeddingModulusY { get; set; }
+        [DefaultValue(5000)]
+        public double BeddingModulusY { get; set; } = 5000;
 
         [XmlAttribute("stage")]
         [DefaultValue(1)]
