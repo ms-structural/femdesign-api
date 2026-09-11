@@ -164,13 +164,9 @@ namespace FemDesign.Results
 
         internal static Regex HeaderExpression
         {
-            //get
-            //{
-            //    return new Regex(@"^(?'type'Sections)$|^Section\tComposite\tHeight\tWidth\tA\tP\tA/P\tYs\tZs\tIy\tWy\tez max\tez min\tiy\tSy\tIz\tWz\tey max\tey min\tiz\tSz\tIt\tWSVt\tI\u03C9\tIyz\tz\u03C9\t\u03B1 1\tI1\tW1 min\tW1 max\te2 max\te2 min\ti1\tS1\tS01\tc1\t\u03C1 1\tz2\t\u03B1 2\tI2\tW2 min\tW2 max\te1 max\te1 min\ti2\tS2\tS02\tc2\t\u03C1 2\tz1\tWelB min\tWelB max\tWplB\t\u03C9 min\t\u03C9 max\tcB\tWwt\t\u03C111\t\u03C122\t\u03C133\t\u03C112\t\u03C113\t\u03C123\tOther|^\[.+\]");
-            //}
             get
             {
-                return new Regex(@"^(?'type'Sections)$|^Section\tComposite\tHeight\tWidth\tA\tP\tA/P\tYs\tZs\tIy\tWy\tez max\tez min\tiy\tSy\tIz\tWz\tey max\tey min\tiz\tSz\tIt\tWSVt\tI\u03C9\tIyz\tz\u03C9\t\u03B1 1\tI1\tW1 min\tW1 max\te2 max\te2 min\ti1\tS1\tS01\tc1\t\u03C1 1\tz2\t\u03B1 2\tI2\tW2 min\tW2 max\te1 max\te1 min\ti2\tS2\tS02\tc2\t\u03C1 2\tz1\tWelB min\tWelB max\tWplB\t\u03C9 min\t\u03C9 max\tcB\tWwt\t\u03C111\t\u03C122\t\u03C133\t\u03C112|^\[.+\]");
+                return new Regex(@"^(?'type'Sections)$|^Section\tComposite\tHeight\tWidth\tA\tP\tA/P\tYs\tZs\tIy\tWy\tez max\tez min\tiy\tSy\tIz\tWz\tey max\tey min\tiz\tSz\tIt\tWSVt\tI\u03C9\tIyz\tz\u03C9\t\u03B1 1\tI1\tW1 min\tW1 max\te2 max\te2 min\ti1\tS1\tS01\tc1\t\u03C1 1\tz2\t\u03B1 2\tI2\tW2 min\tW2 max\te1 max\te1 min\ti2\tS2\tS02\tc2\t\u03C1 2\tz1\tWelB min\tWelB max\tWplB\t\u03C9 min\t\u03C9 max\tcB\tWwt\t\u03C111\t\u03C122\t\u03C133\t\u03C112\t\u03C113\t\u03C123\tOther|^\[.+\]");
             }
         }
 
@@ -238,11 +234,11 @@ namespace FemDesign.Results
             double rho22 = Double.Parse(row[58], System.Globalization.CultureInfo.InvariantCulture);
             double rho33 = Double.Parse(row[59], System.Globalization.CultureInfo.InvariantCulture);
             double rho12 = Double.Parse(row[60], System.Globalization.CultureInfo.InvariantCulture);
-            //double rho13 = Double.Parse(row[61], System.Globalization.CultureInfo.InvariantCulture);
-            //double rho23 = Double.Parse(row[62], System.Globalization.CultureInfo.InvariantCulture);
-            //string other = row[63];
+            double rho13 = Double.Parse(row[61], System.Globalization.CultureInfo.InvariantCulture);
+            double rho23 = Double.Parse(row[62], System.Globalization.CultureInfo.InvariantCulture);
+            string other = row[63];
 
-            return new SectionProperties(section, composite, height, width, a, p, ap, ys, zs, iY, wY, ezmax, ezmin, iy, sy, iZ, wz, eymax, eymin, iz, sz, it, wsvt, iomega, iyz, zomega, alfa1, i1, w1min, w1max, e2max, e2min, i_1, s1, s01, c1, rho1, z2, alfa2, i2, w2min, w2max, e1max, e1min, i_2, s2, s02, c2, rho2, z1, welBmin, welBmax, wplB, omegamin, omegamax, cB, wwt, rho11, rho22, rho33, rho12, -9999, -9999, "9999");
+            return new SectionProperties(section, composite, height, width, a, p, ap, ys, zs, iY, wY, ezmax, ezmin, iy, sy, iZ, wz, eymax, eymin, iz, sz, it, wsvt, iomega, iyz, zomega, alfa1, i1, w1min, w1max, e2max, e2min, i_1, s1, s01, c1, rho1, z2, alfa2, i2, w2min, w2max, e1max, e1min, i_2, s2, s02, c2, rho2, z1, welBmin, welBmax, wplB, omegamin, omegamax, cB, wwt, rho11, rho22, rho33, rho12, rho13, rho23, other);
         }
     }
 }

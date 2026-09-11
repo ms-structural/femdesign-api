@@ -289,12 +289,32 @@ namespace FemDesign.Sections
             var orderedSecProp = new List<Results.SectionProperties>();
             foreach (Section sec in sections)
             {
-                var secPropItem = secProp.Find(y => y.Section == sec.Name.Replace(",", ""));
+                var key = NormalizeSectionName(sec.Name);
+                var secPropItem = secProp.Find(y => NormalizeSectionName(y.Section) == key);
+
+                if (secPropItem == null)
+                    throw new Exception($"FEM-Design did not return section properties for '{sec.Name}'. Listed sections: {string.Join(", ", secProp.Select(y => y.Section))}.");
+
                 orderedSecProp.Add(secPropItem);
             }
 
             return orderedSecProp;
         }
 
+        /// <summary>
+        /// FEM-Design lists a section under a slightly different name than the section database uses:
+        /// the commas are dropped and the material family is singular.
+        /// "Steel sections, IPE, 80" (database) becomes "Steel section IPE 80" (listed).
+        /// </summary>
+        private static string NormalizeSectionName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return name;
+
+            return name.Replace(",", "")
+                       .Replace(" sections ", " section ")
+                       .Trim()
+                       .ToLowerInvariant();
+        }
     }
 }
