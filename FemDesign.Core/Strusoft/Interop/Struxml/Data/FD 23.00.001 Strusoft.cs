@@ -28338,7 +28338,7 @@ namespace StruSoft.Interop.StruXml.Data
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(ElementName = "factors")]
+        [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "factors")]
         public System.Collections.Generic.List<double> Factors
         {
             get
