@@ -245,17 +245,27 @@ namespace FemDesign.Materials
         /// Load the default MaterialDatabase for each respective country.
         /// </summary>
         /// <remarks>Create</remarks>
-        /// <param name="countryCode">National annex of calculation code (B/COMMON/D/DK/E/EST/FIN/GB/H/LT/N/NL/PL/RO/S/TR). Note: TR (Turkish) doesn't contain the plastic material properties.</param>
+        /// <param name="countryCode">National annex of calculation code (B/COMMON/D/DK/E/EST/FIN/GB/H/LT/N/NL/PL/RO/S/TR), or any other name <see cref="FemDesign.Country"/> can be parsed from (e.g. "common", "LV", "Sweden"). Note: TR (Turkish) doesn't contain the plastic material properties.</param>
         /// <returns></returns>
         public static MaterialDatabase GetDefault(string countryCode = "S")
         {
-            RestrictedString.EurocodeType(countryCode);
+            countryCode = LibraryCountryCode(countryCode);
             if (!_defaultSectionDatabaseCache.ContainsKey(countryCode))
             {
                 _defaultSectionDatabaseCache[countryCode] = DeserializeResource(countryCode);
                 _defaultSectionDatabaseCache[countryCode].End = "";
             }
             return _defaultSectionDatabaseCache[countryCode];
+        }
+
+        /// <summary>
+        /// Map a country code (any <see cref="GenericClasses.ParseableAttribute"/> name of <see cref="FemDesign.Country"/>) to the suffix of the embedded materials_*.struxml.
+        /// </summary>
+        private static string LibraryCountryCode(string countryCode)
+        {
+            var country = GenericClasses.EnumParser.Parse<FemDesign.Country>(countryCode);
+            // FEM-Design 24.00.003 renamed Latvia from "LT" to "LV", and so is the embedded library.
+            return country == FemDesign.Country.LT ? "LV" : country.ToString();
         }
 
         public static MaterialDatabase DefaultTimberPlateLibrary()

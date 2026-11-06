@@ -79,7 +79,7 @@ namespace FemDesign
         /// <summary>
         /// Latvian annex
         /// </summary>
-        [Parseable("LT", "lt", "latvia", "Latvia", "latvian", "Latvian")]
+        [Parseable("LT", "lt", "LV", "lv", "latvia", "Latvia", "latvian", "Latvian")]
         [XmlEnum("LT")]
         LT,
 

@@ -373,5 +373,28 @@
 			</stratum>
 		</material>
 	</materials>
+	<reinforcing_materials>
+		<material guid="0d94ddc2-3f19-486d-988e-d32f6a47fc82" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="K">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.08"></reinforcing_steel>
+		</material>
+		<material guid="7d80025e-f49b-4bca-8745-b6b7616e8eac" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="P">
+			<reinforcing_steel fyk="550" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="1d84d03c-540d-4fd8-b7e7-82dbd60b4c88" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="Y">
+			<reinforcing_steel fyk="550" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.08"></reinforcing_steel>
+		</material>
+		<material guid="0ad1faa9-f815-46db-905e-94d2df179417" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="Z">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.075" Epsilon_ud="0.0675" k="1.15"></reinforcing_steel>
+		</material>
+		<material guid="fcf0a80d-bf21-443f-b7df-1a9dbdfec177" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="N">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="5a0c80fb-a564-463d-a202-585a3d958fcc" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="R">
+			<reinforcing_steel fyk="235" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="d20e0fe2-25e8-4edb-b2a3-66bc894fac64" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="DK" name="B500B">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.08"></reinforcing_steel>
+		</material>
+	</reinforcing_materials>
 	<end></end>
 </database>

@@ -268,5 +268,19 @@
 			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="11" quality="0" Fmk0="32" Fmk90="32" Ft0k="26" Ft90k="6" Fc0k="26" Fc90k="9" Fvk="4.5" E0mean="10500" E90mean="300" E0comp="7" E90comp="0.23" Gmean="600" E005="8800" G005="400" Rhok="480" Rhomean="510" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="1" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
 		</material>
 	</materials>
+	<reinforcing_materials>
+		<material guid="522bad71-d7be-427f-adf0-980b6de3bb65" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="GB" name="B420A">
+			<reinforcing_steel fyk="420" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="7e72867a-67dd-4a20-a22d-3df03809d911" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="GB" name="B500A">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="3453c001-113d-4317-8932-bc222ea35ff8" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="GB" name="B500B">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.08"></reinforcing_steel>
+		</material>
+		<material guid="82eac0b9-e81e-4b7e-acf6-150e7977ddd8" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="GB" name="B500C">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.075" Epsilon_ud="0.0675" k="1.15"></reinforcing_steel>
+		</material>
+	</reinforcing_materials>
 	<end></end>
 </database>

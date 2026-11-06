@@ -26,7 +26,7 @@ namespace FemDesign
                 {
                     rtn += ", ";
                 }
-                rtn += items;
+                rtn += items[idx];
             }
             return rtn;
         }

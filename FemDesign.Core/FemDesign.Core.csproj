@@ -35,13 +35,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\materialLibrary\materials_B.struxml" />
+    <EmbeddedResource Include="Resources\materialLibrary\materials_COMMON.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_D.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_DK.struxml" />
+    <EmbeddedResource Include="Resources\materialLibrary\materials_E.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_EST.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_FIN.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_GB.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_H.struxml" />
+    <EmbeddedResource Include="Resources\materialLibrary\materials_LV.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_N.struxml" />
+    <EmbeddedResource Include="Resources\materialLibrary\materials_NL.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_PL.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_RO.struxml" />
     <EmbeddedResource Include="Resources\materialLibrary\materials_TR.struxml" />

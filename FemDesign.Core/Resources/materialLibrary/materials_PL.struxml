@@ -268,5 +268,70 @@
 			<timber mass="0" E_0="0" E_1="0" E_2="0" nu_0="0" nu_1="0" nu_2="0" alfa_0="0" alfa_1="0" alfa_2="0" G_0="0" G_1="0" G_2="0" type="11" quality="0" Fmk0="32" Fmk90="32" Ft0k="26" Ft90k="6" Fc0k="26" Fc90k="9" Fvk="4.5" E0mean="10500" E90mean="300" E0comp="7" E90comp="0.23" Gmean="600" E005="8800" G005="400" Rhok="480" Rhomean="510" gammaM_0="1.3" gammaM_1="1" ksys="1" k_cr="0.67" service_class="0" kdefU="0" kdefSq="0.6" kdefSf="0.6" kdefSc="0.6" gammaMfi="1"></timber>
 		</material>
 	</materials>
+	<reinforcing_materials>
+		<material guid="ceaaa17c-6133-409d-b60b-1cec54fb2b15" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="B500SP">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.08" Epsilon_ud="0.072" k="1.15"></reinforcing_steel>
+		</material>
+		<material guid="ad3b43d3-5510-4ffb-8695-33de8a2bfd22" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="B500A">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.05"></reinforcing_steel>
+		</material>
+		<material guid="3a618478-dc7d-4f03-b49e-69bb2d667497" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="B500B">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.08"></reinforcing_steel>
+		</material>
+		<material guid="32ee81ec-0e1f-4cca-95bc-04000a6344ed" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="B500C">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.075" Epsilon_ud="0.0675" k="1.15"></reinforcing_steel>
+		</material>
+		<material guid="4bf746e8-98cf-403a-a1a7-1f4a5574c06f" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="St0s-b">
+			<reinforcing_steel fyk="220" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.36363636363636"></reinforcing_steel>
+		</material>
+		<material guid="d9519514-92e1-4e53-adae-858706940d9e" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="St3SX-b">
+			<reinforcing_steel fyk="240" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.33333333333333"></reinforcing_steel>
+		</material>
+		<material guid="d7574472-d443-4bd1-afb4-d4f980ca19a1" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="St3SY-b">
+			<reinforcing_steel fyk="240" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.33333333333333"></reinforcing_steel>
+		</material>
+		<material guid="2fc5e7ab-ee1a-4786-9f32-d15a3714952a" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="St3S-b">
+			<reinforcing_steel fyk="240" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.33333333333333"></reinforcing_steel>
+		</material>
+		<material guid="eb1f63c1-88fe-44e7-b478-8aab26ce1924" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="PB240">
+			<reinforcing_steel fyk="240" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.10416666666667"></reinforcing_steel>
+		</material>
+		<material guid="dd9dbfe4-2b0d-4777-bfc3-7cf7ee680ce3" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="St50B">
+			<reinforcing_steel fyk="355" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.35211267605634"></reinforcing_steel>
+		</material>
+		<material guid="c076d423-3075-47c8-abf2-2a7f118ee6a8" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="18G2-b">
+			<reinforcing_steel fyk="355" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.35211267605634"></reinforcing_steel>
+		</material>
+		<material guid="da298976-c3f6-44ec-b31e-7893b141285f" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="20G2Y-b">
+			<reinforcing_steel fyk="355" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.35211267605634"></reinforcing_steel>
+		</material>
+		<material guid="27cc7231-1149-4872-9bf4-19c96b2898d4" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="25G2S">
+			<reinforcing_steel fyk="395" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.34177215189873"></reinforcing_steel>
+		</material>
+		<material guid="8fff99a8-cebb-41d1-81d4-6d612a639cbe" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="35G2Y">
+			<reinforcing_steel fyk="410" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.34146341463415"></reinforcing_steel>
+		</material>
+		<material guid="d66ee00b-1ad0-4661-b4d8-87a62bc4a134" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="34GS">
+			<reinforcing_steel fyk="410" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.34146341463415"></reinforcing_steel>
+		</material>
+		<material guid="2990e69b-5646-498a-a62e-07e24795d7d5" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="RB400">
+			<reinforcing_steel fyk="400" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.1"></reinforcing_steel>
+		</material>
+		<material guid="b842331d-cdc0-467a-a7b7-102e43f3cc57" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="RB400W">
+			<reinforcing_steel fyk="400" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.1"></reinforcing_steel>
+		</material>
+		<material guid="aba86b0f-3276-4af4-81e8-03f4ae37aa85" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="20G2VY-b">
+			<reinforcing_steel fyk="490" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.20408163265306"></reinforcing_steel>
+		</material>
+		<material guid="6efbbe7f-1937-40f3-9e36-82e04b3374a1" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="RB500">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.1"></reinforcing_steel>
+		</material>
+		<material guid="99709e2c-7fe7-46a9-b030-285cae956bf3" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="RB500W">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.025" Epsilon_ud="0.0225" k="1.1"></reinforcing_steel>
+		</material>
+		<material guid="601bdd17-9b53-4d83-8df8-9fd96e557d28" last_change="1970-01-01T00:00:00.000" action="added" standard="EC" country="PL" name="BSt500S">
+			<reinforcing_steel fyk="500" Es="200000" Epsilon_uk="0.05" Epsilon_ud="0.045" k="1.1"></reinforcing_steel>
+		</material>
+	</reinforcing_materials>
 	<end></end>
 </database>
