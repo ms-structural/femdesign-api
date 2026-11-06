@@ -19,6 +19,7 @@ namespace FemDesign.Loads
         /// </summary>
         [Obsolete("Use Ordinary instead. Will be removed in the next version.")]
         [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlIgnore] // .NET 10 no longer skips [Obsolete] members; without this "static" deserializes to Static instead of Ordinary.
         [XmlEnum("static")]
         Static,
 

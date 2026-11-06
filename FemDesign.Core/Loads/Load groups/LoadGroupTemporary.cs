@@ -77,8 +77,10 @@ namespace FemDesign.Loads
         [XmlElement(ElementName = "custom_table", Order = 1)]
         public TemporaryGroupRecord CustomTable { get; set; }
 
-        [XmlElement("load_case", Order = 2)]
-        public List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
+        // Order must differ from `Load_case` below (same element name). .NET Framework / .NET 8 tolerated
+        // the duplicate Order, .NET 10 throws "error reflecting type FemDesign.Model". Same layout as LoadGroupPermanent.
+        [XmlElement("load_case", Order = 3)]
+        public new List<ModelLoadCaseInGroup> ModelLoadCase { get; set; }
 
         [XmlAttribute("temporary_effect")]
         public TemporaryEffect TemporaryEffect { get; set; } = TemporaryEffect.General;

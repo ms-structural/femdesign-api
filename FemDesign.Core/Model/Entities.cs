@@ -76,6 +76,7 @@ namespace FemDesign
         public List<Reinforcement.PunchingReinforcement> PunchingReinforcements { get; set; } = new List<Reinforcement.PunchingReinforcement>();
 
         [Obsolete("Use `NoShearControlRegions`")]
+        [XmlIgnore] // .NET 10 no longer skips [Obsolete] members; keep it out of the XML as on earlier runtimes.
         [XmlElement("no-shear_region", Order = 21)]
         public List<Reinforcement.NoShearRegionType> NoShearRegions { get; set; } = new List<Reinforcement.NoShearRegionType>();
 
